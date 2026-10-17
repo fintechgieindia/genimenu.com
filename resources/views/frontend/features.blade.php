@@ -2815,7 +2815,7 @@
         <p>Tell us about your restaurant and your business needs. Our team will help you explore how Geni Menu can simplify your daily operations and find the right solution for your business.</p>
 
         <div class="cta-btn-row">
-          <a href="{{ route('contact.us') }}" class="btn-white-solid">
+          <a href="{{ route('enquiry') }}" class="btn-white-solid">
             <span>Send an Enquiry</span>
             <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
           </a>

@@ -610,6 +610,16 @@ class HomeController extends Controller
             'billingCycle'
         ));
     }
+    public function enquiry()
+    {
+        $meta = [
+            'title' => 'Enquiry | Geni Menu — Restaurant Management Software',
+            'description' => 'Submit your enquiry to the Geni Menu team. Tell us about your restaurant business and we will help you find the right solution.',
+            'keywords' => 'Geni Menu enquiry, restaurant software enquiry, restaurant management enquiry, Geni Menu contact, restaurant POS enquiry',
+        ];
+        return view('frontend.enquiry', compact('meta'));
+    }
+
     public function contact()
     {
         $meta = [

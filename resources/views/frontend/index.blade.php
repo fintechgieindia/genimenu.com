@@ -350,7 +350,7 @@ section:has(#fq) {
   background-size: cover !important;
   background-position: center 30% !important;
   background-repeat: no-repeat !important;
-  padding: 130px 0 85px !important;
+  padding: 145px 0 85px !important;
   overflow: hidden;
   color: #FFFFFF;
 }
@@ -906,7 +906,7 @@ section:has(#fq) {
 
 @media (max-width: 768px) {
   .hero {
-    padding: 85px 0 50px !important;
+    padding: 105px 0 50px !important;
   }
   .hero-center-content {
     margin: 0 auto;
@@ -1047,10 +1047,10 @@ section:has(#fq) {
 }
 
 .toast-sec-subtitle {
-  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(16px, 1.25vw, 20px);
-  color: #6E5340;
-  line-height: 1.5;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(16px, 1.25vw, 17.5px);
+  color: #425466;
+  line-height: 1.6;
   margin: 0;
   font-weight: 400;
 }
@@ -1721,10 +1721,10 @@ section:has(#fq) {
 }
 
 .hiw-side-desc {
-  font-family: 'Outfit', 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: clamp(15.5px, 1.2vw, 17px);
-  color: #57534E;
-  line-height: 1.55;
+  color: #425466;
+  line-height: 1.6;
   margin: 0 0 28px;
 }
 
@@ -2476,10 +2476,10 @@ section:has(#fq) {
 }
 
 .team-feature-desc {
-  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: clamp(13.5px, 0.95vw, 15px);
-  color: #64748B;
-  line-height: 1.55;
+  color: #425466;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -2563,10 +2563,10 @@ section:has(#fq) {
 }
 
 .sol-split-desc {
-  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: clamp(15px, 1.05vw, 17px);
-  color: #64748B;
-  line-height: 1.55;
+  color: #425466;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -4181,38 +4181,74 @@ footer li a:hover { color: var(--br); }
 }
 
 /* ==========================================================================
-   type-paragraph-lg — Effra Regular 1.125rem for All Post-Hero Sections
-   Windows ClearType & Subpixel Antialiasing Smoothing Applied
+   HOMEPAGE TYPOGRAPHY SYSTEM — Synchronized with Features Page
+   Headings: Plus Jakarta Sans (h1), Effra (h2, h3, h4)
+   Descriptions & Body: Inter (16px base, 17.5px section subtitles)
    ========================================================================== */
-.type-paragraph-lg,
+
+/* 1. All standard body descriptions & card descriptions (Matches features.blade.php .ft-page p: 16px, 1.65 line-height) */
 header.hero ~ section p,
+.type-paragraph-lg,
 header.hero ~ section .type-paragraph-lg,
-header.hero ~ section .toast-sec-subtitle,
 header.hero ~ section .toast-card-desc,
-header.hero ~ section .hiw-side-desc,
 header.hero ~ section .hiw-step-desc,
-header.hero ~ section .cx-subtitle,
 header.hero ~ section .cx-bottom-caption,
+header.hero ~ section .team-feature-desc,
+header.hero ~ section .growth-card-desc,
+header.hero ~ section .suite-module-desc,
+header.hero ~ section .faq-support-text,
+header.hero ~ section .faq .a p {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.65 !important;
+  color: #425466 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-text-stroke: 0 !important;
+  text-shadow: none !important;
+}
+
+/* 2. Section Subtitles / Leads (Matches features.blade.php .sec-heading-center p, .split-lead: 17.5px, 1.6 line-height) */
+header.hero ~ section .toast-sec-subtitle,
+header.hero ~ section .hiw-side-desc,
+header.hero ~ section .cx-subtitle,
 header.hero ~ section .team-subtitle,
 header.hero ~ section .sol-split-desc,
 header.hero ~ section .reports-subtitle,
 header.hero ~ section .suite-subtitle,
 header.hero ~ section .faq-lead-desc,
-header.hero ~ section .faq-support-text,
-header.hero ~ section .faq .a p,
-header.hero ~ section .cta p {
-  font-family: Effra, sans-serif !important;
-  font-size: 1.125rem !important;
+header.hero ~ section .growth-subtitle,
+header.hero ~ section .hd p {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 17.5px !important;
   font-weight: 400 !important;
-  letter-spacing: normal !important;
-  line-height: 1.4 !important;
-  -webkit-font-smoothing: subpixel-antialiased !important;
-  -moz-osx-font-smoothing: auto !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.6 !important;
+  color: #425466 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
   text-rendering: optimizeLegibility !important;
-  font-feature-settings: "kern" 1, "liga" 1 !important;
-  font-synthesis: none !important;
-  -webkit-text-stroke: 0.12px currentColor;
-  text-shadow: 0 0 0.35px rgba(0, 0, 0, 0.12);
+  -webkit-text-stroke: 0 !important;
+  text-shadow: none !important;
+}
+
+/* 3. Final Conversion CTA Description (Matches features.blade.php .cta-inner-box p: 18px, 1.6 line-height, #CBD5E1) */
+header.hero ~ section .cta-inner-box p,
+header.hero ~ section .cta p {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  color: #CBD5E1 !important;
+  letter-spacing: normal !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-text-stroke: 0 !important;
+  text-shadow: none !important;
 }
 </style>
 
@@ -5437,7 +5473,7 @@ header.hero ~ section .cta p {
       <p>Share your requirements with us, and our team will get in touch to discuss how Geni Menu can work for your business.</p>
 
       <div class="cta-btn-row">
-        <a href="{{ route('contact.us') }}" class="btn-white-solid">
+        <a href="{{ route('enquiry') }}" class="btn-white-solid">
           <span>Submit an Enquiry</span>
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
         </a>

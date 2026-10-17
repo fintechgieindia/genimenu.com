@@ -404,7 +404,7 @@
 
 </head>
 
-<body class="font-sans antialiased :bg-gray-900">
+<body class="font-sans antialiased :bg-gray-900 {{ request()->routeIs('home') ? 'has-hero-nav' : '' }}">
 
     <div class="">
         @include('layouts.partials.zoho-navbar')

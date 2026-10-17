@@ -121,6 +121,7 @@ if (!function_exists('module_enabled') || !module_enabled('Subdomain')) {
     Route::get('/about', [HomeController::class, 'aboutUs'])->name('about.us');
     Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
     Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact.us');
+    Route::get('/enquiry', [HomeController::class, 'enquiry'])->name('enquiry');
 	Route::post('/popup-lead', [App\Http\Controllers\PopupLeadController::class, 'store'])
     ->name('popup.lead.store');
   	Route::post('/contact-us', [ContactController::class, 'submit'])->name('contact.submit');

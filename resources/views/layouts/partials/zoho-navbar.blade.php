@@ -14,6 +14,89 @@
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     color: #0A2540;
     -webkit-font-smoothing: antialiased;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  }
+
+  /* --- Fixed Transparent Overlay Over Hero Section (Homepage Top) --- */
+  body.has-hero-nav .geni-pos-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) {
+    background: linear-gradient(180deg, rgba(8, 20, 36, 0.70) 0%, rgba(8, 20, 36, 0.20) 75%, transparent 100%) !important;
+    backdrop-filter: blur(2px) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: none !important;
+  }
+
+
+
+  /* Nav Links in transparent hero state */
+  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .nav-menu-link {
+    color: rgba(255, 255, 255, 0.94) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+  }
+  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .nav-menu-link:hover,
+  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .nav-menu-link.nav-active {
+    color: #FDE68A !important;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  /* Language toggle button in transparent hero state */
+  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-lang-toggle {
+    background: rgba(255, 255, 255, 0.14) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+  }
+  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-lang-toggle .lang-globe-icon {
+    color: #FDE68A !important;
+  }
+  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-lang-toggle:hover,
+  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .nav-lang-dropdown.is-open .btn-lang-toggle {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  /* Sign in link in transparent hero state */
+  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-signin {
+    color: #FFFFFF !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+  }
+  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-signin:hover {
+    color: #FDE68A !important;
+  }
+
+  /* Sign up pill in transparent hero state */
+  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-signup-pill {
+    background: #FFFFFF !important;
+    color: #0A2540 !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45) !important;
+    font-weight: 700;
+  }
+  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-signup-pill:hover {
+    background: #FEF3C7 !important;
+    color: #0A2540 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.55) !important;
+  }
+
+  /* Mobile burger button in transparent hero state */
+  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .nav-burger-btn span {
+    background: #FFFFFF !important;
+  }
+
+  /* When Scrolled (scrollY > 30): exact current white sticky navbar */
+  .geni-pos-nav.is-scrolled {
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid #E3E8EE !important;
+    box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08) !important;
   }
 
   .geni-pos-nav * {
@@ -391,11 +474,13 @@
   .geni-pos-nav .btn-lang-toggle {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    padding: 7px 13px;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
     background: #FAF7F2;
     border: 1px solid rgba(135, 96, 57, 0.22);
-    border-radius: 9999px;
+    border-radius: 50%;
     font-family: inherit;
     font-size: 13px;
     font-weight: 600;
@@ -417,8 +502,8 @@
   }
 
   .geni-pos-nav .lang-globe-icon {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
     color: #B45309;
     transition: transform 0.3s ease;
@@ -428,23 +513,9 @@
     transform: rotate(20deg);
   }
 
-  .geni-pos-nav .active-lang-code {
-    letter-spacing: 0.2px;
-    font-size: 13px;
-    font-weight: 600;
-  }
-
-  .geni-pos-nav .lang-chevron {
-    width: 10px;
-    height: 10px;
-    opacity: 0.6;
-    transition: transform 0.2s ease;
-    flex-shrink: 0;
-  }
-
-  .geni-pos-nav .nav-lang-dropdown.is-open .lang-chevron {
-    transform: rotate(180deg);
-    opacity: 1;
+  .geni-pos-nav .btn-lang-toggle .active-lang-code,
+  .geni-pos-nav .btn-lang-toggle .lang-chevron {
+    display: none !important;
   }
 
   /* Language Dropdown Menu */
@@ -924,7 +995,10 @@
     <div class="nav-left">
       <!-- Brand Logo: Geni Menu (Click to Home) -->
       <a href="{{ route('home') }}" class="nav-brand" title="Geni Menu - Home">
-        <img src="{{ asset('assets/images/geni-menu-logo-light.png') }}"
+        <img id="geniNavLogo"
+             src="{{ asset('assets/images/geni-menu-logo-light.png') }}"
+             data-dark="{{ asset('assets/images/geni-menu-logo.png') }}"
+             data-light="{{ asset('assets/images/geni-menu-logo-light.png') }}"
              onerror="this.onerror=null;this.src='{{ asset('assets/images/geni-menu-logo.png') }}';"
              alt="Geni Menu" class="brand-logo-img" style="height: 44px; width: auto; object-fit: contain;">
       </a>
@@ -1003,8 +1077,8 @@
             <line x1="2" y1="12" x2="22" y2="12"></line>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
           </svg>
-          <span class="active-lang-code" id="activeLangLabel">English</span>
-          <svg class="lang-chevron" viewBox="0 0 12 12" fill="currentColor">
+          <span class="active-lang-code" id="activeLangLabel" style="display:none;">English</span>
+          <svg class="lang-chevron" viewBox="0 0 12 12" fill="currentColor" style="display:none;">
             <path d="M2.22 4.47a.75.75 0 0 1 1.06 0L6 7.19l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L2.22 5.53a.75.75 0 0 1 0-1.06z"/>
           </svg>
         </button>
@@ -1504,7 +1578,31 @@
     }
   }
 
+  function handleNavScroll() {
+    var nav = document.querySelector('.geni-pos-nav');
+    var logo = document.getElementById('geniNavLogo');
+    if (!nav) return;
+    var isHomeWithHero = document.body.classList.contains('has-hero-nav');
+    if (window.scrollY > 30 || !isHomeWithHero) {
+      nav.classList.add('is-scrolled');
+      if (logo && logo.dataset.dark && !logo.src.endsWith('geni-menu-logo.png')) {
+        logo.src = logo.dataset.dark;
+      }
+    } else {
+      nav.classList.remove('is-scrolled');
+      if (logo && logo.dataset.light && !logo.src.endsWith('geni-menu-logo-light.png')) {
+        logo.src = logo.dataset.light;
+      }
+    }
+  }
+
+  window.addEventListener('scroll', handleNavScroll, { passive: true });
+
   document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelector('.hero') && !document.body.classList.contains('has-hero-nav')) {
+      document.body.classList.add('has-hero-nav');
+    }
+    handleNavScroll();
     initLanguageUI();
 
     var burger = document.getElementById('geniNavBurger');
