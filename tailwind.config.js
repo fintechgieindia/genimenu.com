@@ -36,7 +36,8 @@ export default {
                 },
             },
             fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                sans: ["Geist", "Inter", ...defaultTheme.fontFamily.sans],
+                mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
             },
             animation: {
                 blink: "blink 1s infinite", // Define the blink animation

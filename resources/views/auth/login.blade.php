@@ -220,21 +220,21 @@
   }
 
   .login-brand-name {
-    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 22px;
-    font-weight: 600;
-    color: #21160F;
+    font-weight: 700;
+    color: #0A2540;
     letter-spacing: -0.3px;
   }
 
   .login-brand-name span {
-    color: #876039;
+    color: #B45309;
   }
 
   .login-brand-tagline {
     font-size: 10px;
     font-weight: 700;
-    color: #8B8177;
+    color: #627D98;
     letter-spacing: 0.6px;
     text-transform: uppercase;
     margin-top: 1px;
@@ -245,7 +245,7 @@
   }
 
   .login-title {
-    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 30px;
     font-weight: 600;
     color: #21160F;

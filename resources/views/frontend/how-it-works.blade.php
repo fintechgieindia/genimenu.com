@@ -1,48 +1,59 @@
-﻿@extends('layouts.frontend-master')
+@extends('layouts.frontend-master')
 
 @section('content')
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
 <style>
   :root {
-    --br: #876039;
-    --br-dark: #6f4e2d;
-    --br-light: #f4efe9;
-    --bg2: #f9f6f0;
-    --text-main: #241A14;
-    --text-muted: #645B51;
-    --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-    --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
+    --br: #B45309;
+    --br-dark: #92400E;
+    --br-light: #FEF3C7;
+    --bg: #FFFFFF;
+    --bg2: #F6F9FC;
+    --text-main: #0A2540;
+    --text-muted: #425466;
+    --line: #E3E8EE;
+    --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
   }
 
+  * { box-sizing: border-box; }
+  ::selection { background: #0A2540; color: #FFFFFF; }
+
   .hiw-page {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: var(--text-main);
     background: #fff;
+    font-size: 16px;
+    line-height: 1.65;
     overflow-x: hidden;
   }
 
   /* Typography helpers */
   .hiw-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 500;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 800;
+    line-height: 1.14;
+    letter-spacing: -0.035em;
+    color: var(--text-main);
   }
   .hiw-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: var(--br-light);
-    color: var(--br);
+    gap: 7px;
+    background: #FEF3C7;
+    color: #B45309;
     padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 13px;
+    border-radius: 9999px;
+    border: 1px solid rgba(217,119,6,0.25);
+    box-shadow: 0 1px 3px rgba(50,50,93,0.05);
+    font-size: 11.5px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     margin-bottom: 24px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
   .hiw-badge svg { width: 14px; height: 14px; stroke-width: 2.5; }
 
@@ -52,39 +63,44 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 14px 28px;
+    padding: 13px 26px;
     border-radius: 12px;
-    font-weight: 600;
-    font-size: 16px;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     text-decoration: none;
     cursor: pointer;
-    border: none;
+    border: 1px solid transparent;
   }
   .hiw-btn-primary {
-    background: var(--br);
-    color: #fff;
-    box-shadow: 0 8px 24px rgba(135,96,57,0.25);
+    background: #0A2540;
+    color: #fff !important;
+    border-color: #0A2540;
+    box-shadow: 0 4px 12px rgba(10,37,64,0.2);
   }
   .hiw-btn-primary:hover {
-    background: var(--br-dark);
+    background: #1A365D;
+    border-color: #1A365D;
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(135,96,57,0.35);
+    box-shadow: 0 8px 20px rgba(10,37,64,0.28);
   }
   .hiw-btn-outline {
-    background: transparent;
+    background: #FFFFFF;
     color: var(--text-main);
-    border: 1.5px solid #E5E0DA;
+    border: 1px solid #CBD5E1;
+    box-shadow: 0 1px 3px rgba(50,50,93,0.05);
   }
   .hiw-btn-outline:hover {
-    border-color: var(--br);
-    color: var(--br);
-    background: var(--br-light);
+    background: #F6F9FC;
+    border-color: #0A2540;
+    color: var(--text-main);
+    transform: translateY(-2px);
   }
 
   /* 3. Hero Section */
   .hiw-hero {
-    padding: 180px 24px 100px;
+    padding: 100px 24px 80px;
     max-width: 1300px;
     margin: 0 auto;
     display: grid;
@@ -93,12 +109,15 @@
     align-items: center;
   }
   .hiw-hero-content h1 {
-    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-size: clamp(38px, 4.8vw, 54px);
+    letter-spacing: -0.035em;
+    font-weight: 800;
     margin-bottom: 24px;
+    line-height: 1.12;
   }
   .hiw-hero-content p {
     font-size: 18px;
-    line-height: 1.6;
+    line-height: 1.65;
     color: var(--text-muted);
     margin-bottom: 40px;
     max-width: 540px;
@@ -296,7 +315,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(135,96,57,0.1);
+    border: 1px solid #E3E8EE;
   }
   .hiw-step-visual img, .hiw-step-visual svg {
     max-width: 100%;
@@ -326,7 +345,7 @@
   }
   .hiw-flow-node {
     background: var(--bg2);
-    border: 1px solid rgba(135,96,57,0.15);
+    border: 1px solid #E3E8EE;
     padding: 16px 24px;
     border-radius: 12px;
     display: flex;
@@ -410,7 +429,7 @@
     gap: 16px;
   }
   .hiw-tool-card:hover {
-    border-color: rgba(135,96,57,0.2);
+    border-color: #CBD5E1;
     box-shadow: var(--shadow-md);
   }
   .hiw-tool-icon {
@@ -453,54 +472,52 @@
 
   /* 9. Final CTA */
   .hiw-cta-box {
-    background: var(--br);
-    border-radius: 24px;
+    background: radial-gradient(circle at 50% 0%, #1A2E4C 0%, #0A192F 100%);
+    border-radius: 28px;
     padding: 80px 40px;
     text-align: center;
     color: #fff;
     position: relative;
     overflow: hidden;
-  }
-  .hiw-cta-box::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 100% 0%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 16px 40px rgba(10, 37, 64, 0.25);
   }
   .hiw-cta-box h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2.2rem, 4vw, 3rem);
     margin-bottom: 20px;
-    color: #fff;
+    color: #fff !important;
+    font-weight: 800;
+    letter-spacing: -0.03em;
   }
   .hiw-cta-box p {
     font-size: 18px;
-    opacity: 0.9;
+    color: #A0AEC0 !important;
     max-width: 600px;
     margin: 0 auto 40px;
-    line-height: 1.6;
-  }
-  .hiw-cta-btns {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
+    line-height: 1.65;
   }
   .hiw-btn-white {
-    background: #fff;
-    color: var(--br);
+    background: #FFFFFF !important;
+    color: #0A2540 !important;
+    border-color: #FFFFFF !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+    font-weight: 700;
   }
   .hiw-btn-white:hover {
-    background: var(--bg2);
+    background: #F6F9FC !important;
     transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4) !important;
   }
   .hiw-btn-outline-white {
-    background: transparent;
-    color: #fff;
-    border: 1.5px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.08) !important;
+    color: #fff !important;
+    border: 1.5px solid rgba(255,255,255,0.25) !important;
+    font-weight: 700;
   }
   .hiw-btn-outline-white:hover {
-    border-color: #fff;
-    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.4) !important;
+    background: rgba(255,255,255,0.16) !important;
+    transform: translateY(-2px);
   }
 
   /* Responsive */
@@ -821,7 +838,7 @@
         </div>
       </div>
       <div style="text-align:center; margin-top:40px;">
-        <a href="{{ route('features') }}" class="hiw-btn hiw-btn-outline">Explore All Industries &rarr;</a>
+        <a href="{{ route('solutions') }}" class="hiw-btn hiw-btn-outline">Explore All Industries &rarr;</a>
       </div>
     </div>
   </section>
@@ -833,42 +850,42 @@
       <p>Explore the essential tools that help bring your restaurant's daily activities together.</p>
     </div>
     <div class="hiw-tools-grid">
-      <a href="{{ route('features.menu-management') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up">
+      <a href="{{ route('features') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up">
         <div class="hiw-tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
         <h3 class="hiw-title">Menu Management</h3>
         <p>Organize items, categories, pricing and availability.</p>
       </a>
-      <a href="{{ route('features.order-management') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="50">
+      <a href="{{ route('features') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="50">
         <div class="hiw-tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
         <h3 class="hiw-title">Order Management</h3>
         <p>Keep incoming orders visible and organized.</p>
       </a>
-      <a href="{{ route('features.kot-management') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="100">
+      <a href="{{ route('features') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="100">
         <div class="hiw-tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
         <h3 class="hiw-title">Kitchen & KOT</h3>
         <p>Coordinate kitchen preparation and order status.</p>
       </a>
-      <a href="{{ route('features.pos-management') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="150">
+      <a href="{{ route('features') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="150">
         <div class="hiw-tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
         <h3 class="hiw-title">POS & Billing</h3>
         <p>Handle counter transactions and restaurant billing.</p>
       </a>
-      <a href="{{ route('features.table-management') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="200">
+      <a href="{{ route('features') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="200">
         <div class="hiw-tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
         <h3 class="hiw-title">Table Management</h3>
         <p>View tables and coordinate dining service.</p>
       </a>
-      <a href="{{ route('features.reservation-management') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="250">
+      <a href="{{ route('features') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="250">
         <div class="hiw-tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
         <h3 class="hiw-title">Reservations</h3>
         <p>Manage restaurant bookings and guest details.</p>
       </a>
-      <a href="{{ route('features.inventory-management') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="300">
+      <a href="{{ route('features') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="300">
         <div class="hiw-tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
         <h3 class="hiw-title">Inventory</h3>
         <p>Monitor stock levels and inventory activity.</p>
       </a>
-      <a href="{{ route('features.reports') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="350">
+      <a href="{{ route('features') }}" class="hiw-tool-card" style="text-decoration:none; color:inherit;" data-aos="fade-up" data-aos-delay="350">
         <div class="hiw-tool-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3 class="hiw-title">Reports</h3>
         <p>Review sales and operational performance.</p>

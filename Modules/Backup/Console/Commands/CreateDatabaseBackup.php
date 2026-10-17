@@ -28,7 +28,7 @@ class CreateDatabaseBackup extends Command
     protected $description = 'Create a database backup with various options';
 
     const EXCLUDED_FILES = [
-        '.git',
+        // '.git',
         '.gitignore',
         '.env',
         'storage/framework/down',

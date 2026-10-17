@@ -15,20 +15,36 @@
         <x-slot name="content">
             <div class="grid grid-cols-1 gap-4 py-4 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach($orderTypes ?? [] as $orderType)
+                    @php
+                        $isSelected = (isset($orderTypeId) && $orderTypeId == $orderType->id);
+                        $typeSlug = $orderType->slug ?? $orderType->type;
+                    @endphp
                     <button
                         type="button"
                         wire:click="selectOrderTypeFromModal({{ $orderType->id }})"
-                        class="flex flex-col items-center justify-center p-6 transition-all duration-200 border-2 border-gray-200 rounded-lg hover:border-skin-base hover:shadow-lg dark:border-gray-600 dark:hover:border-skin-base group"
+                        @class([
+                            'flex flex-col items-center justify-center p-6 transition-all duration-200 border-2 rounded-xl group cursor-pointer text-center',
+                            'border-skin-base bg-skin-base/5 shadow-md ring-2 ring-skin-base/20 scale-[1.02]' => $isSelected,
+                            'border-gray-200 hover:border-skin-base hover:shadow-lg dark:border-gray-700 bg-white dark:bg-gray-800' => !$isSelected,
+                        ])
                         wire:key="modal-order-type-{{ $orderType->id }}"
                     >
-                        <!-- Icon -->
-                        <div class="flex items-center justify-center w-16 h-16 mb-4 transition-colors rounded-full bg-gray-50 group-hover:bg-skin-base dark:bg-gray-700">
-                            <svg class="w-8 h-8 text-gray-600 transition-colors group-hover:text-white dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                @if($orderType->type === 'dine_in')
+                        <!-- Icon Circle -->
+                        <div @class([
+                            'flex items-center justify-center w-16 h-16 mb-4 transition-all duration-200 rounded-full',
+                            'bg-skin-base text-white shadow-md' => $isSelected,
+                            'bg-amber-50/90 text-[#876039] border border-amber-200/60 group-hover:bg-skin-base group-hover:text-white group-hover:border-transparent dark:bg-gray-700 dark:text-amber-300 dark:border-gray-600 dark:group-hover:text-white' => !$isSelected,
+                        ])>
+                            <svg class="w-8 h-8 transition-colors stroke-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                @if($orderType->type === 'dine_in' || $typeSlug === 'dine_in')
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                                @elseif($orderType->type === 'delivery')
+                                @elseif($orderType->type === 'delivery' || $typeSlug === 'delivery')
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
-                                @elseif($orderType->type === 'pickup')
+                                @elseif($orderType->type === 'pickup' || $typeSlug === 'pickup')
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                                @elseif($orderType->type === 'takeaway' || $typeSlug === 'takeaway')
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                                @else
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
                                 @endif
                             </svg>
@@ -39,15 +55,23 @@
                             {{ $orderType->translated_name }}
                         </span>
 
-                        @if($orderType->type === 'dine_in')
+                        @if($orderType->type === 'dine_in' || $typeSlug === 'dine_in')
                             <span class="mt-2 text-sm text-center text-gray-600 dark:text-gray-400">
                                 @lang('messages.dineInDescription')
                             </span>
-                        @elseif($orderType->type === 'delivery')
+                        @elseif($orderType->type === 'delivery' || $typeSlug === 'delivery')
                             <span class="mt-2 text-sm text-center text-gray-600 dark:text-gray-400">
                                 @lang('messages.deliveryDescription')
                             </span>
-                        @elseif($orderType->type === 'pickup')
+                        @elseif($orderType->type === 'pickup' || $typeSlug === 'pickup')
+                            <span class="mt-2 text-sm text-center text-gray-600 dark:text-gray-400">
+                                @lang('messages.pickupDescription')
+                            </span>
+                        @elseif($orderType->type === 'takeaway' || $typeSlug === 'takeaway')
+                            <span class="mt-2 text-sm text-center text-gray-600 dark:text-gray-400">
+                                @lang('messages.pickupDescription')
+                            </span>
+                        @else
                             <span class="mt-2 text-sm text-center text-gray-600 dark:text-gray-400">
                                 @lang('messages.pickupDescription')
                             </span>

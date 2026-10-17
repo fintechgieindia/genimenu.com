@@ -5,7 +5,53 @@
 
 @layer base {
     :root {
-      --color-base: 167, 139, 250;
+        --color-base: 135, 96, 57; /* #876039 Light Brown */
+        --livewire-progress-bar-color: #876039;
+
+        /* shadcn/ui Design Tokens */
+        --background: 210 40% 98%; /* #F8FAFC */
+        --foreground: 222.2 84% 4.9%; /* #020817 */
+        --card: 0 0% 100%; /* #FFFFFF */
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 29 41% 38%; /* #876039 */
+        --primary-foreground: 0 0% 100%;
+        --secondary: 35 30% 96%;
+        --secondary-foreground: 29 41% 25%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 35 30% 96%;
+        --accent-foreground: 29 41% 25%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%; /* #E2E8F0 */
+        --input: 214.3 31.8% 91.4%;
+        --ring: 29 41% 38%; /* #876039 */
+        --radius: 0.75rem;
+    }
+
+    body {
+        background-color: #F8FAFC !important;
+        font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        color: #0F172A;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        letter-spacing: -0.011em;
+    }
+
+    #main-body, #main-content {
+        background-color: #F8FAFC !important;
+    }
+
+    /* Standard shadcn/ui Card Component styling */
+    #main-content .shadcn-card,
+    #main-content .bg-white.border,
+    #main-content .bg-white.rounded-lg,
+    #main-content .bg-white.rounded-xl {
+        background-color: #FFFFFF !important;
+        border-color: #E2E8F0 !important;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04) !important;
     }
 }
 

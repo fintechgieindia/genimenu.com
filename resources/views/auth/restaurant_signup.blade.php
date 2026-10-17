@@ -221,15 +221,15 @@
   }
 
   .signup-brand-name {
-    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 22px;
-    font-weight: 600;
-    color: #21160F;
+    font-weight: 700;
+    color: #0A2540;
     letter-spacing: -0.3px;
   }
 
   .signup-brand-name span {
-    color: #876039;
+    color: #B45309;
   }
 
   .signup-brand-tagline {

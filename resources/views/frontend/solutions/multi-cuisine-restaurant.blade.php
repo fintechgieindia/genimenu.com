@@ -3,44 +3,35 @@
 @section('content')
 
 {{-- Google Fonts --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
 
 <style>
 /* Master header and footer active */
 
 :root {
-  --br: #876039;
-  --br-dark: #6f4e2d;
-  --br-light: #f4efe9;
-  --br-gold: #b88e56;
-  --bg: #ffffff;
-  --bg2: #f9f6f0;
-  --bg3: #f3ece1;
-  --ink: #241A14;
-  --mute: #6F665E;
-  --line: rgba(135, 96, 57, 0.14);
-  --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-  --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
-  --shadow-lg: 0 26px 50px rgba(36, 26, 20, 0.12);
+  --br: #B45309;
+  --br-dark: #92400E;
+  --br-light: #FEF3C7;
+  --br-gold: #D97706;
+  --bg: #FFFFFF;
+  --bg2: #F6F9FC;
+  --bg3: #EEF2F6;
+  --ink: #0A2540;
+  --mute: #425466;
+  --line: #E3E8EE;
+  --card: #FFFFFF;
+  --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
   --green: #10B981;
-  --green-bg: #d1fae5;
-  --green-text: #065f46;
-  --amber: #F59E0B;
-  --amber-bg: #fef3c7;
-  --amber-text: #92400e;
   --red: #EF4444;
-  --red-bg: #fee2e2;
-  --red-text: #991b1b;
 }
 
 * { box-sizing: border-box; }
+::selection { background: #0A2540; color: #FFFFFF; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font: 400 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font: 400 16px/1.65 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--ink);
   background: var(--bg) !important;
   overflow-x: hidden;
@@ -49,8 +40,9 @@ body {
 
 h1, h2, h3, h4, h5 {
   margin: 0;
-  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   line-height: 1.14;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -66,7 +58,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-weight: 700;
-  background: linear-gradient(135deg, #876039 0%, #a87646 50%, #c89659 100%);
+  background: linear-gradient(135deg, #B45309 0%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -76,18 +68,18 @@ ul { list-style: none; margin: 0; padding: 0; }
 .eb {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  letter-spacing: .16em;
-  font-weight: 500;
+  gap: 7px;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  font-weight: 700;
   text-transform: uppercase;
-  color: var(--br);
+  color: #B45309;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #fbf7f2 0%, #f4efe9 100%);
-  padding: 7px 18px;
-  border-radius: 99px;
-  border: 1px solid rgba(135, 96, 57, 0.22);
-  box-shadow: 0 2px 10px rgba(135, 96, 57, 0.08);
+  background: #FEF3C7;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -98,13 +90,35 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
 /* ===================== BUTTONS ===================== */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1.5px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
-.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
-.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
-.btn.o { color: var(--br); background: #fff; }
-.btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
+.btn.p {
+  background: #0A2540;
+  color: #FFFFFF !important;
+  border-color: #0A2540;
+  box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
+  font-weight: 700;
+}
+.btn.p:hover {
+  background: #1A365D;
+  border-color: #1A365D;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 37, 64, 0.28);
+}
+.btn.o {
+  color: var(--ink);
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
+  font-weight: 700;
+}
+.btn.o:hover {
+  background: #F6F9FC;
+  border-color: #0A2540;
+  color: var(--ink);
+  transform: translateY(-2px);
+}
 
 /* ===================== BREADCRUMB ===================== */
-.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -112,7 +126,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
 /* ===================== CARDS & UI COMPONENTS ===================== */
 .card { position: relative; overflow: hidden; background: var(--card); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-.card:hover { border-color: rgba(135,96,57,0.3); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.card:hover { border-color: #CBD5E1; box-shadow: var(--shadow-md); transform: translateY(-3px); }
 
 .ic { width: 46px; height: 46px; border-radius: 13px; background: var(--bg2); color: var(--br); display: grid; place-items: center; flex: none; border: 1px solid var(--line); transition: .3s ease; }
 .ic svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
@@ -122,18 +136,18 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
 /* Dynamic Flow Pipeline */
 .flow-step { flex: 1; min-width: 90px; text-align: center; position: relative; padding: 12px 6px; }
-.flow-step .num { width: 28px; height: 28px; border-radius: 50%; background: var(--br-light); color: var(--br); font-weight: 500; font-size: 12px; display: grid; place-items: center; margin: 0 auto 8px; border: 1px solid rgba(135,96,57,0.2); }
+.flow-step .num { width: 28px; height: 28px; border-radius: 50%; background: var(--br-light); color: var(--br); font-weight: 500; font-size: 12px; display: grid; place-items: center; margin: 0 auto 8px; border: 1px solid #E3E8EE; }
 .flow-step .lbl { font-size: 11px; font-weight: 500; text-transform: uppercase; color: var(--ink); letter-spacing: 0.04em; }
 
 /* FAQ Accordion */
 .faq-list { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
 .faq-item { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
-.faq-item.open { border-color: var(--br); box-shadow: 0 4px 20px rgba(135,96,57,0.1); }
+.faq-item.open { border-color: var(--br); box-shadow: 0 4px 20px rgba(10, 37, 64,0.1); }
 .faq-q { padding: 20px 24px; font-size: 16.5px; font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; gap: 12px; }
 .faq-q svg { width: 20px; height: 20px; transition: transform .3s; stroke: var(--br); flex: none; }
 .faq-item.open .faq-q svg { transform: rotate(180deg); }
 .faq-a { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; font-size: 15px; color: var(--mute); line-height: 1.65; }
-.faq-item.open .faq-a { max-height: 280px; padding: 16px 24px 20px; border-top: 1px solid rgba(135,96,57,0.08); }
+.faq-item.open .faq-a { max-height: 280px; padding: 16px 24px 20px; border: 1px solid #E3E8EE; }
 
 /* Responsive Grid helpers */
 .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
@@ -167,7 +181,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 </div>
 
 <!-- ================= HERO SECTION ================= -->
-<section style="padding: 60px 0 80px; background: linear-gradient(180deg, var(--bg2) 0%, #ffffff 100%); border-bottom: 1px solid var(--line);">
+<section style="padding: 60px 0 80px; background: linear-gradient(180deg, var(--bg2) 0%, #ffffff 100%); ">
   <div class="w">
     <div class="g2" style="gap: 50px; align-items: center;">
       <!-- Hero Left Text -->
@@ -442,7 +456,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
           <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--br);"><strong style="font-size: 14px;">T03</strong><span style="display:block; font-size:11px; color:var(--br);">Occ</span></div>
           <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--green);"><strong style="font-size: 14px;">T04</strong><span style="display:block; font-size:11px; color:var(--green-text);">Avail</span></div>
           <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--green);"><strong style="font-size: 14px;">T05</strong><span style="display:block; font-size:11px; color:var(--green-text);">Avail</span></div>
-          <div style="background: #fff7ef; padding: 12px; text-align: center; border-radius: 8px; border: 2px solid var(--br);"><strong style="font-size: 14px; color:var(--br);">T06*</strong><span style="display:block; font-size:11px; font-weight: 500; color:var(--br);">Active</span></div>
+          <div style="background: #FEF3C7; padding: 12px; text-align: center; border-radius: 8px; border: 2px solid var(--br);"><strong style="font-size: 14px; color:var(--br);">T06*</strong><span style="display:block; font-size:11px; font-weight: 500; color:var(--br);">Active</span></div>
           <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--br);"><strong style="font-size: 14px;">T07</strong><span style="display:block; font-size:11px; color:var(--br);">Occ</span></div>
           <div style="background: var(--bg2); padding: 12px; text-align: center; border-radius: 8px; border: 1px solid var(--amber);"><strong style="font-size: 14px;">T08</strong><span style="display:block; font-size:11px; color:var(--amber-text);">Rsvd</span></div>
         </div>
@@ -454,7 +468,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <p style="margin-bottom: 24px;">
           Manage every dining table clearly while guests seated together choose dishes from completely different cuisine menus.
         </p>
-        <a href="{{ route('features.table-management') }}" class="btn p">Explore Table Management →</a>
+        <a href="{{ route('features') }}" class="btn p">Explore Table Management →</a>
       </div>
     </div>
   </div>
@@ -470,7 +484,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <p style="margin-bottom: 24px;">
           Keep every item together even when guests at the same table choose completely different cuisines during a family dinner or group celebration.
         </p>
-        <a href="{{ route('features.order-management') }}" class="btn p">Explore Order Management →</a>
+        <a href="{{ route('features') }}" class="btn p">Explore Order Management →</a>
       </div>
 
       <!-- Complex Table Order Card -->
@@ -571,7 +585,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
           • Veg Hakka Noodles × 2
         </div>
         
-        <div style="background: #fff7ef; padding: 8px 12px; border-radius: 6px; font-size: 12px; color: var(--br-dark);">
+        <div style="background: #FEF3C7; padding: 8px 12px; border-radius: 6px; font-size: 12px; color: var(--br-dark);">
           Special Note: Less spicy for Paneer Tikka
         </div>
       </div>
@@ -582,7 +596,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <p style="margin-bottom: 24px;">
           Give your kitchen team clear order information so preparation stays organized during busy service without lost paper tickets.
         </p>
-        <a href="{{ route('features.kot-management') }}" class="btn p">Explore KOT Management →</a>
+        <a href="{{ route('features') }}" class="btn p">Explore KOT Management →</a>
       </div>
     </div>
   </div>
@@ -598,7 +612,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <p style="margin-bottom: 24px;">
           One Bill. Multiple Cuisines. Print single combined GST invoices or split bills easily for multi-cuisine dining groups.
         </p>
-        <a href="{{ route('features.pos-management') }}" class="btn p">Explore POS Management →</a>
+        <a href="{{ route('features') }}" class="btn p">Explore POS Management →</a>
       </div>
 
       <!-- Itemized POS Billing Visual -->
@@ -659,7 +673,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <p style="margin-bottom: 24px;">
           Monitor ingredients and stock levels across all cuisine counters so your team can stay aware of what is available and what needs replenishment.
         </p>
-        <a href="{{ route('features.inventory-management') }}" class="btn p">Explore Inventory Management →</a>
+        <a href="{{ route('features') }}" class="btn p">Explore Inventory Management →</a>
       </div>
     </div>
   </div>
@@ -721,7 +735,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     </div>
 
     <div style="text-align: center;">
-      <a href="{{ route('features.reports') }}" class="btn p">Explore Reports →</a>
+      <a href="{{ route('features') }}" class="btn p">Explore Reports →</a>
     </div>
   </div>
 </section>
@@ -832,17 +846,17 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 </section>
 
 <!-- ================= FINAL CTA ================= -->
-<section style="background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; text-align: center; padding: 80px 0; border-top: 1px solid rgba(135, 96, 57, 0.16);">
+<section style="background: radial-gradient(circle at 50% 0%, #1A2E4C 0%, #0A192F 100%); color: #FFFFFF; text-align: center; padding: 80px 0; ">
   <div class="w" style="max-width: 760px;">
-    <h2 style="color: #21160F; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
-      Bring Every Cuisine <span style="color: #876039; font-family: 'Playfair Display', Georgia, serif; font-style: italic;">Together.</span>
+    <h2 style="color: #FFFFFF; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
+      Bring Every Cuisine <span style="color: #FBBF24; font-family: 'Playfair Display', Georgia, serif; font-style: italic;">Together.</span>
     </h2>
-    <p style="color: #6E6157; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
+    <p style="color: #8898AA; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
       Manage your menus, tables, orders, kitchens, billing, inventory and reports from one connected restaurant platform with Geni Menu.
     </p>
     <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #876039; color: #fff;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: #fff; color: #876039; border: 1.5px solid #876039;">Book a Demo →</a>
+      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #FFFFFF; color: #0A2540; font-weight: 700; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid #FFFFFF;">Get Started →</a>
+      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: rgba(255, 255, 255, 0.08); color: #FFFFFF; border: 1.5px solid rgba(255, 255, 255, 0.25); font-weight: 700; border-radius: 12px;">Book a Demo →</a>
     </div>
   </div>
 </section>

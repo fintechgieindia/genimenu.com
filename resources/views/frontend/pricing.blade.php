@@ -9,7 +9,7 @@
         max-width: 1183px;
         margin: 0 auto 2rem;
         padding: 0 1rem;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
     /* ── Grid layout ─────────────────────────────────── */
@@ -42,20 +42,21 @@
     .pricing-col-pkg:last-child { border-right: none; }
 
     /* ── Popular / Premium highlight ─────────────────── */
+    /* ── Popular / Premium highlight ─────────────────── */
     .pricing-col-pkg.is-popular {
         background: #fff;
-        border-right: 1px solid #E5E7EB;
+        border-right: 1px solid #E3E8EE;
     }
     .popular-bar {
         height: 4px;
-        background: #876039;
+        background: #0A2540;
         width: 100%;
     }
 
     /* ── Column header ───────────────────────────────── */
     .pricing-col-head {
         padding: 1.5rem 1.25rem 1.25rem;
-        border-bottom: 1px solid #E5E7EB;
+        border-bottom: 1px solid #E3E8EE;
         min-height: 235px;
         display: flex;
         flex-direction: column;
@@ -74,25 +75,29 @@
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #876039;
+        color: #B45309;
+        font-family: 'Plus Jakarta Sans', sans-serif;
         margin: 0 0 0.35rem;
     }
     .pkg-price {
-        font-size: 1.9rem;
-        font-weight: 700;
-        color: #1F2937;
+        font-size: 2.1rem;
+        font-weight: 800;
+        color: #0A2540;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        letter-spacing: -0.03em;
         line-height: 1;
         margin: 0.1rem 0 0;
     }
     .pkg-price sup {
         font-size: 0.9rem;
         font-weight: 400;
-        color: #9CA3AF;
+        color: #627D98;
         vertical-align: super;
     }
     .pkg-cycle {
         font-size: 0.75rem;
-        color: #9CA3AF;
+        color: #627D98;
+        font-weight: 600;
         margin: 0.3rem 0 0;
     }
 
@@ -100,56 +105,67 @@
     .pkg-cta {
         display: block;
         margin-top: 1rem;
-        padding: 0.55rem 0;
-        border-radius: 8px;
-        border: 1.5px solid #876039;
+        padding: 0.65rem 0;
+        border-radius: 10px;
+        border: 1.5px solid #0A2540;
         background: transparent;
-        color: #876039;
-        font-size: 0.8rem;
-        font-weight: 600;
+        color: #0A2540;
+        font-size: 0.85rem;
+        font-weight: 700;
+        font-family: 'Plus Jakarta Sans', sans-serif;
         text-align: center;
         text-decoration: none;
-        transition: background 0.15s, color 0.15s;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         width: 100%;
     }
     .pkg-cta:hover {
-        background: #876039;
+        background: #0A2540;
         color: #fff;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
     }
     .is-popular .pkg-cta {
-        background: #876039;
+        background: #0A2540;
         color: #fff;
+        border-color: #0A2540;
+        box-shadow: 0 2px 8px rgba(10, 37, 64, 0.18);
     }
     .is-popular .pkg-cta:hover {
-        background: #6b4e2d;
+        background: #1A365D;
+        border-color: #1A365D;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(10, 37, 64, 0.28);
     }
 
     /* ── Popular badge ───────────────────────────────── */
     .popular-badge {
         display: inline-block;
-        background: #FFF3E0;
-        color: #876039;
-        font-size: 0.65rem;
+        background: #FEF3C7;
+        color: #B45309;
+        font-size: 0.68rem;
         font-weight: 700;
         letter-spacing: 0.06em;
-        padding: 3px 9px;
+        padding: 4px 10px;
         border-radius: 20px;
         text-transform: uppercase;
         margin-bottom: 0.4rem;
         width: fit-content;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        border: 1px solid rgba(217, 119, 6, 0.25);
     }
 
     /* ── Feature label section heading ───────────────── */
     .label-head-text {
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: #374151;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: #0A2540;
+        font-family: 'Plus Jakarta Sans', sans-serif;
         line-height: 1.3;
         padding: 0 1.25rem;
     }
     .label-head-sub {
-        font-size: 0.72rem;
-        color: #9CA3AF;
+        font-size: 0.75rem;
+        color: #627D98;
         margin-top: 0.2rem;
         padding: 0 1.25rem 0.75rem;
     }
@@ -169,19 +185,19 @@
         align-items: center;
         min-height: 48px;
         padding: 0 1.25rem;
-        border-bottom: 1px solid #F3F4F6;
-        font-size: 0.82rem;
-        color: #374151;
+        border-bottom: 1px solid #E3E8EE;
+        font-size: 0.84rem;
+        color: #425466;
     }
     .pricing-cell:last-child { border-bottom: none; }
 
     .pricing-cell.center { justify-content: center; }
-    .pricing-cell.label-cell { background: #FAFAFA; }
+    .pricing-cell.label-cell { background: #F6F9FC; font-weight: 600; color: #0A2540; }
 
     /* ── Alternating row tint ────────────────────────── */
     .pricing-col-labels .pricing-cell:nth-child(odd),
     .pricing-col-pkg .pricing-cell:nth-child(odd) {
-        background: #FAFAFA;
+        background: #F6F9FC;
     }
     .pricing-col-labels .pricing-cell:nth-child(even),
     .pricing-col-pkg .pricing-cell:nth-child(even) {
@@ -199,11 +215,11 @@
         flex-shrink: 0;
     }
     .icon-check {
-        background: #F0FDF4;
+        background: #DEF7EC;
     }
-    .icon-check svg { color: #16A34A; }
+    .icon-check svg { color: #047857; }
     .icon-x {
-        background: #FEF2F2;
+        background: #F3F4F6;
     }
     .icon-x svg { color: #9CA3AF; }
 
@@ -216,19 +232,21 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        padding: 0.5rem 1.5rem;
-        border: 1.5px solid #876039;
-        border-radius: 8px;
+        padding: 0.55rem 1.6rem;
+        border: 1.5px solid #0A2540;
+        border-radius: 10px;
         background: transparent;
-        color: #876039;
-        font-size: 0.82rem;
-        font-weight: 600;
+        color: #0A2540;
+        font-size: 0.84rem;
+        font-weight: 700;
+        font-family: 'Plus Jakarta Sans', sans-serif;
         cursor: pointer;
-        transition: background 0.15s, color 0.15s;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .btn-show-more:hover {
-        background: #876039;
+        background: #0A2540;
         color: #fff;
+        transform: translateY(-1px);
     }
 
     /* ── Mobile: hide desktop table, show cards ──────── */
@@ -248,19 +266,20 @@
         gap: 1rem;
     }
     .mobile-card {
-        border: 1px solid #E5E7EB;
-        border-radius: 14px;
+        border: 1px solid #E3E8EE;
+        border-radius: 16px;
         overflow: hidden;
         background: #fff;
+        box-shadow: 0 2px 4px rgba(50, 50, 93, 0.05);
     }
     .mobile-card-head {
         padding: 1.25rem;
-        border-bottom: 1px solid #E5E7EB;
-        background: #FAFAFA;
+        border-bottom: 1px solid #E3E8EE;
+        background: #F6F9FC;
     }
     .mobile-card.is-popular .mobile-card-head {
-        background: #FFF8F3;
-        border-top: 3px solid #876039;
+        background: #FEF3C7;
+        border-top: 3px solid #0A2540;
     }
     .mobile-card-body { padding: 0; }
     .mobile-feature-row {
@@ -268,12 +287,12 @@
         align-items: center;
         justify-content: space-between;
         padding: 0.65rem 1.25rem;
-        border-bottom: 1px solid #F3F4F6;
-        font-size: 0.82rem;
-        color: #374151;
+        border-bottom: 1px solid #E3E8EE;
+        font-size: 0.84rem;
+        color: #425466;
     }
     .mobile-feature-row:last-child { border-bottom: none; }
-    .mobile-feature-row:nth-child(odd) { background: #FAFAFA; }
+    .mobile-feature-row:nth-child(odd) { background: #F6F9FC; }
     .mobile-feature-row.hidden { display: none; }
 </style>
 

@@ -11,159 +11,546 @@
 @section('content')
 
 {{-- Google Fonts --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <style>
 :root {
-  --br: #876039;
-  --br-dark: #6f4e2d;
-  --br-light: #fbf7f2;
-  --bg: #ffffff;
-  --bg2: #f9f6f0;
-  --ink: #241A14;
-  --mute: #6F665E;
-  --line: rgba(135, 96, 57, 0.14);
-  --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-  --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
-  --shadow-lg: 0 26px 50px rgba(36, 26, 20, 0.12);
+  --br: #B45309;
+  --br-dark: #92400E;
+  --br-light: #FEF3C7;
+  --br-gold: #D97706;
+
+  /* Stripe High-Tech Slate-Blue Palette */
+  --bg: #FFFFFF;
+  --bg2: #F6F9FC;
+  --bg3: #EEF2F6;
+
+  --ink: #0A2540;
+  --ink-light: #1A365D;
+  --mute: #425466;
+  --mute-light: #627D98;
+
+  --line: #E3E8EE;
+  --line-solid: #E3E8EE;
+
+  --card: #FFFFFF;
+
+  /* Stripe Multi-Layer Elevation Shadows */
+  --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
   --green: #10B981;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+::selection { background: #0A2540; color: #FFFFFF; }
+
 body {
   margin: 0;
-  font: 400 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font: 400 16px/1.65 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--ink);
   background: var(--bg) !important;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5 {
+h1 {
   margin: 0;
-  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(40px, 5vw, 66px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
   color: var(--ink);
 }
-h1 { font-size: clamp(32px, 4.8vw, 56px); }
-h2 { font-size: clamp(26px, 3.6vw, 44px); }
-h3 { font-size: 20px; font-weight: 700; }
-p { margin: 0; color: var(--mute); font-size: 16px; line-height: 1.65; }
+
+h2 {
+  margin: 0;
+  font-family: Effra, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.12;
+  color: var(--ink);
+}
+
+h3, h4, h5, h6 {
+  margin: 0;
+  font-family: Effra, sans-serif;
+  color: var(--ink);
+}
+
+h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+
+p { margin: 0; color: var(--mute); font-size: 16px; font-family: 'Inter', system-ui, sans-serif; line-height: 1.65; letter-spacing: -0.01em; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; margin: 0; padding: 0; }
 
 .eb {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  letter-spacing: .16em;
-  font-weight: 500;
+  gap: 7px;
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
   text-transform: uppercase;
-  color: var(--br);
+  color: #B45309;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #fbf7f2 0%, #f4efe9 100%);
-  padding: 7px 18px;
-  border-radius: 99px;
-  border: 1px solid rgba(135, 96, 57, 0.22);
-  box-shadow: 0 2px 10px rgba(135, 96, 57, 0.08);
+  background: #FEF3C7;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .w { max-width: 1240px; margin: auto; padding: 0 24px; position: relative; z-index: 1; }
-section { padding: clamp(48px, 6vw, 84px) 0; background: var(--bg); position: relative; overflow: hidden; }
+section { padding: clamp(56px, 7vw, 92px) 0; background: var(--bg); position: relative; }
 section.alt { background: var(--bg2); }
 
-.hd { max-width: 760px; margin: 0 auto 40px; text-align: center; }
-.hd p { margin-top: 14px; font-size: 17px; }
+.hd { max-width: 760px; margin: 0 auto 44px; text-align: center; }
+.hd p { margin-top: 16px; font-size: 18px; line-height: 1.6; color: var(--mute); font-family: 'Inter', sans-serif; }
 
 /* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
-.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
-.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
-.btn.o { color: var(--br); background: transparent; }
-.btn.o:hover { background: var(--bg2); transform: translateY(-2px); }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 12px;
+  font: 700 15px 'Plus Jakarta Sans', sans-serif;
+  border: 1px solid transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn.p {
+  background: #0A2540;
+  color: #FFFFFF !important;
+  border-color: #0A2540;
+  box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
+}
+.btn.p:hover {
+  background: #1A365D;
+  border-color: #1A365D;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 37, 64, 0.28);
+}
+.btn.o {
+  color: var(--ink);
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
+}
+.btn.o:hover {
+  background: #F6F9FC;
+  border-color: #0A2540;
+  transform: translateY(-2px);
+}
 
 /* Billing Toggle */
-.billing-toggle { display: inline-flex; align-items: center; justify-content: center; background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 6px; box-shadow: var(--shadow-sm); margin: 0 auto; gap: 4px; }
-.bt-btn { padding: 10px 24px; border-radius: 99px; font-size: 14px; font-weight: 700; color: var(--mute); cursor: pointer; transition: .2s; user-select: none; border: none; background: transparent; }
-.bt-btn.act { background: var(--br); color: #fff; box-shadow: 0 4px 12px rgba(135,96,57,0.2); }
-.bt-save { font-size: 13px; font-weight: 500; color: var(--green); margin-left: 12px; padding: 4px 12px; background: #d1fae5; border-radius: 99px; display: inline-block; vertical-align: middle; }
+.billing-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #F6F9FC;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 5px;
+  box-shadow: var(--shadow-sm);
+  margin: 0 auto;
+  gap: 4px;
+}
+.bt-btn {
+  padding: 10px 24px;
+  border-radius: 99px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--mute);
+  cursor: pointer;
+  transition: .2s;
+  user-select: none;
+  border: none;
+  background: transparent;
+}
+.bt-btn.act {
+  background: #0A2540;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(10, 37, 64, 0.2);
+}
+.bt-save {
+  font-size: 12.5px;
+  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #047857;
+  margin-left: 12px;
+  padding: 5px 14px;
+  background: #DEF7EC;
+  border-radius: 99px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid rgba(4, 120, 87, 0.2);
+}
 
 /* Main Pricing Cards */
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; align-items: start; }
-.pr-card { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 32px; display: flex; flex-direction: column; transition: .3s; position: relative; box-shadow: var(--shadow-sm); }
-.pr-card:hover { border-color: var(--br); box-shadow: var(--shadow-md); transform: translateY(-4px); }
-.pr-card.popular { border: 2px solid var(--br); box-shadow: var(--shadow-lg); transform: scale(1.02); }
-.pr-card.popular:hover { transform: scale(1.02) translateY(-4px); }
-.pr-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--br); color: #fff; font-size: 11px; font-weight: 500; padding: 6px 16px; border-radius: 99px; letter-spacing: .05em; box-shadow: 0 4px 10px rgba(135,96,57,0.3); }
-.pr-label { font-size: 13px; font-weight: 500; color: var(--mute); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
-.pr-sub { font-size: 18px; font-weight: 500; color: var(--ink); margin-bottom: 12px; }
-.pr-desc { font-size: 14px; color: var(--mute); margin-bottom: 24px; line-height: 1.5; min-height: 42px; }
-.pr-price { font-size: 36px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
-.pr-price span { font-size: 14px; font-weight: 600; color: var(--mute); }
-.pr-freq { font-size: 13px; color: var(--mute); margin-bottom: 32px; font-weight: 600; }
-.pr-custom-price { font-size: 32px; font-weight: 500; color: var(--ink); margin-bottom: 8px; line-height: 1.2; padding-bottom: 18px; }
-.pr-features { margin-top: 32px; margin-bottom: 32px; flex: 1; }
-.pr-feat-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-size: 14px; color: var(--ink); }
-.pr-feat-icon { flex-shrink: 0; color: var(--br); }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; align-items: stretch; padding-top: 24px; }
+.pr-card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+.pr-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+.pr-card.popular {
+  border: 2px solid #0A2540;
+  box-shadow: 0 16px 36px rgba(10, 37, 64, 0.12);
+  transform: scale(1.02);
+}
+.pr-card.popular:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow: 0 22px 44px rgba(10, 37, 64, 0.18);
+}
+.pr-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0A2540;
+  color: #FFFFFF;
+  font-size: 11.5px;
+  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 6px 18px;
+  border-radius: 99px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(10, 37, 64, 0.25);
+  z-index: 10;
+  white-space: nowrap;
+}
+.pr-label { font-size: 12.5px; font-weight: 700; color: #B45309; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; font-family: 'Plus Jakarta Sans', sans-serif; }
+.pr-sub { font-size: 19px; font-weight: 800; color: var(--ink); margin-bottom: 12px; font-family: 'Plus Jakarta Sans', sans-serif; }
+.pr-desc { font-size: 14.5px; color: var(--mute); margin-bottom: 24px; line-height: 1.55; min-height: 42px; }
+.pr-price { font-size: 38px; font-weight: 800; color: var(--ink); margin-bottom: 6px; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.03em; }
+.pr-price span { font-size: 14.5px; font-weight: 600; color: var(--mute-light); }
+.pr-freq { font-size: 13px; color: var(--mute-light); margin-bottom: 28px; font-weight: 600; }
+.pr-custom-price { font-size: 32px; font-weight: 800; color: var(--ink); margin-bottom: 8px; line-height: 1.2; padding-bottom: 18px; font-family: 'Plus Jakarta Sans', sans-serif; }
+.pr-features { margin-top: 24px; margin-bottom: 28px; flex: 1; }
+.pr-feat-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-size: 14.5px; color: var(--ink); line-height: 1.5; }
+.pr-feat-icon { flex-shrink: 0; color: #B45309; }
 
 /* Positioning Strip */
 .pos-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; max-width: 1100px; margin-left: auto; margin-right: auto; text-align: center; }
-.pos-item h4 { font-size: 18px; margin-bottom: 8px; color: var(--ink); }
-.pos-item p { font-size: 14px; }
+.pos-item h4 { font-size: 18px; margin-bottom: 8px; color: var(--ink); font-weight: 700; }
+.pos-item p { font-size: 14.5px; color: var(--mute); }
 
 /* Industry Selector */
 .ind-tabs { display: flex; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; justify-content: center; }
-.ind-tab { padding: 10px 20px; border-radius: 99px; font-weight: 700; font-size: 13.5px; cursor: pointer; border: 1px solid var(--line); background: #fff; color: var(--mute); transition: .2s; }
-.ind-tab.act { background: var(--br); color: #fff; border-color: var(--br); box-shadow: 0 4px 12px rgba(135,96,57,0.2); }
+.ind-tab { padding: 10px 20px; border-radius: 99px; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13.5px; cursor: pointer; border: 1px solid var(--line); background: #FFFFFF; color: var(--mute); transition: .2s; }
+.ind-tab.act { background: #0A2540; color: #FFFFFF; border-color: #0A2540; box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2); }
 
 /* Compact Cards */
 .c-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.c-card { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 24px; box-shadow: var(--shadow-sm); }
-.c-label { font-size: 12px; font-weight: 500; color: var(--mute); text-transform: uppercase; margin-bottom: 12px; }
-.c-price { font-size: 28px; font-weight: 500; color: var(--ink); margin-bottom: 16px; }
-.c-price span { font-size: 13px; font-weight: 600; color: var(--mute); }
-.c-feat { font-size: 14px; line-height: 1.6; color: var(--ink); }
+.c-card { background: #FFFFFF; border: 1px solid var(--line); border-radius: 20px; padding: 24px; box-shadow: var(--shadow-sm); }
+.c-label { font-size: 12px; font-weight: 700; color: #B45309; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em; font-family: 'Plus Jakarta Sans', sans-serif; }
+.c-price { font-size: 28px; font-weight: 800; color: var(--ink); margin-bottom: 16px; font-family: 'Plus Jakarta Sans', sans-serif; }
+.c-price span { font-size: 13px; font-weight: 600; color: var(--mute-light); }
+.c-feat { font-size: 14.5px; line-height: 1.6; color: var(--ink); }
+
+[x-cloak] { display: none !important; }
 
 /* Comparison Table */
-.comp-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; background: #fff; border-radius: 20px; border: 1px solid var(--line); box-shadow: var(--shadow-md); margin-top: 32px; }
+.comp-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; background: #FFFFFF; border-radius: 20px; border: 1px solid var(--line); box-shadow: var(--shadow-md); margin-top: 16px; }
 .comp-table { width: 100%; border-collapse: collapse; min-width: 700px; }
-.comp-table th { padding: 16px 18px; text-align: center; font-size: 14px; font-weight: 500; border-bottom: 1px solid var(--line); background: #fff; position: sticky; top: 0; z-index: 10; }
+.comp-table th { padding: 16px 18px; text-align: center; font-size: 14.5px; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; border-bottom: 1px solid var(--line); background: #F6F9FC; position: sticky; top: 0; z-index: 10; color: var(--ink); }
 .comp-table th:first-child { text-align: left; }
-.comp-table td { padding: 14px 18px; text-align: center; border-bottom: 1px solid var(--bg2); font-size: 13.5px; }
+.comp-table td { padding: 14px 18px; text-align: center; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); transition: background-color 0.15s ease; }
 .comp-table td:first-child { text-align: left; font-weight: 600; color: var(--ink); }
-.comp-group { background: var(--bg2); font-weight: 500; text-transform: uppercase; font-size: 12px; letter-spacing: .05em; color: var(--mute); text-align: left !important; padding: 14px 18px !important; }
-.check { color: var(--br); }
-.dash { color: #d1d5db; }
+.comp-table tbody tr:not(.comp-group-row):hover td { background-color: #F8FAFC; }
+
+.comp-group-row { cursor: pointer; user-select: none; }
+.comp-group-row:hover .comp-group { background: #EEF2F6; }
+.comp-group { background: #F6F9FC; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: uppercase; font-size: 12.5px; letter-spacing: .06em; color: var(--ink); text-align: left !important; padding: 14px 18px !important; border-bottom: 1px solid var(--line); }
+.comp-group-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.comp-toggle-badge { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; border: 1.5px solid #CBD5E1; color: #0A2540; font-size: 16px; font-weight: 800; line-height: 1; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(10, 37, 64, 0.08); }
+.comp-group-row:hover .comp-toggle-badge { border-color: #B45309; color: #B45309; transform: scale(1.08); }
+.comp-toggle-badge.open { background: #FEF3C7; border-color: #B45309; color: #B45309; }
+.check { color: #10B981; }
+.dash { color: #CBD5E1; }
 
 /* Visual Stages */
 .stage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center; }
-.stage-card { padding: 32px 24px; background: #fff; border: 1px solid var(--line); border-radius: 20px; position: relative; }
-.stage-card::after { content: '→'; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); font-size: 24px; color: var(--mute); z-index: 2; }
+.stage-card { padding: 32px 24px; background: #FFFFFF; border: 1px solid var(--line); border-radius: 20px; position: relative; box-shadow: var(--shadow-sm); }
+.stage-card::after { content: '→'; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); font-size: 24px; color: var(--mute-light); z-index: 2; font-weight: 700; }
 .stage-card:last-child::after { display: none; }
-.stage-lbl { font-size: 12px; font-weight: 500; color: var(--br); margin-bottom: 16px; letter-spacing: .1em; }
-.stage-card h3 { margin-bottom: 8px; }
+.stage-lbl { font-size: 12px; font-weight: 700; color: #B45309; margin-bottom: 16px; letter-spacing: .08em; text-transform: uppercase; font-family: 'Plus Jakarta Sans', sans-serif; }
+.stage-card h3 { margin-bottom: 8px; font-weight: 700; }
 
-/* FAQ */
-.faq-list { max-width: 840px; margin: auto; display: flex; flex-direction: column; gap: 16px; }
-.faq-item { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px 24px; cursor: pointer; transition: .2s; }
-.faq-item summary { font-weight: 700; font-size: 16px; display: flex; justify-content: space-between; align-items: center; list-style: none; }
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item p { margin-top: 12px; font-size: 15px; color: var(--mute); line-height: 1.6; }
+/* ===================== INTERNATIONAL SAAS FAQ (STRIPE 2-COL SPLIT) ===================== */
+.faq-section {
+  padding: 90px 0;
+  background: #FFFFFF;
+  position: relative;
+}
 
-/* CTA */
-.cta-sec { padding: 90px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; text-align: center; position: relative; overflow: hidden; border-top: 1px solid rgba(135, 96, 57, 0.16); }
+.faq-layout {
+  display: grid;
+  grid-template-columns: 38% 62%;
+  gap: 56px;
+  align-items: start;
+}
+
+.faq-left-col {
+  position: sticky;
+  top: 96px;
+}
+
+.faq-main-title {
+  font-family: Effra, sans-serif;
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 1.12;
+  color: #0A2540;
+  letter-spacing: normal;
+  margin: 0 0 16px;
+}
+
+.faq-lead-desc {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 18px;
+  color: #425466;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  margin: 0 0 32px;
+  max-width: 420px;
+}
+
+/* Support Help Card */
+.faq-support-card {
+  background: #F6F9FC;
+  border: 1px solid #E3E8EE;
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 420px;
+  transition: all 0.25s ease;
+}
+.faq-support-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 8px 20px rgba(10, 37, 64, 0.06);
+}
+
+.faq-support-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.faq-support-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #FEF3C7;
+  color: #B45309;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+}
+.faq-support-icon svg { width: 20px; height: 20px; }
+
+.faq-support-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0A2540;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.faq-support-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: #425466;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.faq-support-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 4px;
+  flex-wrap: wrap;
+}
+
+.faq-support-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0A2540;
+  color: #FFFFFF !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid #0A2540;
+  transition: all 0.2s ease;
+}
+.faq-support-btn-primary:hover {
+  background: #1A365D;
+  border-color: #1A365D;
+  transform: translateY(-1px);
+}
+
+.faq-support-link {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #B45309 !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s ease;
+}
+.faq-support-link:hover {
+  color: #92400E !important;
+  gap: 7px;
+}
+
+/* Right Column: FAQ Accordion */
+.faq-right-col {
+  width: 100%;
+}
+.faq-accordion-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.faq-row {
+  border: 1.5px solid #E3E8EE;
+  border-radius: 16px;
+  background: #FFFFFF;
+  padding: 0 24px;
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.faq-row:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 14px rgba(50, 50, 93, 0.08);
+}
+.faq-row.open {
+  border-color: #0A2540;
+  box-shadow: 0 8px 24px rgba(10, 37, 64, 0.08);
+  background: #FFFFFF;
+}
+.faq-row button {
+  width: 100%;
+  background: none;
+  border: 0;
+  color: #0A2540;
+  font: 700 16.5px 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+  text-align: left;
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  gap: 16px;
+  outline: none;
+}
+.faq-row i {
+  color: #0A2540;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F6F9FC;
+  display: grid;
+  place-items: center;
+  border: 1px solid #E3E8EE;
+}
+.faq-row:hover i {
+  border-color: #CBD5E1;
+  background: #FFFFFF;
+}
+.faq-row.open i {
+  transform: rotate(45deg);
+  background: #0A2540;
+  color: #FFFFFF;
+  border-color: #0A2540;
+}
+.faq-answer-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.faq-row.open .faq-answer-wrap {
+  grid-template-rows: 1fr;
+}
+.faq-answer-wrap > div {
+  overflow: hidden;
+}
+.faq-answer-wrap p {
+  padding: 0 0 22px;
+  color: #425466;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  border-top: 1px solid #F1F5F9;
+  padding-top: 16px;
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .faq-left-col {
+    position: static;
+    max-width: 100%;
+  }
+  .faq-lead-desc,
+  .faq-support-card {
+    max-width: 100%;
+  }
+}
+
+
+/* CTA: International High-Tech Dark Slate Banner */
+.cta-sec { padding: 90px 0; background: radial-gradient(circle at 50% 0%, #1A2E4C 0%, #0A192F 100%); color: #FFFFFF; text-align: center; position: relative; overflow: hidden; }
 .cta-box { position: relative; z-index: 2; max-width: 760px; margin: auto; }
-.cta-box h2 { color: #21160F; margin-bottom: 16px; }
-.cta-box p { color: #6E6157; font-size: 16.5px; line-height: 1.6; }
-.cta-flow { display: flex; justify-content: center; gap: 16px; align-items: center; margin-top: 36px; font-size: 13px; font-weight: 600; letter-spacing: .05em; color: #8C7C71; flex-wrap: wrap; }
-.cta-flow span { color: #876039; }
+.cta-box h2 { color: #FFFFFF !important; margin-bottom: 16px; font-weight: 800; font-size: clamp(30px, 4vw, 44px); }
+.cta-box p { color: #A0AEC0 !important; font-size: 17px; line-height: 1.6; }
+.cta-sec .btn.p { background: #FFFFFF !important; color: #0A2540 !important; border-color: #FFFFFF !important; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+.cta-sec .btn.p:hover { background: #F6F9FC !important; transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+.cta-sec .btn.o { background: rgba(255, 255, 255, 0.08) !important; border-color: rgba(255, 255, 255, 0.25) !important; color: #FFFFFF !important; }
+.cta-sec .btn.o:hover { background: rgba(255, 255, 255, 0.16) !important; border-color: rgba(255, 255, 255, 0.4) !important; }
+.cta-flow { display: flex; justify-content: center; gap: 16px; align-items: center; margin-top: 36px; font-size: 13.5px; font-weight: 600; letter-spacing: .04em; color: #A0AEC0; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif; }
+.cta-flow span { color: #FEF3C7; font-weight: 700; }
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -210,8 +597,8 @@ section.alt { background: var(--bg2); }
     </section>
 
     {{-- 4. MAIN PRICING CARDS & 5. POSITIONING STRIP --}}
-    <section style="padding-top:0;">
-        <div class="w">
+    <section style="padding-top:0; overflow: visible;">
+        <div class="w" style="overflow: visible;">
             <div class="pricing-grid">
                 
                 {{-- STANDARD --}}
@@ -366,7 +753,14 @@ section.alt { background: var(--bg2); }
                 <p>See exactly what's included in each plan to find the right fit for your operations.</p>
             </div>
 
-            <div class="comp-wrapper">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:28px; margin-bottom:12px; flex-wrap:wrap; gap:10px;">
+                <span style="font-size:13.5px; color:var(--mute); font-weight:600;">Click any category with + to view plan comparison</span>
+                <button type="button" @click="toggleAllGroups()" style="background:#F6F9FC; border:1px solid var(--line); color:#B45309; font-size:13px; font-weight:700; cursor:pointer; font-family:'Plus Jakarta Sans',sans-serif; display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:8px; transition:.2s;">
+                    <span x-text="allOpen ? 'Collapse All −' : 'Expand All +'">Expand All +</span>
+                </button>
+            </div>
+
+            <div class="comp-wrapper" style="margin-top:0;">
                 <table class="comp-table">
                     <thead>
                         <tr>
@@ -378,63 +772,119 @@ section.alt { background: var(--bg2); }
                     </thead>
                     <tbody>
                         {{-- Menu & Products --}}
-                        <tr><td colspan="4" class="comp-group">Menu & Products</td></tr>
-                        <tr><td>Menu Management</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Menu Categories</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Product Management</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Product Availability</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Product Variations</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr class="comp-group-row" @click="toggleGroup('menu')">
+                            <td colspan="4" class="comp-group">
+                                <div class="comp-group-inner">
+                                    <span>Menu &amp; Products</span>
+                                    <span class="comp-toggle-badge" :class="openGroups.menu ? 'open' : ''" x-text="openGroups.menu ? '−' : '+'">+</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr x-show="openGroups.menu" x-cloak><td>Menu Management</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.menu" x-cloak><td>Menu Categories</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.menu" x-cloak><td>Product Management</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.menu" x-cloak><td>Product Availability</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.menu" x-cloak><td>Product Variations</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
 
                         {{-- Orders & Service --}}
-                        <tr><td colspan="4" class="comp-group">Orders & Service</td></tr>
-                        <tr><td>Order Management</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>KOT Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Kitchen Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Waiter Requests</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Delivery Executive Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr class="comp-group-row" @click="toggleGroup('orders')">
+                            <td colspan="4" class="comp-group">
+                                <div class="comp-group-inner">
+                                    <span>Orders &amp; Service</span>
+                                    <span class="comp-toggle-badge" :class="openGroups.orders ? 'open' : ''" x-text="openGroups.orders ? '−' : '+'">+</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr x-show="openGroups.orders" x-cloak><td>Order Management</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.orders" x-cloak><td>KOT Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.orders" x-cloak><td>Kitchen Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.orders" x-cloak><td>Waiter Requests</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.orders" x-cloak><td>Delivery Executive Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
 
                         {{-- Tables & Reservations --}}
-                        <tr><td colspan="4" class="comp-group">Tables & Reservations</td></tr>
-                        <tr><td>Table Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Reservation Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Area Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr class="comp-group-row" @click="toggleGroup('tables')">
+                            <td colspan="4" class="comp-group">
+                                <div class="comp-group-inner">
+                                    <span>Tables &amp; Reservations</span>
+                                    <span class="comp-toggle-badge" :class="openGroups.tables ? 'open' : ''" x-text="openGroups.tables ? '−' : '+'">+</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr x-show="openGroups.tables" x-cloak><td>Table Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.tables" x-cloak><td>Reservation Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.tables" x-cloak><td>Area Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
 
                         {{-- Customers & Staff --}}
-                        <tr><td colspan="4" class="comp-group">Customers & Staff</td></tr>
-                        <tr><td>Customer Management</td><td>Basic</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Staff Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Customer History</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr class="comp-group-row" @click="toggleGroup('customers')">
+                            <td colspan="4" class="comp-group">
+                                <div class="comp-group-inner">
+                                    <span>Customers &amp; Staff</span>
+                                    <span class="comp-toggle-badge" :class="openGroups.customers ? 'open' : ''" x-text="openGroups.customers ? '−' : '+'">+</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr x-show="openGroups.customers" x-cloak><td>Customer Management</td><td>Basic</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.customers" x-cloak><td>Staff Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.customers" x-cloak><td>Customer History</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
 
                         {{-- Billing & Payments --}}
-                        <tr><td colspan="4" class="comp-group">Billing & Payments</td></tr>
-                        <tr><td>POS</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Billing</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Payments</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Payment Gateway</td><td><span class="dash">—</span></td><td>Add-on</td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Payment Reports</td><td>Basic</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr class="comp-group-row" @click="toggleGroup('billing')">
+                            <td colspan="4" class="comp-group">
+                                <div class="comp-group-inner">
+                                    <span>Billing &amp; Payments</span>
+                                    <span class="comp-toggle-badge" :class="openGroups.billing ? 'open' : ''" x-text="openGroups.billing ? '−' : '+'">+</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr x-show="openGroups.billing" x-cloak><td>POS</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.billing" x-cloak><td>Billing</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.billing" x-cloak><td>Payments</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.billing" x-cloak><td>Payment Gateway</td><td><span class="dash">—</span></td><td>Add-on</td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.billing" x-cloak><td>Payment Reports</td><td>Basic</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
 
                         {{-- Inventory --}}
-                        <tr><td colspan="4" class="comp-group">Inventory</td></tr>
-                        <tr><td>Inventory Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Stock Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Stock Movement</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Multi-Location Inventory</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+                        <tr class="comp-group-row" @click="toggleGroup('inventory')">
+                            <td colspan="4" class="comp-group">
+                                <div class="comp-group-inner">
+                                    <span>Inventory</span>
+                                    <span class="comp-toggle-badge" :class="openGroups.inventory ? 'open' : ''" x-text="openGroups.inventory ? '−' : '+'">+</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr x-show="openGroups.inventory" x-cloak><td>Inventory Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.inventory" x-cloak><td>Stock Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.inventory" x-cloak><td>Stock Movement</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.inventory" x-cloak><td>Multi-Location Inventory</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
 
                         {{-- Business Management --}}
-                        <tr><td colspan="4" class="comp-group">Business Management</td></tr>
-                        <tr><td>Expense Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Reports</td><td>Basic</td><td>Advanced</td><td>Enterprise</td></tr>
-                        <tr><td>Export Reports</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Advanced Analytics</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Branch Management</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+                        <tr class="comp-group-row" @click="toggleGroup('business')">
+                            <td colspan="4" class="comp-group">
+                                <div class="comp-group-inner">
+                                    <span>Business Management</span>
+                                    <span class="comp-toggle-badge" :class="openGroups.business ? 'open' : ''" x-text="openGroups.business ? '−' : '+'">+</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr x-show="openGroups.business" x-cloak><td>Expense Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.business" x-cloak><td>Reports</td><td>Basic</td><td>Advanced</td><td>Enterprise</td></tr>
+                        <tr x-show="openGroups.business" x-cloak><td>Export Reports</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.business" x-cloak><td>Advanced Analytics</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.business" x-cloak><td>Branch Management</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
 
                         {{-- Advanced --}}
-                        <tr><td colspan="4" class="comp-group">Advanced</td></tr>
-                        <tr><td>Kiosk</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Multi-Branch</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Branch-Wise Reports</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Theme Settings</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
-                        <tr><td>Advanced Settings</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+                        <tr class="comp-group-row" @click="toggleGroup('advanced')">
+                            <td colspan="4" class="comp-group">
+                                <div class="comp-group-inner">
+                                    <span>Advanced</span>
+                                    <span class="comp-toggle-badge" :class="openGroups.advanced ? 'open' : ''" x-text="openGroups.advanced ? '−' : '+'">+</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr x-show="openGroups.advanced" x-cloak><td>Kiosk</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.advanced" x-cloak><td>Multi-Branch</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.advanced" x-cloak><td>Branch-Wise Reports</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.advanced" x-cloak><td>Theme Settings</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+                        <tr x-show="openGroups.advanced" x-cloak><td>Advanced Settings</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -467,50 +917,128 @@ section.alt { background: var(--bg2); }
         </div>
     </section>
 
-    {{-- 21: FAQ --}}
-    <section>
+    {{-- 21: FAQ (International Tier-1 SaaS Layout) --}}
+    <section class="faq-section" id="faq">
         <div class="w">
-            <div class="hd">
-                <h2>Frequently Asked Questions</h2>
-            </div>
+            <div class="faq-layout">
+                <!-- Left Column: Header & Support Contact Card -->
+                <div class="faq-left-col">
+                    <span class="eb">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        FREQUENTLY ASKED QUESTIONS
+                    </span>
+                    <h2 class="faq-main-title">
+                        Questions About<br>
+                        <span style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:600; color:var(--br);">Plans &amp; Pricing.</span>
+                    </h2>
+                    <p class="faq-lead-desc">
+                        Everything you need to know about billing cycles, plan upgrades, multi-branch licensing, and enterprise scale.
+                    </p>
 
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary>Are monthly and yearly plans available? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-                    <p>Yes. Geni Menu provides both monthly and yearly billing options.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Can I upgrade my plan later? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-                    <p>Yes. You can move to a higher plan as your operational requirements grow.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>What is the difference between Standard and Premium? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-                    <p>Standard focuses on essential daily operations, while Premium adds deeper kitchen, inventory, customer and operational capabilities.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>What is Enterprise designed for? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-                    <p>Enterprise is designed for businesses that need advanced controls, multi-branch operations and larger-scale management.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Does every industry have the same pricing? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-                    <p>No. Pricing varies by business type based on the operational requirements of each solution.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Is payment gateway included in every plan? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-                    <p>No. Payment gateway functionality is included in selected Premium or Enterprise configurations depending on the business solution.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Can I manage multiple branches? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-                    <p>Multi-branch functionality is available in applicable Enterprise plans.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Can I manage inventory? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-                    <p>Inventory capabilities are available in selected Premium and Enterprise plans depending on the industry solution.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Can I change my plan later? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-                    <p>Yes. Businesses can upgrade as their needs change.</p>
-                </details>
+                    <!-- Help / Contact Card -->
+                    <div class="faq-support-card">
+                        <div class="faq-support-header">
+                            <div class="faq-support-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="faq-support-title">Need custom pricing?</h4>
+                                <span style="font-size: 12px; color: #627D98; font-weight: 500;">Multi-outlet &amp; franchise support</span>
+                            </div>
+                        </div>
+                        <p class="faq-support-text">Have special requirements or running more than 5 outlets? Talk with our enterprise restaurant consultants.</p>
+                        <div class="faq-support-actions">
+                            <a href="{{ route('restaurant_signup') }}" class="faq-support-btn-primary">Book a Demo &rarr;</a>
+                            <a href="{{ route('contact.us') }}" class="faq-support-link">Contact Sales &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Accordion Items -->
+                <div class="faq-right-col">
+                    <div class="faq-accordion-list">
+                        <div class="faq-row open">
+                            <button type="button">Are monthly and yearly plans available? <i>+</i></button>
+                            <div class="faq-answer-wrap">
+                                <div>
+                                    <p>Yes. Geni Menu provides both monthly and yearly billing options with discounted rates for annual commitments.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-row">
+                            <button type="button">Can I upgrade my plan later? <i>+</i></button>
+                            <div class="faq-answer-wrap">
+                                <div>
+                                    <p>Yes. You can seamlessly move to a higher plan as your operational requirements grow without interrupting daily kitchen and billing workflows.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-row">
+                            <button type="button">What is the difference between Standard and Premium? <i>+</i></button>
+                            <div class="faq-answer-wrap">
+                                <div>
+                                    <p>Standard focuses on essential daily operations (menu, billing, KOT), while Premium adds deeper kitchen display, table layout, table reservations, staff tracking, and live inventory control.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-row">
+                            <button type="button">What is Enterprise designed for? <i>+</i></button>
+                            <div class="faq-answer-wrap">
+                                <div>
+                                    <p>Enterprise is designed for expanding chains and high-volume restaurants that need multi-branch central controls, self-ordering kiosks, online payment gateways, and advanced executive analytics.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-row">
+                            <button type="button">Does every industry have the same pricing? <i>+</i></button>
+                            <div class="faq-answer-wrap">
+                                <div>
+                                    <p>No. Pricing is tailored by business type (Dine-in, QSR, Bakery, Cafe, etc.) based on the specific operational modules and hardware workflows each format requires.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-row">
+                            <button type="button">Is payment gateway included in every plan? <i>+</i></button>
+                            <div class="faq-answer-wrap">
+                                <div>
+                                    <p>No. Integrated online payment gateway functionality is included in selected Premium or Enterprise configurations depending on the business solution.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-row">
+                            <button type="button">Can I manage multiple branches? <i>+</i></button>
+                            <div class="faq-answer-wrap">
+                                <div>
+                                    <p>Yes. Multi-branch functionality with central head-office reporting, outlet-level pricing, and unified management is available in applicable Enterprise plans.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-row">
+                            <button type="button">Can I manage inventory? <i>+</i></button>
+                            <div class="faq-answer-wrap">
+                                <div>
+                                    <p>Yes. Real-time ingredient tracking, low-stock notifications, and recipe consumption are available in selected Premium and Enterprise plans.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-row">
+                            <button type="button">Can I change my plan later? <i>+</i></button>
+                            <div class="faq-answer-wrap">
+                                <div>
+                                    <p>Yes. Businesses can upgrade, downgrade, or switch billing frequency at any time directly through the account dashboard or with support assistance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -525,7 +1053,7 @@ section.alt { background: var(--bg2); }
             </div>
             <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:32px;">
                 <a href="{{ route('restaurant_signup') }}" class="btn p">Get Started &rarr;</a>
-                <a href="{{ route('restaurant_signup') }}" class="btn o" style="background:transparent; border:1.5px solid #876039; color:#876039;">Book a Demo &rarr;</a>
+                <a href="{{ route('restaurant_signup') }}" class="btn o">Book a Demo &rarr;</a>
             </div>
         </div>
     </section>
@@ -537,6 +1065,28 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('pricing', () => ({
         billing: 'monthly',
         ind: 'restaurant',
+        openGroups: {
+            menu: false,
+            orders: false,
+            tables: false,
+            customers: false,
+            billing: false,
+            inventory: false,
+            business: false,
+            advanced: false
+        },
+        toggleGroup(key) {
+            this.openGroups[key] = !this.openGroups[key];
+        },
+        get allOpen() {
+            return Object.values(this.openGroups).every(Boolean);
+        },
+        toggleAllGroups() {
+            const next = !this.allOpen;
+            Object.keys(this.openGroups).forEach(k => {
+                this.openGroups[k] = next;
+            });
+        },
         formatPrice(val) {
             return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val) + (this.billing === 'monthly' ? ' / mo' : ' / yr');
         },
@@ -615,6 +1165,23 @@ document.addEventListener('alpine:init', () => {
             }
         }
     }));
+});
+
+// FAQ Accordion Toggle (International Tier-1 SaaS)
+document.addEventListener('DOMContentLoaded', function() {
+    var faqRows = document.querySelectorAll('.faq-row');
+    faqRows.forEach(function(row) {
+        var btn = row.querySelector('button');
+        if (btn) {
+            btn.addEventListener('click', function() {
+                var isOpen = row.classList.contains('open');
+                faqRows.forEach(function(r) { r.classList.remove('open'); });
+                if (!isOpen) {
+                    row.classList.add('open');
+                }
+            });
+        }
+    });
 });
 </script>
 

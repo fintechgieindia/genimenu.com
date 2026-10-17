@@ -1,4 +1,4 @@
-<style>
+<style data-navigate-track>
     :root {
         --color-base: {{ $baseColor }};
         --livewire-progress-bar-color: {{ $baseColorHex }};

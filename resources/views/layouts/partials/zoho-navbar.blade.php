@@ -6,11 +6,13 @@
     left: 0;
     right: 0;
     z-index: 9999;
-    background: #ffffff;
-    border-bottom: 1px solid rgba(135, 96, 57, 0.14);
-    box-shadow: 0 4px 16px rgba(33, 22, 15, 0.04);
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #E3E8EE;
+    box-shadow: none !important;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    color: #21160F;
+    color: #0A2540;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -67,18 +69,18 @@
   }
 
   .geni-pos-nav .brand-title {
-    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     font-size: 21px;
-    font-weight: 500;
-    color: #21160F;
-    letter-spacing: -0.3px;
+    font-weight: 700;
+    color: #0A2540;
+    letter-spacing: -0.03em;
     display: inline-flex;
     align-items: center;
     gap: 4px;
   }
 
   .geni-pos-nav .brand-highlight {
-    color: #876039;
+    color: #B45309;
     font-weight: 500;
   }
 
@@ -91,62 +93,18 @@
     margin-top: 1px;
   }
 
-  /* --- Center/Right Navigation Section --- */
-  .geni-pos-nav .nav-center {
+  /* --- Left Brand + Navigation Section --- */
+  .geni-pos-nav .nav-left {
     display: flex;
     align-items: center;
-    gap: 22px;
-    margin-left: auto;
-    margin-right: 18px;
-  }
-
-  /* Toll-free phone */
-  .geni-pos-nav .nav-tollfree {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #21160F;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    transition: color 0.18s ease;
-    white-space: nowrap;
-    padding-right: 6px;
-  }
-
-  .geni-pos-nav .nav-tollfree:hover {
-    color: #876039;
-  }
-
-  .geni-pos-nav .tollfree-circle {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    border: 1.5px solid #876039;
-    color: #876039;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.18s ease;
-  }
-
-  .geni-pos-nav .nav-tollfree:hover .tollfree-circle {
-    background: #876039;
-    color: #FFFFFF;
-    border-color: #876039;
-  }
-
-  .geni-pos-nav .tollfree-circle svg {
-    width: 13px;
-    height: 13px;
-    fill: currentColor;
+    gap: 36px;
   }
 
   /* Links & Dropdowns */
   .geni-pos-nav .nav-menu {
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 24px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -163,7 +121,7 @@
     gap: 5px;
     font-size: 14.5px;
     font-weight: 600;
-    color: #21160F;
+    color: #0A2540;
     text-decoration: none;
     background: transparent;
     border: none;
@@ -176,11 +134,11 @@
   .geni-pos-nav .nav-menu-link:hover,
   .geni-pos-nav .nav-menu-btn:hover,
   .geni-pos-nav .nav-menu-item:hover .nav-menu-btn {
-    color: #876039;
+    color: #B45309;
   }
 
   .geni-pos-nav .nav-menu-link.nav-active {
-    color: #876039;
+    color: #B45309;
     font-weight: 700;
   }
 
@@ -194,7 +152,7 @@
   .geni-pos-nav .nav-menu-item:hover .chevron-icon {
     transform: rotate(180deg);
     opacity: 1;
-    stroke: #876039;
+    stroke: #B45309;
   }
 
   /* Dropdown panel */
@@ -305,7 +263,7 @@
   .geni-pos-nav .dropdown-card .card-title {
     font-size: 14px;
     font-weight: 700;
-    color: #21160F;
+    color: #0A2540;
     margin-bottom: 2px;
   }
 
@@ -318,7 +276,7 @@
   .geni-pos-nav .dropdown-footer {
     margin-top: 14px;
     padding-top: 12px;
-    border-top: 1px solid rgba(135, 96, 57, 0.12);
+    border-top: 1px solid #E3E8EE;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -327,7 +285,7 @@
   .geni-pos-nav .dropdown-footer a {
     font-size: 13px;
     font-weight: 600;
-    color: #876039;
+    color: #B45309;
     text-decoration: none;
   }
 
@@ -339,7 +297,7 @@
   .geni-pos-nav .nav-dropdown.dropdown-simple {
     width: 290px;
     padding: 8px;
-    border: 1px solid rgba(135, 96, 57, 0.14);
+    border: 1px solid #E3E8EE;
   }
 
   .geni-pos-nav .dropdown-link-item {
@@ -362,7 +320,7 @@
     height: 36px;
     border-radius: 8px;
     background: #FAF7F2;
-    color: #876039;
+    color: #B45309;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -383,7 +341,7 @@
   .geni-pos-nav .dropdown-link-item .item-title {
     font-size: 13.5px;
     font-weight: 600;
-    color: #21160F;
+    color: #0A2540;
     display: block;
   }
 
@@ -392,6 +350,310 @@
     color: #6E6157;
     display: block;
     margin-top: 1px;
+  }
+
+  /* Suppress Google Translate top banner & body offset */
+  body > .skiptranslate,
+  body > iframe.skiptranslate,
+  iframe.skiptranslate,
+  .goog-te-banner-frame,
+  .goog-te-banner-frame.skiptranslate,
+  iframe.goog-te-banner-frame,
+  .goog-te-balloon-frame,
+  .goog-te-banner,
+  body > iframe[id*=":"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0px !important;
+    width: 0px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    border: none !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html, body {
+    top: 0px !important;
+    position: static !important;
+  }
+
+  /* --- Language Switcher Dropdown (Near Sign In) --- */
+  .geni-pos-nav .nav-lang-dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .geni-pos-nav .btn-lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 13px;
+    background: #FAF7F2;
+    border: 1px solid rgba(135, 96, 57, 0.22);
+    border-radius: 9999px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0A2540;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+    outline: none;
+  }
+
+  .geni-pos-nav .btn-lang-toggle:hover,
+  .geni-pos-nav .btn-lang-toggle:focus-visible,
+  .geni-pos-nav .nav-lang-dropdown.is-open .btn-lang-toggle {
+    background: #F4EFE6;
+    border-color: #B45309;
+    color: #B45309;
+    box-shadow: 0 2px 8px rgba(135, 96, 57, 0.12);
+  }
+
+  .geni-pos-nav .lang-globe-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: #B45309;
+    transition: transform 0.3s ease;
+  }
+
+  .geni-pos-nav .btn-lang-toggle:hover .lang-globe-icon {
+    transform: rotate(20deg);
+  }
+
+  .geni-pos-nav .active-lang-code {
+    letter-spacing: 0.2px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .geni-pos-nav .lang-chevron {
+    width: 10px;
+    height: 10px;
+    opacity: 0.6;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .geni-pos-nav .nav-lang-dropdown.is-open .lang-chevron {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+
+  /* Language Dropdown Menu */
+  .geni-pos-nav .lang-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 275px;
+    max-width: 320px;
+    background: #FFFFFF;
+    border: 1px solid #E3E8EE;
+    border-radius: 14px;
+    box-shadow: 0 16px 40px -8px rgba(10, 37, 64, 0.18), 0 0 0 1px rgba(10, 37, 64, 0.04);
+    padding: 8px;
+    z-index: 10002;
+    display: none;
+    flex-direction: column;
+    animation: geniDropFade 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes geniDropFade {
+    from {
+      opacity: 0;
+      transform: translateY(-6px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .geni-pos-nav .nav-lang-dropdown.is-open .lang-dropdown-menu {
+    display: flex;
+  }
+
+  .geni-pos-nav .lang-dropdown-header {
+    padding: 6px 10px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: #6E6157;
+    border-bottom: 1px solid #F0ECE6;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Search input */
+  .geni-pos-nav .lang-search-box {
+    position: relative;
+    padding: 0 2px 8px;
+  }
+  .geni-pos-nav .lang-search-svg {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(calc(-50% - 4px));
+    width: 14px;
+    height: 14px;
+    color: #8C7E72;
+    pointer-events: none;
+  }
+  .geni-pos-nav .lang-search-input {
+    width: 100%;
+    padding: 7px 10px 7px 32px;
+    background: #FAF7F2;
+    border: 1px solid #E3E8EE;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 12.5px;
+    color: #0A2540;
+    outline: none;
+    transition: all 0.15s ease;
+  }
+  .geni-pos-nav .lang-search-input:focus {
+    background: #FFFFFF;
+    border-color: #B45309;
+    box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.12);
+  }
+
+  .geni-pos-nav .lang-group-header {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: #9C6F3E;
+    padding: 6px 10px 4px;
+  }
+
+  .geni-pos-nav .lang-options-scroll {
+    overflow-y: auto;
+    max-height: 320px;
+    padding-right: 2px;
+  }
+
+  .geni-pos-nav .lang-options-scroll::-webkit-scrollbar {
+    width: 5px;
+  }
+  .geni-pos-nav .lang-options-scroll::-webkit-scrollbar-thumb {
+    background: #D9D2C7;
+    border-radius: 4px;
+  }
+
+  .geni-pos-nav .lang-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    padding: 8px 10px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+    color: #0A2540;
+    user-select: none;
+    outline: none;
+  }
+
+  .geni-pos-nav .lang-item:hover {
+    background: #FAF7F2;
+    color: #B45309;
+  }
+
+  .geni-pos-nav .lang-item.is-active {
+    background: #F4EFE6;
+    color: #B45309;
+    font-weight: 600;
+  }
+
+  .geni-pos-nav .lang-item-left {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .geni-pos-nav .lang-flag {
+    font-size: 16px;
+    line-height: 1;
+    display: inline-block;
+  }
+
+  .geni-pos-nav .lang-names {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+
+  .geni-pos-nav .lang-native {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: inherit;
+  }
+
+  .geni-pos-nav .lang-english {
+    font-size: 11px;
+    color: #6E6157;
+  }
+
+  .geni-pos-nav .lang-check {
+    width: 16px;
+    height: 16px;
+    color: #B45309;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: all 0.15s ease;
+  }
+
+  .geni-pos-nav .lang-item.is-active .lang-check {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Mobile Drawer Language Box */
+  .geni-pos-nav .mobile-lang-box {
+    background: #FAF7F2;
+    border: 1px solid #E3E8EE;
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 6px;
+  }
+  .geni-pos-nav .mobile-lang-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #6E6157;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .geni-pos-nav .mobile-lang-select {
+    width: 100%;
+    padding: 9px 12px;
+    background: #FFFFFF;
+    border: 1px solid #D9D2C7;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0A2540;
+    outline: none;
+    cursor: pointer;
   }
 
   /* --- Right CTA Action Group --- */
@@ -405,18 +667,18 @@
   .geni-pos-nav .btn-signin {
     font-size: 14px;
     font-weight: 600;
-    color: #21160F;
+    color: #0A2540;
     text-decoration: none;
     transition: color 0.18s ease;
   }
 
   .geni-pos-nav .btn-signin:hover {
-    color: #876039;
+    color: #B45309;
   }
 
   /* Geni Menu Sign Up Now pill button */
   .geni-pos-nav .btn-signup-pill {
-    background: #876039;
+    background: #0A2540;
     color: #ffffff !important;
     text-decoration: none;
     padding: 9px 24px;
@@ -435,7 +697,7 @@
   }
 
   .geni-pos-nav .btn-signup-pill:hover {
-    background: #6f4e2d;
+    background: #1A365D;
     transform: translateY(-1px);
     box-shadow: 0 5px 16px rgba(135, 96, 57, 0.38);
   }
@@ -465,7 +727,7 @@
     display: block;
     width: 22px;
     height: 2px;
-    background: #21160F;
+    background: #0A2540;
     border-radius: 2px;
     transition: transform 0.25s ease, opacity 0.25s ease, background 0.25s ease;
   }
@@ -495,27 +757,12 @@
     -webkit-overflow-scrolling: touch;
     padding: 20px 20px 40px;
     z-index: 9998;
-    border-top: 1px solid rgba(135, 96, 57, 0.12);
+    border-top: 1px solid #E3E8EE;
     box-shadow: 0 10px 30px rgba(33, 22, 15, 0.1);
   }
 
   .geni-pos-nav .mobile-panel.is-open {
     display: block;
-  }
-
-  .geni-pos-nav .mobile-tollfree {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 16px;
-    background: #FAF7F2;
-    border: 1px solid rgba(135, 96, 57, 0.18);
-    border-radius: 12px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #21160F;
-    text-decoration: none;
-    margin-bottom: 16px;
   }
 
   .geni-pos-nav .mobile-list {
@@ -537,7 +784,7 @@
     padding: 14px 4px;
     font-size: 15px;
     font-weight: 600;
-    color: #21160F;
+    color: #0A2540;
     text-decoration: none;
     background: transparent;
     border: none;
@@ -555,7 +802,7 @@
 
   .geni-pos-nav .mobile-list-item.is-expanded .mobile-chevron {
     transform: rotate(90deg);
-    color: #876039;
+    color: #B45309;
   }
 
   .geni-pos-nav .mobile-sub-menu {
@@ -584,7 +831,7 @@
   .geni-pos-nav .mobile-sub-link:active,
   .geni-pos-nav .mobile-sub-link:hover {
     background: #FAF7F2;
-    color: #876039;
+    color: #B45309;
   }
 
   .geni-pos-nav .mobile-sub-link svg {
@@ -595,7 +842,7 @@
     stroke-width: 1.8;
     stroke-linecap: round;
     stroke-linejoin: round;
-    color: #876039;
+    color: #B45309;
     flex-shrink: 0;
   }
 
@@ -608,12 +855,22 @@
 
   /* Responsive queries */
   @media (max-width: 1080px) {
-    .geni-pos-nav .nav-center {
+    .geni-pos-nav .nav-menu {
       display: none;
     }
 
     .geni-pos-nav .btn-signin {
       display: none;
+    }
+
+    .geni-pos-nav .btn-lang-toggle .active-lang-code,
+    .geni-pos-nav .btn-lang-toggle .lang-chevron {
+      display: none;
+    }
+
+    .geni-pos-nav .btn-lang-toggle {
+      padding: 8px 9px;
+      border-radius: 50%;
     }
 
     .geni-pos-nav .nav-burger-btn {
@@ -663,121 +920,35 @@
 <header class="geni-pos-nav">
   <div class="nav-wrap">
 
-    <!-- Brand Logo: Geni Menu -->
-    <a href="{{ url('/') }}" class="nav-brand" title="Geni Menu">
-      <img src="{{ asset('assets/images/geni-menu-logo-light.png') }}"
-           onerror="this.onerror=null;this.src='{{ asset('assets/images/geni-menu-logo.png') }}';"
-           alt="Geni Menu" class="brand-logo-img" style="height: 44px; width: auto; object-fit: contain;">
-    </a>
-
-    <!-- Center Navigation: Support + Links -->
-    <div class="nav-center">
-
-      <!-- Support phone link with circle phone icon -->
-      <a href="tel:+918667205661" class="nav-tollfree" title="Call support">
-        <span class="tollfree-circle">
-          <svg viewBox="0 0 24 24">
-            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.28-.28.37-.67.25-1.02A11.36 11.36 0 0 1 8.96 4.3a1 1 0 0 0-1-1H4.21a1 1 0 0 0-1 1c0 9.39 7.63 17.02 17.02 17.02a1 1 0 0 0 1-1v-3.77a1 1 0 0 0-.22-.67z"/>
-          </svg>
-        </span>
-        <span>+91 86672 05661</span>
+    <!-- Left side: Brand Logo + Nav Items (Features, Pricing, Solutions, Resources) -->
+    <div class="nav-left">
+      <!-- Brand Logo: Geni Menu (Click to Home) -->
+      <a href="{{ route('home') }}" class="nav-brand" title="Geni Menu - Home">
+        <img src="{{ asset('assets/images/geni-menu-logo-light.png') }}"
+             onerror="this.onerror=null;this.src='{{ asset('assets/images/geni-menu-logo.png') }}';"
+             alt="Geni Menu" class="brand-logo-img" style="height: 44px; width: auto; object-fit: contain;">
       </a>
 
       <!-- Desktop Nav Items -->
       <ul class="nav-menu">
 
-        <!-- 0. Home -->
+        <!-- 1. Features -->
         <li class="nav-menu-item">
-          <a href="{{ url('/') }}" class="nav-menu-link {{ request()->is('/') ? 'nav-active' : '' }}">Home</a>
-        </li>
-
-        <!-- 1. Features ⌵ -->
-        <li class="nav-menu-item">
-          <button type="button" class="nav-menu-btn" aria-haspopup="true">
-            <span>Features</span>
-            <svg class="chevron-icon" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 1L5 5L9 1"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown dropdown-features">
-            <div class="dropdown-grid">
-              <a href="{{ route('features.menu-management') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="18" cy="18" r="3"/><path d="M18 15v6M15 18h6"/></svg></div>
-                <div>
-                  <div class="card-title">Menu Management</div>
-                  <div class="card-desc">Digital QR menu & instant category updates</div>
-                </div>
-              </a>
-              <a href="{{ route('features.reservation-management') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-                <div>
-                  <div class="card-title">Reservation Management</div>
-                  <div class="card-desc">Manage table bookings without confusion</div>
-                </div>
-              </a>
-              <a href="{{ route('features.waiter-request') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8v4h12V8zM3 16h18v2H3zM12 4v2"/></svg></div>
-                <div>
-                  <div class="card-title">Waiter Requests</div>
-                  <div class="card-desc">Help waiters handle customer calls faster</div>
-                </div>
-              </a>
-              <a href="{{ route('features.table-management') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 9h16M5 9v10M19 9v10M9 9V5h6v4M7 15h10"/></svg></div>
-                <div>
-                  <div class="card-title">Table Management</div>
-                  <div class="card-desc">Live floor map, seating & status alerts</div>
-                </div>
-              </a>
-              <a href="{{ route('features.pos-management') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M12 16v4M7 8h4M7 11h2"/></svg></div>
-                <div>
-                  <div class="card-title">POS & Fast Billing</div>
-                  <div class="card-desc">3-click checkout, split bill & GST print</div>
-                </div>
-              </a>
-              <a href="{{ route('features.order-management') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4M9 16h6"/></svg></div>
-                <div>
-                  <div class="card-title">Order Management</div>
-                  <div class="card-desc">Manage dine-in, takeaway & delivery seats</div>
-                </div>
-              </a>
-              <a href="{{ route('features.kot-management') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M6 13.8A6 6 0 0112 4a6 6 0 016 9.8V17H6v-3.2zM4 17h16v3H4zM12 4V2"/></svg></div>
-                <div>
-                  <div class="card-title">Kitchen Order Tickets</div>
-                  <div class="card-desc">Direct routing to kitchen screens & printers</div>
-                </div>
-              </a>
-              <a href="{{ route('features.inventory-management') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
-                <div>
-                  <div class="card-title">Inventory Management</div>
-                  <div class="card-desc">Real-time raw material stock & recipe tracking</div>
-                </div>
-              </a>
-              <a href="{{ route('features.reports') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6M3 20h18"/></svg></div>
-                <div>
-                  <div class="card-title">Reports & Analytics</div>
-                  <div class="card-desc">Real-time revenue, stock counts & sales</div>
-                </div>
-              </a>
-            </div>
-            <div class="dropdown-footer">
-              <span style="font-size:12px;color:#9ca3af;">All-in-one platform for modern dining</span>
-              <a href="{{ route('features') }}">See all features →</a>
-            </div>
-          </div>
+          <a href="{{ route('features') }}" class="nav-menu-link {{ request()->routeIs('features') ? 'nav-active' : '' }}">Features</a>
         </li>
 
         <!-- 2. Pricing -->
         <li class="nav-menu-item">
-          <a href="{{ route('pricing') }}" class="nav-menu-link">Pricing</a>
+          <a href="{{ route('pricing') }}" class="nav-menu-link {{ request()->routeIs('pricing') ? 'nav-active' : '' }}">Pricing</a>
         </li>
 
-        <!-- 4. Resources ⌵ -->
+        <!-- 3. Solutions -->
+        <li class="nav-menu-item">
+          <a href="{{ route('solutions') }}" class="nav-menu-link {{ request()->routeIs('solutions*') ? 'nav-active' : '' }}">Solutions</a>
+        </li>
+
+        {{-- 4. Resources ⌵ (Hidden) --}}
+        {{--
         <li class="nav-menu-item">
           <button type="button" class="nav-menu-btn" aria-haspopup="true">
             <span>Resources</span>
@@ -816,135 +987,166 @@
             </a>
           </div>
         </li>
-
-        <!-- 5. Solutions ⌵ -->
-        <li class="nav-menu-item">
-          <button type="button" class="nav-menu-btn" aria-haspopup="true">
-            <span>Solutions</span>
-            <svg class="chevron-icon" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 1L5 5L9 1"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown dropdown-features">
-            <div class="dropdown-grid">
-              <a href="{{ route('solutions.family-restaurant') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                <div>
-                  <div class="card-title">Family Restaurant</div>
-                  <div class="card-desc">Tables, group orders, KOT & POS</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.dine-in-restaurant') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 9h16M5 9v10M19 9v10M9 9V5h6v4M7 15h10"/></svg></div>
-                <div>
-                  <div class="card-title">Dine-in Restaurant</div>
-                  <div class="card-desc">Table service, digital menu, KOT & billing</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.dine-in-restaurant') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2s-5 2-5 7 5 7 5 7v-1z"/></svg></div>
-                <div>
-                  <div class="card-title">Fine Dining</div>
-                  <div class="card-desc">Table ordering & steward mobility</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.multi-cuisine-restaurant') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 18h18M5 12h14v6H5zM12 4v8"/></svg></div>
-                <div>
-                  <div class="card-title">Multi-Cuisine Restaurant</div>
-                  <div class="card-desc">Indian, Chinese, Italian & multi-station KOT</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.qsr-restaurant') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-                <div>
-                  <div class="card-title">Quick Service (QSR)</div>
-                  <div class="card-desc">Fast counter bills, tokens & queue busting</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.takeaway-restaurant') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
-                <div>
-                  <div class="card-title">Takeaway Restaurant</div>
-                  <div class="card-desc">Counter orders, KOT & pickup management</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.college-canteen') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-                <div>
-                  <div class="card-title">College Canteen</div>
-                  <div class="card-desc">Campus food service, multi-counter & tokens</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.office-canteen') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M16 10h.01M8 10h.01M12 14h.01M16 14h.01M8 14h.01"/></svg></div>
-                <div>
-                  <div class="card-title">Office Canteen</div>
-                  <div class="card-desc">Corporate cafeteria, employee orders & counters</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.sweet-shop') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
-                <div>
-                  <div class="card-title">Sweet Shop</div>
-                  <div class="card-desc">Weight-based billing, packing & inventory</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.bakery') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-                <div>
-                  <div class="card-title">Bakeries & Cake Shops</div>
-                  <div class="card-desc">Custom cakes, billing & inventory</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.juice-and-snacks') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 3v3H7V3M9 6v15M15 6v15"/><path d="M6 3h12l-2 18H8z"/><path d="M11 0L10 6"/></svg></div>
-                <div>
-                  <div class="card-title">Juice & Snack Shops</div>
-                  <div class="card-desc">Fast counter billing & orders</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.bars-and-breweries') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M8 22h8M12 11v11M12 11a7 7 0 0 0 7-7V2H5v2a7 7 0 0 0 7 7z"/></svg></div>
-                <div>
-                  <div class="card-title">Bars & Breweries</div>
-                  <div class="card-desc">Table service & billing</div>
-                </div>
-              </a>
-              <a href="{{ route('solutions.pizzerias') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
-                <div>
-                  <div class="card-title">Pizzerias & Specialty Food</div>
-                  <div class="card-desc">Focused menus & fast service</div>
-                </div>
-              </a>
-              <a href="{{ url('/#multibranch') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-                <div>
-                  <div class="card-title">Multi-Branch Chains</div>
-                  <div class="card-desc">Central recipe, stock & HQ reports</div>
-                </div>
-              </a>
-              <a href="{{ url('/#audience') }}" class="dropdown-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-                <div>
-                  <div class="card-title">Cloud Kitchens</div>
-                  <div class="card-desc">Multi-brand aggregation & dispatch</div>
-                </div>
-              </a>
-            </div>
-            <div class="dropdown-footer">
-              <span style="font-size:12px;color:#9ca3af;">Tailored solutions for every food business</span>
-              <a href="{{ route('solutions') }}">Explore all solutions &rarr;</a>
-            </div>
-          </div>
-        </li>
+        --}}
 
       </ul>
     </div>
 
-    <!-- Right Side: Sign In + Red "Sign Up Now" Pill -->
+    <!-- Right Side: Language Switcher + Sign In + "Sign Up Now" Pill -->
     <div class="nav-cta-group">
+
+      <!-- Language Switcher near Sign In -->
+      <div class="nav-lang-dropdown notranslate" id="geniLangDropdown">
+        <button type="button" class="btn-lang-toggle" id="btnLangToggle" aria-label="Select Language" aria-expanded="false" title="Change Language">
+          <svg class="lang-globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span class="active-lang-code" id="activeLangLabel">English</span>
+          <svg class="lang-chevron" viewBox="0 0 12 12" fill="currentColor">
+            <path d="M2.22 4.47a.75.75 0 0 1 1.06 0L6 7.19l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L2.22 5.53a.75.75 0 0 1 0-1.06z"/>
+          </svg>
+        </button>
+
+        <div class="lang-dropdown-menu notranslate" id="langDropdownMenu" role="menu">
+          <div class="lang-dropdown-header">
+            <span>Select Language</span>
+            <span style="font-size: 10px; opacity: 0.7; font-weight: 600;">Global</span>
+          </div>
+
+          <!-- Quick Search Filter -->
+          <div class="lang-search-box">
+            <svg class="lang-search-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="langSearchInput" class="lang-search-input" placeholder="Search language..." oninput="filterGeniLanguages(this.value)" autocomplete="off">
+          </div>
+
+          <div class="lang-options-scroll" id="langOptionsScroll">
+            <div class="lang-group-header">International Languages</div>
+
+            <button type="button" class="lang-item" data-code="en" data-name="english global" onclick="selectAppLanguage('en')">
+              <span class="lang-item-left"><span class="lang-flag">🇺🇸</span><span class="lang-names"><span class="lang-native">English</span><span class="lang-english">Global English</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="es" data-name="español spanish" onclick="selectAppLanguage('es')">
+              <span class="lang-item-left"><span class="lang-flag">🇪🇸</span><span class="lang-names"><span class="lang-native">Español</span><span class="lang-english">Spanish</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="fr" data-name="français french" onclick="selectAppLanguage('fr')">
+              <span class="lang-item-left"><span class="lang-flag">🇫🇷</span><span class="lang-names"><span class="lang-native">Français</span><span class="lang-english">French</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="de" data-name="deutsch german" onclick="selectAppLanguage('de')">
+              <span class="lang-item-left"><span class="lang-flag">🇩🇪</span><span class="lang-names"><span class="lang-native">Deutsch</span><span class="lang-english">German</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="ar" data-name="العربية arabic" onclick="selectAppLanguage('ar')">
+              <span class="lang-item-left"><span class="lang-flag">🇦🇪</span><span class="lang-names"><span class="lang-native">العربية</span><span class="lang-english">Arabic</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="pt" data-name="português portuguese" onclick="selectAppLanguage('pt')">
+              <span class="lang-item-left"><span class="lang-flag">🇵🇹</span><span class="lang-names"><span class="lang-native">Português</span><span class="lang-english">Portuguese</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="ru" data-name="русский russian" onclick="selectAppLanguage('ru')">
+              <span class="lang-item-left"><span class="lang-flag">🇷🇺</span><span class="lang-names"><span class="lang-native">Русский</span><span class="lang-english">Russian</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="zh-CN" data-name="简体中文 chinese" onclick="selectAppLanguage('zh-CN')">
+              <span class="lang-item-left"><span class="lang-flag">🇨🇳</span><span class="lang-names"><span class="lang-native">简体中文</span><span class="lang-english">Chinese (Simplified)</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="ja" data-name="日本語 japanese" onclick="selectAppLanguage('ja')">
+              <span class="lang-item-left"><span class="lang-flag">🇯🇵</span><span class="lang-names"><span class="lang-native">日本語</span><span class="lang-english">Japanese</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="ko" data-name="한국어 korean" onclick="selectAppLanguage('ko')">
+              <span class="lang-item-left"><span class="lang-flag">🇰🇷</span><span class="lang-names"><span class="lang-native">한국어</span><span class="lang-english">Korean</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="it" data-name="italiano italian" onclick="selectAppLanguage('it')">
+              <span class="lang-item-left"><span class="lang-flag">🇮🇹</span><span class="lang-names"><span class="lang-native">Italiano</span><span class="lang-english">Italian</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="nl" data-name="nederlands dutch" onclick="selectAppLanguage('nl')">
+              <span class="lang-item-left"><span class="lang-flag">🇳🇱</span><span class="lang-names"><span class="lang-native">Nederlands</span><span class="lang-english">Dutch</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="tr" data-name="türkçe turkish" onclick="selectAppLanguage('tr')">
+              <span class="lang-item-left"><span class="lang-flag">🇹🇷</span><span class="lang-names"><span class="lang-native">Türkçe</span><span class="lang-english">Turkish</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="id" data-name="bahasa indonesia indonesian" onclick="selectAppLanguage('id')">
+              <span class="lang-item-left"><span class="lang-flag">🇮🇩</span><span class="lang-names"><span class="lang-native">Bahasa Indonesia</span><span class="lang-english">Indonesian</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="vi" data-name="tiếng việt vietnamese" onclick="selectAppLanguage('vi')">
+              <span class="lang-item-left"><span class="lang-flag">🇻🇳</span><span class="lang-names"><span class="lang-native">Tiếng Việt</span><span class="lang-english">Vietnamese</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="th" data-name="ไทย thai" onclick="selectAppLanguage('th')">
+              <span class="lang-item-left"><span class="lang-flag">🇹🇭</span><span class="lang-names"><span class="lang-native">ไทย</span><span class="lang-english">Thai</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="pl" data-name="polski polish" onclick="selectAppLanguage('pl')">
+              <span class="lang-item-left"><span class="lang-flag">🇵🇱</span><span class="lang-names"><span class="lang-native">Polski</span><span class="lang-english">Polish</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="sv" data-name="svenska swedish" onclick="selectAppLanguage('sv')">
+              <span class="lang-item-left"><span class="lang-flag">🇸🇪</span><span class="lang-names"><span class="lang-native">Svenska</span><span class="lang-english">Swedish</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <div class="lang-group-header" style="margin-top: 6px;">Regional Languages</div>
+
+            <button type="button" class="lang-item" data-code="ta" data-name="தமிழ் tamil" onclick="selectAppLanguage('ta')">
+              <span class="lang-item-left"><span class="lang-flag">🇮🇳</span><span class="lang-names"><span class="lang-native">தமிழ்</span><span class="lang-english">Tamil</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="hi" data-name="हिन्दी hindi" onclick="selectAppLanguage('hi')">
+              <span class="lang-item-left"><span class="lang-flag">🇮🇳</span><span class="lang-names"><span class="lang-native">हिन्दी</span><span class="lang-english">Hindi</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="ml" data-name="മലയാളം malayalam" onclick="selectAppLanguage('ml')">
+              <span class="lang-item-left"><span class="lang-flag">🇮🇳</span><span class="lang-names"><span class="lang-native">മലയാളം</span><span class="lang-english">Malayalam</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="te" data-name="తెలుగు telugu" onclick="selectAppLanguage('te')">
+              <span class="lang-item-left"><span class="lang-flag">🇮🇳</span><span class="lang-names"><span class="lang-native">తెలుగు</span><span class="lang-english">Telugu</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+
+            <button type="button" class="lang-item" data-code="kn" data-name="ಕನ್ನಡ kannada" onclick="selectAppLanguage('kn')">
+              <span class="lang-item-left"><span class="lang-flag">🇮🇳</span><span class="lang-names"><span class="lang-native">ಕನ್ನಡ</span><span class="lang-english">Kannada</span></span></span>
+              <svg class="lang-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
       <a href="{{ route('login') }}" class="btn-signin">
         @if (user())
           @lang('menu.dashboard')
@@ -953,8 +1155,7 @@
         @endif
       </a>
 
-      <a href="{{ route('restaurant_signup') }}"
-         class="btn-signup-pill">
+      <a href="{{ route('restaurant_signup') }}" class="btn-signup-pill">
         Sign Up Now
       </a>
 
@@ -970,40 +1171,14 @@
 
   <!-- Mobile Drawer Menu -->
   <div class="mobile-panel" id="geniMobilePanel">
-    <a href="tel:+918667205661" class="mobile-tollfree">
-      <span style="width:20px;height:20px;flex-shrink:0;display:flex;align-items:center;">
-        <svg viewBox="0 0 24 24" fill="#876039" style="width:18px;height:18px;">
-          <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.59l1.97-1.57c.28-.28.37-.67.25-1.02A11.36 11.36 0 0 1 8.96 4.3a1 1 0 0 0-1-1H4.21a1 1 0 0 0-1 1c0 9.39 7.63 17.02 17.02 17.02a1 1 0 0 0 1-1v-3.77a1 1 0 0 0-.22-.67z"/>
-        </svg>
-      </span>
-      <span>+91 86672 05661</span>
-    </a>
 
     <ul class="mobile-list">
+
       <li class="mobile-list-item">
-        <a href="{{ url('/') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
-          <span>Home</span>
+        <a href="{{ route('features') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
+          <span>Features</span>
           <span style="font-size: 13px; color: #9C6F3E;">&rarr;</span>
         </a>
-      </li>
-
-      <li class="mobile-list-item" id="mobItemFeatures">
-        <button type="button" class="mobile-accordion-btn" onclick="toggleMobSubmenu('mobItemFeatures')">
-          <span>Features</span>
-          <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-        <div class="mobile-sub-menu">
-          <a href="{{ route('features') }}" class="mobile-sub-link" onclick="closeGeniMobile()" style="font-weight: 600; color: #9C6F3E;"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> View All Features &rarr;</a>
-          <a href="{{ route('features.menu-management') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="18" cy="18" r="3"/><path d="M18 15v6M15 18h6"/></svg> Menu Management</a>
-          <a href="{{ route('features.reservation-management') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Reservation Management</a>
-          <a href="{{ route('features.waiter-request') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8v4h12V8zM3 16h18v2H3zM12 4v2"/></svg> Waiter Requests</a>
-          <a href="{{ route('features.table-management') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M4 9h16M5 9v10M19 9v10M9 9V5h6v4M7 15h10"/></svg> Table Management</a>
-          <a href="{{ route('features.pos-management') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M12 16v4M7 8h4M7 11h2"/></svg> POS & Fast Billing</a>
-          <a href="{{ route('features.order-management') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4M9 16h6"/></svg> Order Management</a>
-          <a href="{{ route('features.kot-management') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M6 13.8A6 6 0 0112 4a6 6 0 016 9.8V17H6v-3.2zM4 17h16v3H4zM12 4V2"/></svg> Kitchen Order Tickets (KOT)</a>
-          <a href="{{ route('features.inventory-management') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg> Inventory Management</a>
-          <a href="{{ route('features.reports') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6M3 20h18"/></svg> Reports & Analytics</a>
-        </div>
       </li>
 
       <li class="mobile-list-item">
@@ -1013,6 +1188,15 @@
         </a>
       </li>
 
+      <li class="mobile-list-item">
+        <a href="{{ route('solutions') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
+          <span>Solutions</span>
+          <span style="font-size: 13px; color: #9C6F3E;">&rarr;</span>
+        </a>
+      </li>
+
+      {{-- Resources (Hidden) --}}
+      {{--
       <li class="mobile-list-item" id="mobItemResources">
         <button type="button" class="mobile-accordion-btn" onclick="toggleMobSubmenu('mobItemResources')">
           <span>Resources</span>
@@ -1025,29 +1209,52 @@
           <a href="{{ route('terms-and-conditions') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Terms & Policies</a>
         </div>
       </li>
+      --}}
 
-      <li class="mobile-list-item" id="mobItemSolutions">
-        <button type="button" class="mobile-accordion-btn" onclick="toggleMobSubmenu('mobItemSolutions')">
-          <span>Solutions</span>
-          <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-        <div class="mobile-sub-menu">
-          <a href="{{ route('solutions') }}" class="mobile-sub-link" onclick="closeGeniMobile()" style="font-weight: 600; color: #9C6F3E;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg> Explore All Solutions &rarr;</a>
-          <a href="{{ route('solutions.family-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Family Restaurant</a>
-          <a href="{{ route('solutions.dine-in-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M4 9h16M5 9v10M19 9v10M9 9V5h6v4M7 15h10"/></svg> Dine-in Restaurant</a>
-          <a href="{{ route('solutions.qsr-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Quick Service (QSR)</a>
-          <a href="{{ route('solutions.bakery') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg> Bakeries & Cafes</a>
-          <a href="{{ route('solutions.takeaway-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/></svg> Takeaway Restaurant</a>
-          <a href="{{ route('solutions.multi-cuisine-restaurant') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M3 18h18M5 12h14v6H5zM12 4v8"/></svg> Multi-Cuisine</a>
-          <a href="{{ route('solutions.sweet-shop') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/></svg> Sweet Shop</a>
-          <a href="{{ route('solutions.college-canteen') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg> College Canteen</a>
-          <a href="{{ route('solutions.office-canteen') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/></svg> Office Canteen</a>
-          <a href="{{ route('solutions.bars-and-breweries') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M8 22h8M12 11v11"/></svg> Bars & Breweries</a>
-        </div>
-      </li>
     </ul>
 
     <div class="mobile-actions">
+      <!-- Mobile Language Switcher -->
+      <div class="mobile-lang-box notranslate">
+        <label for="mobileLangSelect" class="mobile-lang-label">
+          <svg class="lang-globe-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span>Choose Language</span>
+        </label>
+        <select id="mobileLangSelect" class="mobile-lang-select" onchange="selectAppLanguage(this.value)">
+          <optgroup label="International Languages">
+            <option value="en">🇺🇸 English (Global)</option>
+            <option value="es">🇪🇸 Español (Spanish)</option>
+            <option value="fr">🇫🇷 Français (French)</option>
+            <option value="de">🇩🇪 Deutsch (German)</option>
+            <option value="ar">🇦🇪 العربية (Arabic)</option>
+            <option value="pt">🇵🇹 Português (Portuguese)</option>
+            <option value="ru">🇷🇺 Русский (Russian)</option>
+            <option value="zh-CN">🇨🇳 简体中文 (Chinese)</option>
+            <option value="ja">🇯🇵 日本語 (Japanese)</option>
+            <option value="ko">🇰🇷 한국어 (Korean)</option>
+            <option value="it">🇮🇹 Italiano (Italian)</option>
+            <option value="nl">🇳🇱 Nederlands (Dutch)</option>
+            <option value="tr">🇹🇷 Türkçe (Turkish)</option>
+            <option value="id">🇮🇩 Bahasa Indonesia (Indonesian)</option>
+            <option value="vi">🇻🇳 Tiếng Việt (Vietnamese)</option>
+            <option value="th">🇹🇭 ไทย (Thai)</option>
+            <option value="pl">🇵🇱 Polski (Polish)</option>
+            <option value="sv">🇸🇪 Svenska (Swedish)</option>
+          </optgroup>
+          <optgroup label="Regional Languages">
+            <option value="ta">🇮🇳 தமிழ் (Tamil)</option>
+            <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+            <option value="ml">🇮🇳 മലയാളം (Malayalam)</option>
+            <option value="te">🇮🇳 తెలుగు (Telugu)</option>
+            <option value="kn">🇮🇳 ಕನ್ನಡ (Kannada)</option>
+          </optgroup>
+        </select>
+      </div>
+
       <a href="{{ route('restaurant_signup') }}"
          onclick="closeGeniMobile();"
          class="btn-signup-pill" style="width:100%;text-align:center;padding:12px 20px;font-size:14px;">
@@ -1066,6 +1273,206 @@
 </header>
 
 <script>
+  // Geni Multi-lingual Frontend Engine
+  var GENI_LANG_MAP = {
+    'en': { name: 'English', native: 'English', flag: '🇺🇸' },
+    'es': { name: 'Spanish', native: 'Español', flag: '🇪🇸' },
+    'fr': { name: 'French', native: 'Français', flag: '🇫🇷' },
+    'de': { name: 'German', native: 'Deutsch', flag: '🇩🇪' },
+    'ar': { name: 'Arabic', native: 'العربية', flag: '🇦🇪', rtl: true },
+    'pt': { name: 'Portuguese', native: 'Português', flag: '🇵🇹' },
+    'ru': { name: 'Russian', native: 'Русский', flag: '🇷🇺' },
+    'zh-CN': { name: 'Chinese', native: '简体中文', flag: '🇨🇳' },
+    'ja': { name: 'Japanese', native: '日本語', flag: '🇯🇵' },
+    'ko': { name: 'Korean', native: '한국어', flag: '🇰🇷' },
+    'it': { name: 'Italian', native: 'Italiano', flag: '🇮🇹' },
+    'nl': { name: 'Dutch', native: 'Nederlands', flag: '🇳🇱' },
+    'tr': { name: 'Turkish', native: 'Türkçe', flag: '🇹🇷' },
+    'id': { name: 'Indonesian', native: 'Bahasa Indonesia', flag: '🇮🇩' },
+    'vi': { name: 'Vietnamese', native: 'Tiếng Việt', flag: '🇻🇳' },
+    'th': { name: 'Thai', native: 'ไทย', flag: '🇹🇭' },
+    'pl': { name: 'Polish', native: 'Polski', flag: '🇵🇱' },
+    'sv': { name: 'Swedish', native: 'Svenska', flag: '🇸🇪' },
+    'ta': { name: 'Tamil', native: 'தமிழ்', flag: '🇮🇳' },
+    'hi': { name: 'Hindi', native: 'हिन्दी', flag: '🇮🇳' },
+    'ml': { name: 'Malayalam', native: 'മലയാളം', flag: '🇮🇳' },
+    'te': { name: 'Telugu', native: 'తెలుగు', flag: '🇮🇳' },
+    'kn': { name: 'Kannada', native: 'ಕನ್ನಡ', flag: '🇮🇳' }
+  };
+
+  function filterGeniLanguages(query) {
+    var q = (query || '').toLowerCase().trim();
+    var items = document.querySelectorAll('#langOptionsScroll .lang-item');
+    items.forEach(function(item) {
+      var name = (item.getAttribute('data-name') || '').toLowerCase();
+      var code = (item.getAttribute('data-code') || '').toLowerCase();
+      if (!q || name.indexOf(q) !== -1 || code.indexOf(q) !== -1) {
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  function getSavedLanguage() {
+    // 1. Check googtrans cookie
+    var m = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+    if (m) {
+      var parts = decodeURIComponent(m[1]).split('/');
+      var c = parts[parts.length - 1];
+      if (c && c !== 'auto' && GENI_LANG_MAP[c]) {
+        return c;
+      }
+    }
+    // 2. Check localStorage
+    var ls = localStorage.getItem('geni_selected_locale');
+    if (ls && GENI_LANG_MAP[ls]) {
+      return ls;
+    }
+    // 3. Fallback to session / default
+    return '{{ session("customer_locale") ?? app()->getLocale() ?? "en" }}';
+  }
+
+  function setLanguageCookies(lang) {
+    var val = (lang === 'en') ? '/en/en' : ('/en/' + lang);
+    var host = window.location.hostname;
+
+    // Remove old cookies
+    var delStr = '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'googtrans' + delStr;
+    document.cookie = 'googtrans' + delStr + ' domain=' + host + ';';
+    if (host.indexOf('.') !== -1 && !/^\d+\.\d+\.\d+\.\d+$/.test(host)) {
+      document.cookie = 'googtrans' + delStr + ' domain=.' + host + ';';
+    }
+
+    // Set new cookie across variations
+    document.cookie = 'googtrans=' + val + '; path=/; SameSite=Lax';
+    document.cookie = 'googtrans=' + val + '; domain=' + host + '; path=/; SameSite=Lax';
+    if (host.indexOf('.') !== -1 && !/^\d+\.\d+\.\d+\.\d+$/.test(host)) {
+      document.cookie = 'googtrans=' + val + '; domain=.' + host + '; path=/; SameSite=Lax';
+    }
+  }
+
+  function selectAppLanguage(code) {
+    if (!GENI_LANG_MAP[code]) {
+      code = 'en';
+    }
+
+    localStorage.setItem('geni_selected_locale', code);
+    setLanguageCookies(code);
+
+    // Sync with Laravel backend session via AJAX
+    try {
+      fetch('/change-locale/' + code, {
+        method: 'GET',
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+      }).catch(function() {});
+    } catch(e) {}
+
+    // Trigger Google Translate live combobox if already rendered
+    var combo = document.querySelector('.goog-te-combo');
+    if (combo) {
+      combo.value = code;
+      combo.dispatchEvent(new Event('change'));
+    }
+
+    // Handle RTL
+    if (GENI_LANG_MAP[code].rtl) {
+      document.documentElement.setAttribute('dir', 'rtl');
+    } else {
+      document.documentElement.setAttribute('dir', 'ltr');
+    }
+
+    // Close dropdown
+    closeLangMenu();
+
+    // Reload page smoothly to translate all full-page content
+    setTimeout(function() {
+      window.location.reload();
+    }, 120);
+  }
+
+  function toggleLangMenu(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    var dropdown = document.getElementById('geniLangDropdown');
+    var btn = document.getElementById('btnLangToggle');
+    if (dropdown) {
+      var isOpen = dropdown.classList.toggle('is-open');
+      if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if (isOpen) {
+        var inp = document.getElementById('langSearchInput');
+        if (inp) {
+          inp.value = '';
+          filterGeniLanguages('');
+          setTimeout(function() { inp.focus(); }, 60);
+        }
+      }
+    }
+  }
+
+  function closeLangMenu() {
+    var dropdown = document.getElementById('geniLangDropdown');
+    var btn = document.getElementById('btnLangToggle');
+    if (dropdown && dropdown.classList.contains('is-open')) {
+      dropdown.classList.remove('is-open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  function initLanguageUI() {
+    var current = getSavedLanguage();
+
+    // Update active label
+    var labelEl = document.getElementById('activeLangLabel');
+    if (labelEl && GENI_LANG_MAP[current]) {
+      labelEl.textContent = GENI_LANG_MAP[current].native;
+    }
+
+    // Update active item in dropdown
+    document.querySelectorAll('.lang-item').forEach(function(item) {
+      if (item.getAttribute('data-code') === current) {
+        item.classList.add('is-active');
+      } else {
+        item.classList.remove('is-active');
+      }
+    });
+
+    // Update mobile select
+    var mobSelect = document.getElementById('mobileLangSelect');
+    if (mobSelect) {
+      mobSelect.value = current;
+    }
+
+    // Set RTL if Arabic
+    if (GENI_LANG_MAP[current] && GENI_LANG_MAP[current].rtl) {
+      document.documentElement.setAttribute('dir', 'rtl');
+    }
+
+    // Attach click toggle
+    var btn = document.getElementById('btnLangToggle');
+    if (btn) {
+      btn.addEventListener('click', toggleLangMenu);
+    }
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      var dropdown = document.getElementById('geniLangDropdown');
+      if (dropdown && !dropdown.contains(e.target)) {
+        closeLangMenu();
+      }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLangMenu();
+      }
+    });
+  }
+
   function toggleGeniMobile() {
     var panel = document.getElementById('geniMobilePanel');
     var burger = document.getElementById('geniNavBurger');
@@ -1098,6 +1505,8 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    initLanguageUI();
+
     var burger = document.getElementById('geniNavBurger');
     if (burger) {
       burger.addEventListener('click', toggleGeniMobile);

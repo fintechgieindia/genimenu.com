@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ session('customer_locale') ?? str_replace('_', '-', app()->getLocale()) }}" dir="{{ session('customer_is_rtl') ? 'rtl' : 'ltr' }}">
 
 <head>
     @php
@@ -61,7 +61,8 @@
     <link rel="apple-touch-icon" href="{{ asset('assets/images/geni-favicon.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/effra" rel="stylesheet">
 
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -129,48 +130,57 @@
 
     <style>
         :root {
-            --font-heading: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
-            --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-heading: 'Effra', sans-serif;
+            --font-body: 'Geist', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             --font-accent: 'Playfair Display', Georgia, serif;
 
-            /* Food & Hospitality Warm Theme Colors (No pure black/cold grays) */
-            --br: #876039;
-            --br-dark: #6f4e2d;
-            --br-light: #FAF6EF;
-            --br-gold: #b88e56;
+            /* Stripe High-Tech Slate-Blue Palette */
+            --br: #B45309;
+            --br-dark: #92400E;
+            --br-light: #FEF3C7;
+            --br-gold: #D97706;
 
-            --bg: #FFFFFF;
-            --bg2: #FAF7F2;
-            --bg3: #F5EFE6;
+            --bg: #F6F9FC;
+            --bg2: #FFFFFF;
+            --bg3: #EEF2F6;
 
-            --ink: #21160F;
-            --ink-light: #3D2D23;
-            --mute: #6E6157;
-            --mute-light: #94867B;
+            --ink: #0A2540;
+            --ink-light: #1A365D;
+            --mute: #425466;
+            --mute-light: #627D98;
 
-            --line: rgba(135, 96, 57, 0.16);
-            --line-solid: #E8DDD1;
+            --line: #E3E8EE;
+            --line-solid: #E3E8EE;
         }
 
         body {
             font-family: var(--font-body);
             color: var(--ink);
             background-color: var(--bg);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: subpixel-antialiased;
+            -moz-osx-font-smoothing: auto;
+            text-rendering: optimizeLegibility;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-heading);
             color: var(--ink);
-            font-weight: 500;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        p {
+            font-family: var(--font-body);
+            color: var(--mute);
+            line-height: 1.65;
         }
 
         /* Footer styles */
         .footer {
-            background-color: var(--bg2, #FAF7F2);
+            background-color: var(--bg2, #FFFFFF);
             padding: 60px 20px 20px;
-            border-top: 1px solid var(--line, rgba(168, 91, 43, 0.16));
+            border-top: 1px solid var(--line, #E3E8EE);
         }
 
         @media (min-width: 768px) {
@@ -325,6 +335,69 @@
             /* Your theme color */
 
         }
+
+        /* Complete elimination of Google Translate top banner & body offset */
+        body > .skiptranslate,
+        body > iframe.skiptranslate,
+        iframe.skiptranslate,
+        .goog-te-banner-frame,
+        .goog-te-banner-frame.skiptranslate,
+        iframe.goog-te-banner-frame,
+        .goog-te-balloon-frame,
+        .goog-te-banner,
+        body > iframe[id*=":"] {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0px !important;
+            width: 0px !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            border: none !important;
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        html {
+            top: 0px !important;
+            position: static !important;
+            overflow-x: clip !important;
+            overflow-y: auto !important;
+        }
+
+        body {
+            top: 0px !important;
+            position: static !important;
+            overflow-x: clip !important;
+        }
+
+        #main-content, main {
+            overflow: visible !important;
+        }
+
+        #goog-gt-tt, 
+        .goog-tooltip, 
+        .goog-tooltip:hover {
+            display: none !important;
+        }
+
+        .goog-text-highlight {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        #google_translate_element {
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
+            width: 1px !important;
+            height: 1px !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            overflow: hidden !important;
+        }
     </style>
 
     @include('sections.theme_style', ['baseColor' => global_setting()->theme_rgb, 'baseColorHex' => global_setting()->theme_hex])
@@ -336,8 +409,8 @@
     <div class="">
         @include('layouts.partials.zoho-navbar')
 
-        <div class="flex overflow-hidden mx-auto :bg-gray-900">
-            <div id="main-content" class="w-full h-full overflow-y-auto :bg-gray-900 main-container">
+        <div class="flex mx-auto :bg-gray-900" style="overflow: visible;">
+            <div id="main-content" class="w-full h-full :bg-gray-900 main-container" style="overflow: visible;">
                 <main>
 
                     @yield('content')
@@ -839,6 +912,46 @@
         });
     </script>
 
+    <!-- Google Translate Script & Element for Dynamic Frontend Translation -->
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,es,fr,de,ar,pt,ru,zh-CN,ja,ko,it,nl,tr,id,vi,th,pl,ta,hi,ml,te,kn',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Continuous Google Translate Banner Suppressor -->
+    <script type="text/javascript">
+        (function() {
+            function killGoogleBanner() {
+                if (document.body && document.body.style && document.body.style.top && document.body.style.top !== '0px') {
+                    document.body.style.setProperty('top', '0px', 'important');
+                }
+                var banners = document.querySelectorAll('body > .skiptranslate, iframe.skiptranslate, .goog-te-banner-frame, body > iframe[id*=":"]');
+                for (var i = 0; i < banners.length; i++) {
+                    banners[i].style.setProperty('display', 'none', 'important');
+                    banners[i].style.setProperty('visibility', 'hidden', 'important');
+                    banners[i].style.setProperty('height', '0px', 'important');
+                }
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', killGoogleBanner);
+            } else {
+                killGoogleBanner();
+            }
+            try {
+                var observer = new MutationObserver(killGoogleBanner);
+                observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
+            } catch(e) {}
+            var timer = setInterval(killGoogleBanner, 100);
+            setTimeout(function() { clearInterval(timer); }, 15000);
+        })();
+    </script>
 
     @stack('scripts')
 </body>

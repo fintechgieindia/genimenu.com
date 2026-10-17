@@ -2,17 +2,17 @@
     <aside id="sidebar"
         class="fixed top-0 ltr:left-0 rtl:right-0 z-20 flex flex-col flex-shrink-0 hidden w-64 h-full pt-16 font-normal duration-75 lg:flex transition-width menu-collapsed:hidden"
         aria-label="Sidebar">
-        <div class="relative flex flex-col flex-1 min-h-0 pt-0 bg-gray-50 ltr:border-r rtl:border-l border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <div class="relative flex flex-col flex-1 min-h-0 pt-0 bg-white ltr:border-r rtl:border-l border-slate-200/80 dark:bg-gray-800 dark:border-gray-700">
             <div class="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto mb-16 [&::-webkit-scrollbar]:w-1.5
                 [&::-webkit-scrollbar-track]:rounded-xl
                 [&::-webkit-scrollbar-thumb]:rounded-xl
-                [&::-webkit-scrollbar-track]:bg-gray-300
-                [&::-webkit-scrollbar-thumb]:bg-gray-400
-                hover:[&::-webkit-scrollbar-thumb]:bg-gray-500
+                [&::-webkit-scrollbar-track]:bg-gray-100
+                [&::-webkit-scrollbar-thumb]:bg-gray-300
+                hover:[&::-webkit-scrollbar-thumb]:bg-gray-400
                 dark:[&::-webkit-scrollbar-track]:bg-gray-700
                 dark:[&::-webkit-scrollbar-thumb]:bg-gray-500
                 dark:hover:[&::-webkit-scrollbar-thumb]:bg-gray-400">
-                <div class="flex-1 px-3 space-y-1 bg-gray-50 divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                <div class="flex-1 px-3 space-y-1 bg-white divide-y divide-slate-100 dark:bg-gray-800 dark:divide-gray-700">
 
                     @if (user()->hasRole('Admin_'.user()->restaurant_id))
                         @livewire('forms.change-branch')
@@ -186,7 +186,7 @@
                 </div>
             </div>
 
-            <div class="absolute bottom-0 left-0 justify-center w-full p-2 space-x-4 bg-white md:flex dark:bg-gray-800 rtl:space-x-reverse" sidebar-bottom-menu>
+            <div class="absolute bottom-0 left-0 justify-center w-full p-2 space-x-4 bg-white border-t border-slate-200/80 md:flex dark:bg-gray-800 rtl:space-x-reverse" sidebar-bottom-menu>
                 <a href="{{ module_enabled('Subdomain') ? 'https://'.restaurant()->sub_domain : route('shop_restaurant', [restaurant()->hash]) }}" target="_blank" class="inline-flex justify-center items-center gap-1 p-2 w-full md:w-auto text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                     @lang('menu.customerSite')
 

@@ -11,35 +11,33 @@
 @section('content')
 
 {{-- Google Fonts --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --br: #876039;
-  --br-dark: #6f4e2d;
-  --br-light: #FBF6EE;
-  --br-gold: #b88e56;
-  --bg: #ffffff;
-  --bg2: #FAF7F2;
-  --bg3: #F5EFE6;
-  --ink: #21160F;
-  --mute: #6E6157;
-  --line: rgba(135, 96, 57, 0.16);
-  --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(33, 22, 15, 0.04);
-  --shadow-md: 0 16px 40px rgba(33, 22, 15, 0.08);
-  --shadow-lg: 0 26px 50px rgba(33, 22, 15, 0.12);
+  --br: #B45309;
+  --br-dark: #92400E;
+  --br-light: #FEF3C7;
+  --br-gold: #D97706;
+  --bg: #FFFFFF;
+  --bg2: #F6F9FC;
+  --bg3: #EEF2F6;
+  --ink: #0A2540;
+  --mute: #425466;
+  --line: #E3E8EE;
+  --card: #FFFFFF;
+  --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
   --green: #10B981;
   --red: #EF4444;
 }
 
 * { box-sizing: border-box; }
+::selection { background: #0A2540; color: #FFFFFF; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font: 400 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font: 400 16px/1.65 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--ink);
   background: var(--bg) !important;
   overflow-x: hidden;
@@ -49,15 +47,16 @@ body {
 /* Typography */
 h1, h2, h3, h4, h5 {
   margin: 0;
-  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   line-height: 1.14;
   letter-spacing: -0.02em;
   color: var(--ink);
 }
-h1 { font-size: clamp(38px, 5.5vw, 64px); font-weight: 500; }
-h2 { font-size: clamp(30px, 4vw, 46px); font-weight: 500; }
-h3 { font-size: 21px; font-weight: 500; color: var(--ink); }
+h1 { font-size: clamp(38px, 4.8vw, 56px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.12; }
+h2 { font-size: clamp(28px, 3.8vw, 44px); font-weight: 800; letter-spacing: -0.032em; line-height: 1.14; }
+h3 { font-size: 20px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
 p { margin: 0; color: var(--mute); font-size: 16px; line-height: 1.65; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; margin: 0; padding: 0; }
@@ -66,7 +65,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-weight: 500;
-  background: linear-gradient(135deg, #876039 0%, #b88e56 100%);
+  background: linear-gradient(135deg, #B45309 0%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -76,18 +75,18 @@ ul { list-style: none; margin: 0; padding: 0; }
 .eb {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  letter-spacing: .16em;
-  font-weight: 500;
+  gap: 7px;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  font-weight: 700;
   text-transform: uppercase;
-  color: var(--br);
+  color: #B45309;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #fbf7f2 0%, #f4efe9 100%);
-  padding: 7px 18px;
-  border-radius: 99px;
-  border: 1px solid rgba(135, 96, 57, 0.22);
-  box-shadow: 0 2px 10px rgba(135, 96, 57, 0.08);
+  background: #FEF3C7;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -98,13 +97,35 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
 /* Buttons */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
-.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135, 96, 57, 0.28); }
-.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135, 96, 57, 0.38); }
-.btn.o { color: var(--br); background: #fff; }
-.btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
+.btn.p {
+  background: #0A2540;
+  color: #FFFFFF !important;
+  border-color: #0A2540;
+  box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
+  font-weight: 700;
+}
+.btn.p:hover {
+  background: #1A365D;
+  border-color: #1A365D;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 37, 64, 0.28);
+}
+.btn.o {
+  color: var(--ink);
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
+  font-weight: 700;
+}
+.btn.o:hover {
+  background: #F6F9FC;
+  border-color: #0A2540;
+  color: var(--ink);
+  transform: translateY(-2px);
+}
 
 /* Breadcrumb */
-.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -112,7 +133,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 
 /* Cards & UI Windows */
 .card { position: relative; overflow: hidden; background: var(--card); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-.card:hover { border-color: rgba(135, 96, 57, 0.38); box-shadow: var(--shadow-md); }
+.card:hover { border-color: #CBD5E1; box-shadow: var(--shadow-md); }
 
 .ic { width: 46px; height: 46px; border-radius: 13px; background: var(--bg2); color: var(--br); display: grid; place-items: center; flex: none; border: 1px solid var(--line); transition: .3s ease; }
 .ic svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
@@ -126,13 +147,13 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 13px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.05em; font-size: 13px; text-transform: uppercase; }
 
 /* Mobile Phone Mockup */
 .ph-frame { width: 270px; border-radius: 40px; background: #1c1815; padding: 10px; box-shadow: 0 24px 50px rgba(36, 26, 20, 0.3); border: 2px solid #3d342d; flex: none; margin: 0 auto; max-width: 100%; }
 .ph-inner { height: 510px; border-radius: 32px; background: #fff; color: var(--ink); padding: 20px 14px 14px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; position: relative; }
 .ph-header { text-align: center; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
-.ph-header h6 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 500; color: var(--ink); }
+.ph-header h6 { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 500; color: var(--ink); }
 .ph-header p { font-size: 11px; color: var(--mute); }
 .ph-cats { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
 .ph-cat { padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; white-space: nowrap; background: var(--bg2); color: var(--mute); border: 1px solid var(--line); }
@@ -164,7 +185,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 /* Industry Grid */
 .ind-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .ind-card { border-radius: 18px; overflow: hidden; background: #fff; border: 1px solid var(--line); transition: transform .3s, box-shadow .3s; position: relative; }
-.ind-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(135,96,57,0.3); }
+.ind-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: #CBD5E1; }
 .ind-img { height: 160px; background-size: cover; background-position: center; position: relative; }
 .ind-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(36, 26, 20, 0.85) 100%); }
 .ind-content { padding: 18px; }
@@ -178,7 +199,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 .faq-q { padding: 20px 24px; font-size: 17px; font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
 .faq-q svg { width: 20px; height: 20px; transition: transform .3s; stroke: var(--br); }
 .faq-item.open .faq-q svg { transform: rotate(180deg); }
-.faq-a { padding: 0 24px 20px; font-size: 15px; color: var(--mute); display: none; line-height: 1.65; border-top: 1px solid rgba(135,96,57,0.08); padding-top: 16px; }
+.faq-a { padding: 0 24px 20px; font-size: 15px; color: var(--mute); display: none; line-height: 1.65; border: 1px solid #E3E8EE; padding-top: 16px; }
 .faq-item.open .faq-a { display: block; }
 
 /* --- Comparison Section: Traditional Paper Menu vs Geni Menu Digital Workflow --- */
@@ -272,7 +293,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 }
 
 .compare-card-title {
-  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 19px;
   font-weight: 700;
   margin: 0 0 2px;
@@ -346,7 +367,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 }
 
 .paper-header {
-  font-family: 'Outfit', 'Playfair Display', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-weight: 500;
   font-size: 13px;
   letter-spacing: 2px;
@@ -360,7 +381,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 .paper-section-title {
   font-size: 8px;
   font-weight: 500;
-  color: #876039;
+  color: #B45309;
   letter-spacing: 0.8px;
   text-transform: uppercase;
   margin-bottom: 3px;
@@ -460,26 +481,26 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: 0 2px 8px rgba(135, 96, 57, 0.04);
+  box-shadow: 0 2px 8px rgba(10, 37, 64, 0.04);
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .workflow-step-card:hover {
   transform: translateY(-2px);
-  border-color: #876039;
+  border-color: #0A2540;
 }
 
 .workflow-icon-box {
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: #FBF6EE;
-  color: #876039;
+  background: #FEF3C7;
+  color: #B45309;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid rgba(135, 96, 57, 0.18);
+  border: 1px solid rgba(217, 119, 6, 0.25);
 }
 
 .workflow-icon-box svg {
@@ -510,7 +531,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
   text-align: center;
   font-size: 15px;
   font-weight: 500;
-  color: #876039;
+  color: #B45309;
   line-height: 1;
 }
 
@@ -553,7 +574,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 }
 
 .wf-phone-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 13.5px;
   font-weight: 500;
   color: #21160F;
@@ -666,13 +687,13 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 }
 
 .bottom-cta-badge {
-  background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%);
+  background: linear-gradient(135deg, #0A2540 0%, #1A2E4C 100%);
   color: #FFFFFF;
   font-size: 11.5px;
   font-weight: 600;
   padding: 6px 18px;
   border-radius: 99px;
-  box-shadow: 0 4px 14px rgba(135, 96, 57, 0.3);
+  box-shadow: 0 4px 14px rgba(10, 37, 64, 0.25);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -918,9 +939,9 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
   <div class="w" style="position: relative; z-index: 1;">
     <!-- Section Header -->
     <div class="hd r in" style="text-align: center; max-width: 760px; margin: 0 auto 50px;">
-      <h2 style="font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif; font-size: clamp(34px, 4.4vw, 48px); color: #21160F; font-weight: 500; line-height: 1.15; margin: 0 0 14px;">
+      <h2 style="font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: clamp(34px, 4.4vw, 48px); color: #21160F; font-weight: 500; line-height: 1.15; margin: 0 0 14px;">
         Still Managing Your Menu<br>
-        <span class="sf" style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 500; background: linear-gradient(135deg, #876039 0%, #b88e56 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">the Hard Way?</span>
+        <span class="sf" style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 500; background: linear-gradient(135deg, #B45309 0%, #D97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">the Hard Way?</span>
       </h2>
       <p style="font-size: 16px; color: #6E6157; line-height: 1.65; margin: 0;">
         Your menu changes every day. New dishes, price changes, sold-out items and seasonal specials shouldn't mean rebuilding your menu every time.
@@ -1278,7 +1299,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
             <span style="font-size: 11px; background: #fff; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--line);">12 Items</span>
           </div>
 
-          <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border: 1px solid var(--br); border-radius: 12px; background: #fff; box-shadow: 0 4px 12px rgba(135,96,57,0.15);">
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border: 1px solid var(--br); border-radius: 12px; background: #fff; box-shadow: 0 4px 12px rgba(10, 37, 64,0.15);">
             <div style="display: flex; align-items: center; gap: 10px; font-weight: 500; color: var(--br);">
               <span style="cursor: grab;">:::</span> 🍛 Main Course
             </div>
@@ -1817,7 +1838,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         </div>
         <h4>Reservation Management</h4>
         <p style="font-size: 14px; margin: 6px 0 14px;">Manage table bookings and seating schedules.</p>
-        <a href="{{ route('features.reservation-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
+        <a href="{{ route('features') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
       </div>
 
       <div class="card" style="padding: 24px;">
@@ -1826,7 +1847,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         </div>
         <h4>Table Management</h4>
         <p style="font-size: 14px; margin: 6px 0 14px;">Organize floor plans and table statuses.</p>
-        <a href="{{ route('features.table-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
+        <a href="{{ route('features') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
       </div>
 
       <div class="card" style="padding: 24px; border-color: var(--br);">
@@ -1835,7 +1856,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         </div>
         <h4>Order Management</h4>
         <p style="font-size: 14px; margin: 6px 0 14px;">Move menu selections into an organized order workflow.</p>
-        <a href="{{ route('features.order-management') }}" style="color: var(--br); font-weight: 500; font-size: 14px;">Explore →</a>
+        <a href="{{ route('features') }}" style="color: var(--br); font-weight: 500; font-size: 14px;">Explore →</a>
       </div>
 
       <div class="card" style="padding: 24px;">
@@ -1844,7 +1865,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         </div>
         <h4>KOT Management</h4>
         <p style="font-size: 14px; margin: 6px 0 14px;">Send tickets straight to the kitchen display.</p>
-        <a href="{{ route('features.kot-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
+        <a href="{{ route('features') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
       </div>
 
       <div class="card" style="padding: 24px;">
@@ -1853,7 +1874,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         </div>
         <h4>POS Management</h4>
         <p style="font-size: 14px; margin: 6px 0 14px;">Speed up billing and checkout with integrated POS.</p>
-        <a href="{{ route('features.pos-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
+        <a href="{{ route('features') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
       </div>
 
       <div class="card" style="padding: 24px;">
@@ -1862,7 +1883,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
         </div>
         <h4>Inventory Management</h4>
         <p style="font-size: 14px; margin: 6px 0 14px;">Track recipe ingredients and stock usage.</p>
-        <a href="{{ route('features.inventory-management') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
+        <a href="{{ route('features') }}" style="color: var(--br); font-weight: 700; font-size: 14px;">Explore →</a>
       </div>
     </div>
   </div>
@@ -1951,7 +1972,7 @@ section { padding: clamp(64px, 8vw, 100px) 0; background: var(--bg); position: r
 </section>
 
 <!-- ================= SECTION 23: FINAL CTA ================= -->
-<section style="background: linear-gradient(135deg, #876039 0%, #6f4e2d 100%); color: #fff; text-align: center;">
+<section style="background: linear-gradient(135deg, #B45309 0%, #D97706 100%); color: #fff; text-align: center;">
   <div class="w r">
     <div class="eb" style="background: rgba(255,255,255,0.15); color: #fff; border-color: rgba(255,255,255,0.3);">
       TAKE CONTROL TODAY

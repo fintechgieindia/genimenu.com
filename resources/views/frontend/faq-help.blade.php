@@ -1,48 +1,59 @@
-﻿@extends('layouts.frontend-master')
+@extends('layouts.frontend-master')
 
 @section('content')
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
 <style>
   :root {
-    --br: #876039;
-    --br-dark: #6f4e2d;
-    --br-light: #f4efe9;
-    --bg2: #f9f6f0;
-    --text-main: #241A14;
-    --text-muted: #645B51;
-    --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-    --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
+    --br: #B45309;
+    --br-dark: #92400E;
+    --br-light: #FEF3C7;
+    --bg: #FFFFFF;
+    --bg2: #F6F9FC;
+    --text-main: #0A2540;
+    --text-muted: #425466;
+    --line: #E3E8EE;
+    --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
   }
 
+  * { box-sizing: border-box; }
+  ::selection { background: #0A2540; color: #FFFFFF; }
+
   .faq-page {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: var(--text-main);
     background: #fff;
+    font-size: 16px;
+    line-height: 1.65;
     overflow-x: hidden;
   }
 
   /* Typography */
   .faq-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 500;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 800;
+    line-height: 1.14;
+    letter-spacing: -0.035em;
+    color: var(--text-main);
   }
   .faq-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: var(--br-light);
-    color: var(--br);
+    gap: 7px;
+    background: #FEF3C7;
+    color: #B45309;
     padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 13px;
+    border-radius: 9999px;
+    border: 1px solid rgba(217,119,6,0.25);
+    box-shadow: 0 1px 3px rgba(50,50,93,0.05);
+    font-size: 11.5px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     margin-bottom: 24px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   /* Buttons */
@@ -51,37 +62,58 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 14px 28px;
+    padding: 13px 26px;
     border-radius: 12px;
-    font-weight: 600;
-    font-size: 16px;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     text-decoration: none;
     cursor: pointer;
-    border: none;
+    border: 1px solid transparent;
   }
-  .faq-btn-primary { background: var(--br); color: #fff; box-shadow: 0 8px 24px rgba(135,96,57,0.25); }
-  .faq-btn-primary:hover { background: var(--br-dark); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(135,96,57,0.35); }
-  .faq-btn-outline { background: transparent; color: var(--text-main); border: 1.5px solid #E5E0DA; }
-  .faq-btn-outline:hover { border-color: var(--br); color: var(--br); background: var(--br-light); }
+  .faq-btn-primary {
+    background: #0A2540;
+    color: #fff !important;
+    border-color: #0A2540;
+    box-shadow: 0 4px 12px rgba(10,37,64,0.2);
+  }
+  .faq-btn-primary:hover {
+    background: #1A365D;
+    border-color: #1A365D;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(10,37,64,0.28);
+  }
+  .faq-btn-outline {
+    background: #FFFFFF;
+    color: var(--text-main);
+    border: 1px solid #CBD5E1;
+    box-shadow: 0 1px 3px rgba(50,50,93,0.05);
+  }
+  .faq-btn-outline:hover {
+    background: #F6F9FC;
+    border-color: #0A2540;
+    color: var(--text-main);
+    transform: translateY(-2px);
+  }
 
   /* Sections */
-  .faq-section { padding: 100px 24px; max-width: 1240px; margin: 0 auto; }
-  .faq-section-alt { background: var(--bg2); padding: 100px 24px; }
+  .faq-section { padding: 90px 24px; max-width: 1240px; margin: 0 auto; }
+  .faq-section-alt { background: var(--bg2); padding: 90px 24px; }
   .faq-section-inner { max-width: 1240px; margin: 0 auto; }
-  .faq-section-header { text-align: center; margin-bottom: 64px; max-width: 700px; margin-left: auto; margin-right: auto; }
-  .faq-section-header h2 { font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 16px; }
-  .faq-section-header p { font-size: 17px; color: var(--text-muted); line-height: 1.6; }
+  .faq-section-header { text-align: center; margin-bottom: 56px; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .faq-section-header h2 { font-size: clamp(30px, 3.8vw, 42px); margin-bottom: 16px; font-weight: 800; letter-spacing: -0.03em; }
+  .faq-section-header p { font-size: 17.5px; color: var(--text-muted); line-height: 1.65; }
 
   /* 10. FAQ HERO */
   .faq-hero {
-    padding: 180px 24px 100px;
-    background: linear-gradient(180deg, var(--bg2) 0%, #fff 100%);
+    padding: 100px 24px 80px;
+    background: #FFFFFF !important;
     text-align: center;
   }
   .faq-hero-content { max-width: 800px; margin: 0 auto; }
-  .faq-hero-content h1 { font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: 24px; }
-  .faq-hero-content p { font-size: 18px; line-height: 1.6; color: var(--text-muted); margin-bottom: 40px; }
+  .faq-hero-content h1 { font-size: clamp(38px, 4.8vw, 54px); margin-bottom: 20px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.12; }
+  .faq-hero-content p { font-size: 18px; line-height: 1.65; color: var(--text-muted); margin-bottom: 36px; }
   
   .faq-search-box {
     position: relative;
@@ -92,7 +124,7 @@
     width: 100%;
     padding: 18px 24px 18px 56px;
     border-radius: 16px;
-    border: 1px solid #E5E0DA;
+    border: 1px solid #E3E8EE;
     font-size: 16px;
     font-family: inherit;
     box-shadow: var(--shadow-sm);
@@ -101,7 +133,7 @@
   }
   .faq-search-input:focus {
     border-color: var(--br);
-    box-shadow: 0 0 0 4px rgba(135,96,57,0.1);
+    box-shadow: 0 0 0 4px rgba(10, 37, 64,0.1);
   }
   .faq-search-icon {
     position: absolute;
@@ -123,7 +155,7 @@
   }
   .faq-cat-card {
     background: #fff;
-    border: 1px solid #E5E0DA;
+    border: 1px solid #E3E8EE;
     border-radius: 16px;
     padding: 24px;
     display: flex;
@@ -192,50 +224,82 @@
     font-size: 20px;
     margin-bottom: 20px;
     padding-bottom: 12px;
-    border-bottom: 1px solid #E5E0DA;
+    border-bottom: 1px solid #E3E8EE;
   }
   .faq-accordion-item {
-    border: 1px solid #E5E0DA;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    background: #fff;
+    border: 1.5px solid #E3E8EE;
+    border-radius: 16px;
+    margin-bottom: 14px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(50, 50, 93, 0.04);
     overflow: hidden;
-    transition: 0.3s;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .faq-accordion-item:hover {
+    border-color: #CBD5E1;
+    box-shadow: 0 4px 14px rgba(50, 50, 93, 0.08);
+  }
+  .faq-accordion-item.active {
+    border-color: #0A2540;
+    box-shadow: 0 8px 24px rgba(10, 37, 64, 0.08);
+    background: #FFFFFF;
   }
   .faq-accordion-btn {
     width: 100%;
-    padding: 20px 24px;
+    padding: 22px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: transparent;
     border: none;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16.5px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #0A2540;
     text-align: left;
     cursor: pointer;
-    font-family: inherit;
+    gap: 16px;
+    outline: none;
   }
-  .faq-accordion-btn svg {
-    transition: transform 0.3s;
-    color: var(--br);
-    flex-shrink: 0;
+  .faq-accordion-btn i {
+    color: #0A2540;
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    flex: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #F6F9FC;
+    display: grid;
+    place-items: center;
+    border: 1px solid #E3E8EE;
   }
-  .faq-accordion-item.active .faq-accordion-btn svg {
-    transform: rotate(180deg);
+  .faq-accordion-item:hover .faq-accordion-btn i {
+    border-color: #CBD5E1;
+    background: #FFFFFF;
+  }
+  .faq-accordion-item.active .faq-accordion-btn i {
+    transform: rotate(45deg);
+    background: #0A2540;
+    color: #FFFFFF;
+    border-color: #0A2540;
   }
   .faq-accordion-body {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    background: #fff;
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    background: #FFFFFF;
   }
   .faq-accordion-inner {
-    padding: 0 24px 24px;
-    color: var(--text-muted);
-    line-height: 1.6;
+    padding: 16px 24px 22px;
+    color: #425466;
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.65;
     font-size: 15px;
+    border-top: 1px solid #F1F5F9;
   }
   .faq-no-results {
     text-align: center;
@@ -257,7 +321,7 @@
     background: #fff;
     padding: 32px 24px;
     border-radius: 16px;
-    border: 1px solid #E5E0DA;
+    border: 1px solid #E3E8EE;
     text-align: center;
     transition: 0.3s;
   }
@@ -288,13 +352,13 @@
     background: #fff;
     padding: 40px;
     border-radius: 20px;
-    border: 1px solid #E5E0DA;
+    border: 1px solid #E3E8EE;
     display: flex;
     align-items: flex-start;
     gap: 24px;
     transition: 0.3s;
   }
-  .faq-support-card:hover { box-shadow: var(--shadow-md); border-color: rgba(135,96,57,0.3); }
+  .faq-support-card:hover { box-shadow: var(--shadow-md); border-color: #CBD5E1; }
   .faq-support-icon {
     width: 64px; height: 64px;
     background: var(--bg2);
@@ -309,16 +373,53 @@
   
   /* 16. FINAL CTA */
   .faq-cta-box {
-    background: var(--br);
-    border-radius: 24px;
+    background: radial-gradient(circle at 50% 0%, #1A2E4C 0%, #0A192F 100%);
+    border-radius: 28px;
     padding: 80px 40px;
     text-align: center;
     color: #fff;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 16px 40px rgba(10, 37, 64, 0.25);
   }
-  .faq-cta-box h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; color: #fff; }
-  .faq-cta-box p { font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto 40px; line-height: 1.6; }
+  .faq-cta-box h2 {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: 20px;
+    color: #fff !important;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+  .faq-cta-box p {
+    font-size: 18px;
+    color: #A0AEC0 !important;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.65;
+  }
+  .faq-cta-box .faq-btn-white {
+    background: #FFFFFF !important;
+    color: #0A2540 !important;
+    border-color: #FFFFFF !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+    font-weight: 700;
+  }
+  .faq-cta-box .faq-btn-white:hover {
+    background: #F6F9FC !important;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4) !important;
+  }
+  .faq-cta-box .faq-btn-outline-white {
+    background: rgba(255,255,255,0.08) !important;
+    color: #fff !important;
+    border: 1.5px solid rgba(255,255,255,0.25) !important;
+    font-weight: 700;
+  }
+  .faq-cta-box .faq-btn-outline-white:hover {
+    border-color: rgba(255,255,255,0.4) !important;
+    background: rgba(255,255,255,0.16) !important;
+    transform: translateY(-2px);
+  }
   
   /* Responsive */
   @media (max-width: 991px) {
@@ -471,19 +572,19 @@
         <div class="faq-group" data-category="general">
           <h3 class="faq-group-title faq-title">General</h3>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">What is Geni Menu? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">What is Geni Menu? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Geni Menu is a restaurant and food-business management platform that brings together menu management, orders, POS, kitchen operations, inventory, customers and reports.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Which businesses can use Geni Menu? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Which businesses can use Geni Menu? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Geni Menu is designed for restaurants, cafés, QSRs, bakeries, sweet shops, juice shops, tea shops, pizzerias, canteens and other food businesses.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Can I use Geni Menu for a small restaurant? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Can I use Geni Menu for a small restaurant? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Yes. Geni Menu offers plans for different business sizes and operational requirements. You can choose the features that suit your restaurant.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Does Geni Menu support multiple branches? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Does Geni Menu support multiple branches? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Multi-branch capabilities are available in applicable plans. Contact the team to understand the setup for your business.</div></div>
           </div>
         </div>
@@ -492,19 +593,19 @@
         <div class="faq-group" data-category="account">
           <h3 class="faq-group-title faq-title">Account & Setup</h3>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">How do I get started with Geni Menu? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">How do I get started with Geni Menu? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Choose a suitable plan or request a demo. The team can guide you through the setup process, including business details, menu configuration and relevant features.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Can I update my restaurant menu after setup? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Can I update my restaurant menu after setup? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Yes. Menu management allows you to update menu items, categories, prices and availability.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Can multiple staff members use the system? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Can multiple staff members use the system? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Staff management and access capabilities are available according to your plan and configuration.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">What should I do if I cannot log in? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">What should I do if I cannot log in? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Check that you are using the correct login details and account. If you still cannot access your account, contact the Geni Menu support team.</div></div>
           </div>
         </div>
@@ -513,19 +614,19 @@
         <div class="faq-group" data-category="menu">
           <h3 class="faq-group-title faq-title">Menu & Customer Experience</h3>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Can I add images to menu items? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Can I add images to menu items? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Geni Menu supports menu item information and images where enabled in your configuration.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Can I mark an item as unavailable? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Can I mark an item as unavailable? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Menu availability can be managed so your team can reflect changes to the items offered.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Does Geni Menu support QR menus? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Does Geni Menu support QR menus? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Geni Menu supports digital menu experiences, including QR menu capabilities where included in your setup.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Can customers place orders through the menu? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Can customers place orders through the menu? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Online or QR-based ordering depends on the features enabled for your business. Contact the team to confirm the options available in your plan.</div></div>
           </div>
         </div>
@@ -534,19 +635,19 @@
         <div class="faq-group" data-category="orders">
           <h3 class="faq-group-title faq-title">Orders, Kitchen & Billing</h3>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Can I manage dine-in and takeaway orders? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Can I manage dine-in and takeaway orders? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Geni Menu supports restaurant order workflows for applicable service types, including dine-in and takeaway.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">What is KOT management? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">What is KOT management? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">KOT, or Kitchen Order Ticket, helps communicate order details from the order workflow to the kitchen team.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Can I manage orders from the POS? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Can I manage orders from the POS? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">The POS and order management features work together to support restaurant billing and order handling, depending on your configuration.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Does Geni Menu support online payment gateways? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Does Geni Menu support online payment gateways? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Payment gateway integration is available in selected plans and configurations.</div></div>
           </div>
         </div>
@@ -555,15 +656,15 @@
         <div class="faq-group" data-category="inventory">
           <h3 class="faq-group-title faq-title">Inventory & Reports</h3>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Can I track my restaurant inventory? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Can I track my restaurant inventory? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Inventory management is available in selected plans. It helps businesses monitor stock and inventory activity.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Can I see my daily sales? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Can I see my daily sales? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Geni Menu reports provide business information such as sales and order activity, depending on the reports enabled in your plan.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Can I export reports? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Can I export reports? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Export reports are available in applicable plans and configurations.</div></div>
           </div>
         </div>
@@ -572,19 +673,19 @@
         <div class="faq-group" data-category="pricing">
           <h3 class="faq-group-title faq-title">Pricing & Plans</h3>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">What plans are available? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">What plans are available? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Geni Menu offers Standard, Premium and Enterprise plans, with pricing and included features varying by business type.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Can I change my plan later? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Can I change my plan later? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">You can discuss upgrading your plan as your business requirements change.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">Are monthly and yearly plans available? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">Are monthly and yearly plans available? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Monthly and yearly pricing options are available for applicable plans.</div></div>
           </div>
           <div class="faq-accordion-item">
-            <button class="faq-accordion-btn">How do I find the right plan? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+            <button class="faq-accordion-btn">How do I find the right plan? <i>+</i></button>
             <div class="faq-accordion-body"><div class="faq-accordion-inner">Compare the available plans and included features or contact the sales team for guidance based on your restaurant's needs.</div></div>
           </div>
         </div>
@@ -605,19 +706,19 @@
           <div class="faq-guide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
           <h3 class="faq-title">POS & Counter Setup</h3>
           <p>Learn about setting up your billing workflow and preparing your counter.</p>
-          <a href="{{ route('features.pos-management') }}" class="faq-guide-link">Read Guide &rarr;</a>
+          <a href="{{ route('features') }}" class="faq-guide-link">Read Guide &rarr;</a>
         </div>
         <div class="faq-guide-card" data-aos="fade-up" data-aos-delay="50">
           <div class="faq-guide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div>
           <h3 class="faq-title">Printer & KOT Setup</h3>
           <p>Find guidance for supported printer configurations and kitchen workflows.</p>
-          <a href="{{ route('features.kot-management') }}" class="faq-guide-link">Read Guide &rarr;</a>
+          <a href="{{ route('features') }}" class="faq-guide-link">Read Guide &rarr;</a>
         </div>
         <div class="faq-guide-card" data-aos="fade-up" data-aos-delay="100">
           <div class="faq-guide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
           <h3 class="faq-title">Tablet & Device Setup</h3>
           <p>Understand how to prepare compatible devices for restaurant operations.</p>
-          <a href="{{ route('features.table-management') }}" class="faq-guide-link">Read Guide &rarr;</a>
+          <a href="{{ route('features') }}" class="faq-guide-link">Read Guide &rarr;</a>
         </div>
         <div class="faq-guide-card" data-aos="fade-up" data-aos-delay="150">
           <div class="faq-guide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
@@ -638,7 +739,7 @@
     
     <div class="faq-content-area" style="max-width:800px; margin:0 auto;" data-aos="fade-up">
       <div class="faq-accordion-item">
-        <button class="faq-accordion-btn">I cannot see a new order. What should I check? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+        <button class="faq-accordion-btn">I cannot see a new order. What should I check? <i>+</i></button>
         <div class="faq-accordion-body">
           <div class="faq-accordion-inner">
             <ul style="margin:0; padding-left:20px; color:var(--text-main);">
@@ -651,7 +752,7 @@
         </div>
       </div>
       <div class="faq-accordion-item">
-        <button class="faq-accordion-btn">My menu changes are not visible. What should I do? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+        <button class="faq-accordion-btn">My menu changes are not visible. What should I do? <i>+</i></button>
         <div class="faq-accordion-body">
           <div class="faq-accordion-inner">
             <ul style="margin:0; padding-left:20px; color:var(--text-main);">
@@ -664,7 +765,7 @@
         </div>
       </div>
       <div class="faq-accordion-item">
-        <button class="faq-accordion-btn">My printer is not working. What should I check? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+        <button class="faq-accordion-btn">My printer is not working. What should I check? <i>+</i></button>
         <div class="faq-accordion-body">
           <div class="faq-accordion-inner">
             <ul style="margin:0; padding-left:20px; color:var(--text-main);">
@@ -677,7 +778,7 @@
         </div>
       </div>
       <div class="faq-accordion-item">
-        <button class="faq-accordion-btn">I cannot access a feature. Why? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+        <button class="faq-accordion-btn">I cannot access a feature. Why? <i>+</i></button>
         <div class="faq-accordion-body">
           <div class="faq-accordion-inner">
             <ul style="margin:0; padding-left:20px; color:var(--text-main);">
@@ -728,8 +829,8 @@
       <h2 class="faq-title">Make Restaurant Management Easier With Geni Menu.</h2>
       <p>From your first menu setup to everyday restaurant operations, find the tools and support you need to move forward.</p>
       <div class="faq-hero-btns" style="margin-top:0;">
-        <a href="{{ route('features') }}" class="faq-btn faq-btn-primary" style="background:#fff; color:var(--br);">Explore Features &rarr;</a>
-        <a href="{{ route('contact.us') }}" class="faq-btn faq-btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.4);">Contact Our Team &rarr;</a>
+        <a href="{{ route('features') }}" class="faq-btn faq-btn-white">Explore Features &rarr;</a>
+        <a href="{{ route('contact.us') }}" class="faq-btn faq-btn-outline-white">Contact Our Team &rarr;</a>
       </div>
     </div>
   </section>
@@ -739,6 +840,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
   AOS.init({ duration: 800, once: true, offset: 50 });
+
+  // Open first item by default
+  const firstItem = document.querySelector('.faq-accordion-item');
+  if (firstItem) {
+    firstItem.classList.add('active');
+    const firstBody = firstItem.querySelector('.faq-accordion-body');
+    if (firstBody) firstBody.style.maxHeight = firstBody.scrollHeight + "px";
+  }
 
   // Accordion Logic
   const accBtns = document.querySelectorAll('.faq-accordion-btn');

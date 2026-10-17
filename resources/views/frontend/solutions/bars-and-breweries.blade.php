@@ -3,40 +3,33 @@
 @section('content')
 
 {{-- Google Fonts --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --br: #876039;
-  --br-dark: #6f4e2d;
-  --br-light: #fbf7f2;
-  --br-gold: #b88e56;
-  --bg: #ffffff;
-  --bg2: #f8f6f4;
-  --bg3: #f1ebe5;
-  --dark: #1a1512;
-  --dark2: #241d19;
-  --ink: #2c221c;
-  --mute: #7a6a60;
-  --line: rgba(135, 96, 57, 0.15);
-  --line-dark: rgba(255, 255, 255, 0.1);
-  --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(26, 21, 18, 0.06);
-  --shadow-md: 0 16px 40px rgba(26, 21, 18, 0.12);
-  --shadow-lg: 0 26px 50px rgba(26, 21, 18, 0.18);
+  --br: #B45309;
+  --br-dark: #92400E;
+  --br-light: #FEF3C7;
+  --br-gold: #D97706;
+  --bg: #FFFFFF;
+  --bg2: #F6F9FC;
+  --bg3: #EEF2F6;
+  --ink: #0A2540;
+  --mute: #425466;
+  --line: #E3E8EE;
+  --card: #FFFFFF;
+  --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
   --green: #10B981;
-  --blue: #3B82F6;
-  --amber: #F59E0B;
   --red: #EF4444;
 }
 
 * { box-sizing: border-box; }
+::selection { background: #0A2540; color: #FFFFFF; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font: 400 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font: 400 16px/1.65 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--ink);
   background: var(--bg) !important;
   overflow-x: hidden;
@@ -45,8 +38,9 @@ body {
 
 h1, h2, h3, h4, h5 {
   margin: 0;
-  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -62,7 +56,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-weight: 700;
-  background: linear-gradient(135deg, #c89659 0%, #a87646 50%, #876039 100%);
+  background: linear-gradient(135deg, #B45309 0%, #D97706 50%, #F59E0B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -77,25 +71,36 @@ ul { list-style: none; margin: 0; padding: 0; }
 .eb {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  letter-spacing: .16em;
-  font-weight: 500;
+  gap: 7px;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  font-weight: 700;
   text-transform: uppercase;
-  color: var(--br);
+  color: #B45309;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #fbf7f2 0%, #f4efe9 100%);
-  padding: 7px 18px;
-  border-radius: 99px;
-  border: 1px solid rgba(135, 96, 57, 0.22);
-  box-shadow: 0 2px 10px rgba(135, 96, 57, 0.08);
+  background: #FEF3C7;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 .dark-sec .eb {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: #e6c594;
-  box-shadow: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #B45309;
+  margin-bottom: 16px;
+  background: #FEF3C7;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .w { max-width: 1240px; margin: auto; padding: 0 24px; position: relative; z-index: 1; }
@@ -111,10 +116,32 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 
 /* Buttons */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
-.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
-.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
-.btn.o { color: var(--br); background: #fff; }
-.btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
+.btn.p {
+  background: #0A2540;
+  color: #FFFFFF !important;
+  border-color: #0A2540;
+  box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
+  font-weight: 700;
+}
+.btn.p:hover {
+  background: #1A365D;
+  border-color: #1A365D;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 37, 64, 0.28);
+}
+.btn.o {
+  color: var(--ink);
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
+  font-weight: 700;
+}
+.btn.o:hover {
+  background: #F6F9FC;
+  border-color: #0A2540;
+  color: var(--ink);
+  transform: translateY(-2px);
+}
 
 /* Badges */
 .badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
@@ -127,7 +154,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 .badge.available { background: #d1fae5; color: #047857; }
 
 /* ---------------- BREADCRUMB ---------------- */
-.bc { padding: 18px 0 16px; background: var(--dark); border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--dark); font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: rgba(255,255,255,0.6); transition: color .2s; }
 .bc a:hover { color: #fff; }
@@ -195,7 +222,7 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 .ot-flow { display: flex; gap: 8px; margin-top: 16px; }
 .ot-step { flex: 1; text-align: center; font-size: 10px; font-weight: 500; text-transform: uppercase; padding: 8px 4px; border-radius: 6px; background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5); border: 1px solid var(--line-dark); display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .ot-step svg { width: 14px; height: 14px; }
-.ot-step.done { background: rgba(135,96,57,0.2); color: #e6c594; border-color: rgba(135,96,57,0.5); }
+.ot-step.done { background: rgba(10, 37, 64,0.2); color: #e6c594; border-color: #CBD5E1; }
 
 /* ---------------- SECTION 11 & 12: PEAK & RESERVATIONS ---------------- */
 .fest-dash { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
@@ -268,7 +295,44 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 .faq-item p { margin-top: 12px; font-size: 15px; color: var(--mute); }
 
 /* ---------------- CTA ---------------- */
-.cta-sec { padding: 100px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); position: relative; overflow: hidden; border-top: 1px solid rgba(135, 96, 57, 0.16); text-align: center; }
+.cta-sec {
+  padding: 90px 0;
+  background: radial-gradient(circle at 50% 0%, #1A2E4C 0%, #0A192F 100%);
+  color: #FFFFFF;
+  text-align: center;
+  position: relative;
+  }
+.cta-box h2 {
+  color: #FFFFFF !important;
+  font-weight: 800;
+  font-size: clamp(30px, 4vw, 44px);
+}
+.cta-box p {
+  color: #A0AEC0 !important;
+  font-size: 17.5px;
+  line-height: 1.65;
+}
+.cta-sec .btn.p {
+  background: #FFFFFF !important;
+  color: #0A2540 !important;
+  border-color: #FFFFFF !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+  font-weight: 700;
+}
+.cta-sec .btn.p:hover {
+  background: #F6F9FC !important;
+  transform: translateY(-2px);
+}
+.cta-sec .btn.o {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #FFFFFF !important;
+  font-weight: 700;
+}
+.cta-sec .btn.o:hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
 .cta-box { max-width: 760px; margin: auto; position: relative; z-index: 2; text-align: center; }
 .cta-box h2 { color: #21160F; margin-bottom: 16px; }
 
@@ -1053,10 +1117,10 @@ section.dark-sec p { color: rgba(255, 255, 255, 0.7); }
 <section class="cta-sec">
   <div class="w cta-box">
     <h2>Ready to Run Your Hospitality Business Smarter?</h2>
-    <p style="color:#6E6157; max-width:600px; margin:0 auto;">Manage menus, tables, reservations, orders, billing, inventory and business insights from one connected platform with Geni Menu.</p>
+    <p style="color:#8898AA; max-width:600px; margin:0 auto;">Manage menus, tables, reservations, orders, billing, inventory and business insights from one connected platform with Geni Menu.</p>
     <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:24px;">
-      <a href="{{ route('restaurant_signup') }}" class="btn p" style="background:#876039; color:#fff;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="background:#fff; border-color:#876039; color:#876039;">Book a Demo</a>
+      <a href="{{ route('restaurant_signup') }}" class="btn p">Get Started →</a>
+      <a href="{{ route('contact.us') }}" class="btn o">Book a Demo</a>
     </div>
   </div>
 </section>

@@ -1,25 +1,31 @@
-﻿@extends('layouts.frontend-master')
+@extends('layouts.frontend-master')
 
 @section('content')
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --br:#876039;--br-dk:#6f4e2d;--br-lt:#f4efe9;--br-g:#b88e56;
-  --bg:#fff;--bg2:#f9f6f0;--bg3:#f3ece1;
-  --ink:#1e140e;--mute:#6b6259;--line:rgba(135,96,57,.13);
-  --card:#fff;
-  --s1:0 2px 10px rgba(30,20,14,.05);
-  --s2:0 8px 32px rgba(30,20,14,.09);
-  --s3:0 20px 50px rgba(30,20,14,.13);
-  --green:#10b981;--amber:#f59e0b;--red:#ef4444;--blue:#3b82f6;
+:root {
+  --br: #B45309;
+  --br-dark: #92400E;
+  --br-light: #FEF3C7;
+  --br-gold: #D97706;
+  --bg: #FFFFFF;
+  --bg2: #F6F9FC;
+  --bg3: #EEF2F6;
+  --ink: #0A2540;
+  --mute: #425466;
+  --line: #E3E8EE;
+  --card: #FFFFFF;
+  --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
+  --green: #10B981;
+  --red: #EF4444;
 }
 *{box-sizing:border-box}
+::selection { background: #0A2540; color: #FFFFFF; }
 html{scroll-behavior:smooth}
-body{margin:0;font:400 16px/1.65 'Plus Jakarta Sans',sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4,h5{margin:0;font-family:'Outfit',sans-serif;font-weight: 500;line-height:1.15;letter-spacing:-.025em;color:var(--ink)}
+body{margin:0;font:400 16px/1.65 'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5{margin:0;font-family:'Plus Jakarta Sans', sans-serif;font-weight: 500;line-height:1.15;letter-spacing:-.025em;color:var(--ink)}
 h1{font-size:clamp(34px,4.8vw,58px)}
 h2{font-size:clamp(28px,3.6vw,44px)}
 h3{font-size:20px;font-weight:700}
@@ -29,14 +35,27 @@ ul{list-style:none;margin:0;padding:0}
 
 /* SF = serif italic accent */
 .sf{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:700;
-  background:linear-gradient(135deg,#876039,#b88e56);
+  background: linear-gradient(135deg, #B45309 0%, #D97706 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
 
 /* Eyebrow badge */
-.eb{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.18em;
-  font-weight: 500;text-transform:uppercase;color:var(--br);margin-bottom:14px;
-  background:linear-gradient(135deg,#fbf7f2,#f4efe9);padding:6px 16px;border-radius:99px;
-  border:1px solid rgba(135,96,57,.2);font-family:'Plus Jakarta Sans',sans-serif}
+.eb {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #B45309;
+  margin-bottom: 16px;
+  background: #FEF3C7;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
 /* Layout */
 .w{max-width:1240px;margin:auto;padding:0 24px;position:relative;z-index:1}
@@ -50,28 +69,49 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
   padding:13px 26px;border-radius:11px;font:700 15px 'Plus Jakarta Sans',sans-serif;
   border:1.5px solid var(--br);transition:.22s ease;cursor:pointer;text-decoration:none}
-.btn.p{background:linear-gradient(135deg,#876039,#a07040);color:#fff;box-shadow:0 4px 14px rgba(135,96,57,.28)}
-.btn.p:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(135,96,57,.38)}
-.btn.o{color:var(--br);background:#fff}
-.btn.o:hover{background:var(--br);color:#fff;transform:translateY(-2px)}
+.btn.p {
+  background: #0A2540;
+  color: #FFFFFF !important;
+  border-color: #0A2540;
+  box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
+  font-weight: 700;
+}
+.btn.p:hover {
+  background: #1A365D;
+  border-color: #1A365D;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 37, 64, 0.28);
+}
+.btn.o {
+  color: var(--ink);
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
+  font-weight: 700;
+}
+.btn.o:hover {
+  background: #F6F9FC;
+  border-color: #0A2540;
+  color: var(--ink);
+  transform: translateY(-2px);
+}
 
 /* Breadcrumb */
-.bc{padding:18px 0 16px;background:var(--bg2);border-bottom:1px solid var(--line);
-  font-size:13px;color:var(--mute);font-weight:600}
+.bc{padding:18px 0 16px;background:var(--bg2);font-size:13px;color:var(--mute);font-weight:600}
 .bc .w{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .bc a{color:var(--mute);transition:color .2s}
-.bc a:hover{color:var(--br)}
-.bc span.cur{color:var(--br);font-weight:700}
+.bc a:hover{color:#0A2540}
+.bc span.cur{color:#0A2540;font-weight:700}
 
 /* Card + Icon */
 .card{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);
   border-radius:18px;box-shadow:var(--s1);transition:transform .28s,box-shadow .28s,border-color .28s}
-.card:hover{border-color:rgba(135,96,57,.28);box-shadow:var(--s2)}
-.ic{width:44px;height:44px;border-radius:12px;background:var(--bg2);color:var(--br);
+.card:hover{border-color:rgba(10, 37, 64,.28);box-shadow:var(--s2)}
+.ic{width:44px;height:44px;border-radius:12px;background:var(--bg2);color:#0A2540;
   display:grid;place-items:center;flex:none;border:1px solid var(--line);transition:.28s}
 .ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;
   stroke-linecap:round;stroke-linejoin:round}
-.card:hover .ic{background:var(--br);color:#fff;border-color:var(--br)}
+.card:hover .ic{background:var(--br);color:#fff;border-color:#0A2540}
 
 /* Window chrome */
 .win{background:#fff;border:1px solid var(--line);border-radius:18px;
@@ -83,7 +123,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .wb i:nth-child(1){background:#ff5f56}
 .wb i:nth-child(2){background:#ffbd2e}
 .wb i:nth-child(3){background:#27c93f}
-.wb .wt{color:var(--br);font-weight: 500;font-family:'Outfit',sans-serif;
+.wb .wt{color:#0A2540;font-weight: 500;font-family:'Plus Jakarta Sans', sans-serif;
   letter-spacing:.06em;font-size:11px;text-transform:uppercase}
 
 /* Status badges */
@@ -98,17 +138,17 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .req-card{padding:14px 16px;background:#fff;border:1px solid var(--line);
   border-radius:14px;display:flex;justify-content:space-between;
   align-items:center;gap:12px;transition:.22s}
-.req-card:hover{border-color:rgba(135,96,57,.28);box-shadow:var(--s1)}
+.req-card:hover{border-color:rgba(10, 37, 64,.28);box-shadow:var(--s1)}
 .req-card.new-r{border-left:3px solid var(--amber)}
 .req-card.ip-r{border-left:3px solid var(--blue)}
 .req-card.done-r{border-left:3px solid var(--green)}
-.req-tbl{font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.1em;
+.req-tbl{font-size:10px;font-weight: 500;color:#0A2540;letter-spacing:.1em;
   text-transform:uppercase;margin-bottom:3px}
 .req-type{font-weight: 500;font-size:14px;color:var(--ink)}
 .req-meta{font-size:11px;color:var(--mute);margin-top:2px}
 .req-act{padding:5px 13px;border-radius:8px;font-size:11px;font-weight: 500;
   cursor:pointer;border:1px solid var(--line);background:var(--bg2);color:var(--ink);white-space:nowrap;transition:.18s}
-.req-act:hover{background:var(--br);color:#fff;border-color:var(--br)}
+.req-act:hover{background:var(--br);color:#fff;border-color:#0A2540}
 .req-act.done-btn{background:#d1fae5;color:#065f46;border-color:#a7f3d0}
 
 /* Table grid (floor plan) */
@@ -119,7 +159,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .tbl-node.idle{border-color:var(--line);background:#fff}
 .tbl-node.active-r{border-color:var(--amber);background:#fffbeb}
 .tbl-node.done-r{border-color:var(--green);background:#ecfdf5}
-.tbl-num{font-weight: 500;font-size:15px;font-family:'Outfit',sans-serif;margin-bottom:4px}
+.tbl-num{font-weight: 500;font-size:15px;font-family:'Plus Jakarta Sans', sans-serif;margin-bottom:4px}
 .tbl-lbl{font-size:10px;font-weight:700;margin-top:6px;padding:2px 8px;
   border-radius:5px;display:inline-block}
 .tbl-node.active-r .tbl-lbl{background:var(--amber);color:#fff}
@@ -130,11 +170,11 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .wflow{display:flex;align-items:flex-start;justify-content:center;gap:0}
 .wf-step{position:relative;z-index:1;text-align:center;flex:1}
 .wf-icon{width:48px;height:48px;border-radius:50%;border:2px solid var(--br);
-  color:var(--br);display:grid;place-items:center;margin:0 auto 12px;
+  color:#0A2540;display:grid;place-items:center;margin:0 auto 12px;
   font-weight: 500;font-size:15px;transition:.3s;background:#fff;
-  font-family:'Outfit',sans-serif}
+  font-family:'Plus Jakarta Sans', sans-serif}
 .wf-step.active .wf-icon{background:var(--br);color:#fff;
-  box-shadow:0 4px 14px rgba(135,96,57,.32)}
+  box-shadow:0 4px 14px rgba(10, 37, 64,.32)}
 .wf-step h5{font-size:13px;font-weight: 500;color:var(--ink);margin-bottom:4px}
 .wf-step p{font-size:11px;color:var(--mute)}
 .wf-line{flex:1;height:2px;background:var(--line);margin-top:24px;max-width:60px;align-self:flex-start;margin-top:23px}
@@ -145,7 +185,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .bar-row{display:flex;align-items:center;gap:12px;font-size:12px}
 .bar-lbl{width:72px;color:var(--mute);font-weight:700;text-align:right;flex:none}
 .bar-trk{flex:1;height:10px;background:#e8ddd0;border-radius:5px;overflow:hidden}
-.bar-fill{height:100%;background:linear-gradient(90deg,#876039,#a87646);
+.bar-fill{height:100%;background:linear-gradient(90deg,#B45309,#D97706);
   border-radius:5px;transition:width 1.2s cubic-bezier(.16,1,.3,1);width:0}
 .bar-count{width:60px;font-size:12px;color:var(--ink);font-weight:700;flex:none}
 
@@ -154,25 +194,25 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
   box-shadow:0 24px 52px rgba(30,20,14,.32),0 0 0 2px #3a2f25;flex:none}
 .ph-in{height:520px;border-radius:32px;background:#fff;
   overflow:hidden;display:flex;flex-direction:column}
-.ph-top{background:linear-gradient(135deg,#876039,#a07040);padding:18px 16px 14px;color:#fff}
-.ph-title{font-weight: 500;font-size:14px;font-family:'Outfit',sans-serif}
+.ph-top{background: linear-gradient(135deg, #B45309 0%, #D97706 100%);padding:18px 16px 14px;color:#fff}
+.ph-title{font-weight: 500;font-size:14px;font-family:'Plus Jakarta Sans', sans-serif}
 .ph-sub{font-size:10px;opacity:.8;margin-top:2px}
 .ph-body{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:9px;scrollbar-width:none}
 .ph-tbl{background:var(--br-lt);border:1px solid var(--line);border-radius:12px;
   padding:10px 12px;text-align:center;margin-bottom:4px}
-.ph-tbl-lbl{font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.1em;text-transform:uppercase}
-.ph-tbl-num{font-size:22px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--ink)}
+.ph-tbl-lbl{font-size:10px;font-weight: 500;color:#0A2540;letter-spacing:.1em;text-transform:uppercase}
+.ph-tbl-num{font-size:22px;font-weight: 500;font-family:'Plus Jakarta Sans', sans-serif;color:var(--ink)}
 .ph-help{font-size:11px;font-weight:600;color:var(--mute);margin-bottom:8px;text-align:center}
 .ph-btn{width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--line);
   background:#fff;font-weight:700;font-size:12px;color:var(--ink);
   display:flex;align-items:center;gap:9px;cursor:pointer;transition:.18s}
-.ph-btn:hover{border-color:var(--br);background:var(--br-lt)}
+.ph-btn:hover{border-color:#0A2540;background:var(--br-lt)}
 .ph-btn svg{width:15px;height:15px;stroke:var(--br);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
 /* FAQ */
 .faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
 .faq-item{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.2s}
-.faq-item.open{border-color:var(--br);box-shadow:0 4px 16px rgba(135,96,57,.1)}
+.faq-item.open{border-color:#0A2540;box-shadow:0 4px 16px rgba(10, 37, 64,.1)}
 .faq-q{padding:18px 22px;font-size:16px;font-weight:700;color:var(--ink);
   cursor:pointer;display:flex;justify-content:space-between;align-items:center;
   user-select:none;gap:12px}
@@ -181,7 +221,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .faq-a{padding:0 22px;max-height:0;overflow:hidden;
   transition:max-height .4s ease,padding .3s;font-size:14px;color:var(--mute);line-height:1.65}
 .faq-item.open .faq-a{max-height:220px;padding:14px 22px 18px;
-  border-top:1px solid rgba(135,96,57,.08)}
+  border-top:1px solid rgba(10, 37, 64,.08)}
 
 /* Ecosystem flow */
 .eco{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px}
@@ -192,8 +232,8 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .eco-nd svg{width:20px;height:20px;fill:none;stroke:var(--mute);stroke-width:1.8;transition:.28s}
 .eco-nd.prime{background:var(--br);color:#fff;border-color:var(--br-dk);box-shadow:var(--s1)}
 .eco-nd.prime svg{stroke:rgba(255,255,255,.8)}
-.eco-nd:hover{border-color:rgba(135,96,57,.35);box-shadow:var(--s1)}
-.eco-arr{color:var(--br);font-size:16px;opacity:.5;margin:0 4px}
+.eco-nd:hover{border-color:rgba(10, 37, 64,.35);box-shadow:var(--s1)}
+.eco-arr{color:#0A2540;font-size:16px;opacity:.5;margin:0 4px}
 
 /* Reveal */
 .r{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
@@ -205,7 +245,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .ind-card{border-radius:16px;overflow:hidden;background:#fff;
   border:1px solid var(--line);transition:transform .28s,box-shadow .28s}
 .ind-card:hover{transform:translateY(-4px);box-shadow:var(--s2);
-  border-color:rgba(135,96,57,.28)}
+  border-color:rgba(10, 37, 64,.28)}
 .ind-img{height:170px;background-size:cover;background-position:center;position:relative}
 .ind-ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(30,20,14,.84) 100%)}
 .ind-ic{position:absolute;bottom:12px;left:14px;width:32px;height:32px;
@@ -222,9 +262,9 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .jstep:not(:last-child)::before{content:'';position:absolute;left:19px;top:40px;
   bottom:0;width:2px;background:linear-gradient(180deg,var(--br),var(--line))}
 .jstep-icon{width:40px;height:40px;border-radius:50%;background:var(--br-lt);
-  border:2px solid var(--br);display:grid;place-items:center;color:var(--br);
+  border:2px solid var(--br);display:grid;place-items:center;color:#0A2540;
   flex:none;transition:.28s}
-.jstep.hi .jstep-icon{background:var(--br);color:#fff;box-shadow:0 4px 12px rgba(135,96,57,.3)}
+.jstep.hi .jstep-icon{background:var(--br);color:#fff;box-shadow:0 4px 12px rgba(10, 37, 64,.3)}
 .jstep-content h5{font-size:15px;font-weight: 500;color:var(--ink);margin-bottom:3px}
 .jstep-content p{font-size:13px}
 
@@ -235,8 +275,8 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 .stats-row{display:flex;gap:24px;flex-wrap:wrap}
 .stat-box{flex:1;min-width:120px;padding:20px 24px;background:#fff;
   border:1px solid var(--line);border-radius:16px;text-align:center}
-.stat-val{font-size:36px;font-weight: 500;font-family:'Outfit',sans-serif;
-  color:var(--br);line-height:1}
+.stat-val{font-size:36px;font-weight: 500;font-family:'Plus Jakarta Sans', sans-serif;
+  color:#0A2540;line-height:1}
 .stat-lbl{font-size:13px;font-weight:700;color:var(--ink);margin-top:6px}
 
 /* Responsive */
@@ -313,21 +353,21 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
       <div class="wb">
         <div class="dots"><i></i><i></i><i></i></div>
         <div class="wt">WAITER REQUESTS — LIVE</div>
-        <div style="font-size:10px;background:var(--br-lt);color:var(--br);padding:3px 10px;border-radius:7px;font-weight: 500">Today · 29 Sep</div>
+        <div style="font-size:10px;background:var(--br-lt);color:#0A2540;padding:3px 10px;border-radius:7px;font-weight: 500">Today · 29 Sep</div>
       </div>
       <div style="padding:14px;background:#fff">
         <!-- Stats row -->
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px">
           <div style="text-align:center;padding:10px 8px;background:var(--bg2);border-radius:10px;border:1px solid var(--line)">
-            <div style="font-size:20px;font-weight: 500;font-family:'Outfit',sans-serif;color:#92400e">08</div>
+            <div style="font-size:20px;font-weight: 500;font-family:'Plus Jakarta Sans', sans-serif;color:#92400e">08</div>
             <div style="font-size:10px;font-weight:700;color:var(--mute);margin-top:2px">New</div>
           </div>
           <div style="text-align:center;padding:10px 8px;background:var(--bg2);border-radius:10px;border:1px solid var(--line)">
-            <div style="font-size:20px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--blue)">05</div>
+            <div style="font-size:20px;font-weight: 500;font-family:'Plus Jakarta Sans', sans-serif;color:var(--blue)">05</div>
             <div style="font-size:10px;font-weight:700;color:var(--mute);margin-top:2px">In Progress</div>
           </div>
           <div style="text-align:center;padding:10px 8px;background:var(--bg2);border-radius:10px;border:1px solid var(--line)">
-            <div style="font-size:20px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--green)">24</div>
+            <div style="font-size:20px;font-weight: 500;font-family:'Plus Jakarta Sans', sans-serif;color:var(--green)">24</div>
             <div style="font-size:10px;font-weight:700;color:var(--mute);margin-top:2px">Completed</div>
           </div>
         </div>
@@ -356,11 +396,11 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
         border-radius:14px;padding:10px 12px;box-shadow:var(--s3);font-size:12px;
         display:flex;gap:9px;align-items:center;z-index:10;animation:floatUp .4s ease 1.4s both">
         <div style="width:30px;height:30px;border-radius:50%;background:var(--br-lt);
-          color:var(--br);display:grid;place-items:center;flex:none">
+          color:#0A2540;display:grid;place-items:center;flex:none">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg>
         </div>
         <div>
-          <div style="font-size:9px;font-weight: 500;color:var(--br);letter-spacing:.08em">NEW REQUEST</div>
+          <div style="font-size:9px;font-weight: 500;color:#0A2540;letter-spacing:.08em">NEW REQUEST</div>
           <div style="font-weight: 500;color:var(--ink);font-size:12px">Table 08 — Call Waiter</div>
           <div style="font-size:10px;color:var(--mute)">Just now</div>
         </div>
@@ -373,7 +413,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 </section>
 
 <!-- ===== VALUE STRIP ===== -->
-<section style="padding:36px 0;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section style="padding:36px 0;background:var(--bg2);">
 <div class="w">
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
     <div class="card r d1" style="padding:22px">
@@ -434,18 +474,18 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
         <div style="width:36px;height:36px;border-radius:11px;background:var(--br);color:#fff;display:grid;place-items:center">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
-        <h3 style="color:var(--br);font-size:17px">With Geni Menu</h3>
+        <h3 style="color:#0A2540;font-size:17px">With Geni Menu</h3>
       </div>
       <div style="display:flex;flex-direction:column;gap:7px">
         <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:13px">Guest sends a request from the table</div>
-        <div style="text-align:center;color:var(--br);font-weight: 500;font-size:16px">↓</div>
+        <div style="text-align:center;color:#0A2540;font-weight: 500;font-size:16px">↓</div>
         <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:13px">Restaurant team receives notification</div>
-        <div style="text-align:center;color:var(--br);font-weight: 500;font-size:16px">↓</div>
+        <div style="text-align:center;color:#0A2540;font-weight: 500;font-size:16px">↓</div>
         <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:13px">Staff member responds</div>
-        <div style="text-align:center;color:var(--br);font-weight: 500;font-size:16px">↓</div>
+        <div style="text-align:center;color:#0A2540;font-weight: 500;font-size:16px">↓</div>
         <div style="padding:10px 14px;background:#fff;border-radius:11px;border:1px solid var(--line);font-weight:700;color:var(--ink);font-size:13px">Request marked as complete</div>
-        <div style="text-align:center;color:var(--br);font-weight: 500;font-size:16px">↓</div>
-        <div style="padding:12px 14px;background:linear-gradient(135deg,#876039,#a07040);border-radius:11px;color:#fff;font-weight: 500;font-size:13px;text-align:center">Smooth, organized table-side service</div>
+        <div style="text-align:center;color:#0A2540;font-weight: 500;font-size:16px">↓</div>
+        <div style="padding:12px 14px;background: linear-gradient(135deg, #B45309 0%, #D97706 100%);border-radius:11px;color:#fff;font-weight: 500;font-size:13px;text-align:center">Smooth, organized table-side service</div>
       </div>
     </div>
   </div>
@@ -476,19 +516,19 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
           <div style="font-size:10px;font-weight: 500;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">TODAY'S REQUESTS</div>
           <div style="display:flex;flex-direction:column;gap:8px">
             <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:12px">
-              <div><div style="font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.08em;text-transform:uppercase">TABLE 08</div><div style="font-weight: 500;font-size:14px;color:var(--ink)">Call Waiter</div><div style="font-size:11px;color:var(--mute)">2 min ago</div></div>
+              <div><div style="font-size:10px;font-weight: 500;color:#0A2540;letter-spacing:.08em;text-transform:uppercase">TABLE 08</div><div style="font-weight: 500;font-size:14px;color:var(--ink)">Call Waiter</div><div style="font-size:11px;color:var(--mute)">2 min ago</div></div>
               <div style="display:flex;align-items:center;gap:7px"><span class="bdg new">New</span><button class="req-act">Respond</button></div>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:12px">
-              <div><div style="font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.08em;text-transform:uppercase">TABLE 14</div><div style="font-weight: 500;font-size:14px;color:var(--ink)">Extra Water</div><div style="font-size:11px;color:var(--mute)">4 min ago</div></div>
+              <div><div style="font-size:10px;font-weight: 500;color:#0A2540;letter-spacing:.08em;text-transform:uppercase">TABLE 14</div><div style="font-weight: 500;font-size:14px;color:var(--ink)">Extra Water</div><div style="font-size:11px;color:var(--mute)">4 min ago</div></div>
               <div style="display:flex;align-items:center;gap:7px"><span class="bdg ip">In Progress</span><button class="req-act">View</button></div>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--line);border-left:3px solid var(--green);border-radius:12px;opacity:.75">
-              <div><div style="font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.08em;text-transform:uppercase">TABLE 05</div><div style="font-weight: 500;font-size:14px;color:var(--ink)">Request Bill</div><div style="font-size:11px;color:var(--mute)">7 min ago</div></div>
+              <div><div style="font-size:10px;font-weight: 500;color:#0A2540;letter-spacing:.08em;text-transform:uppercase">TABLE 05</div><div style="font-weight: 500;font-size:14px;color:var(--ink)">Request Bill</div><div style="font-size:11px;color:var(--mute)">7 min ago</div></div>
               <div style="display:flex;align-items:center;gap:7px"><span class="bdg done">Completed</span><button class="req-act done-btn">Done ✓</button></div>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:12px">
-              <div><div style="font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.08em;text-transform:uppercase">TABLE 21</div><div style="font-weight: 500;font-size:14px;color:var(--ink)">Extra Spoon</div><div style="font-size:11px;color:var(--mute)">9 min ago</div></div>
+              <div><div style="font-size:10px;font-weight: 500;color:#0A2540;letter-spacing:.08em;text-transform:uppercase">TABLE 21</div><div style="font-weight: 500;font-size:14px;color:var(--ink)">Extra Spoon</div><div style="font-size:11px;color:var(--mute)">9 min ago</div></div>
               <div style="display:flex;align-items:center;gap:7px"><span class="bdg new">New</span><button class="req-act">Respond</button></div>
             </div>
           </div>
@@ -498,17 +538,17 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
           <div style="font-size:10px;font-weight: 500;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">SUMMARY</div>
           <div style="display:flex;justify-content:space-between;align-items:center">
             <span style="font-size:13px;font-weight:600;color:var(--mute)">New Requests</span>
-            <span style="font-size:20px;font-weight: 500;font-family:'Outfit',sans-serif;color:#92400e">08</span>
+            <span style="font-size:20px;font-weight: 500;font-family:'Plus Jakarta Sans', sans-serif;color:#92400e">08</span>
           </div>
           <div style="height:1px;background:var(--line)"></div>
           <div style="display:flex;justify-content:space-between;align-items:center">
             <span style="font-size:13px;font-weight:600;color:var(--mute)">In Progress</span>
-            <span style="font-size:20px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--blue)">05</span>
+            <span style="font-size:20px;font-weight: 500;font-family:'Plus Jakarta Sans', sans-serif;color:var(--blue)">05</span>
           </div>
           <div style="height:1px;background:var(--line)"></div>
           <div style="display:flex;justify-content:space-between;align-items:center">
             <span style="font-size:13px;font-weight:600;color:var(--mute)">Completed</span>
-            <span style="font-size:20px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--green)">24</span>
+            <span style="font-size:20px;font-weight: 500;font-family:'Plus Jakarta Sans', sans-serif;color:var(--green)">24</span>
           </div>
         </div>
       </div>
@@ -659,14 +699,14 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
         <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line)">
           <div>
             <div style="font-size:10px;font-weight: 500;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">REQUEST ID</div>
-            <div style="font-size:18px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--br)">#REQ-1048</div>
+            <div style="font-size:18px;font-weight: 500;font-family:'Plus Jakarta Sans', sans-serif;color:#0A2540">#REQ-1048</div>
           </div>
           <span class="bdg new" style="font-size:11px;padding:4px 12px">New</span>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px;margin-bottom:16px">
           <div style="padding:11px 13px;background:var(--bg2);border-radius:10px;border:1px solid var(--line)">
             <div style="font-size:10px;font-weight: 500;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Table</div>
-            <div style="font-weight: 500;color:var(--br);font-size:16px">T08</div>
+            <div style="font-weight: 500;color:#0A2540;font-size:16px">T08</div>
           </div>
           <div style="padding:11px 13px;background:var(--bg2);border-radius:10px;border:1px solid var(--line)">
             <div style="font-size:10px;font-weight: 500;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Created</div>
@@ -748,26 +788,26 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
       <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&auto=format&fit=crop&q=80" alt="Busy restaurant" style="width:100%;height:100%;object-fit:cover" loading="lazy">
       <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(20,14,10,.88) 100%)"></div>
       <div style="position:absolute;top:16px;left:16px;right:16px">
-        <div style="background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-radius:14px;padding:14px 16px;border:1px solid rgba(135,96,57,.2)">
-          <div style="font-size:10px;font-weight: 500;color:var(--br);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">LIVE REQUEST STATUS</div>
+        <div style="background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-radius:14px;padding:14px 16px;border:1px solid rgba(10, 37, 64,.2)">
+          <div style="font-size:10px;font-weight: 500;color:#0A2540;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">LIVE REQUEST STATUS</div>
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
             <div style="text-align:center">
-              <div style="font-size:22px;font-weight: 500;font-family:'Outfit',sans-serif;color:#92400e">12</div>
+              <div style="font-size:22px;font-weight: 500;font-family:'Plus Jakarta Sans', sans-serif;color:#92400e">12</div>
               <div style="font-size:10px;font-weight:700;color:var(--mute)">Active</div>
             </div>
             <div style="text-align:center">
-              <div style="font-size:22px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--amber)">08</div>
+              <div style="font-size:22px;font-weight: 500;font-family:'Plus Jakarta Sans', sans-serif;color:var(--amber)">08</div>
               <div style="font-size:10px;font-weight:700;color:var(--mute)">New</div>
             </div>
             <div style="text-align:center">
-              <div style="font-size:22px;font-weight: 500;font-family:'Outfit',sans-serif;color:var(--blue)">04</div>
+              <div style="font-size:22px;font-weight: 500;font-family:'Plus Jakarta Sans', sans-serif;color:var(--blue)">04</div>
               <div style="font-size:10px;font-weight:700;color:var(--mute)">In Progress</div>
             </div>
           </div>
         </div>
       </div>
       <div style="position:absolute;bottom:20px;left:20px;right:20px;color:#fff">
-        <div style="font-weight: 500;font-size:18px;font-family:'Outfit',sans-serif;margin-bottom:4px">Peak Dinner Service — 8 PM</div>
+        <div style="font-weight: 500;font-size:18px;font-family:'Plus Jakarta Sans', sans-serif;margin-bottom:4px">Peak Dinner Service — 8 PM</div>
         <div style="font-size:13px;opacity:.85">12 requests across multiple tables, all visible from one dashboard</div>
       </div>
     </div>
@@ -931,64 +971,64 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
   </div>
   <!-- Service journey -->
   <div class="card r" style="padding:32px;background:var(--bg2);max-width:860px;margin:0 auto">
-    <h3 style="text-align:center;margin-bottom:24px;color:var(--br);font-size:17px">Full Restaurant Service Journey</h3>
+    <h3 style="text-align:center;margin-bottom:24px;color:#0A2540;font-size:17px">Full Restaurant Service Journey</h3>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0">
       <div style="display:flex;align-items:center;gap:0">
         <div style="text-align:center;padding:12px 10px">
-          <div style="width:40px;height:40px;border-radius:50%;background:var(--br-lt);border:2px solid var(--br);display:grid;place-items:center;margin:0 auto 6px;color:var(--br)">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--br-lt);border:2px solid var(--br);display:grid;place-items:center;margin:0 auto 6px;color:#0A2540">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
           <div style="font-size:11px;font-weight:700;color:var(--ink)">Guest Arrives</div>
         </div>
-        <div style="font-size:14px;color:var(--br);padding:0 4px;margin-bottom:18px">→</div>
+        <div style="font-size:14px;color:#0A2540;padding:0 4px;margin-bottom:18px">→</div>
       </div>
       <div style="display:flex;align-items:center;gap:0">
         <div style="text-align:center;padding:12px 10px">
-          <div style="width:40px;height:40px;border-radius:50%;background:var(--br-lt);border:2px solid var(--br);display:grid;place-items:center;margin:0 auto 6px;color:var(--br)">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--br-lt);border:2px solid var(--br);display:grid;place-items:center;margin:0 auto 6px;color:#0A2540">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/></svg>
           </div>
           <div style="font-size:11px;font-weight:700;color:var(--ink)">Table Assigned</div>
         </div>
-        <div style="font-size:14px;color:var(--br);padding:0 4px;margin-bottom:18px">→</div>
+        <div style="font-size:14px;color:#0A2540;padding:0 4px;margin-bottom:18px">→</div>
       </div>
       <div style="display:flex;align-items:center;gap:0">
         <div style="text-align:center;padding:12px 10px">
-          <div style="width:40px;height:40px;border-radius:50%;background:var(--br-lt);border:2px solid var(--br);display:grid;place-items:center;margin:0 auto 6px;color:var(--br)">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--br-lt);border:2px solid var(--br);display:grid;place-items:center;margin:0 auto 6px;color:#0A2540">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
           </div>
           <div style="font-size:11px;font-weight:700;color:var(--ink)">Menu Viewed</div>
         </div>
-        <div style="font-size:14px;color:var(--br);padding:0 4px;margin-bottom:18px">→</div>
+        <div style="font-size:14px;color:#0A2540;padding:0 4px;margin-bottom:18px">→</div>
       </div>
       <div style="display:flex;align-items:center;gap:0">
         <div style="text-align:center;padding:12px 10px">
-          <div style="width:40px;height:40px;border-radius:50%;background:var(--br-lt);border:2px solid var(--br);display:grid;place-items:center;margin:0 auto 6px;color:var(--br)">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--br-lt);border:2px solid var(--br);display:grid;place-items:center;margin:0 auto 6px;color:#0A2540">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2"/></svg>
           </div>
           <div style="font-size:11px;font-weight:700;color:var(--ink)">Order Placed</div>
         </div>
-        <div style="font-size:14px;color:var(--br);padding:0 4px;margin-bottom:18px">→</div>
+        <div style="font-size:14px;color:#0A2540;padding:0 4px;margin-bottom:18px">→</div>
       </div>
       <div style="display:flex;align-items:center;gap:0">
         <div style="text-align:center;padding:12px 10px">
-          <div style="width:40px;height:40px;border-radius:50%;background:var(--br);border:2px solid var(--br-dk);display:grid;place-items:center;margin:0 auto 6px;color:#fff;box-shadow:0 4px 12px rgba(135,96,57,.3)">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--br);border:2px solid var(--br-dk);display:grid;place-items:center;margin:0 auto 6px;color:#fff;box-shadow:0 4px 12px rgba(10, 37, 64,.3)">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg>
           </div>
-          <div style="font-size:11px;font-weight: 500;color:var(--br)">Waiter Request</div>
+          <div style="font-size:11px;font-weight: 500;color:#0A2540">Waiter Request</div>
         </div>
-        <div style="font-size:14px;color:var(--br);padding:0 4px;margin-bottom:18px">→</div>
+        <div style="font-size:14px;color:#0A2540;padding:0 4px;margin-bottom:18px">→</div>
       </div>
       <div style="display:flex;align-items:center;gap:0">
         <div style="text-align:center;padding:12px 10px">
-          <div style="width:40px;height:40px;border-radius:50%;background:var(--br-lt);border:2px solid var(--br);display:grid;place-items:center;margin:0 auto 6px;color:var(--br)">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--br-lt);border:2px solid var(--br);display:grid;place-items:center;margin:0 auto 6px;color:#0A2540">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
           <div style="font-size:11px;font-weight:700;color:var(--ink)">Staff Responds</div>
         </div>
-        <div style="font-size:14px;color:var(--br);padding:0 4px;margin-bottom:18px">→</div>
+        <div style="font-size:14px;color:#0A2540;padding:0 4px;margin-bottom:18px">→</div>
       </div>
       <div style="text-align:center;padding:12px 10px">
-        <div style="width:40px;height:40px;border-radius:50%;background:var(--br-lt);border:2px solid var(--br);display:grid;place-items:center;margin:0 auto 6px;color:var(--br)">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--br-lt);border:2px solid var(--br);display:grid;place-items:center;margin:0 auto 6px;color:#0A2540">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="10" rx="2"/><path d="M4 17h16M8 21h8"/></svg>
         </div>
         <div style="font-size:11px;font-weight:700;color:var(--ink)">Bill & Payment</div>
@@ -1048,7 +1088,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 </section>
 
 <!-- ===== FINAL CTA ===== -->
-<section style="background:linear-gradient(135deg,#6f4e2d 0%,#876039 50%,#a07040 100%);color:#fff;text-align:center;padding:clamp(68px,8vw,108px) 0;position:relative;overflow:hidden">
+<section style="background:radial-gradient(circle at 50% 0%, #1A2E4C 0%, #0A192F 100%);color:#fff;text-align:center;padding:clamp(68px,8vw,108px) 0;position:relative;overflow:hidden">
   <div style="position:absolute;top:-80px;right:-80px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.04)"></div>
   <div style="position:absolute;bottom:-100px;left:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.04)"></div>
   <div class="w r">
@@ -1060,7 +1100,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
       Bring table-side requests into one connected restaurant workflow with Geni Menu.
     </p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="{{ route('restaurant_signup') }}" class="btn" style="background:#fff;color:var(--br);border-color:#fff;font-size:15px;padding:14px 36px;box-shadow:0 6px 22px rgba(0,0,0,.18)">Get Started →</a>
+      <a href="{{ route('restaurant_signup') }}" class="btn" style="background:#fff;color:#0A2540;border-color:#fff;font-size:15px;padding:14px 36px;box-shadow:0 6px 22px rgba(0,0,0,.18)">Get Started →</a>
       <a href="{{ route('contact.us') }}" class="btn" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4);font-size:15px;padding:14px 36px">Book a Demo</a>
     </div>
     <div style="margin-top:36px;font-size:13px;color:rgba(255,255,255,.6);font-weight:600">
@@ -1074,7 +1114,7 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
 <div class="w">
   <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px">
     <div>
-      <div style="font-family:'Outfit',sans-serif;font-weight: 500;font-size:21px;color:#fff;margin-bottom:12px">Geni <span style="color:var(--br-g)">Menu</span></div>
+      <div style="font-family:'Plus Jakarta Sans', sans-serif;font-weight: 500;font-size:21px;color:#fff;margin-bottom:12px">Geni <span style="color:var(--br-g)">Menu</span></div>
       <p style="color:#7a6c64;font-size:13px;max-width:260px;line-height:1.7">Smart restaurant management for modern food businesses. Built by WeGeni.</p>
     </div>
     <div>
@@ -1084,14 +1124,14 @@ section{padding:clamp(56px,7vw,96px) 0;background:var(--bg);position:relative;ov
         <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">QR Menu</a></li>
         <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">Restaurant POS</a></li>
         <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">Order Management</a></li>
-        <li><a href="{{ route('features.reservation-management') }}" style="color:#9a8a7e;font-size:13px">Reservations</a></li>
+        <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">Reservations</a></li>
       </ul>
     </div>
     <div>
       <h5 style="color:#fff;font-size:14px;margin-bottom:12px">Features</h5>
       <ul style="display:flex;flex-direction:column;gap:9px">
-        <li><a href="{{ route('features.menu-management') }}" style="color:#9a8a7e;font-size:13px">Menu Management</a></li>
-        <li><a href="{{ route('features.waiter-request') }}" style="color:#c7b8a8;font-size:13px">Waiter Requests</a></li>
+        <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">Menu Management</a></li>
+        <li><a href="{{ route('features') }}" style="color:#c7b8a8;font-size:13px">Waiter Requests</a></li>
         <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">KOT Management</a></li>
         <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">Inventory Management</a></li>
         <li><a href="{{ route('features') }}" style="color:#9a8a7e;font-size:13px">Staff Management</a></li>

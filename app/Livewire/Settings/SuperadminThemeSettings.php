@@ -99,7 +99,7 @@ class SuperadminThemeSettings extends Component
         ]);
 
         cache()->forget('global_setting');
-        session()->forget('restaurantOrGlobalSetting');
+        session()->forget(['restaurant', 'timezone', 'currency', 'restaurantOrGlobalSetting']);
 
         $this->redirect(route('superadmin.superadmin-settings.index') . '?tab=theme', navigate: true);
 

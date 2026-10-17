@@ -3,40 +3,33 @@
 @section('content')
 
 {{-- Google Fonts --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --br: #876039;
-  --br-dark: #6f4e2d;
-  --br-light: #f4efe9;
-  --br-gold: #b88e56;
-  --bg: #ffffff;
-  --bg2: #f9f6f0;
-  --bg3: #f3ece1;
-  --dark: #1b1511;
-  --dark-card: #27201b;
-  --ink: #241A14;
-  --mute: #6F665E;
-  --line: rgba(135, 96, 57, 0.14);
-  --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-  --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
-  --shadow-lg: 0 26px 50px rgba(36, 26, 20, 0.12);
+  --br: #B45309;
+  --br-dark: #92400E;
+  --br-light: #FEF3C7;
+  --br-gold: #D97706;
+  --bg: #FFFFFF;
+  --bg2: #F6F9FC;
+  --bg3: #EEF2F6;
+  --ink: #0A2540;
+  --mute: #425466;
+  --line: #E3E8EE;
+  --card: #FFFFFF;
+  --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
   --green: #10B981;
-  --blue: #3B82F6;
-  --amber: #F59E0B;
-  --purple: #8B5CF6;
   --red: #EF4444;
 }
 
 * { box-sizing: border-box; }
+::selection { background: #0A2540; color: #FFFFFF; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font: 400 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font: 400 16px/1.65 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--ink);
   background: var(--bg) !important;
   overflow-x: hidden;
@@ -45,8 +38,9 @@ body {
 
 h1, h2, h3, h4, h5 {
   margin: 0;
-  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   line-height: 1.14;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -62,7 +56,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-weight: 700;
-  background: linear-gradient(135deg, #876039 0%, #a87646 50%, #c89659 100%);
+  background: linear-gradient(135deg, #B45309 0%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -72,18 +66,18 @@ ul { list-style: none; margin: 0; padding: 0; }
 .eb {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  letter-spacing: .16em;
-  font-weight: 500;
+  gap: 7px;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  font-weight: 700;
   text-transform: uppercase;
-  color: var(--br);
+  color: #B45309;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #fbf7f2 0%, #f4efe9 100%);
-  padding: 7px 18px;
-  border-radius: 99px;
-  border: 1px solid rgba(135, 96, 57, 0.22);
-  box-shadow: 0 2px 10px rgba(135, 96, 57, 0.08);
+  background: #FEF3C7;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -94,13 +88,35 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 
 /* Buttons */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
-.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
-.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
-.btn.o { color: var(--br); background: #fff; }
-.btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
+.btn.p {
+  background: #0A2540;
+  color: #FFFFFF !important;
+  border-color: #0A2540;
+  box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
+  font-weight: 700;
+}
+.btn.p:hover {
+  background: #1A365D;
+  border-color: #1A365D;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 37, 64, 0.28);
+}
+.btn.o {
+  color: var(--ink);
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
+  font-weight: 700;
+}
+.btn.o:hover {
+  background: #F6F9FC;
+  border-color: #0A2540;
+  color: var(--ink);
+  transform: translateY(-2px);
+}
 
 /* Breadcrumb */
-.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -108,7 +124,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 
 /* Cards & Windows */
 .card { position: relative; overflow: hidden; background: var(--card); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-.card:hover { border-color: rgba(135,96,57,0.3); box-shadow: var(--shadow-md); }
+.card:hover { border-color: #CBD5E1; box-shadow: var(--shadow-md); }
 
 .ic { width: 48px; height: 48px; border-radius: 13px; background: var(--bg2); color: var(--br); display: grid; place-items: center; flex: none; border: 1px solid var(--line); transition: .3s ease; }
 .ic svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
@@ -121,7 +137,7 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
 
 .badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
 .badge.new { background: #eff6ff; color: #1d4ed8; }
@@ -253,7 +269,44 @@ section { padding: clamp(60px, 7vw, 96px) 0; background: var(--bg); position: re
 .faq-item p { margin-top: 12px; font-size: 15px; color: var(--mute); }
 
 /* ---------------- FINAL CTA ---------------- */
-.cta-sec { padding: 90px 0; background: linear-gradient(135deg, var(--dark) 0%, #32251c 100%); color: #fff; text-align: center; }
+.cta-sec {
+  padding: 90px 0;
+  background: radial-gradient(circle at 50% 0%, #1A2E4C 0%, #0A192F 100%);
+  color: #FFFFFF;
+  text-align: center;
+  position: relative;
+  }
+.cta-box h2 {
+  color: #FFFFFF !important;
+  font-weight: 800;
+  font-size: clamp(30px, 4vw, 44px);
+}
+.cta-box p {
+  color: #A0AEC0 !important;
+  font-size: 17.5px;
+  line-height: 1.65;
+}
+.cta-sec .btn.p {
+  background: #FFFFFF !important;
+  color: #0A2540 !important;
+  border-color: #FFFFFF !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+  font-weight: 700;
+}
+.cta-sec .btn.p:hover {
+  background: #F6F9FC !important;
+  transform: translateY(-2px);
+}
+.cta-sec .btn.o {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #FFFFFF !important;
+  font-weight: 700;
+}
+.cta-sec .btn.o:hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
 .cta-box { max-width: 760px; margin: auto; }
 .cta-box h2 { color: #fff; margin-bottom: 16px; }
 .cta-box p { color: rgba(255,255,255,0.8); font-size: 18px; margin-bottom: 36px; }

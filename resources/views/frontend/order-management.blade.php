@@ -13,31 +13,27 @@ $meta = [
 {{-- ═══════════════════════════════════════════════════════════════
      GOOGLE FONTS + AOS
 ═══════════════════════════════════════════════════════════════ --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,400;1,700&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
 <style>
 /* ─── CSS VARIABLES ───────────────────────────────────────────── */
 :root {
-    --bg-page:       #FAF6EF;
-    --bg-card:       #FFFFFF;
-    --bg-surface:    #F5EFEB;
-    --ink:           #21160F;
-    --ink-soft:      #63584E;
-    --ink-faint:     #8E8277;
-    --coffee:        #876039;
-    --coffee-dark:   #6F4E2D;
-    --coffee-light:  #F4EFEA;
-    --coffee-border: rgba(135,96,57,0.16);
-    --green:         #15803D;
-    --green-bg:      #DCFCE7;
-    --amber:         #B45309;
-    --amber-bg:      #FEF3C7;
-    --red:           #DC2626;
-    --red-bg:        #FEE2E2;
-    --line:          rgba(135,96,57,0.12);
+  --br: #B45309;
+  --br-dark: #92400E;
+  --br-light: #FEF3C7;
+  --br-gold: #D97706;
+  --bg: #FFFFFF;
+  --bg2: #F6F9FC;
+  --bg3: #EEF2F6;
+  --ink: #0A2540;
+  --mute: #425466;
+  --line: #E3E8EE;
+  --card: #FFFFFF;
+  --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
+  --green: #10B981;
+  --red: #EF4444;
 }
 
 /* ─── BASE ────────────────────────────────────────────────────── */
@@ -45,20 +41,20 @@ $meta = [
 
 body {
     background: var(--bg-page);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: var(--ink-soft);
     line-height: 1.65;
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--ink);
     line-height: 1.2;
     letter-spacing: -0.025em;
 }
 
 .italic-serif {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-style: italic;
     color: var(--coffee);
 }
@@ -114,12 +110,12 @@ h1, h2, h3, h4, h5 {
     cursor: pointer;
     text-decoration: none;
     transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    box-shadow: 0 4px 18px rgba(135,96,57,0.28);
+    box-shadow: 0 4px 18px rgba(10, 37, 64,0.28);
 }
 .btn-primary:hover {
     background: var(--coffee-dark);
     transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(135,96,57,0.32);
+    box-shadow: 0 8px 24px rgba(10, 37, 64,0.32);
 }
 
 .btn-outline {
@@ -128,7 +124,7 @@ h1, h2, h3, h4, h5 {
     gap: 8px;
     background: #fff;
     color: var(--coffee);
-    border: 1px solid rgba(135,96,57,0.22);
+    border: 1px solid #E3E8EE;
     border-radius: 9999px;
     padding: 12px 28px;
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -157,7 +153,7 @@ h1, h2, h3, h4, h5 {
     position: absolute;
     top: -120px; right: -200px;
     width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(135,96,57,0.07) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(10, 37, 64,0.07) 0%, transparent 65%);
     pointer-events: none;
 }
 
@@ -292,7 +288,7 @@ h1, h2, h3, h4, h5 {
 
 .kanban-col-head {
     padding: 10px 14px;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.8px;
@@ -340,7 +336,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .k-order-id {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 12px;
     color: var(--ink);
@@ -373,7 +369,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .k-price {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 12px;
     color: var(--ink);
@@ -420,7 +416,7 @@ h1, h2, h3, h4, h5 {
     font-weight: 600;
 }
 .summary-stat .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
-.summary-stat .rev { color: var(--coffee); font-family: 'Outfit', sans-serif; font-weight: 700; }
+.summary-stat .rev { color: var(--coffee); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
 
 /* ─── VALUE STRIP ─────────────────────────────────────────────── */
 .value-strip {
@@ -577,7 +573,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .sk-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 13px;
     font-weight: 700;
     color: var(--ink);
@@ -616,7 +612,7 @@ h1, h2, h3, h4, h5 {
 }
 .sk-stat strong {
     color: var(--ink);
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .sk-board {
@@ -653,7 +649,7 @@ h1, h2, h3, h4, h5 {
     border-radius: 9999px;
 }
 .sk-incoming .sk-count { background: #FDE68A; }
-.sk-preparing .sk-count { background: rgba(135,96,57,0.15); }
+.sk-preparing .sk-count { background: rgba(10, 37, 64,0.15); }
 .sk-ready .sk-count { background: #86EFAC; }
 
 .sk-cards {
@@ -680,7 +676,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .sk-order-num {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 12px;
     color: var(--ink);
@@ -700,7 +696,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .sk-price {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 12px;
     color: var(--ink);
@@ -756,14 +752,14 @@ h1, h2, h3, h4, h5 {
     border-radius: 50%;
     background: var(--coffee);
     color: #fff;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 20px;
     font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 18px;
-    box-shadow: 0 6px 20px rgba(135,96,57,0.30);
+    box-shadow: 0 6px 20px rgba(10, 37, 64,0.30);
 }
 
 .how-step h4 {
@@ -840,7 +836,7 @@ h1, h2, h3, h4, h5 {
 .metric-item:last-child { border-right: none; }
 
 .metric-value {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 44px;
     font-weight: 800;
     color: #fff;
@@ -855,7 +851,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .metrics-section {
-    background: linear-gradient(135deg, #3D1F07 0%, #6F4E2D 50%, #876039 100%);
+    background: radial-gradient(circle at 50% 0%, #1A2E4C 0%, #0A192F 100%);
     padding: 0;
     border-radius: 0;
     overflow: hidden;
@@ -1039,7 +1035,7 @@ h1, h2, h3, h4, h5 {
     top: -100px; left: 50%;
     transform: translateX(-50%);
     width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(135,96,57,0.25) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(10, 37, 64,0.25) 0%, transparent 65%);
     pointer-events: none;
 }
 
@@ -1836,21 +1832,21 @@ h1, h2, h3, h4, h5 {
             <h3 style="font-size:24px;font-weight:800;color:var(--ink);margin-top:8px;">Works best with these tools</h3>
         </div>
         <div class="cross-links-grid">
-            <a href="{{ route('features.kot-management') }}" class="cross-card" data-aos="fade-up" data-aos-delay="0">
+            <a href="{{ route('features') }}" class="cross-card" data-aos="fade-up" data-aos-delay="0">
                 <div class="cross-icon">🖨️</div>
                 <div class="cross-text">
                     <h4>KOT Management</h4>
                     <p>Auto-print or display kitchen tickets the moment an order is accepted on the board.</p>
                 </div>
             </a>
-            <a href="{{ route('features.pos-management') }}" class="cross-card" data-aos="fade-up" data-aos-delay="80">
+            <a href="{{ route('features') }}" class="cross-card" data-aos="fade-up" data-aos-delay="80">
                 <div class="cross-icon">🧾</div>
                 <div class="cross-text">
                     <h4>POS & Billing</h4>
                     <p>When an order is marked complete, billing flows straight into the POS — no double entry.</p>
                 </div>
             </a>
-            <a href="{{ route('features.table-management') }}" class="cross-card" data-aos="fade-up" data-aos-delay="160">
+            <a href="{{ route('features') }}" class="cross-card" data-aos="fade-up" data-aos-delay="160">
                 <div class="cross-icon">🗺️</div>
                 <div class="cross-text">
                     <h4>Table Management</h4>

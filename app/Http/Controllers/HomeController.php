@@ -50,10 +50,15 @@ class HomeController extends Controller
 
         // Set the customer locale in session
         session(['customer_locale' => $locale]);
-        session(['customer_is_rtl' => $languageSetting->is_rtl == 1]);
+        session(['customer_is_rtl' => $languageSetting ? ($languageSetting->is_rtl == 1) : in_array($locale, ['ar', 'fa', 'ur'])]);
         app()->setLocale($locale);
         $this->language = $locale;
-        return redirect()->back()->with('success', 'Language changed successfully');
+
+        if (request()->ajax() || request()->wantsJson()) {
+            return response()->json(['success' => true, 'locale' => $locale]);
+        }
+
+        return redirect()->back();
     }
 
     public function landing()

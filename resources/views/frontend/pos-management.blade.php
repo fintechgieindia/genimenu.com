@@ -3,37 +3,33 @@
 @section('content')
 
 {{-- Google Fonts --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --br: #876039;
-  --br-dark: #6f4e2d;
-  --br-light: #f4efe9;
-  --br-gold: #b88e56;
-  --bg: #ffffff;
-  --bg2: #f9f6f0;
-  --bg3: #f3ece1;
-  --ink: #241A14;
-  --mute: #6F665E;
-  --line: rgba(135, 96, 57, 0.14);
-  --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-  --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
-  --shadow-lg: 0 26px 50px rgba(36, 26, 20, 0.12);
+  --br: #B45309;
+  --br-dark: #92400E;
+  --br-light: #FEF3C7;
+  --br-gold: #D97706;
+  --bg: #FFFFFF;
+  --bg2: #F6F9FC;
+  --bg3: #EEF2F6;
+  --ink: #0A2540;
+  --mute: #425466;
+  --line: #E3E8EE;
+  --card: #FFFFFF;
+  --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
   --green: #10B981;
-  --blue: #3B82F6;
-  --yellow: #F59E0B;
   --red: #EF4444;
 }
 
 * { box-sizing: border-box; }
+::selection { background: #0A2540; color: #FFFFFF; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font: 400 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font: 400 16px/1.65 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--ink);
   background: var(--bg) !important;
   overflow-x: hidden;
@@ -42,8 +38,9 @@ body {
 
 h1, h2, h3, h4, h5 {
   margin: 0;
-  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   line-height: 1.14;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -59,7 +56,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-weight: 700;
-  background: linear-gradient(135deg, #876039 0%, #a87646 50%, #c89659 100%);
+  background: linear-gradient(135deg, #B45309 0%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -69,18 +66,18 @@ ul { list-style: none; margin: 0; padding: 0; }
 .eb {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  letter-spacing: .16em;
-  font-weight: 500;
+  gap: 7px;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  font-weight: 700;
   text-transform: uppercase;
-  color: var(--br);
+  color: #B45309;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #fbf7f2 0%, #f4efe9 100%);
-  padding: 7px 18px;
-  border-radius: 99px;
-  border: 1px solid rgba(135, 96, 57, 0.22);
-  box-shadow: 0 2px 10px rgba(135, 96, 57, 0.08);
+  background: #FEF3C7;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -91,13 +88,35 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
 /* ===================== BUTTONS ===================== */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1.5px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
-.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
-.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
-.btn.o { color: var(--br); background: #fff; }
-.btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
+.btn.p {
+  background: #0A2540;
+  color: #FFFFFF !important;
+  border-color: #0A2540;
+  box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
+  font-weight: 700;
+}
+.btn.p:hover {
+  background: #1A365D;
+  border-color: #1A365D;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 37, 64, 0.28);
+}
+.btn.o {
+  color: var(--ink);
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
+  font-weight: 700;
+}
+.btn.o:hover {
+  background: #F6F9FC;
+  border-color: #0A2540;
+  color: var(--ink);
+  transform: translateY(-2px);
+}
 
 /* ===================== BREADCRUMB ===================== */
-.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -105,7 +124,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
 /* ===================== CARDS & POS COMPONENTS ===================== */
 .card { position: relative; overflow: hidden; background: var(--card); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-.card:hover { border-color: rgba(135,96,57,0.3); box-shadow: var(--shadow-md); }
+.card:hover { border-color: #CBD5E1; box-shadow: var(--shadow-md); }
 
 .ic { width: 46px; height: 46px; border-radius: 13px; background: var(--bg2); color: var(--br); display: grid; place-items: center; flex: none; border: 1px solid var(--line); transition: .3s ease; }
 .ic svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
@@ -118,7 +137,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
 
 .badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 8px; text-transform: uppercase; display: inline-block; letter-spacing: .04em; }
 .badge.paid { background: #d1fae5; color: #065f46; }
@@ -133,7 +152,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 /* Industry Grid */
 .ind-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .ind-card { border-radius: 18px; overflow: hidden; background: #fff; border: 1px solid var(--line); transition: transform .3s, box-shadow .3s; }
-.ind-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(135,96,57,0.3); }
+.ind-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: #CBD5E1; }
 .ind-img { height: 180px; background-size: cover; background-position: center; position: relative; }
 .ind-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(36,26,20,0.88) 100%); }
 .ind-icon { position: absolute; bottom: 14px; left: 16px; width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); display: grid; place-items: center; color: #fff; border: 1px solid rgba(255,255,255,0.25); }
@@ -145,19 +164,19 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 /* FAQ */
 .faq-list { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
 .faq-item { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
-.faq-item.open { border-color: var(--br); box-shadow: 0 4px 20px rgba(135,96,57,0.1); }
+.faq-item.open { border-color: var(--br); box-shadow: 0 4px 20px rgba(10, 37, 64,0.1); }
 .faq-q { padding: 20px 24px; font-size: 17px; font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; gap: 12px; }
 .faq-q svg { width: 20px; height: 20px; transition: transform .3s; stroke: var(--br); flex: none; }
 .faq-item.open .faq-q svg { transform: rotate(180deg); }
 .faq-a { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; font-size: 15px; color: var(--mute); line-height: 1.65; }
-.faq-item.open .faq-a { max-height: 240px; padding: 16px 24px 20px; border-top: 1px solid rgba(135,96,57,0.08); }
+.faq-item.open .faq-a { max-height: 240px; padding: 16px 24px 20px; border: 1px solid #E3E8EE; }
 
 /* Bar Chart */
 .bar-chart { display: flex; flex-direction: column; gap: 14px; }
 .bar-row { display: flex; align-items: center; gap: 14px; font-size: 13px; font-weight: 700; }
 .bar-label { width: 70px; color: var(--mute); font-size: 12px; text-align: right; flex: none; }
 .bar-track { flex: 1; height: 12px; background: #e2d5c0; border-radius: 6px; overflow: hidden; }
-.bar-fill { height: 100%; background: linear-gradient(90deg, #876039 0%, #a87646 100%); border-radius: 6px; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); width: 0; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, #B45309 0%, #D97706 100%); border-radius: 6px; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); width: 0; }
 .bar-count { width: 80px; font-size: 12px; color: var(--ink); font-weight: 700; flex: none; }
 
 /* Responsive Grid helpers */
@@ -237,7 +256,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
           <!-- Product Grid -->
           <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px;">
-            <div style="background: #fff; border: 1.5px solid var(--br); border-radius: 14px; padding: 14px; box-shadow: 0 4px 14px rgba(135,96,57,0.12); position: relative;">
+            <div style="background: #fff; border: 1.5px solid var(--br); border-radius: 14px; padding: 14px; box-shadow: 0 4px 14px rgba(10, 37, 64,0.12); position: relative;">
               <div style="position: absolute; top: 10px; right: 10px; background: var(--br); color: #fff; border-radius: 50%; width: 20px; height: 20px; font-size: 11px; font-weight: 500; display: grid; place-items: center;">2</div>
               <div style="font-weight: 500; font-size: 14px; color: var(--ink); margin-bottom: 6px;">Chicken Biryani</div>
               <div style="font-size: 12px; color: var(--mute); margin-bottom: 10px;">Authentic dum biryani</div>
@@ -348,7 +367,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
   <div class="w">
     <div class="g4">
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">01</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">01</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Faster Billing</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Create and process restaurant bills with a focused POS workflow.</p>
@@ -356,7 +375,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">02</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">02</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">One Order View</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Keep selected items, quantities and totals visible in one place.</p>
@@ -364,7 +383,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">03</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">03</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Multiple Order Types</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Support dine-in, takeaway and delivery workflows seamlessly.</p>
@@ -372,7 +391,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="display: flex; gap: 16px; align-items: flex-start;">
-        <div style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">04</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28px; font-weight: 500; color: var(--br-gold); line-height: 1;">04</div>
         <div>
           <h4 style="font-size: 16px; margin-bottom: 4px;">Connected Payments</h4>
           <p style="font-size: 13.5px; line-height: 1.5;">Connect billing with payment processing and transaction records.</p>
@@ -467,7 +486,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <!-- App Header Bar -->
       <div style="background: #1e140e; color: #fff; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
         <div style="display: flex; align-items: center; gap: 14px;">
-          <div style="font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 18px; color: var(--br-gold);">Geni Menu POS</div>
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 18px; color: var(--br-gold);">Geni Menu POS</div>
           <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 6px; font-size: 11px;">Counter #1</span>
         </div>
 
@@ -763,7 +782,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
             <div style="font-size: 11px; color: var(--br); margin-top: 4px;">Reserved</div>
           </div>
 
-          <div style="padding: 16px; border-radius: 14px; border: 2px solid var(--br); background: var(--br-light); text-align: center; box-shadow: 0 4px 14px rgba(135,96,57,0.2);">
+          <div style="padding: 16px; border-radius: 14px; border: 2px solid var(--br); background: var(--br-light); text-align: center; box-shadow: 0 4px 14px rgba(10, 37, 64,0.2);">
             <div style="font-weight: 500; font-size: 16px; color: var(--br);">T04 ✓</div>
             <div style="font-size: 11px; color: var(--br); font-weight: 500; margin-top: 4px;">SELECTED</div>
           </div>
@@ -828,7 +847,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     <!-- Bill Invoice Card -->
     <div class="card" style="max-width: 520px; margin: 0 auto; padding: 32px; box-shadow: var(--shadow-lg);">
       <div style="text-align: center; padding-bottom: 20px; border-bottom: 2px dashed var(--line); margin-bottom: 20px;">
-        <div style="font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 22px; color: var(--ink);">SPICE GARDEN BISTRO</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 22px; color: var(--ink);">SPICE GARDEN BISTRO</div>
         <div style="font-size: 12px; color: var(--mute); margin-top: 2px;">GSTIN: 33AAAAA0000A1Z5 · License #10019042000</div>
         <div style="font-size: 12px; color: var(--mute);">MG Road, Indiranagar, Bengaluru</div>
       </div>
@@ -1170,11 +1189,11 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <div style="font-weight: 500; color: var(--br); font-size: 12px;">STEP 07</div>
         <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px;">Food Served</div>
       </div>
-      <div style="background: var(--br); color: #fff; border-radius: 12px; padding: 14px; text-align: center; box-shadow: 0 4px 14px rgba(135,96,57,0.3);">
+      <div style="background: var(--br); color: #fff; border-radius: 12px; padding: 14px; text-align: center; box-shadow: 0 4px 14px rgba(10, 37, 64,0.3);">
         <div style="font-weight: 500; color: var(--br-gold); font-size: 12px;">STEP 08</div>
         <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px; color: #fff;">Bill Generated</div>
       </div>
-      <div style="background: var(--br); color: #fff; border-radius: 12px; padding: 14px; text-align: center; box-shadow: 0 4px 14px rgba(135,96,57,0.3);">
+      <div style="background: var(--br); color: #fff; border-radius: 12px; padding: 14px; text-align: center; box-shadow: 0 4px 14px rgba(10, 37, 64,0.3);">
         <div style="font-weight: 500; color: var(--br-gold); font-size: 12px;">STEP 09</div>
         <div style="font-weight: 500; font-size: 13.5px; margin-top: 4px; color: #fff;">Payment Completed</div>
       </div>
@@ -1367,7 +1386,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     </div>
 
     <div class="card" style="padding: 40px; text-align: center; background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);">
-      <div style="display: inline-block; padding: 14px 28px; background: var(--br); color: #fff; border-radius: 16px; font-weight: 500; font-size: 20px; font-family: 'Outfit', sans-serif; box-shadow: 0 8px 24px rgba(135,96,57,0.3); margin-bottom: 32px;">
+      <div style="display: inline-block; padding: 14px 28px; background: var(--br); color: #fff; border-radius: 16px; font-weight: 500; font-size: 20px; font-family: 'Plus Jakarta Sans', sans-serif; box-shadow: 0 8px 24px rgba(10, 37, 64,0.3); margin-bottom: 32px;">
         CENTRAL POS ENGINE
       </div>
 
@@ -1490,18 +1509,18 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 </section>
 
 <!-- ================= FINAL CTA ================= -->
-<section style="padding: 96px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; border-top: 1px solid rgba(135, 96, 57, 0.16);">
+<section style="padding: 96px 0; background: radial-gradient(circle at 50% 0%, #1A2E4C 0%, #0A192F 100%); color: #FFFFFF; ">
   <div class="w" style="text-align: center; max-width: 800px;">
-    <div class="eb" style="background: rgba(135, 96, 57, 0.1); border-color: rgba(135, 96, 57, 0.2); color: #876039;">TRANSFORM YOUR BILLING COUNTER</div>
-    <h2 style="color: #21160F; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
-      Bring Orders, Billing and <span style="color: #876039; font-family: 'Playfair Display', Georgia, serif; font-style: italic;">Payments Together.</span>
+    <div class="eb" style="background: rgba(254, 243, 199, 0.15); border-color: rgba(217, 119, 6, 0.3); color: #FBBF24;">TRANSFORM YOUR BILLING COUNTER</div>
+    <h2 style="color: #FFFFFF; font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px;">
+      Bring Orders, Billing and <span style="color: #FBBF24; font-family: 'Playfair Display', Georgia, serif; font-style: italic;">Payments Together.</span>
     </h2>
-    <p style="color: #6E6157; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
+    <p style="color: #8898AA; font-size: 18px; margin-bottom: 36px; line-height: 1.6;">
       Give your restaurant team a connected POS built around real restaurant service — from order creation to completed payment.
     </p>
     <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #876039; color: #fff;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: #fff; color: #876039; border: 1.5px solid #876039;">Book a Demo</a>
+      <a href="{{ route('restaurant_signup') }}" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #FFFFFF; color: #0A2540; font-weight: 700; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid #FFFFFF;">Get Started →</a>
+      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 32px; font-size: 16px; background: rgba(255, 255, 255, 0.08); color: #FFFFFF; border: 1.5px solid rgba(255, 255, 255, 0.25); font-weight: 700; border-radius: 12px;">Book a Demo</a>
     </div>
   </div>
 </section>

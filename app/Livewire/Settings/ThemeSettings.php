@@ -123,7 +123,8 @@ class ThemeSettings extends Component
 
         $this->settings->save();
 
-        session()->forget(['restaurant', 'timezone', 'currency']);
+        cache()->forget('global_setting');
+        session()->forget(['restaurant', 'timezone', 'currency', 'restaurantOrGlobalSetting']);
 
         $this->reset([
             'upload_fav_icon_android_chrome_192',

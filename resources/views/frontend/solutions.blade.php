@@ -11,66 +11,91 @@
 @section('content')
 
 {{-- Google Fonts --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 {{-- AOS Animation Library --}}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
 <style>
   :root {
-    --br: #876039;
-    --br-dark: #6f4e2d;
-    --br-light: #f4efe9;
-    --br-faint: #fcf9f5;
-    --cream: #FAF6EF;
-    --cream-deep: #F1E8D9;
-    --ink: #21160F;
-    --ink-soft: #645B51;
-    --ink-faint: #8B8177;
-    --gold: #C79A61;
-    --gold-soft: #DCB98A;
-    --gold-deep: #9C6F3E;
-    --brown: #4A3524;
-    --line: #E8DFD4;
+    --br: #B45309;
+    --br-dark: #92400E;
+    --br-light: #FEF3C7;
+    --br-faint: #FFFBEB;
+    --cream: #FFFFFF;
+    --cream-deep: #F6F9FC;
+    --ink: #0A2540;
+    --ink-soft: #425466;
+    --ink-faint: #627D98;
+    --gold: #D97706;
+    --gold-soft: #FDE68A;
+    --gold-deep: #B45309;
+    --brown: #1A365D;
+    --line: #E3E8EE;
     --white: #FFFFFF;
-    --green: #15803d;
-    --green-light: #dcfce7;
-    --amber: #b45309;
-    --amber-light: #fef3c7;
-    --blue: #1d4ed8;
-    --blue-light: #dbeafe;
-    --shadow-sm: 0 4px 20px rgba(33, 22, 15, 0.04);
-    --shadow-md: 0 16px 36px rgba(33, 22, 15, 0.08);
-    --shadow-lg: 0 24px 50px rgba(33, 22, 15, 0.12);
+    --green: #10B981;
+    --green-light: #DEF7EC;
+    --amber: #B45309;
+    --amber-light: #FEF3C7;
+    --blue: #1D4ED8;
+    --blue-light: #DBEAFE;
+    --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
     --max: 1200px;
   }
 
   * { box-sizing: border-box; }
+  ::selection { background: #0A2540; color: #FFFFFF; }
   
   .sol-page {
-    background: var(--cream);
+    background: #FFFFFF;
     color: var(--ink);
-    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    overflow-x: hidden;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    overflow: visible !important;
+    overflow-x: clip !important;
   }
 
-  /* Typography */
-  .sol-page h1, .sol-page h2, .sol-page h3, .sol-page h4 {
-    font-family: 'Outfit', 'Fraunces', serif;
-    color: var(--ink);
-    line-height: 1.2;
+  /* Typography - Matching Home Page */
+  .sol-page h1 {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: clamp(40px, 5vw, 66px);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+    color: #0A2540;
     margin: 0;
-    font-weight: 600;
+  }
+
+  .sol-page h2 {
+    font-family: Effra, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.12;
+    color: #0A2540;
+    margin: 0;
+  }
+
+  .sol-page h3, .sol-page h4, .sol-page h5, .sol-page h6 {
+    font-family: Effra, sans-serif;
+    color: #0A2540;
+    margin: 0;
+  }
+
+  .sol-page h3 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   .sol-page p {
-    color: var(--ink-soft);
+    color: #425466;
     margin: 0;
-    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.65;
+    letter-spacing: -0.01em;
   }
 
   .w {
@@ -86,33 +111,33 @@
   }
 
   .section.alt {
-    background: #F4EFEA;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    background: #F6F9FC;
   }
 
   .section.dark {
-    background: #1A130E;
+    background: #0A192F;
     color: #F8F5EF;
   }
   .section.dark h2, .section.dark h3, .section.dark h4 { color: #FFF; }
-  .section.dark p { color: #B3A89F; }
+  .section.dark p { color: #A0AEC0; }
 
   /* Eyebrow Label */
   .sec-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    gap: 7px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--br);
-    background: var(--br-light);
-    border: 1px solid rgba(135,96,57,0.18);
+    color: #B45309;
+    background: #FEF3C7;
+    border: 1px solid rgba(217,119,6,0.25);
+    box-shadow: 0 1px 3px rgba(50,50,93,0.05);
     padding: 6px 14px;
-    border-radius: 999px;
-    margin-bottom: 14px;
+    border-radius: 9999px;
+    margin-bottom: 16px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   .sec-header {
@@ -122,14 +147,20 @@
   }
 
   .sec-header h2 {
-    font-size: 38px;
-    margin-bottom: 14px;
-    letter-spacing: -0.02em;
+    font-family: Effra, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.12;
+    margin-bottom: 16px;
+    color: #0A2540;
   }
 
   .sec-header p {
-    font-size: 17px;
-    line-height: 1.65;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #425466;
+    font-family: 'Inter', sans-serif;
   }
 
   /* Buttons */
@@ -139,41 +170,44 @@
     justify-content: center;
     gap: 8px;
     padding: 13px 26px;
-    border-radius: 10px;
-    font: 600 14.5px 'Plus Jakarta Sans', sans-serif;
+    border-radius: 12px;
+    font: 700 15px 'Plus Jakarta Sans', sans-serif;
     text-decoration: none;
-    transition: all 0.25s ease;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
-    border: 1.5px solid transparent;
+    border: 1px solid transparent;
   }
 
   .btn.p {
-    background: var(--br);
-    color: #fff;
-    box-shadow: 0 4px 16px rgba(135,96,57,0.25);
+    background: #0A2540;
+    color: #fff !important;
+    border-color: #0A2540;
+    box-shadow: 0 4px 12px rgba(10,37,64,0.2);
   }
   .btn.p:hover {
-    background: var(--br-dark);
+    background: #1A365D;
+    border-color: #1A365D;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(135,96,57,0.35);
+    box-shadow: 0 8px 20px rgba(10,37,64,0.28);
   }
 
   .btn.o {
     background: #fff;
-    color: var(--br);
-    border-color: rgba(135,96,57,0.3);
+    color: var(--ink);
+    border: 1px solid #CBD5E1;
+    box-shadow: 0 1px 3px rgba(50,50,93,0.05);
   }
   .btn.o:hover {
-    background: var(--br-light);
-    border-color: var(--br);
-    color: var(--br-dark);
+    background: #F6F9FC;
+    border-color: #0A2540;
+    color: var(--ink);
     transform: translateY(-2px);
   }
 
   /* ===================== HERO SECTION ===================== */
   .sol-hero {
-    padding: 110px 0 80px;
-    background: linear-gradient(180deg, #FBF8F3 0%, #FAF6EF 100%);
+    padding: 100px 0 80px;
+    background: #FFFFFF !important;
     position: relative;
     overflow: hidden;
   }
@@ -186,22 +220,30 @@
   }
 
   .sol-hero h1 {
-    font-size: 48px;
-    line-height: 1.15;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: clamp(40px, 5vw, 66px);
+    line-height: 1.08;
     margin-bottom: 20px;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+    color: #0A2540;
   }
 
   .sol-hero h1 .highlight {
-    color: var(--br);
-    position: relative;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    background: linear-gradient(135deg, #B45309 0%, #D97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     display: inline-block;
   }
 
   .sol-hero p.lead {
-    font-size: 17.5px;
-    color: var(--ink-soft);
-    line-height: 1.65;
+    font-size: 18px;
+    color: #425466;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
     margin-bottom: 32px;
   }
 
@@ -231,7 +273,7 @@
     background: rgba(255,255,255,0.7);
     padding: 5px 12px;
     border-radius: 6px;
-    border: 1px solid rgba(135,96,57,0.15);
+    border: 1px solid #E3E8EE;
   }
 
   /* Hero Visual Mockup */
@@ -243,7 +285,7 @@
     background: #fff;
     border-radius: 18px;
     box-shadow: var(--shadow-lg);
-    border: 1px solid rgba(135,96,57,0.15);
+    border: 1px solid #E3E8EE;
     overflow: hidden;
     position: relative;
   }
@@ -290,7 +332,7 @@
     padding: 10px 14px;
     border-radius: 12px;
     box-shadow: var(--shadow-md);
-    border: 1px solid rgba(135,96,57,0.12);
+    border: 1px solid #E3E8EE;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -349,7 +391,8 @@
     background: #fff;
     color: var(--ink-soft);
     font-size: 13.5px;
-    font-weight: 500;
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     cursor: pointer;
     transition: all 0.2s ease;
   }
@@ -357,14 +400,14 @@
   .sol-tab-btn:hover {
     background: var(--br-light);
     color: var(--br);
-    border-color: rgba(135,96,57,0.3);
+    border-color: var(--br);
   }
 
   .sol-tab-btn.active {
-    background: var(--br);
+    background: #0A2540;
     color: #fff;
-    border-color: var(--br);
-    box-shadow: 0 2px 10px rgba(135,96,57,0.25);
+    border-color: #0A2540;
+    box-shadow: 0 4px 12px rgba(10,37,64,0.2);
   }
 
   .sol-search-wrapper {
@@ -387,7 +430,7 @@
     padding: 14px 16px 14px 48px;
     border-radius: 10px;
     border: 1px solid var(--line);
-    background: #FAF8F5;
+    background: #F6F9FC;
     font-size: 15px;
     font-family: inherit;
     color: var(--ink);
@@ -396,9 +439,9 @@
 
   .sol-search-input:focus {
     outline: none;
-    border-color: var(--br);
+    border-color: #0A2540;
     background: #fff;
-    box-shadow: 0 0 0 3px rgba(135,96,57,0.12);
+    box-shadow: 0 0 0 3px rgba(10,37,64,0.12);
   }
 
   /* ===================== SOLUTION CARDS GRID ===================== */
@@ -428,14 +471,20 @@
   .sol-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-    border-color: rgba(135,96,57,0.3);
+    border-color: #CBD5E1;
   }
 
   .sol-card-media {
     position: relative;
-    height: 210px;
+    height: 280px;
     overflow: hidden;
     background: #231B15;
+  }
+
+  @media (max-width: 768px) {
+    .sol-card-media {
+      height: 220px;
+    }
   }
 
   .sol-card-media img {
@@ -472,16 +521,20 @@
     flex: 1;
   }
 
-  .sol-card-title {
-    font-size: 22px;
-    margin-bottom: 8px;
+  .sol-card-title,
+  .sol-page .sol-card-title {
+    font-size: 21px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    margin: 0 0 12px 0 !important;
   }
 
-  .sol-card-desc {
-    font-size: 14px;
-    color: var(--ink-soft);
-    line-height: 1.55;
-    margin-bottom: 18px;
+  .sol-card-desc,
+  .sol-page .sol-card-desc {
+    font-size: 14.5px !important;
+    color: var(--ink-soft) !important;
+    line-height: 1.6 !important;
+    margin: 0 0 20px 0 !important;
     min-height: 44px;
   }
 
@@ -491,14 +544,14 @@
     color: var(--ink-faint);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-bottom: 10px;
+    margin-bottom: 12px !important;
   }
 
   .sol-caps-pills {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 24px;
+    gap: 7px;
+    margin-bottom: 0 !important;
   }
 
   .sol-pill {
@@ -508,7 +561,7 @@
     color: var(--brown);
     padding: 4px 10px;
     border-radius: 6px;
-    border: 1px solid rgba(135,96,57,0.1);
+    border: 1px solid #E3E8EE;
   }
 
   .sol-card-footer {
@@ -614,7 +667,7 @@
     background: var(--br);
     color: #fff;
     border-color: var(--br);
-    box-shadow: 0 4px 14px rgba(135,96,57,0.25);
+    box-shadow: 0 4px 14px rgba(10, 37, 64,0.25);
   }
 
   .sol-wf-board {
@@ -700,9 +753,9 @@
     width: 170px;
     height: 170px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #876039 0%, #6f4e2d 100%);
+    background: linear-gradient(135deg, #0A2540 0%, #1A2E4C 100%);
     color: #fff;
-    box-shadow: 0 0 50px rgba(135,96,57,0.5);
+    box-shadow: 0 0 50px rgba(10,37,64,0.35);
     border: 4px solid rgba(255,255,255,0.15);
     margin: 0 auto 36px;
     z-index: 2;
@@ -733,7 +786,7 @@
   }
 
   .eco-badge:hover {
-    background: rgba(135,96,57,0.3);
+    background: rgba(10, 37, 64,0.3);
     border-color: var(--gold);
     color: #fff;
     transform: translateY(-2px);
@@ -805,7 +858,7 @@
   .stage-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-    border-color: rgba(135,96,57,0.35);
+    border-color: #CBD5E1;
   }
 
   .stage-pill {
@@ -859,7 +912,7 @@
 
   .benefit-box:hover {
     transform: translateY(-3px);
-    border-color: rgba(135,96,57,0.3);
+    border-color: #CBD5E1;
   }
 
   .benefit-icon {
@@ -889,18 +942,18 @@
     border-radius: 12px;
     padding: 20px 18px;
     border: 1px solid var(--line);
-    text-decoration: none;
     color: var(--ink);
     display: flex;
     align-items: center;
     gap: 14px;
     transition: all 0.2s ease;
+    cursor: default;
+    user-select: none;
   }
 
   .feat-tile:hover {
-    background: var(--br-light);
-    border-color: rgba(135,96,57,0.3);
-    transform: translateY(-2px);
+    border-color: #CBD5E1;
+    box-shadow: var(--shadow-sm);
   }
 
   .feat-tile-icon {
@@ -916,89 +969,277 @@
   .feat-tile-icon svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
   .feat-tile-name { font-weight: 600; font-size: 14px; }
 
-  /* ===================== FAQ ACCORDION ===================== */
-  .faq-wrap {
-    max-width: 820px;
-    margin: 0 auto;
+  /* ===================== INTERNATIONAL SAAS FAQ (STRIPE 2-COL SPLIT) ===================== */
+  .faq-section {
+    padding: 90px 0;
+    background: #FFFFFF;
+    position: relative;
   }
 
-  .faq-card {
-    background: #fff;
-    border-radius: 14px;
-    border: 1px solid var(--line);
-    margin-bottom: 14px;
-    overflow: hidden;
+  .faq-layout {
+    display: grid;
+    grid-template-columns: 38% 62%;
+    gap: 56px;
+    align-items: start;
   }
 
-  .faq-trigger {
+  .faq-left-col {
+    position: sticky;
+    top: 96px;
+  }
+
+  .faq-main-title {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: clamp(30px, 3.6vw, 42px);
+    line-height: 1.15;
+    color: #0A2540;
+    letter-spacing: -0.035em;
+    margin: 0 0 16px;
+  }
+
+  .faq-lead-desc {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    color: #425466;
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+    margin: 0 0 32px;
+    max-width: 420px;
+  }
+
+  /* Support Help Card */
+  .faq-support-card {
+    background: #F6F9FC;
+    border: 1px solid #E3E8EE;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 420px;
+    transition: all 0.25s ease;
+  }
+  .faq-support-card:hover {
+    border-color: #CBD5E1;
+    box-shadow: 0 8px 20px rgba(10, 37, 64, 0.06);
+  }
+
+  .faq-support-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .faq-support-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #FEF3C7;
+    color: #B45309;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(217, 119, 6, 0.25);
+  }
+  .faq-support-icon svg { width: 20px; height: 20px; }
+
+  .faq-support-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0A2540;
+    margin: 0;
+    letter-spacing: -0.015em;
+  }
+
+  .faq-support-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: #425466;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .faq-support-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 4px;
+    flex-wrap: wrap;
+  }
+
+  .faq-support-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0A2540;
+    color: #FFFFFF !important;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 9px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid #0A2540;
+    transition: all 0.2s ease;
+  }
+  .faq-support-btn-primary:hover {
+    background: #1A365D;
+    border-color: #1A365D;
+    transform: translateY(-1px);
+  }
+
+  .faq-support-link {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #B45309 !important;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap 0.2s ease;
+  }
+  .faq-support-link:hover {
+    color: #92400E !important;
+    gap: 7px;
+  }
+
+  /* Right Column: FAQ Accordion */
+  .faq-right-col {
     width: 100%;
-    padding: 20px 24px;
+  }
+  .faq-accordion-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .faq-row {
+    border: 1.5px solid #E3E8EE;
+    border-radius: 16px;
+    background: #FFFFFF;
+    padding: 0 24px;
+    box-shadow: 0 1px 3px rgba(50, 50, 93, 0.04);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .faq-row:hover {
+    border-color: #CBD5E1;
+    box-shadow: 0 4px 14px rgba(50, 50, 93, 0.08);
+  }
+  .faq-row.open {
+    border-color: #0A2540;
+    box-shadow: 0 8px 24px rgba(10, 37, 64, 0.08);
+    background: #FFFFFF;
+  }
+  .faq-row button {
+    width: 100%;
+    background: none;
+    border: 0;
+    color: #0A2540;
+    font: 700 16.5px 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
+    text-align: left;
+    padding: 22px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: none;
-    border: none;
-    text-align: left;
-    font-size: 16.5px;
-    font-weight: 600;
-    color: var(--ink);
     cursor: pointer;
-    font-family: inherit;
+    gap: 16px;
+    outline: none;
   }
-
-  .faq-trigger svg {
-    width: 20px;
-    height: 20px;
-    stroke: var(--br);
-    fill: none;
-    stroke-width: 2.2;
-    transition: transform 0.25s ease;
-    flex-shrink: 0;
+  .faq-row i {
+    color: #0A2540;
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    flex: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #F6F9FC;
+    display: grid;
+    place-items: center;
+    border: 1px solid #E3E8EE;
   }
-
-  .faq-card.open .faq-trigger svg {
-    transform: rotate(180deg);
+  .faq-row:hover i {
+    border-color: #CBD5E1;
+    background: #FFFFFF;
   }
-
-  .faq-answer {
-    max-height: 0;
+  .faq-row.open i {
+    transform: rotate(45deg);
+    background: #0A2540;
+    color: #FFFFFF;
+    border-color: #0A2540;
+  }
+  .faq-answer-wrap {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .faq-row.open .faq-answer-wrap {
+    grid-template-rows: 1fr;
+  }
+  .faq-answer-wrap > div {
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    padding: 0 24px;
-    color: var(--ink-soft);
-    font-size: 14.5px;
+  }
+  .faq-answer-wrap p {
+    padding: 0 0 22px;
+    color: #425466;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
     line-height: 1.65;
+    border-top: 1px solid #F1F5F9;
+    padding-top: 16px;
+    margin: 0;
   }
 
-  .faq-card.open .faq-answer {
-    padding: 0 24px 22px;
-    max-height: 200px;
+  @media (max-width: 960px) {
+    .faq-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .faq-left-col {
+      position: static;
+      max-width: 100%;
+    }
+    .faq-lead-desc,
+    .faq-support-card {
+      max-width: 100%;
+    }
   }
 
   /* ===================== FINAL CTA SECTION ===================== */
   .final-cta-box {
-    background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%);
+    background: radial-gradient(circle at 50% 0%, #1A2E4C 0%, #0A192F 100%);
     border-radius: 28px;
     padding: 72px 48px;
-    color: #21160F;
+    color: #FFFFFF;
     text-align: center;
-    box-shadow: 0 16px 40px rgba(135, 96, 57, 0.08);
-    border: 1.5px solid rgba(135, 96, 57, 0.22);
+    box-shadow: 0 16px 40px rgba(10, 37, 64, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     position: relative;
     overflow: hidden;
   }
 
   .final-cta-box h2 {
-    color: #21160F;
-    font-size: 42px;
+    font-family: Effra, sans-serif !important;
+    color: #FFFFFF !important;
+    font-size: 2.5rem;
     margin-bottom: 16px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.12;
   }
 
   .final-cta-box p {
-    color: #6E6157;
-    font-size: 17px;
+    color: #A0AEC0 !important;
+    font-size: 18px;
     max-width: 640px;
     margin: 0 auto 36px;
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
   }
 
   .final-cta-buttons {
@@ -1006,6 +1247,28 @@
     justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
+  }
+
+  .final-cta-box .btn.p {
+    background: #FFFFFF !important;
+    color: #0A2540 !important;
+    border-color: #FFFFFF !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+  }
+  .final-cta-box .btn.p:hover {
+    background: #F6F9FC !important;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4) !important;
+  }
+
+  .final-cta-box .btn.o {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    color: #FFFFFF !important;
+  }
+  .final-cta-box .btn.o:hover {
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
   }
 
   /* ===================== RESPONSIVENESS ===================== */
@@ -1053,7 +1316,7 @@
           <p class="lead">Whether you run a family restaurant, QSR, bakery, café, canteen, pizzeria, cloud kitchen or growing restaurant chain, Geni Menu gives you the tools to manage your operations around your business model.</p>
           
           <div class="sol-hero-cta-group">
-            <a href="#solution-finder" class="btn p">Explore Your Solution &rarr;</a>
+            <a href="#solution-finder" class="btn p">Find Your Solution &rarr;</a>
             <button type="button" onclick="openPopup('Book a Demo - Geni Menu Solutions')" class="btn o">Book a Demo &rarr;</button>
           </div>
 
@@ -1112,9 +1375,9 @@
   <section class="section" id="solution-finder" style="padding-top:60px;">
     <div class="w">
       <div class="sec-header" data-aos="fade-up">
-        <div class="sec-eyebrow">EXPLORE BY BUSINESS TYPE</div>
+        <div class="sec-eyebrow">SOLUTIONS BY BUSINESS TYPE</div>
         <h2>Find the Right Solution for Your Business.</h2>
-        <p>Choose your business type to explore the workflows, features and tools designed around your operations.</p>
+        <p>Choose your business type to discover the workflows, features and tools designed around your operations.</p>
       </div>
 
       {{-- Search & Tabs Container --}}
@@ -1165,10 +1428,6 @@
                 <span class="sol-pill">Inventory</span>
                 <span class="sol-pill">Reports</span>
               </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.family-restaurant') }}" class="sol-card-link">Explore Family Restaurant &rarr;</a>
-              </div>
             </div>
           </div>
 
@@ -1191,10 +1450,6 @@
                 <span class="sol-pill">POS</span>
                 <span class="sol-pill">Reservations</span>
                 <span class="sol-pill">Payments</span>
-              </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.dine-in-restaurant') }}" class="sol-card-link">Explore Dine-in Restaurant &rarr;</a>
               </div>
             </div>
           </div>
@@ -1219,10 +1474,6 @@
                 <span class="sol-pill">POS</span>
                 <span class="sol-pill">Customer CRM</span>
               </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.dine-in-restaurant') }}" class="sol-card-link">Explore Fine Dining &rarr;</a>
-              </div>
             </div>
           </div>
 
@@ -1245,10 +1496,6 @@
                 <span class="sol-pill">Tables</span>
                 <span class="sol-pill">Inventory</span>
                 <span class="sol-pill">Reports</span>
-              </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.multi-cuisine-restaurant') }}" class="sol-card-link">Explore Multi-Cuisine &rarr;</a>
               </div>
             </div>
           </div>
@@ -1284,10 +1531,6 @@
                 <span class="sol-pill">Inventory</span>
                 <span class="sol-pill">Reports</span>
               </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.qsr-restaurant') }}" class="sol-card-link">Explore QSR &rarr;</a>
-              </div>
             </div>
           </div>
 
@@ -1310,10 +1553,6 @@
                 <span class="sol-pill">Payments</span>
                 <span class="sol-pill">Customer CRM</span>
                 <span class="sol-pill">Pickup Workflow</span>
-              </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.takeaway-restaurant') }}" class="sol-card-link">Explore Takeaway &rarr;</a>
               </div>
             </div>
           </div>
@@ -1348,10 +1587,6 @@
                 <span class="sol-pill">Inventory</span>
                 <span class="sol-pill">Reports</span>
               </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.college-canteen') }}" class="sol-card-link">Explore College Canteen &rarr;</a>
-              </div>
             </div>
           </div>
 
@@ -1374,10 +1609,6 @@
                 <span class="sol-pill">Staff</span>
                 <span class="sol-pill">Inventory</span>
                 <span class="sol-pill">Reports</span>
-              </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.office-canteen') }}" class="sol-card-link">Explore Office Canteen &rarr;</a>
               </div>
             </div>
           </div>
@@ -1411,10 +1642,6 @@
                 <span class="sol-pill">Customers</span>
                 <span class="sol-pill">Inventory</span>
               </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.sweet-shop') }}" class="sol-card-link">Explore Sweet Shop &rarr;</a>
-              </div>
             </div>
           </div>
 
@@ -1436,10 +1663,6 @@
                 <span class="sol-pill">POS</span>
                 <span class="sol-pill">Customers</span>
                 <span class="sol-pill">Kitchen</span>
-              </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.bakery') }}" class="sol-card-link">Explore Bakery &rarr;</a>
               </div>
             </div>
           </div>
@@ -1463,10 +1686,6 @@
                 <span class="sol-pill">Inventory</span>
                 <span class="sol-pill">Reports</span>
               </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.juice-and-snacks') }}" class="sol-card-link">Explore Juice &amp; Snacks &rarr;</a>
-              </div>
             </div>
           </div>
 
@@ -1488,10 +1707,6 @@
                 <span class="sol-pill">Kitchen</span>
                 <span class="sol-pill">POS</span>
                 <span class="sol-pill">Staff</span>
-              </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.bars-and-breweries') }}" class="sol-card-link">Explore Bars &amp; Breweries &rarr;</a>
               </div>
             </div>
           </div>
@@ -1515,10 +1730,6 @@
                 <span class="sol-pill">Kitchen</span>
                 <span class="sol-pill">POS</span>
               </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.pizzerias') }}" class="sol-card-link">Explore Pizzerias &rarr;</a>
-              </div>
             </div>
           </div>
         </div>
@@ -1534,7 +1745,7 @@
         <div class="sol-grid-2" style="margin-bottom:32px;">
           {{-- Card 14: Multi-Branch Chains --}}
           <div class="sol-card solution-item" data-name="Multi-Branch Chains" data-tags="growing chains multi-branch multi-outlet enterprise">
-            <div class="sol-card-body" style="padding-bottom:12px;">
+            <div class="sol-card-body">
               <span class="stage-pill">Enterprise Scale</span>
               <h4 class="sol-card-title">Multi-Branch Chains</h4>
               <p class="sol-card-desc">Bring multiple locations together with centralized visibility and branch-level operations.</p>
@@ -1567,10 +1778,6 @@
                   </div>
                 </div>
               </div>
-
-              <div class="sol-card-footer" style="margin-top:20px;">
-                <a href="{{ route('features') }}" class="sol-card-link">Explore Multi-Branch &rarr;</a>
-              </div>
             </div>
           </div>
 
@@ -1593,10 +1800,6 @@
                 <span class="sol-pill">POS</span>
                 <span class="sol-pill">Inventory</span>
                 <span class="sol-pill">Reports</span>
-              </div>
-              
-              <div class="sol-card-footer">
-                <a href="{{ route('solutions.takeaway-restaurant') }}" class="sol-card-link">Explore Cloud Kitchen &rarr;</a>
               </div>
             </div>
           </div>
@@ -1798,7 +2001,7 @@
               <li>Campus &amp; Office Canteens</li>
             </ul>
           </div>
-          <a href="{{ route('restaurant_signup', ['plan' => 'premium']) }}" class="btn p">Explore Solutions &rarr;</a>
+          <a href="{{ route('restaurant_signup', ['plan' => 'premium']) }}" class="btn p">Get Started &rarr;</a>
         </div>
 
         {{-- Card 3: SCALE --}}
@@ -1815,7 +2018,7 @@
               <li>Food Court Groups</li>
             </ul>
           </div>
-          <a href="{{ route('contact.us') }}" class="btn o">Explore Multi-Branch &rarr;</a>
+          <a href="{{ route('contact.us') }}" class="btn o">Contact Sales &rarr;</a>
         </div>
       </div>
     </div>
@@ -1858,150 +2061,176 @@
     </div>
   </section>
 
-  {{-- 14. EXPLORE ALL FEATURES --}}
+  {{-- 14. PLATFORM FEATURES MOSAIC --}}
   <section class="section alt">
     <div class="w">
       <div class="sec-header" data-aos="fade-up">
         <div class="sec-eyebrow">FULL PLATFORM POWER</div>
         <h2>Need More Than Your Business Solution?</h2>
-        <p>Explore the complete Geni Menu feature set and discover the tools available across the platform.</p>
+        <p>Discover the complete Geni Menu feature set and tools available across the platform.</p>
       </div>
 
       <div class="features-mosaic" data-aos="fade-up" style="margin-bottom:36px;">
-        <a href="{{ route('features.menu-management') }}" class="feat-tile">
+        <div class="feat-tile">
           <div class="feat-tile-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="2" x2="18" y2="22"/><path d="M14 2v7a3 3 0 0 0 6 0V2"/><path d="M6 2v4a2 2 0 0 0 4 0V2"/><line x1="8" y1="8" x2="8" y2="22"/></svg></div>
           <span class="feat-tile-name">Menu Management</span>
-        </a>
+        </div>
 
-        <a href="{{ route('features.order-management') }}" class="feat-tile">
+        <div class="feat-tile">
           <div class="feat-tile-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
           <span class="feat-tile-name">Order Management</span>
-        </a>
+        </div>
 
-        <a href="{{ route('features.pos-management') }}" class="feat-tile">
+        <div class="feat-tile">
           <div class="feat-tile-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="7" y1="15" x2="11" y2="15"/></svg></div>
           <span class="feat-tile-name">POS Management</span>
-        </a>
+        </div>
 
-        <a href="{{ route('features.kot-management') }}" class="feat-tile">
+        <div class="feat-tile">
           <div class="feat-tile-icon"><svg viewBox="0 0 24 24"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></svg></div>
           <span class="feat-tile-name">KOT Management</span>
-        </a>
+        </div>
 
-        <a href="{{ route('features.table-management') }}" class="feat-tile">
+        <div class="feat-tile">
           <div class="feat-tile-icon"><svg viewBox="0 0 24 24"><path d="M4 10h16M6 10v9M18 10v9M8 6h8M12 6v4"/></svg></div>
           <span class="feat-tile-name">Table Management</span>
-        </a>
+        </div>
 
-        <a href="{{ route('features.reservation-management') }}" class="feat-tile">
+        <div class="feat-tile">
           <div class="feat-tile-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
           <span class="feat-tile-name">Reservations</span>
-        </a>
+        </div>
 
-        <a href="{{ route('features.waiter-request') }}" class="feat-tile">
+        <div class="feat-tile">
           <div class="feat-tile-icon"><svg viewBox="0 0 24 24"><path d="M18 16V8a6 6 0 0 0-12 0v8"/><path d="M2 19h20"/><circle cx="12" cy="4" r="1.5"/><line x1="2" y1="16" x2="22" y2="16"/></svg></div>
           <span class="feat-tile-name">Waiter Requests</span>
-        </a>
+        </div>
 
-        <a href="{{ route('features.inventory-management') }}" class="feat-tile">
+        <div class="feat-tile">
           <div class="feat-tile-icon"><svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
           <span class="feat-tile-name">Inventory Control</span>
-        </a>
+        </div>
 
-        <a href="{{ route('features.reports') }}" class="feat-tile">
+        <div class="feat-tile">
           <div class="feat-tile-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
           <span class="feat-tile-name">Sales &amp; Analytics</span>
-        </a>
+        </div>
 
-        <a href="{{ route('restaurant_signup') }}" class="feat-tile">
+        <div class="feat-tile">
           <div class="feat-tile-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
           <span class="feat-tile-name">Customer CRM</span>
-        </a>
+        </div>
 
-        <a href="{{ route('restaurant_signup') }}" class="feat-tile">
+        <div class="feat-tile">
           <div class="feat-tile-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <span class="feat-tile-name">Staff Management</span>
-        </a>
+        </div>
 
-        <a href="{{ route('features') }}" class="feat-tile">
+        <div class="feat-tile">
           <div class="feat-tile-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
           <span class="feat-tile-name">Multi-Branch HQ</span>
-        </a>
+        </div>
       </div>
 
       <div style="text-align:center;">
-        <a href="{{ route('features') }}" class="btn p">Explore All Features &rarr;</a>
+        <a href="{{ route('features') }}" class="btn p">View All Features &rarr;</a>
       </div>
     </div>
   </section>
 
-  {{-- 15. FAQ ACCORDION --}}
-  <section class="section">
+  {{-- 15. FAQ (International Tier-1 SaaS 2-Column Split) --}}
+  <section class="faq-section" id="faq">
     <div class="w">
-      <div class="sec-header" data-aos="fade-up">
-        <div class="sec-eyebrow">COMMON QUESTIONS</div>
-        <h2>Frequently Asked Questions</h2>
-        <p>Everything you need to know about selecting and running Geni Menu solutions.</p>
-      </div>
+      <div class="faq-layout">
+        <!-- Left Column: Header & Support Contact Card -->
+        <div class="faq-left-col" data-aos="fade-right">
+          <div class="sec-eyebrow">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            FREQUENTLY ASKED QUESTIONS
+          </div>
+          <h2 class="faq-main-title">
+            Questions About<br>
+            <span style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:600; color:var(--br);">Restaurant Solutions.</span>
+          </h2>
+          <p class="faq-lead-desc">
+            Everything you need to know about selecting the right solution, upgrading features, and scaling operations with Geni Menu.
+          </p>
 
-      <div class="faq-wrap" data-aos="fade-up">
-        <div class="faq-card open">
-          <button type="button" class="faq-trigger">
-            <span>Can Geni Menu support different types of food businesses?</span>
-            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Yes. Geni Menu provides tailored solutions for family restaurants, dine-in, fine dining, QSR, takeaway, canteens, bakeries, sweet shops, juice corners, pizzerias, bars, cloud kitchens, and multi-branch chains.</p>
+          <!-- Help / Contact Card -->
+          <div class="faq-support-card">
+            <div class="faq-support-header">
+              <div class="faq-support-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div>
+                <h4 class="faq-support-title">Need specialized advice?</h4>
+                <span style="font-size: 12px; color: #627D98; font-weight: 500;">Tailored setup &amp; menu migration</span>
+              </div>
+            </div>
+            <p class="faq-support-text">Not sure which configuration fits your restaurant setup? Talk directly with our solutions specialists.</p>
+            <div class="faq-support-actions">
+              <a href="{{ route('restaurant_signup') }}" class="faq-support-btn-primary">Book a Demo &rarr;</a>
+              <a href="{{ route('contact.us') }}" class="faq-support-link">Contact Support &rarr;</a>
+            </div>
           </div>
         </div>
 
-        <div class="faq-card">
-          <button type="button" class="faq-trigger">
-            <span>Which solution is right for my restaurant?</span>
-            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Choose the solution closest to your business model or contact our solutions specialist team to review your floor layout, counter setup, and operational requirements.</p>
-          </div>
-        </div>
+        <!-- Right Column: Accordion Items -->
+        <div class="faq-right-col" data-aos="fade-left">
+          <div class="faq-accordion-list">
+            <div class="faq-row open">
+              <button type="button">Can Geni Menu support different types of food businesses? <i>+</i></button>
+              <div class="faq-answer-wrap">
+                <div>
+                  <p>Yes. Geni Menu provides tailored solutions for family restaurants, dine-in, fine dining, QSR, takeaway, canteens, bakeries, sweet shops, juice corners, pizzerias, bars, cloud kitchens, and multi-branch chains.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="faq-card">
-          <button type="button" class="faq-trigger">
-            <span>Can I change or upgrade my solution later?</span>
-            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Yes. Your setup can seamlessly evolve as your business requirements change. You can enable additional features like inventory control, multiple kitchen routing, or multi-branch management at any time.</p>
-          </div>
-        </div>
+            <div class="faq-row">
+              <button type="button">Which solution is right for my restaurant? <i>+</i></button>
+              <div class="faq-answer-wrap">
+                <div>
+                  <p>Choose the solution closest to your business model or contact our solutions specialist team to review your floor layout, counter setup, and operational requirements.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="faq-card">
-          <button type="button" class="faq-trigger">
-            <span>Can a single platform manage multiple branches?</span>
-            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Yes. Multi-branch capabilities with centralized head-office reporting, outlet switching, and branch-level inventory are available in applicable plans and configurations.</p>
-          </div>
-        </div>
+            <div class="faq-row">
+              <button type="button">Can I change or upgrade my solution later? <i>+</i></button>
+              <div class="faq-answer-wrap">
+                <div>
+                  <p>Yes. Your setup can seamlessly evolve as your business requirements change. You can enable additional features like inventory control, multiple kitchen routing, or multi-branch management at any time.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="faq-card">
-          <button type="button" class="faq-trigger">
-            <span>Can I use the same features across different business types?</span>
-            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>Core features like billing, menu, and reports can overlap, but the recommended setup and workflows (e.g., table reservation vs. quick token counter) are customized based on the business model.</p>
-          </div>
-        </div>
+            <div class="faq-row">
+              <button type="button">Can a single platform manage multiple branches? <i>+</i></button>
+              <div class="faq-answer-wrap">
+                <div>
+                  <p>Yes. Multi-branch capabilities with centralized head-office reporting, outlet switching, and branch-level inventory are available in applicable plans and configurations.</p>
+                </div>
+              </div>
+            </div>
 
-        <div class="faq-card">
-          <button type="button" class="faq-trigger">
-            <span>Do all solutions include the same features?</span>
-            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="faq-answer">
-            <p>No. Features and modules vary according to your operational business configuration and selected subscription plan (Standard, Premium, or Enterprise).</p>
+            <div class="faq-row">
+              <button type="button">Can I use the same features across different business types? <i>+</i></button>
+              <div class="faq-answer-wrap">
+                <div>
+                  <p>Core features like billing, menu, and reports can overlap, but the recommended setup and workflows (e.g., table reservation vs. quick token counter) are customized based on the business model.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-row">
+              <button type="button">Do all solutions include the same features? <i>+</i></button>
+              <div class="faq-answer-wrap">
+                <div>
+                  <p>No. Features and modules vary according to your operational business configuration and selected subscription plan (Standard, Premium, or Enterprise).</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2016,8 +2245,8 @@
         <p>Tell us what kind of food business you run and discover the tools you need to manage it smarter, faster, and more profitably.</p>
         
         <div class="final-cta-buttons">
-          <a href="#solution-finder" class="btn p" style="background:#876039; color:#fff; border-radius:9999px; padding:12px 28px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">Explore Your Solution &rarr;</a>
-          <button type="button" onclick="openPopup('Book a Demo - Geni Menu Solutions')" class="btn o" style="background:transparent; border:1.5px solid #876039; color:#876039; border-radius:9999px; padding:12px 28px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">Book a Demo &rarr;</button>
+          <a href="{{ route('restaurant_signup') }}" class="btn p">Get Started &rarr;</a>
+          <button type="button" onclick="openPopup('Book a Demo - Geni Menu Solutions')" class="btn o">Book a Demo &rarr;</button>
         </div>
       </div>
     </div>
@@ -2162,16 +2391,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // 4. FAQ Accordion Toggle
-  var faqCards = document.querySelectorAll('.faq-card');
-  faqCards.forEach(function(card) {
-    var trigger = card.querySelector('.faq-trigger');
-    if (trigger) {
-      trigger.addEventListener('click', function() {
-        var isOpen = card.classList.contains('open');
-        faqCards.forEach(function(c) { c.classList.remove('open'); });
+  // 4. FAQ Accordion Toggle (International Tier-1 SaaS)
+  var faqRows = document.querySelectorAll('.faq-row');
+  faqRows.forEach(function(row) {
+    var btn = row.querySelector('button');
+    if (btn) {
+      btn.addEventListener('click', function() {
+        var isOpen = row.classList.contains('open');
+        faqRows.forEach(function(r) { r.classList.remove('open'); });
         if (!isOpen) {
-          card.classList.add('open');
+          row.classList.add('open');
         }
       });
     }

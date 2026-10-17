@@ -3,45 +3,36 @@
 @section('content')
 
 {{-- Google Fonts --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
 
 <style>
 /* Hide legacy default header/footer if present in master layout */
 /* Master header and footer active */
 
 :root {
-  --br: #876039;
-  --br-dark: #6f4e2d;
-  --br-light: #f4efe9;
-  --br-gold: #b88e56;
-  --bg: #ffffff;
-  --bg2: #f9f6f0;
-  --bg3: #f3ece1;
-  --ink: #241A14;
-  --mute: #6F665E;
-  --line: rgba(135, 96, 57, 0.14);
-  --card: #ffffff;
-  --shadow-sm: 0 4px 20px rgba(36, 26, 20, 0.04);
-  --shadow-md: 0 16px 40px rgba(36, 26, 20, 0.08);
-  --shadow-lg: 0 26px 50px rgba(36, 26, 20, 0.12);
+  --br: #B45309;
+  --br-dark: #92400E;
+  --br-light: #FEF3C7;
+  --br-gold: #D97706;
+  --bg: #FFFFFF;
+  --bg2: #F6F9FC;
+  --bg3: #EEF2F6;
+  --ink: #0A2540;
+  --mute: #425466;
+  --line: #E3E8EE;
+  --card: #FFFFFF;
+  --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
   --green: #10B981;
-  --green-bg: #d1fae5;
-  --green-text: #065f46;
-  --amber: #F59E0B;
-  --amber-bg: #fef3c7;
-  --amber-text: #92400e;
   --red: #EF4444;
-  --red-bg: #fee2e2;
-  --red-text: #991b1b;
 }
 
 * { box-sizing: border-box; }
+::selection { background: #0A2540; color: #FFFFFF; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font: 400 16px/1.65 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font: 400 16px/1.65 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--ink);
   background: var(--bg) !important;
   overflow-x: hidden;
@@ -50,8 +41,9 @@ body {
 
 h1, h2, h3, h4, h5 {
   margin: 0;
-  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
   line-height: 1.14;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -67,7 +59,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-weight: 700;
-  background: linear-gradient(135deg, #876039 0%, #a87646 50%, #c89659 100%);
+  background: linear-gradient(135deg, #B45309 0%, #D97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -77,18 +69,18 @@ ul { list-style: none; margin: 0; padding: 0; }
 .eb {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  letter-spacing: .16em;
-  font-weight: 500;
+  gap: 7px;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  font-weight: 700;
   text-transform: uppercase;
-  color: var(--br);
+  color: #B45309;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #fbf7f2 0%, #f4efe9 100%);
-  padding: 7px 18px;
-  border-radius: 99px;
-  border: 1px solid rgba(135, 96, 57, 0.22);
-  box-shadow: 0 2px 10px rgba(135, 96, 57, 0.08);
+  background: #FEF3C7;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -99,13 +91,35 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
 /* ===================== BUTTONS ===================== */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font: 700 15px 'Plus Jakarta Sans', sans-serif; border: 1.5px solid var(--br); transition: .25s ease; cursor: pointer; text-decoration: none; }
-.btn.p { background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; box-shadow: 0 4px 16px rgba(135,96,57,0.28); }
-.btn.p:hover { transform: translateY(-2px); background: linear-gradient(135deg, #6f4e2d 0%, #876039 100%); box-shadow: 0 8px 24px rgba(135,96,57,0.38); }
-.btn.o { color: var(--br); background: #fff; }
-.btn.o:hover { background: var(--br); color: #fff; transform: translateY(-2px); }
+.btn.p {
+  background: #0A2540;
+  color: #FFFFFF !important;
+  border-color: #0A2540;
+  box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
+  font-weight: 700;
+}
+.btn.p:hover {
+  background: #1A365D;
+  border-color: #1A365D;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 37, 64, 0.28);
+}
+.btn.o {
+  color: var(--ink);
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
+  font-weight: 700;
+}
+.btn.o:hover {
+  background: #F6F9FC;
+  border-color: #0A2540;
+  color: var(--ink);
+  transform: translateY(-2px);
+}
 
 /* ===================== BREADCRUMB ===================== */
-.bc { padding: 18px 0 16px; background: var(--bg2); border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); font-weight: 600; }
+.bc { padding: 18px 0 16px; background: var(--bg2); font-size: 14px; color: var(--mute); font-weight: 600; }
 .bc .w { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .bc a { color: var(--mute); transition: color .2s; }
 .bc a:hover { color: var(--br); }
@@ -113,7 +127,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
 /* ===================== CARDS & UI COMPONENTS ===================== */
 .card { position: relative; overflow: hidden; background: var(--card); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-.card:hover { border-color: rgba(135,96,57,0.3); box-shadow: var(--shadow-md); }
+.card:hover { border-color: #CBD5E1; box-shadow: var(--shadow-md); }
 
 .ic { width: 46px; height: 46px; border-radius: 13px; background: var(--bg2); color: var(--br); display: grid; place-items: center; flex: none; border: 1px solid var(--line); transition: .3s ease; }
 .ic svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
@@ -126,12 +140,12 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 .wb i:nth-child(1) { background: #ff5f56; }
 .wb i:nth-child(2) { background: #ffbd2e; }
 .wb i:nth-child(3) { background: #27c93f; }
-.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Outfit', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
+.wb .ttl { color: var(--br); font-weight: 500; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: 0.05em; font-size: 12px; text-transform: uppercase; }
 
 /* Industry Grid */
 .ind-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .ind-card { border-radius: 18px; overflow: hidden; background: #fff; border: 1px solid var(--line); transition: transform .3s, box-shadow .3s; }
-.ind-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(135,96,57,0.3); }
+.ind-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: #CBD5E1; }
 .ind-img { height: 180px; background-size: cover; background-position: center; position: relative; }
 .ind-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(36,26,20,0.88) 100%); }
 .ind-icon { position: absolute; bottom: 14px; left: 16px; width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); display: grid; place-items: center; color: #fff; border: 1px solid rgba(255,255,255,0.25); }
@@ -143,12 +157,12 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 /* FAQ */
 .faq-list { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
 .faq-item { background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
-.faq-item.open { border-color: var(--br); box-shadow: 0 4px 20px rgba(135,96,57,0.1); }
+.faq-item.open { border-color: var(--br); box-shadow: 0 4px 20px rgba(10, 37, 64,0.1); }
 .faq-q { padding: 20px 24px; font-size: 16.5px; font-weight: 700; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; gap: 12px; }
 .faq-q svg { width: 20px; height: 20px; transition: transform .3s; stroke: var(--br); flex: none; }
 .faq-item.open .faq-q svg { transform: rotate(180deg); }
 .faq-a { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; font-size: 15px; color: var(--mute); line-height: 1.65; }
-.faq-item.open .faq-a { max-height: 280px; padding: 16px 24px 20px; border-top: 1px solid rgba(135,96,57,0.08); }
+.faq-item.open .faq-a { max-height: 280px; padding: 16px 24px 20px; border: 1px solid #E3E8EE; }
 
 /* Responsive Grid helpers */
 .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
@@ -182,7 +196,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 </div>
 
 <!-- ================= 3. HERO SECTION ================= -->
-<section style="padding: 60px 0 80px; background: linear-gradient(180deg, var(--bg2) 0%, #ffffff 100%); border-bottom: 1px solid var(--line);">
+<section style="padding: 60px 0 80px; background: linear-gradient(180deg, var(--bg2) 0%, #ffffff 100%); ">
   <div class="w">
     <div class="g2" style="gap: 50px; align-items: center;">
       <!-- Hero Left Text -->
@@ -207,15 +221,15 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         <!-- Factual highlights -->
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 24px; border-top: 1px solid var(--line);">
           <div>
-            <div style="font-size: 22px; font-weight: 500; color: var(--br); font-family: 'Outfit', sans-serif;">Floor View</div>
+            <div style="font-size: 22px; font-weight: 500; color: var(--br); font-family: 'Plus Jakarta Sans', sans-serif;">Floor View</div>
             <div style="font-size: 12px; font-weight: 600; color: var(--mute);">Table Seating</div>
           </div>
           <div>
-            <div style="font-size: 22px; font-weight: 500; color: var(--br); font-family: 'Outfit', sans-serif;">Group Orders</div>
+            <div style="font-size: 22px; font-weight: 500; color: var(--br); font-family: 'Plus Jakarta Sans', sans-serif;">Group Orders</div>
             <div style="font-size: 12px; font-weight: 600; color: var(--mute);">Multi-Item Tickets</div>
           </div>
           <div>
-            <div style="font-size: 22px; font-weight: 500; color: var(--br); font-family: 'Outfit', sans-serif;">Fast POS</div>
+            <div style="font-size: 22px; font-weight: 500; color: var(--br); font-family: 'Plus Jakarta Sans', sans-serif;">Fast POS</div>
             <div style="font-size: 12px; font-weight: 600; color: var(--mute);">Billing & Split Payment</div>
           </div>
         </div>
@@ -230,7 +244,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
           
           <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; color: #fff;">
             <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.1em; color: var(--br-gold); text-transform: uppercase;">FAMILY DINING ROOM</div>
-            <div style="font-size: 18px; font-weight: 500; font-family: 'Outfit', sans-serif;">Main Hall • Peak Dinner Hour</div>
+            <div style="font-size: 18px; font-weight: 500; font-family: 'Plus Jakarta Sans', sans-serif;">Main Hall • Peak Dinner Hour</div>
           </div>
         </div>
 
@@ -250,7 +264,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 </section>
 
 <!-- ================= 4. HERO VISUAL STORY ================= -->
-<section style="padding: 40px 0; background: var(--bg2); border-bottom: 1px solid var(--line);">
+<section style="padding: 40px 0; background: var(--bg2); ">
   <div class="w">
     <div style="text-align: center; margin-bottom: 16px;">
       <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.15em; color: var(--br); text-transform: uppercase;">CONNECTED FAMILY DINING JOURNEY</div>
@@ -426,7 +440,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="text-align: center;">
-        <a href="{{ route('features.table-management') }}" class="btn o" style="font-size: 14px; padding: 10px 24px;">Explore Table Management →</a>
+        <a href="{{ route('features') }}" class="btn o" style="font-size: 14px; padding: 10px 24px;">Explore Table Management →</a>
       </div>
     </div>
   </div>
@@ -502,7 +516,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
           <span style="padding: 6px 14px; background: #fff; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-weight: 700;">Desserts</span>
         </div>
 
-        <a href="{{ route('features.menu-management') }}" class="btn p">Explore Menu Management →</a>
+        <a href="{{ route('features') }}" class="btn p">Explore Menu Management →</a>
       </div>
     </div>
   </div>
@@ -587,7 +601,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
     </div>
 
     <div style="text-align: center; margin-top: 36px;">
-      <a href="{{ route('features.kot-management') }}" class="btn p">Explore KOT Management →</a>
+      <a href="{{ route('features') }}" class="btn p">Explore KOT Management →</a>
     </div>
   </div>
 </section>
@@ -631,7 +645,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
         </div>
 
         <div style="margin-top: 24px;">
-          <a href="{{ route('features.waiter-request') }}" class="btn o" style="font-size: 13px; padding: 8px 20px;">Explore Waiter Requests →</a>
+          <a href="{{ route('features') }}" class="btn o" style="font-size: 13px; padding: 8px 20px;">Explore Waiter Requests →</a>
         </div>
       </div>
     </div>
@@ -674,7 +688,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="text-align: center; margin-top: 24px;">
-        <a href="{{ route('features.pos-management') }}" class="btn p" style="font-size: 14px;">Explore POS Management →</a>
+        <a href="{{ route('features') }}" class="btn p" style="font-size: 14px;">Explore POS Management →</a>
       </div>
     </div>
   </div>
@@ -845,19 +859,19 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; text-align: center;">
         <div style="background: #fff; padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
           <div style="font-size: 10px; font-weight: 500; color: var(--mute);">TODAY'S SALES</div>
-          <div style="font-size: 22px; font-weight: 500; color: var(--br); font-family: 'Outfit', sans-serif; margin-top: 2px;">₹48,620</div>
+          <div style="font-size: 22px; font-weight: 500; color: var(--br); font-family: 'Plus Jakarta Sans', sans-serif; margin-top: 2px;">₹48,620</div>
         </div>
         <div style="background: #fff; padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
           <div style="font-size: 10px; font-weight: 500; color: var(--mute);">ORDERS</div>
-          <div style="font-size: 22px; font-weight: 500; color: var(--ink); font-family: 'Outfit', sans-serif; margin-top: 2px;">186</div>
+          <div style="font-size: 22px; font-weight: 500; color: var(--ink); font-family: 'Plus Jakarta Sans', sans-serif; margin-top: 2px;">186</div>
         </div>
         <div style="background: #fff; padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
           <div style="font-size: 10px; font-weight: 500; color: var(--mute);">AVG ORDER</div>
-          <div style="font-size: 22px; font-weight: 500; color: var(--ink); font-family: 'Outfit', sans-serif; margin-top: 2px;">₹261</div>
+          <div style="font-size: 22px; font-weight: 500; color: var(--ink); font-family: 'Plus Jakarta Sans', sans-serif; margin-top: 2px;">₹261</div>
         </div>
         <div style="background: #fff; padding: 14px; border-radius: 12px; border: 1px solid var(--line);">
           <div style="font-size: 10px; font-weight: 500; color: var(--mute);">PAYMENTS</div>
-          <div style="font-size: 22px; font-weight: 500; color: var(--green-text); font-family: 'Outfit', sans-serif; margin-top: 2px;">₹45,280</div>
+          <div style="font-size: 22px; font-weight: 500; color: var(--green-text); font-family: 'Plus Jakarta Sans', sans-serif; margin-top: 2px;">₹45,280</div>
         </div>
       </div>
 
@@ -878,7 +892,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
       </div>
 
       <div style="text-align: center; margin-top: 24px;">
-        <a href="{{ route('features.reports') }}" class="btn p" style="font-size: 14px;">Explore Reports →</a>
+        <a href="{{ route('features') }}" class="btn p" style="font-size: 14px;">Explore Reports →</a>
       </div>
     </div>
   </div>
@@ -1035,7 +1049,7 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 
     <!-- Node Diagram -->
     <div style="max-width: 900px; margin: 0 auto; background: var(--bg2); padding: 40px 24px; border-radius: 24px; border: 1px solid var(--line); text-align: center;">
-      <div style="width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg, #876039 0%, #a87646 100%); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 36px; box-shadow: 0 10px 30px rgba(135,96,57,0.3); border: 4px solid #fff;">
+      <div style="width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg, #B45309 0%, #D97706 100%); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 36px; box-shadow: 0 10px 30px rgba(10, 37, 64,0.3); border: 4px solid #fff;">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
         <div style="font-size: 14px; font-weight: 500; margin-top: 6px;">FAMILY</div>
         <div style="font-size: 10px; opacity: 0.9;">RESTAURANT PLATFORM</div>
@@ -1263,25 +1277,25 @@ section { padding: clamp(56px, 7vw, 96px) 0; background: var(--bg); position: re
 </section>
 
 <!-- ================= 24. FINAL CTA ================= -->
-<section style="padding: 100px 0; background: linear-gradient(135deg, #FAF4ED 0%, #EFE4D6 50%, #FAF4ED 100%); color: #21160F; position: relative; overflow: hidden; border-top: 1px solid rgba(135, 96, 57, 0.16);">
-  <div style="position: absolute; inset: 0; background: radial-gradient(circle at right center, rgba(135,96,57,0.12) 0%, transparent 60%); pointer-events: none;"></div>
+<section style="padding: 100px 0; background: radial-gradient(circle at 50% 0%, #1A2E4C 0%, #0A192F 100%); color: #FFFFFF; position: relative; overflow: hidden; ">
+  <div style="position: absolute; inset: 0; background: radial-gradient(circle at right center, rgba(255,255,255,0.05) 0%, transparent 60%); pointer-events: none;"></div>
 
   <div class="w" style="text-align: center; position: relative; z-index: 1;">
-    <div class="eb" style="background: rgba(135, 96, 57, 0.1); border-color: rgba(135, 96, 57, 0.2); color: #876039; margin-bottom: 24px;">
+    <div class="eb" style="background: rgba(254, 243, 199, 0.15); border-color: rgba(217, 119, 6, 0.3); color: #FBBF24; margin-bottom: 24px;">
       READY TO TRANSFORM YOUR RESTAURANT?
     </div>
 
-    <h2 style="color: #21160F; font-size: clamp(32px, 4.5vw, 52px); margin-bottom: 20px;">
-      Run Your Family Restaurant <span style="color: #876039; font-family: 'Playfair Display', serif; font-style: italic;">With More Clarity.</span>
+    <h2 style="color: #FFFFFF; font-size: clamp(32px, 4.5vw, 52px); margin-bottom: 20px;">
+      Run Your Family Restaurant <span style="color: #FBBF24; font-family: 'Playfair Display', serif; font-style: italic;">With More Clarity.</span>
     </h2>
 
-    <p style="color: #6E6157; font-size: 18px; max-width: 640px; margin: 0 auto 36px;">
+    <p style="color: #8898AA; font-size: 18px; max-width: 640px; margin: 0 auto 36px;">
       Bring your menu, tables, orders, kitchen, billing and restaurant operations together with Geni Menu.
     </p>
 
     <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-      <a href="{{ route('restaurant_signup') }}" onclick="if(typeof openPopup === 'function'){ openPopup(); return false; }" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #876039; color: #fff;">Get Started →</a>
-      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 36px; font-size: 16px; background: #fff; color: #876039; border: 1.5px solid #876039;">Book a Demo</a>
+      <a href="{{ route('restaurant_signup') }}" onclick="if(typeof openPopup === 'function'){ openPopup(); return false; }" class="btn p" style="padding: 16px 36px; font-size: 16px; background: #FFFFFF; color: #0A2540; font-weight: 700; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid #FFFFFF;">Get Started →</a>
+      <a href="{{ route('contact.us') }}" class="btn o" style="padding: 16px 36px; font-size: 16px; background: rgba(255, 255, 255, 0.08); color: #FFFFFF; border: 1.5px solid rgba(255, 255, 255, 0.25); font-weight: 700; border-radius: 12px;">Book a Demo</a>
     </div>
   </div>
 </section>

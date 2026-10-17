@@ -1,13 +1,13 @@
-﻿@extends('layouts.landing')
+@extends('layouts.landing')
 
 @section('content')
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
     .hero-wrap {
         background: #FAF6F1;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Plus Jakarta Sans', sans-serif;
         position: relative;
         overflow: hidden;
         min-height: 88vh;
@@ -244,7 +244,7 @@
     .hmob-pay { background:#A0744B;margin:0 9px 9px;border-radius:100px;padding:10px 13px;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:10px;font-weight: 500; }
 
     /* Notification Badges */
-    .h-notif { position:absolute;background:#fff;border-radius:13px;padding:9px 14px;box-shadow:0 8px 28px rgba(0,0,0,0.12);z-index:35;font-family:'Poppins',sans-serif;min-width:155px; }
+    .h-notif { position:absolute;background:#fff;border-radius:13px;padding:9px 14px;box-shadow:0 8px 28px rgba(0,0,0,0.12);z-index:35;font-family:'Plus Jakarta Sans',sans-serif;min-width:155px; }
     .h-notif.nk { top:18px;left:18px;animation:fn1 3s ease-in-out infinite alternate; }
     .h-notif.ns { bottom:28px;right:28px;animation:fn2 3.5s ease-in-out infinite alternate; }
     @keyframes fn1{0%{transform:translateY(0);}100%{transform:translateY(-6px);}}

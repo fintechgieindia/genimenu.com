@@ -1,4 +1,4 @@
-<nav class="fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+<nav class="fixed z-30 w-full bg-white/95 backdrop-blur-md border-b border-slate-200/80 dark:bg-gray-800/95 dark:border-gray-700">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
       <div class="flex items-center justify-between">
 
@@ -91,7 +91,7 @@
             </div>
             <!-- Dropdown menu -->
             <div
-              class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+              class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-slate-100 rounded-xl shadow-lg border border-slate-200/80 dark:bg-gray-800 dark:divide-gray-700 dark:border-gray-700"
               id="dropdown-2">
               <div class="px-4 py-3" role="none">
                 <p class="text-sm text-gray-900 dark:text-white" role="none">
@@ -122,7 +122,7 @@
                     role="menuitem">
                     @lang('menu.appUpdate')
 
-                    <span class="bg-skin-base text-white text-xs font-medium px-1.5 py-0.5 rounded-full dark:bg-gray-500 dark:text-gray-300">v{{ \Illuminate\Support\Facades\File::get('version.txt') }}</span>
+                    <span class="bg-skin-base text-white text-xs font-medium px-1.5 py-0.5 rounded-full dark:bg-gray-500 dark:text-gray-300">v{{ \Illuminate\Support\Facades\File::exists(public_path('version.txt')) ? \Illuminate\Support\Facades\File::get(public_path('version.txt')) : (\Illuminate\Support\Facades\File::exists(base_path('version.txt')) ? \Illuminate\Support\Facades\File::get(base_path('version.txt')) : '1.0.0') }}</span>
                   </a>
                 </li>
 

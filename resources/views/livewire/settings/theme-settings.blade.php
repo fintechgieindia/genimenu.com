@@ -237,7 +237,7 @@
                         <div class="space-y-2">
                             <span class="text-xs font-medium text-gray-500 dark:text-gray-400">@lang('app.warm')</span>
                             <div class="flex flex-wrap gap-2">
-                                @foreach (['#F97316', '#DC2626', '#D946EF', '#EC4899', '#F43F5E', '#FB923C', '#E11D48', '#F59E0B'] as $color)
+                                @foreach (['#876039', '#F97316', '#DC2626', '#D946EF', '#EC4899', '#F43F5E', '#FB923C', '#E11D48', '#F59E0B'] as $color)
                                     <button type="button" wire:click="$set('themeColor', '{{ $color }}')"
                                         class="w-8 h-8 rounded-full border-2 border-white dark:border-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 dark:focus:ring-offset-gray-800 hover:scale-110 transition-transform"
                                         style="background-color: {{ $color }}" title="{{ $color }}">

@@ -13,12 +13,16 @@
 @section('content')
 
 <style>
+    body, p {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: #425466;
+    }
    
     .custom-tick svg{
-        fill: #876039  
+        fill: #B45309;
     }
     .breadcrumb-section {
-    background-color: #FFF7EF;
+    background-color: #F6F9FC;
     padding-top: 110px;
     padding-bottom: 30px;
     padding-left: 20px;
@@ -40,9 +44,11 @@
     }
 
     .breadcrumb-title {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 2.5rem;
-    font-weight: 700;
-    color: #2d2d2d;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    color: #0A2540;
     margin-bottom: 10px;
     }
 
@@ -154,27 +160,31 @@
 }
 
 .profile-name {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #876039;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0A2540;
   margin-bottom: 10px;
 }
 
 .tag {
-  background-color: #FFF7EF;
-  color: #876039;
+  background-color: #FEF3C7;
+  color: #B45309;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  font-weight: 600;
   border-radius: 20px;
   padding: 4px 15px;
-  font-size: 14px;
+  font-size: 13.5px;
   display: inline-block;
   margin-bottom: 15px;
 }
 
 .profile-description {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.65;
   margin-bottom: 20px;
-  color: #333;
+  color: #425466;
 }
 
 /* Info Boxes */
@@ -189,7 +199,8 @@
   flex: 1 1 calc(50% - 15px);
   display: flex;
   align-items: center;
-  background-color: #FFF7EF;
+  background-color: #F6F9FC;
+  border: 1px solid #E3E8EE;
   border-radius: 12px;
   padding: 15px 20px;
 }
@@ -204,13 +215,13 @@
 
 .info-icon {
   font-size: 20px;
-  color: #876039;
+  color: #B45309;
   margin-right: 10px;
 }
 
 .info-title {
-  font-weight: 600;
-  color: #876039;
+  font-weight: 700;
+  color: #0A2540;
 }
 
 /* Social Icons */
@@ -225,15 +236,17 @@
         justify-content: center;
         width: 40px;
         height: 40px;
-        border: 1px solid #876039;
+        border: 1px solid #E3E8EE;
         border-radius: 50%;
-        color: #876039;
+        color: #0A2540;
+        background: #FFFFFF;
         font-size: 18px;
-        transition: all 0.3s ease;
+        transition: all 0.25s ease;
     }
     .social-icons a:hover,
     .social-icons a:active {
-        background-color: #876039;
+        background-color: #0A2540;
+        border-color: #0A2540;
         color: #fff;
     }
 
@@ -271,23 +284,21 @@
 }
 .btn__primary_new_outline {
     border-radius: .5rem;
-    border-width: 1px;
+    border-width: 1.5px;
     display: inline-block;
-    --tw-border-opacity: 1;
-    border-color: #876039;
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255/var(--tw-bg-opacity));
+    border-color: #0A2540;
+    background-color: #FFFFFF;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.5rem;
     padding: .5rem 1.5rem;
-    --tw-text-opacity: 1;
-    color: #876039
+    color: #0A2540;
+    transition: all 0.25s ease;
 }
 
 .btn__primary_new_outline:focus,.btn__primary_new_outline:hover {
-    --tw-bg-opacity: 1;
-    background-color: #876039;
+    background-color: #0A2540;
     color: #fff;
 }
 
@@ -296,8 +307,7 @@
     outline-offset: 2px
 }
 .btn__primary_new_outline:active {
-     --tw-bg-opacity: 1;
-    background-color: #876039;
+    background-color: #081d33;
     color: #fff;
 }
 
@@ -358,7 +368,7 @@
                 <div class="flex items-start gap-6">
                     <img src="{{ asset('landing/vision.svg') }}" alt="Billing Icon" class="h-10 w-10">
                     <div>
-                        <h3 class="font-semibold text-xl" style="color:#876039;">
+                        <h3 class="font-semibold text-xl" style="color:#0A2540;">
                             Vision
                         </h3>
                         <p class="text-gray-500 dark:text-neutral-500 mt-1">
@@ -369,7 +379,7 @@
                 <div class="flex items-start gap-6">
                     <img src="{{ asset('landing/mission.svg') }}" alt="Feedback Icon" class="h-10 w-10">
                     <div>
-                        <h3 class="font-semibold text-xl" style="color:#876039;">
+                        <h3 class="font-semibold text-xl" style="color:#0A2540;">
                         Mission
                         </h3>
                         <p class="text-gray-500 dark:text-neutral-500 mt-1">
@@ -398,7 +408,7 @@
             <div class="flex-auto p-4 md:p-6">
                 <img src="{{ asset('landing/why1.svg') }}" alt="Feedback Icon" class="h-12 w-12 mb-3">
                     <div>
-                        <h3 class="font-semibold text-xl" style="color:#876039;">
+                        <h3 class="font-semibold text-xl" style="color:#0A2540;">
                         Built for the Restaurant Industry
                         </h3>
                         <p class="text-gray-500 dark:text-neutral-500 mt-1">
@@ -412,7 +422,7 @@
             <div class="flex-auto p-4 md:p-6">
                 <img src="{{ asset('landing/why2.svg') }}" alt="Feedback Icon" class="h-12 w-12 mb-3">
                     <div>
-                        <h3 class="font-semibold text-xl" style="color:#876039;">
+                        <h3 class="font-semibold text-xl" style="color:#0A2540;">
                         Premium Quality Performance
                         </h3>
                         <p class="text-gray-500 dark:text-neutral-500 mt-1">
@@ -426,7 +436,7 @@
             <div class="flex-auto p-4 md:p-6">
                 <img src="{{ asset('landing/why3.svg') }}" alt="Feedback Icon" class="h-12 w-12 mb-3">
                     <div>
-                        <h3 class="font-semibold text-xl" style="color:#876039;">
+                        <h3 class="font-semibold text-xl" style="color:#0A2540;">
                         Long-Term Partnership
                         </h3>
                         <p class="text-gray-500 dark:text-neutral-500 mt-1">
@@ -462,7 +472,7 @@
         <div class="info-box">
             <div class="info-icon">
                 <svg class="shrink-0 size-5 text-gray-500 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:#876039;">
+                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:#0A2540;">
                 <path
                     d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.13 1.12.46 2.2.98 3.2a2 2 0 0 1-.45 2.18L9.1 11.1a16 16 0 0 0 5.9 5.9l1.1-1.1a2 2 0 0 1 2.18-.45c1 .52 2.08.85 3.2.98a2 2 0 0 1 1.72 2z" />
                 </svg>
@@ -475,7 +485,7 @@
         <div class="info-box">
             <div class="info-icon">
                 <svg class="shrink-0 size-5 text-gray-500 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:#876039;">
+                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:#0A2540;">
                 <path
                     d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z" />
                 <path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10" />

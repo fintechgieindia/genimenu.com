@@ -74,10 +74,10 @@
   }
 
   .signup-title {
-    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 28px;
-    font-weight: 600;
-    color: #21160F;
+    font-weight: 700;
+    color: #0A2540;
     letter-spacing: -0.4px;
     line-height: 1.25;
     margin: 0 0 6px;

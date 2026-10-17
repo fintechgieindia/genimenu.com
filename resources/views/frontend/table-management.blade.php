@@ -12,9 +12,6 @@ $meta = [
 {{-- ============================================================
      FONTS & AOS
 ============================================================ --}}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
 <style>
@@ -22,25 +19,22 @@ $meta = [
    CSS CUSTOM PROPERTIES
 ============================================================ */
 :root {
-    --bg-page:        #FAF6EF;
-    --bg-card:        #FFFFFF;
-    --bg-surface:     #F5EFEB;
-    --ink:            #21160F;
-    --ink-soft:       #63584E;
-    --ink-faint:      #8E8277;
-    --coffee:         #876039;
-    --coffee-dark:    #6F4E2D;
-    --coffee-light:   #F4EFEA;
-    --coffee-border:  rgba(135,96,57,0.16);
-    --green:          #15803D;
-    --green-bg:       #DCFCE7;
-    --amber:          #B45309;
-    --amber-bg:       #FEF3C7;
-    --red:            #DC2626;
-    --red-bg:         #FEE2E2;
-    --gray:           #6B7280;
-    --gray-bg:        #F3F4F6;
-    --line:           rgba(135,96,57,0.12);
+  --br: #B45309;
+  --br-dark: #92400E;
+  --br-light: #FEF3C7;
+  --br-gold: #D97706;
+  --bg: #FFFFFF;
+  --bg2: #F6F9FC;
+  --bg3: #EEF2F6;
+  --ink: #0A2540;
+  --mute: #425466;
+  --line: #E3E8EE;
+  --card: #FFFFFF;
+  --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
+  --green: #10B981;
+  --red: #EF4444;
 }
 
 /* ============================================================
@@ -54,14 +48,14 @@ $meta = [
     line-height: 1.65;
 }
 .tm-page h1, .tm-page h2, .tm-page h3, .tm-page h4, .tm-page h5 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     color: var(--ink);
     letter-spacing: -0.025em;
     line-height: 1.18;
 }
 .tm-page .italic-serif {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-style: italic;
     font-weight: 600;
     color: var(--coffee);
@@ -120,7 +114,7 @@ $meta = [
     color: #fff;
     border-radius: 9999px;
     padding: 13px 28px;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 15px;
     text-decoration: none;
@@ -135,10 +129,10 @@ $meta = [
     gap: 8px;
     background: #fff;
     color: var(--coffee);
-    border: 1px solid rgba(135,96,57,0.25);
+    border: 1px solid #E3E8EE;
     border-radius: 9999px;
     padding: 12px 26px;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 15px;
     text-decoration: none;
@@ -161,7 +155,7 @@ $meta = [
     position: absolute;
     top: -120px; left: -200px;
     width: 700px; height: 700px;
-    background: radial-gradient(circle, rgba(135,96,57,0.07) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(10, 37, 64,0.07) 0%, transparent 70%);
     pointer-events: none;
 }
 .tm-hero__inner {
@@ -283,7 +277,7 @@ $meta = [
     flex-wrap: wrap;
 }
 .floorplan-ui__title {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     color: #FAF6EF;
     font-size: 16px;
@@ -370,7 +364,7 @@ $meta = [
     align-items: flex-start;
 }
 .table-card__num {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 16px;
     color: #FAF6EF;
@@ -394,7 +388,7 @@ $meta = [
 .table-card__status-bar--cleaning  { background: #6B7280; }
 
 .badge-available { background: rgba(34,197,94,0.15);  color: #22C55E; }
-.badge-occupied  { background: rgba(135,96,57,0.25);  color: #D4956A; }
+.badge-occupied  { background: rgba(10, 37, 64,0.25);  color: #D4956A; }
 .badge-reserved  { background: rgba(245,158,11,0.15); color: #F59E0B; }
 .badge-cleaning  { background: rgba(107,114,128,0.2); color: #9CA3AF; }
 
@@ -411,7 +405,7 @@ $meta = [
     gap: 1px;
 }
 .table-card__meta-val {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 13px;
     color: rgba(250,246,239,0.9);
@@ -454,7 +448,7 @@ $meta = [
     font-weight: 600;
 }
 .floorplan-ui__tele-val {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 20px;
     color: #FAF6EF;
@@ -519,7 +513,7 @@ $meta = [
     font-size: 22px;
 }
 .tm-value__title {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 15px;
     color: var(--ink);
@@ -598,7 +592,7 @@ $meta = [
     justify-content: space-between;
 }
 .tm-showcase__visual-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 13px;
     color: var(--ink);
@@ -630,7 +624,7 @@ $meta = [
     flex: 1;
 }
 .zone-row__name-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 13px;
     color: var(--ink);
@@ -650,7 +644,7 @@ $meta = [
     border-radius: 9999px;
 }
 .zone-pill--green  { background: var(--green-bg);  color: var(--green); }
-.zone-pill--coffee { background: rgba(135,96,57,0.12); color: var(--coffee); }
+.zone-pill--coffee { background: rgba(10, 37, 64,0.12); color: var(--coffee); }
 .zone-pill--amber  { background: var(--amber-bg);  color: var(--amber); }
 .zone-pill--gray   { background: var(--gray-bg);   color: var(--gray); }
 
@@ -693,7 +687,7 @@ $meta = [
     background: var(--coffee);
     border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 800;
     font-size: 18px;
     color: #fff;
@@ -803,7 +797,7 @@ $meta = [
     border: 1px solid rgba(255,255,255,0.08);
 }
 .tm-metric__num {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 800;
     font-size: 46px;
     letter-spacing: -0.03em;
@@ -856,7 +850,7 @@ $meta = [
 .compare-card--new {
     background: linear-gradient(135deg, var(--coffee-light) 0%, #fff 100%);
     border-color: var(--coffee-border);
-    box-shadow: 0 16px 48px rgba(135,96,57,0.10);
+    box-shadow: 0 16px 48px rgba(10, 37, 64,0.10);
 }
 .compare-card__label {
     font-size: 11px;
@@ -935,7 +929,7 @@ $meta = [
     overflow: hidden;
     transition: box-shadow .2s;
 }
-.faq-item.open { box-shadow: 0 8px 28px rgba(135,96,57,0.09); }
+.faq-item.open { box-shadow: 0 8px 28px rgba(10, 37, 64,0.09); }
 .faq-question {
     padding: 22px 24px;
     display: flex;
@@ -943,7 +937,7 @@ $meta = [
     justify-content: space-between;
     gap: 16px;
     cursor: pointer;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 16px;
     color: var(--ink);
@@ -1018,7 +1012,7 @@ $meta = [
 }
 .crosslink-card__text {}
 .crosslink-card__title {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 14px;
     color: var(--ink);
@@ -1041,7 +1035,7 @@ $meta = [
     position: absolute;
     top: -100px; right: -100px;
     width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(135,96,57,0.18) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(10, 37, 64,0.18) 0%, transparent 65%);
     pointer-events: none;
 }
 .tm-cta::after {
@@ -1049,7 +1043,7 @@ $meta = [
     position: absolute;
     bottom: -80px; left: -80px;
     width: 380px; height: 380px;
-    background: radial-gradient(circle, rgba(135,96,57,0.12) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(10, 37, 64,0.12) 0%, transparent 65%);
     pointer-events: none;
 }
 .tm-cta__inner {
@@ -1064,8 +1058,8 @@ $meta = [
     letter-spacing: 1.6px;
     text-transform: uppercase;
     color: #D4956A;
-    background: rgba(135,96,57,0.15);
-    border: 1px solid rgba(135,96,57,0.3);
+    background: rgba(10, 37, 64,0.15);
+    border: 1px solid #E3E8EE;
     padding: 6px 16px;
     border-radius: 9999px;
     margin-bottom: 24px;
@@ -1102,7 +1096,7 @@ $meta = [
     gap: 8px;
     border-radius: 9999px;
     padding: 13px 28px;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 15px;
     text-decoration: none;
@@ -1118,7 +1112,7 @@ $meta = [
     gap: 8px;
     border-radius: 9999px;
     padding: 12px 26px;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: 15px;
     text-decoration: none;
@@ -1302,7 +1296,7 @@ $meta = [
                             </div>
                         </div>
                         <div class="table-card__guests">
-                            <div class="table-card__guest-dot" style="background:#876039;">A</div>
+                            <div class="table-card__guest-dot" style="background:#0A2540;">A</div>
                             <div class="table-card__guest-dot" style="background:#15803D;">S</div>
                             <div class="table-card__guest-dot" style="background:#B45309;">P</div>
                         </div>
@@ -1362,7 +1356,7 @@ $meta = [
                         </div>
                         <div class="table-card__guests">
                             <div class="table-card__guest-dot" style="background:#6F4E2D;">N</div>
-                            <div class="table-card__guest-dot" style="background:#876039;">K</div>
+                            <div class="table-card__guest-dot" style="background:#0A2540;">K</div>
                         </div>
                     </div>
 
@@ -1434,7 +1428,7 @@ $meta = [
                         <div class="table-card__guests">
                             <div class="table-card__guest-dot" style="background:#15803D;">D</div>
                             <div class="table-card__guest-dot" style="background:#B45309;">R</div>
-                            <div class="table-card__guest-dot" style="background:#876039;">S</div>
+                            <div class="table-card__guest-dot" style="background:#0A2540;">S</div>
                             <div class="table-card__guest-dot" style="background:#6F4E2D;">V</div>
                             <div class="table-card__guest-dot" style="background:#9E6E3F;">T</div>
                         </div>
@@ -1493,7 +1487,7 @@ $meta = [
                             </div>
                         </div>
                         <div class="table-card__guests">
-                            <div class="table-card__guest-dot" style="background:#876039;">G</div>
+                            <div class="table-card__guest-dot" style="background:#0A2540;">G</div>
                             <div class="table-card__guest-dot" style="background:#B45309;">H</div>
                             <div class="table-card__guest-dot" style="background:#15803D;">I</div>
                             <div class="table-card__guest-dot" style="background:#6F4E2D;">J</div>
@@ -1600,7 +1594,7 @@ $meta = [
                             <div class="floorplan-ui__occ-bar-track" style="flex:1;">
                                 <div class="floorplan-ui__occ-bar-fill" style="width:75%;"></div>
                             </div>
-                            <span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;color:#D4956A;white-space:nowrap;">75%</span>
+                            <span style="font-family:'Plus Jakarta Sans', sans-serif;font-weight:700;font-size:16px;color:#D4956A;white-space:nowrap;">75%</span>
                         </div>
                     </div>
                     <div class="floorplan-ui__tele-item">
@@ -1750,19 +1744,19 @@ $meta = [
                     <div style="margin-top:16px;padding:14px 16px;background:var(--coffee-light);border-radius:12px;border:1px solid var(--coffee-border);display:flex;gap:28px;flex-wrap:wrap;">
                         <div style="display:flex;flex-direction:column;gap:2px;">
                             <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-faint);font-weight:600;">Occupancy</span>
-                            <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;color:var(--coffee);">75%</span>
+                            <span style="font-family:'Plus Jakarta Sans', sans-serif;font-weight:800;font-size:22px;color:var(--coffee);">75%</span>
                         </div>
                         <div style="display:flex;flex-direction:column;gap:2px;">
                             <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-faint);font-weight:600;">Avg. Bill</span>
-                            <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;color:var(--ink);">₹2,712</span>
+                            <span style="font-family:'Plus Jakarta Sans', sans-serif;font-weight:800;font-size:22px;color:var(--ink);">₹2,712</span>
                         </div>
                         <div style="display:flex;flex-direction:column;gap:2px;">
                             <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-faint);font-weight:600;">Avg. Turn</span>
-                            <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;color:var(--ink);">47 min</span>
+                            <span style="font-family:'Plus Jakarta Sans', sans-serif;font-weight:800;font-size:22px;color:var(--ink);">47 min</span>
                         </div>
                         <div style="display:flex;flex-direction:column;gap:2px;">
                             <span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--ink-faint);font-weight:600;">Active Staff</span>
-                            <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;color:var(--ink);">3</span>
+                            <span style="font-family:'Plus Jakarta Sans', sans-serif;font-weight:800;font-size:22px;color:var(--ink);">3</span>
                         </div>
                     </div>
                 </div>
@@ -1861,8 +1855,8 @@ $meta = [
 <section class="tm-metrics">
     <div class="tm-container">
         <div style="text-align:center;margin-bottom:48px;" data-aos="fade-up">
-            <div style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#D4956A;background:rgba(135,96,57,0.15);border:1px solid rgba(135,96,57,0.3);padding:6px 16px;border-radius:9999px;margin-bottom:18px;">Real Results</div>
-            <h2 style="font-family:'Outfit',sans-serif;font-weight:700;color:#FAF6EF;font-size:clamp(26px,3.5vw,40px);letter-spacing:-0.025em;margin-bottom:12px;">Numbers That Move the Needle</h2>
+            <div style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#D4956A;background:rgba(10, 37, 64,0.15);border: 1px solid #E3E8EE;padding:6px 16px;border-radius:9999px;margin-bottom:18px;">Real Results</div>
+            <h2 style="font-family:'Plus Jakarta Sans', sans-serif;font-weight:700;color:#FAF6EF;font-size:clamp(26px,3.5vw,40px);letter-spacing:-0.025em;margin-bottom:12px;">Numbers That Move the Needle</h2>
             <p style="color:rgba(250,246,239,0.55);font-size:16px;max-width:500px;margin:0 auto;">Aggregated from Geni Menu restaurants that switched from manual floor sheets to live table management.</p>
         </div>
         <div class="tm-metrics__inner" data-aos="fade-up" data-aos-delay="80">
@@ -2044,7 +2038,7 @@ $meta = [
             <p>Table Management connects directly to these Geni Menu features.</p>
         </div>
         <div class="tm-crosslinks__row" data-aos="fade-up" data-aos-delay="60">
-            <a href="{{ route('features.reservation-management') }}" class="crosslink-card">
+            <a href="{{ route('features') }}" class="crosslink-card">
                 <div class="crosslink-card__icon">📅</div>
                 <div class="crosslink-card__text">
                     <div class="crosslink-card__title">Reservation Management</div>
@@ -2052,7 +2046,7 @@ $meta = [
                 </div>
                 <span class="crosslink-card__arrow">→</span>
             </a>
-            <a href="{{ route('features.waiter-request') }}" class="crosslink-card">
+            <a href="{{ route('features') }}" class="crosslink-card">
                 <div class="crosslink-card__icon">🔔</div>
                 <div class="crosslink-card__text">
                     <div class="crosslink-card__title">Waiter Request</div>
@@ -2060,7 +2054,7 @@ $meta = [
                 </div>
                 <span class="crosslink-card__arrow">→</span>
             </a>
-            <a href="{{ route('features.pos-management') }}" class="crosslink-card">
+            <a href="{{ route('features') }}" class="crosslink-card">
                 <div class="crosslink-card__icon">💳</div>
                 <div class="crosslink-card__text">
                     <div class="crosslink-card__title">POS &amp; Billing</div>

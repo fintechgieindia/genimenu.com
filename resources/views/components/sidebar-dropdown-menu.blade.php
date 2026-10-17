@@ -1,6 +1,10 @@
 <li>
     <button type="button"
-        @class(['flex items-center w-full p-2 text-base transition duration-75 rounded-xl group hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-700', 'hover:text-gray-800 text-white font-bold bg-gray-700' => $active])
+        @class([
+            'flex items-center w-full px-3 py-2.5 text-sm transition-all duration-150 rounded-lg group font-medium',
+            'bg-skin-base text-white shadow-sm font-semibold' => $active,
+            'text-slate-700 hover:text-slate-900 hover:bg-slate-100 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white' => !$active,
+        ])
         aria-controls="dropdown-{{ \Str::slug($name, '-', app()->getLocale()) }}" data-collapse-toggle="dropdown-{{ \Str::slug($name, '-', app()->getLocale()) }}">
         {!! $customIcon ?? $icon !!}
         @if ($isAddon && app()->environment('demo'))

@@ -29,8 +29,11 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{ global_setting()->logoUrl }}">
 
-    <title>{{ global_setting()->name }}</title>
-    
+    <!-- Geist Font Family (International SaaS Standard) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
   	@include('layouts.meta-pixel')
 
     <!-- Scripts -->
@@ -105,7 +108,7 @@
 </head>
 
 
-<body class="font-sans antialiased dark:bg-gray-900" id="main-body">
+<body class="font-sans antialiased bg-[#F8FAFC]" id="main-body">
 
     @if (user()->restaurant_id)
         @livewire('navigation-menu')
@@ -113,7 +116,7 @@
         @livewire('superadmin-navigation-menu')
     @endif
 
-    <div class="flex rtl:flex-row-reverse pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900 h-screen">
+    <div class="flex rtl:flex-row-reverse pt-16 overflow-hidden bg-[#F8FAFC] h-screen">
 
         @if (!request()->routeIs('pos.*'))
             @if (user()->restaurant_id)
@@ -126,11 +129,11 @@
 
         <div id="main-content"
             @class([
-                'relative w-full h-full overflow-y-auto bg-gray-50 dark:bg-gray-900',
+                'relative w-full h-full overflow-y-auto bg-[#F8FAFC]',
                 'ltr:lg:ml-0 rtl:lg:mr-0' => request()->routeIs('pos.*'),
                 'ltr:lg:ml-64 rtl:lg:mr-64' => !request()->routeIs('pos.*'),
             ])>
-            <main>
+            <main class="bg-[#F8FAFC]">
                 @yield('content')
                 {{ $slot ?? '' }}
             </main>
