@@ -3971,68 +3971,155 @@ section:has(#fq) {
   }
 }
 
-/* Call to Action Banner - Stripe Deep Midnight Finish */
-.cta {
+/* ==========================================================================
+   FINAL CONVERSION CTA — "LET'S FIND THE RIGHT SOLUTION FOR YOUR RESTAURANT"
+   ========================================================================== */
+.ft-final-cta {
   position: relative;
-  color: #FFFFFF;
+  background-image: url('{{ asset("assets/images/features/enquiry_banner_bg.jpg") }}') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  padding: 120px 0 130px !important;
   text-align: center;
+  color: #FFFFFF;
   overflow: hidden;
-  padding: 110px 0;
-  background: radial-gradient(circle at 50% 0%, #1A2E4C 0%, #0A192F 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
-.cta > .ph { display: none; }
-.cta .w { position: relative; z-index: 2; }
-.cta h2 {
-  color: #FFFFFF !important;
-  max-width: 760px;
-  margin: 0 auto 18px;
-  font-family: Effra, sans-serif;
-  font-size: 2.5rem;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
+
+.ft-final-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(10, 25, 47, 0.76) 0%,
+    rgba(8, 20, 36, 0.84) 45%,
+    rgba(8, 22, 40, 0.96) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
 }
-.cta p {
-  color: #A0AEC0 !important;
-  margin-bottom: 38px;
-  font-size: 19px;
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
+
+.cta-inner-box {
+  max-width: 780px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
-.cta .bts { justify-content: center; display: flex; gap: 16px; flex-wrap: wrap; }
-.cta .bts .btn.p {
-  background: #FFFFFF;
-  color: #0A2540 !important;
-  border-color: #FFFFFF;
+
+.ft-final-cta .ft-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11.5px;
   font-weight: 700;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  border-radius: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.4);
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
 }
-.cta .bts .btn.p:hover {
-  background: #F6F9FC;
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
-}
-.cta .bts .btn.ow {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1.5px solid rgba(255, 255, 255, 0.25);
+
+.cta-inner-box h2 {
+  font-family: 'Effra', sans-serif;
+  font-size: clamp(32px, 3.8vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: normal;
   color: #FFFFFF !important;
-  backdrop-filter: blur(8px);
-  border-radius: 12px;
 }
-.cta .bts .btn.ow:hover {
-  background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255,255,255,0.4);
-  color: #FFFFFF !important;
+
+.cta-inner-box p {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 18px;
+  color: #CBD5E1 !important;
+  line-height: 1.6;
+  margin: 0 auto 36px;
+  max-width: 620px;
+}
+
+.cta-btn-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-white-solid {
+  background: #FFFFFF !important;
+  color: #0A2540 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 15px 36px;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-white-solid:hover {
+  background: #F1F5F9 !important;
   transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
+  color: #0A2540 !important;
 }
-.cta small {
-  display: block;
-  margin-top: 36px;
-  color: #718096 !important;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
+
+.btn-glass-outline {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 15px 34px;
+  border-radius: 9999px;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-glass-outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+  color: #FFFFFF !important;
+}
+
+@media (max-width: 768px) {
+  .ft-final-cta {
+    padding: 85px 0 95px !important;
+  }
+  .cta-inner-box h2 {
+    font-size: clamp(26px, 6vw, 34px);
+  }
+  .cta-inner-box p {
+    font-size: 15.5px;
+  }
+  .cta-btn-row {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .btn-white-solid,
+  .btn-glass-outline {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Footer */
@@ -4177,7 +4264,7 @@ header.hero ~ section .cta p {
 
               <!-- Real Original Dashboard Image -->
               <div class="dashboard-img-wrap">
-                <img src="{{ asset('assets/images/dash.png') }}" alt="Geni Menu Restaurant Management & POS Dashboard">
+                <img src="{{ asset('assets/images/dash1.png') }}" alt="Geni Menu Restaurant Management & POS Dashboard">
               </div>
             </div>
           </div>
@@ -4186,7 +4273,7 @@ header.hero ~ section .cta p {
         <!-- Phone Mockup: Snug beside dashboard, vertically centered (Never below) -->
         <div class="hero-device-phone">
           <div class="phone-mockup-wrapper">
-            <img src="{{ asset('assets/images/geni-mobile-hero.png') }}" alt="Geni Menu Mobile POS Table Ordering">
+            <img src="{{ asset('assets/images/geni-mobile-hero1.png') }}" alt="Geni Menu Mobile POS Table Ordering">
           </div>
         </div>
       </div>
@@ -4344,7 +4431,7 @@ header.hero ~ section .cta p {
               <span class="bubble-tag">Live Menu Sync</span>
               <span class="bubble-status">UPDATED</span>
             </div>
-            <div class="bubble-amount" style="font-size:14px;color:#1F130B;font-weight:800;margin-top:2px">Paneer Tikka · ₹280</div>
+            <div class="bubble-amount" style="font-size:14px;color:#1F130B;font-weight:800;margin-top:2px">Paneer Tikka · $2.80</div>
             <div class="bubble-sub">Modifiers: Extra Spicy &bull; Gluten-free</div>
           </div>
         </div>
@@ -4425,7 +4512,7 @@ header.hero ~ section .cta p {
               <span class="bubble-tag">Table 04 · 3 items</span>
               <span class="bubble-status">PAID • UPI</span>
             </div>
-            <div class="bubble-amount">₹452.00</div>
+            <div class="bubble-amount">$4.52</div>
             <div class="bubble-sub">GST Bill #1048 &bull; Instant WhatsApp Invoice</div>
           </div>
         </div>
@@ -4528,7 +4615,7 @@ header.hero ~ section .cta p {
               <span class="bubble-status" style="background:#D1FAE5;color:#059669">18/24 OCCUPIED</span>
             </div>
             <div class="bubble-amount" style="font-size:13.5px;color:#1F130B;font-weight:800;margin-top:2px">Table 12 · Dining (45m)</div>
-            <div class="bubble-sub">Live Bill Total: ₹1,240</div>
+            <div class="bubble-sub">Live Bill Total: $1.24</div>
           </div>
         </div>
         <div class="toast-card-body">
@@ -4593,7 +4680,7 @@ header.hero ~ section .cta p {
         <div class="hiw-window-body" id="hiw-screen-container">
           <!-- Step 1: Take the Order Mockup (Default with Increased Image Height & Brown Shade) -->
           <div class="mock-s1-wrap">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&auto=format&fit=crop&q=80" alt="The Grand Bistro Restaurant Dining" class="mock-cover-img">
+            <img src="{{ asset('assets/images/step-take-order.jpg') }}" alt="The Grand Bistro Restaurant Dining" class="mock-cover-img">
 
             <div class="mock-s1-header">
               <span class="mock-s1-brand">🍽️ The Grand Bistro</span>
@@ -4603,40 +4690,40 @@ header.hero ~ section .cta p {
             <div class="mock-s1-items">
               <div class="mock-s1-row">
                 <div class="mock-s1-left">
-                  <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=160&auto=format&fit=crop&q=80" alt="Paneer Tikka" class="mock-s1-thumb">
+                  <img src="{{ asset('assets/images/thumb-paneer-tikka.jpg') }}" alt="Paneer Tikka" class="mock-s1-thumb">
                   <div>
                     <div class="mock-s1-name">Paneer Tikka (Chef Special)</div>
                     <div class="mock-s1-sub">Extra Mint Chutney &bull; Less Spicy</div>
                   </div>
                 </div>
-                <div class="mock-s1-price">&#8377;280</div>
+                <div class="mock-s1-price">$2.80</div>
               </div>
 
               <div class="mock-s1-row">
                 <div class="mock-s1-left">
-                  <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=160&auto=format&fit=crop&q=80" alt="Fried Rice" class="mock-s1-thumb">
+                  <img src="{{ asset('assets/images/thumb-fried-rice.jpg') }}" alt="Fried Rice" class="mock-s1-thumb">
                   <div>
                     <div class="mock-s1-name">Veg Wok Fried Rice</div>
                     <div class="mock-s1-sub">Fresh Spring Onion &bull; Hakka Style</div>
                   </div>
                 </div>
-                <div class="mock-s1-price">&#8377;220</div>
+                <div class="mock-s1-price">$2.20</div>
               </div>
 
               <div class="mock-s1-row">
                 <div class="mock-s1-left">
-                  <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=160&auto=format&fit=crop&q=80" alt="Masala Dosa" class="mock-s1-thumb">
+                  <img src="{{ asset('assets/images/thumb-masala-dosa.jpg') }}" alt="Masala Dosa" class="mock-s1-thumb">
                   <div>
                     <div class="mock-s1-name">Crispy Masala Dosa</div>
                     <div class="mock-s1-sub">Coconut Chutney &bull; Hot Sambar</div>
                   </div>
                 </div>
-                <div class="mock-s1-price">&#8377;140</div>
+                <div class="mock-s1-price">$1.40</div>
               </div>
             </div>
 
             <div class="mock-s1-bottom">
-              <span>3 Items Selected &bull; Total &#8377;640</span>
+              <span>3 Items Selected &bull; Total $6.40</span>
               <span class="mock-s1-pill">✓ Placed via Table QR (Instant)</span>
             </div>
           </div>
@@ -4990,7 +5077,7 @@ header.hero ~ section .cta p {
         </div>
       </div>
       <div class="reports-image-wrapper">
-        <img src="{{ asset('assets/images/reports-sales-dashboard.png') }}" alt="Geni Menu Sales Report and Restaurant Performance Analytics Dashboard" class="reports-saas-img" loading="lazy">
+        <img src="{{ asset('assets/images/homesales.png') }}" alt="Geni Menu Sales Report and Restaurant Performance Analytics Dashboard" class="reports-saas-img" loading="lazy">
       </div>
     </div>
 
@@ -5002,7 +5089,7 @@ header.hero ~ section .cta p {
         </div>
         <div class="kpi-body">
           <span class="kpi-label">Weekly Gross Sales</span>
-          <div class="kpi-val">&#8377;1,84,750.00</div>
+          <div class="kpi-val">$2,173.53</div>
           <span class="kpi-tag kpi-tag-up">&#8593; +14.2% vs last week</span>
         </div>
       </div>
@@ -5014,7 +5101,7 @@ header.hero ~ section .cta p {
         <div class="kpi-body">
           <span class="kpi-label">Completed Orders</span>
           <div class="kpi-val">428 Orders</div>
-          <span class="kpi-tag kpi-tag-neutral">&#8377;431 Avg Order Value</span>
+          <span class="kpi-tag kpi-tag-neutral">$5.08 Avg Order Value</span>
         </div>
       </div>
 
@@ -5024,7 +5111,7 @@ header.hero ~ section .cta p {
         </div>
         <div class="kpi-body">
           <span class="kpi-label">Counter &amp; Card Settlements</span>
-          <div class="kpi-val">&#8377;1,32,450.00</div>
+          <div class="kpi-val">$1,558.24</div>
           <span class="kpi-tag kpi-tag-neutral">71.7% of volume</span>
         </div>
       </div>
@@ -5035,7 +5122,7 @@ header.hero ~ section .cta p {
         </div>
         <div class="kpi-body">
           <span class="kpi-label">UPI &amp; Digital Gateways</span>
-          <div class="kpi-val">&#8377;52,300.00</div>
+          <div class="kpi-val">$615.29</div>
           <span class="kpi-tag kpi-tag-success">&#10003; 100% Reconciled</span>
         </div>
       </div>
@@ -5172,17 +5259,17 @@ header.hero ~ section .cta p {
         <div class="suite-visual-box">
           <div class="suite-pos-widget">
             <div class="suite-pos-tiles">
-              <div class="pos-mini-tile">Paneer Tikka<small>&#8377;280</small></div>
-              <div class="pos-mini-tile">Butter Naan<small>&#8377;60</small></div>
-              <div class="pos-mini-tile active">Filter Coffee<small>&#8377;90</small></div>
-              <div class="pos-mini-tile">Biryani<small>&#8377;320</small></div>
-              <div class="pos-mini-tile">Gulab Jamun<small>&#8377;110</small></div>
-              <div class="pos-mini-tile">Masala Dosa<small>&#8377;140</small></div>
+              <div class="pos-mini-tile">Paneer Tikka<small>$2.80</small></div>
+              <div class="pos-mini-tile">Butter Naan<small>$6.0</small></div>
+              <div class="pos-mini-tile active">Filter Coffee<small>$9.0</small></div>
+              <div class="pos-mini-tile">Biryani<small>$3.20</small></div>
+              <div class="pos-mini-tile">Gulab Jamun<small>$1.10</small></div>
+              <div class="pos-mini-tile">Masala Dosa<small>$1.40</small></div>
             </div>
             <div class="suite-pos-bill">
-              <div class="bill-line"><span>Table 4 &bull; 3 items</span><b>&#8377;430</b></div>
-              <div class="bill-line"><span>GST (5%)</span><b>&#8377;22</b></div>
-              <div class="bill-line total"><span>Total Bill</span><b>&#8377;452</b></div>
+              <div class="bill-line"><span>Table 4 &bull; 3 items</span><b>$4.30</b></div>
+              <div class="bill-line"><span>GST (5%)</span><b>$2.2</b></div>
+              <div class="bill-line total"><span>Total Bill</span><b>$6.50</b></div>
             </div>
           </div>
         </div>
@@ -5338,6 +5425,32 @@ header.hero ~ section .cta p {
   </div>
 </section>
 
+<!-- Section: Conversion CTA (Like Features Page) -->
+<section class="ft-final-cta r" id="enquiry-cta">
+  <div class="w">
+    <div class="cta-inner-box">
+      <div class="ft-eyebrow" style="background: rgba(254, 243, 199, 0.15); color: #FDE68A; border-color: rgba(217, 119, 6, 0.4); margin-bottom: 22px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#D97706"><path d="M12 2l8 4v4c0 6-4 10-8 12-4-2-8-6-8-12V6l8-4z"/></svg>
+        HAVE QUESTIONS? WE’RE HERE TO HELP.
+      </div>
+      <h2>Let’s Find the Right Solution for Your Restaurant.</h2>
+      <p>Share your requirements with us, and our team will get in touch to discuss how Geni Menu can work for your business.</p>
+
+      <div class="cta-btn-row">
+        <a href="{{ route('contact.us') }}" class="btn-white-solid">
+          <span>Submit an Enquiry</span>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
+        </a>
+
+        <a href="{{ route('pricing') }}" class="btn-glass-outline">
+          <span>View Pricing</span>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 <script>
@@ -5397,14 +5510,14 @@ const win = (t, b, st = '') => `<div class="win" style="${st}"><div class="wb"><
 const bars = (a) => a.map(([n, v]) => `<div><div class="row" style="border:0;padding:2px 0"><span>${n}</span><b>${v}%</b></div><div class="bar"><i style="width:${v}%"></i></div></div>`).join('');
 
 // UI Mockups
-const POS = win('POS &amp; BILLING', `<div class="g g3">${tl('Paneer Tikka','₹280') + tl('Butter Naan','₹60') + tl('Filter Coffee','₹90','a') + tl('Biryani','₹320') + tl('Gulab Jamun','₹110') + tl('Masala Dosa','₹140')}</div><div><div class="row"><span>Table 4 · 3 items</span><b>₹430</b></div><div class="row"><span>GST (5%)</span><b>₹22</b></div><div class="row"><b>Total Bill</b><b style="color:var(--br);font-size:13px">₹452</b></div></div>`);
+const POS = win('POS &amp; BILLING', `<div class="g g3">${tl('Paneer Tikka','$2.80') + tl('Butter Naan','$6.0') + tl('Filter Coffee','$9.90','a') + tl('Biryani','$3.20') + tl('Gulab Jamun','$1.10') + tl('Masala Dosa','$140')}</div><div><div class="row"><span>Table 4 · 3 items</span><b>$4.30</b></div><div class="row"><span>GST (5%)</span><b>$2.2</b></div><div class="row"><b>Total Bill</b><b style="color:var(--br);font-size:13px">$4.52</b></div></div>`);
 const TAB = win('TABLE MANAGEMENT', `<div style="padding:0;overflow:hidden;background:#F8FAFC;"><img src="{{ asset('assets/images/showcase-table-management-crop.png') }}" style="width:100%;height:150px;object-fit:cover;object-position:top left;display:block;" alt="Table Management View"></div>`);
 const KOT = win('KOT KITCHEN TRACKER', `<div style="padding:0;overflow:hidden;background:#F8FAFC;"><img src="{{ asset('assets/images/showcase-kitchen-kot.png') }}" style="width:100%;height:150px;object-fit:cover;object-position:top left;display:block;" alt="Kitchen KOT Tracker"></div>`);
 const INV = win('INVENTORY STOCK', bars([['Paneer (kg)', 82], ['Basmati Rice (kg)', 55], ['Fresh Milk (L)', 25], ['Tea leaves (kg)', 68]]));
-const REP = win('COMPREHENSIVE ANALYTICS &amp; REPORTS', `<div style="padding:0;overflow:hidden;background:#FFFFFF;"><img src="{{ asset('assets/images/reports-sales-dashboard.png') }}" style="width:100%;height:220px;object-fit:cover;object-position:top;display:block;" alt="Geni Menu Sales & Analytics Dashboard"></div>`);
+const REP = win('COMPREHENSIVE ANALYTICS &amp; REPORTS', `<div style="padding:0;overflow:hidden;background:#FFFFFF;"><img src="{{ asset('assets/images/homesales.png') }}" style="width:100%;height:220px;object-fit:cover;object-position:top;display:block;" alt="Geni Menu Sales & Analytics Dashboard"></div>`);
 const KIO = win('ORDERING KIOSK', `<div style="padding:0;overflow:hidden;background:#FFFFFF;"><img src="{{ asset('assets/images/showcase-ordering-kiosk.png') }}" style="width:100%;height:150px;object-fit:cover;object-position:center;display:block;" alt="Ordering Kiosk Item Customization"></div>`);
 
-const phone = `<div class="ph1"><div><div style="display:flex;justify-space-between;align-items:center"><b style="font-size:13px;color:var(--ink)">Your Restaurant</b><small style="color:var(--br);font-weight:700">Table 12</small></div><small style="color:var(--mute);margin-bottom:4px">Scan QR &amp; Place Order</small>${[['Paneer Tikka','₹280','https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?q=80&w=150&auto=format&fit=crop'],['Wood-fired Pizza','₹360','https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=150&auto=format&fit=crop'],['Cold Coffee','₹190','https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=150&auto=format&fit=crop']].map(([a,b,c]) => `<div class="it"><u style="background-image:url('${c}')"></u><span>${a}</span><em>${b}</em></div>`).join('')}<div class="ct"><span>2 items · ₹640</span><b>Pay Now →</b></div></div></div>`;
+const phone = `<div class="ph1"><div><div style="display:flex;justify-space-between;align-items:center"><b style="font-size:13px;color:var(--ink)">Your Restaurant</b><small style="color:var(--br);font-weight:700">Table 12</small></div><small style="color:var(--mute);margin-bottom:4px">Scan QR &amp; Place Order</small>${[['Paneer Tikka','$2.8','https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?q=80&w=150&auto=format&fit=crop'],['Wood-fired Pizza','$3.6','https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=150&auto=format&fit=crop'],['Cold Coffee','$1.90','https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=150&auto=format&fit=crop']].map(([a,b,c]) => `<div class="it"><u style="background-image:url('${c}')"></u><span>${a}</span><em>${b}</em></div>`).join('')}<div class="ct"><span>2 items · $6.4</span><b>Pay Now →</b></div></div></div>`;
 
 const FL = ['Menu Management','Reservation Management','Waiter Requests','Table Management','POS Management','Order Management','KOT Management','Inventory','Reports'];
 const SO = ['Family Restaurant','Dine-in Restaurant','Multi-Cuisine Restaurant','QSR','Takeaway Restaurant','College Canteen','Office Canteen','Sweet Shop','Bakery','Cake Shop','Juice Shop','Ice Cream Shop','Chaat Shop','Tea Shop','Bar &amp; Brewery','Pizzeria'];
@@ -5451,7 +5564,7 @@ const HIW_STEPS_DATA = [
     subbar: 'STEP 01: TAKE THE ORDER (QR, COUNTER & KIOSK)',
     html: `
       <div class="mock-s1-wrap">
-        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&auto=format&fit=crop&q=80" alt="The Grand Bistro Restaurant Dining" class="mock-cover-img">
+        <img src="{{ asset('assets/images/step-take-order.jpg') }}" alt="The Grand Bistro Restaurant Dining" class="mock-cover-img">
         <div class="mock-s1-header">
           <span class="mock-s1-brand">🍽️ The Grand Bistro</span>
           <span class="mock-s1-table">Table 12 · Dine-in</span>
@@ -5459,37 +5572,37 @@ const HIW_STEPS_DATA = [
         <div class="mock-s1-items">
           <div class="mock-s1-row">
             <div class="mock-s1-left">
-              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=160&auto=format&fit=crop&q=80" alt="Paneer Tikka" class="mock-s1-thumb">
+              <img src="{{ asset('assets/images/thumb-paneer-tikka.jpg') }}" alt="Paneer Tikka" class="mock-s1-thumb">
               <div>
                 <div class="mock-s1-name">Paneer Tikka (Chef Special)</div>
                 <div class="mock-s1-sub">Extra Mint Chutney &bull; Less Spicy</div>
               </div>
             </div>
-            <div class="mock-s1-price">&#8377;280</div>
+            <div class="mock-s1-price">$2.80</div>
           </div>
           <div class="mock-s1-row">
             <div class="mock-s1-left">
-              <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=160&auto=format&fit=crop&q=80" alt="Fried Rice" class="mock-s1-thumb">
+              <img src="{{ asset('assets/images/thumb-fried-rice.jpg') }}" alt="Fried Rice" class="mock-s1-thumb">
               <div>
                 <div class="mock-s1-name">Veg Wok Fried Rice</div>
                 <div class="mock-s1-sub">Fresh Spring Onion &bull; Hakka Style</div>
               </div>
             </div>
-            <div class="mock-s1-price">&#8377;220</div>
+            <div class="mock-s1-price">$2.20</div>
           </div>
           <div class="mock-s1-row">
             <div class="mock-s1-left">
-              <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=160&auto=format&fit=crop&q=80" alt="Masala Dosa" class="mock-s1-thumb">
+              <img src="{{ asset('assets/images/thumb-masala-dosa.jpg') }}" alt="Masala Dosa" class="mock-s1-thumb">
               <div>
                 <div class="mock-s1-name">Crispy Masala Dosa</div>
                 <div class="mock-s1-sub">Coconut Chutney &bull; Hot Sambar</div>
               </div>
             </div>
-            <div class="mock-s1-price">&#8377;140</div>
+            <div class="mock-s1-price">$1.40</div>
           </div>
         </div>
         <div class="mock-s1-bottom">
-          <span>3 Items Selected &bull; Total &#8377;640</span>
+          <span>3 Items Selected &bull; Total $6.40</span>
           <span class="mock-s1-pill">✓ Placed via Table QR (Instant)</span>
         </div>
       </div>
@@ -5499,7 +5612,7 @@ const HIW_STEPS_DATA = [
     subbar: 'STEP 02: ROUTING TO KITCHEN STATIONS',
     html: `
       <div class="mock-s2-wrap">
-        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&auto=format&fit=crop&q=80" alt="Kitchen Display System Station Routing" class="mock-cover-img">
+        <img src="{{ asset('assets/images/step-kitchen-routing.jpg') }}" alt="Kitchen Display System Station Routing" class="mock-cover-img">
         <div class="mock-s2-header">
           <span>KITCHEN ROUTING SYSTEM</span>
           <span style="color:#059669;font-weight:700;">● 3 ACTIVE STATIONS</span>
@@ -5538,7 +5651,7 @@ const HIW_STEPS_DATA = [
     subbar: 'STEP 03: LIVE KOT TICKETS & COOKING TIMERS',
     html: `
       <div class="mock-s3-wrap">
-        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&auto=format&fit=crop&q=80" alt="Chefs Preparing Fresh Orders in Kitchen" class="mock-cover-img">
+        <img src="{{ asset('assets/images/step-prepare-order.jpg') }}" alt="Chefs Preparing Fresh Orders in Kitchen" class="mock-cover-img">
         <div class="mock-s3-grid">
           <div class="mock-s3-ticket">
             <div class="mock-s3-top">
@@ -5570,7 +5683,7 @@ const HIW_STEPS_DATA = [
     subbar: 'STEP 04: ONE-TAP GST BILLING & INSTANT PAYMENT',
     html: `
       <div class="mock-s4-wrap">
-        <img src="https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=800&auto=format&fit=crop&q=80" alt="Restaurant Counter POS &amp; GST Billing" class="mock-cover-img">
+        <img src="{{ asset('assets/images/step-bill-collect.jpg') }}" alt="Restaurant Counter POS &amp; GST Billing" class="mock-cover-img">
         <div class="mock-s4-bill">
           <div class="mock-s4-head">
             <span>TAX INVOICE #INV-4821</span>
@@ -5578,15 +5691,15 @@ const HIW_STEPS_DATA = [
           </div>
           <div class="mock-s4-line">
             <span>3 Items (Food &amp; Beverage)</span>
-            <b>&#8377;609.52</b>
+            <b>$60.95</b>
           </div>
           <div class="mock-s4-line">
             <span>CGST (2.5%) + SGST (2.5%)</span>
-            <b>&#8377;30.48</b>
+            <b>$30.4</b>
           </div>
           <div class="mock-s4-line total">
             <span>Total Amount Payable</span>
-            <span style="color:#92400E;">&#8377;640.00</span>
+            <span style="color:#92400E;">$90.99</span>
           </div>
           <div class="mock-s4-payrow">
             <div class="mock-s4-paybtn active">UPI QR Pay</div>
@@ -5605,12 +5718,12 @@ const HIW_STEPS_DATA = [
     subbar: 'STEP 05: LIVE SALES, PEAK HOURS & BESTSELLERS',
     html: `
       <div class="mock-s5-wrap">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80" alt="Live Restaurant Sales &amp; Business Reports" class="mock-cover-img">
+        <img src="{{ asset('assets/images/step-sales-analytics.jpg') }}" alt="Live Restaurant Sales &amp; Business Reports" class="mock-cover-img">
         <div class="mock-s5-card">
           <div class="mock-s5-top">
             <div class="mock-s5-metric">
               <small>Today's Total Sales</small>
-              <b>&#8377;48,250</b>
+              <b>$48.25</b>
             </div>
             <span class="mock-s5-gain">+18.4% vs last week</span>
           </div>

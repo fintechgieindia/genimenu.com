@@ -1,8 +1,8 @@
 @php
     $meta = [
-        'title' => 'Features Overview | Geni Menu Restaurant Operations Platform',
-        'description' => 'Explore the complete Geni Menu feature suite: POS billing, kitchen KOT, table & reservation management, inventory tracking, staff controls, multi-branch, and real-time reports.',
-        'keywords' => 'restaurant ERP features, restaurant POS features, KOT software, kitchen order ticket software, table management software, reservation management software, restaurant inventory software, restaurant staff management software, multi-branch restaurant software, kiosk ordering software, restaurant CRM features, restaurant reporting software, QR code menu ordering, restaurant billing features list, restaurant software modules, Geni Menu features, Geni Menu KOT system, Geni Menu inventory management, restaurant software feature list India',
+        'title' => 'Features | Geni Menu Connected Restaurant Management Platform',
+        'description' => 'Explore the complete Geni Menu restaurant management suite: digital menus, live orders, kitchen KOT coordination, POS billing, tables, reservations, inventory, and reporting.',
+        'keywords' => 'restaurant ERP features, restaurant POS features, KOT software, kitchen order ticket software, table management software, reservation management software, restaurant inventory software, restaurant staff management software, multi-branch restaurant software, restaurant billing software, Geni Menu features',
     ];
 @endphp
 
@@ -10,43 +10,70 @@
 
 @section('content')
 
-{{-- Google Fonts --}}
+{{-- Google & CDN Fonts: Effra (Homepage Heading Font), Plus Jakarta Sans, Inter --}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/effra" rel="stylesheet">
 
 {{-- AOS Animation Library --}}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
 <style>
+@import url('https://fonts.cdnfonts.com/css/effra');
+
+  /* ==========================================================================
+     CLEAN INTERNATIONAL SAAS DESIGN SYSTEM & THEME (HOMEPAGE COLOR PALETTE)
+     ========================================================================== */
   :root {
+    --font-heading: 'Effra', sans-serif;
+    --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Homepage Brand Honey-Amber Accent Palette */
     --br: #B45309;
     --br-dark: #92400E;
     --br-light: #FEF3C7;
-    --br-faint: #FFFBEB;
-    --cream: #FFFFFF;
-    --cream-deep: #F6F9FC;
-    --ink: #0A2540;
-    --ink-soft: #425466;
-    --ink-faint: #627D98;
-    --gold: #D97706;
-    --gold-soft: #FDE68A;
-    --gold-deep: #B45309;
-    --brown: #1A365D;
-    --line: #E3E8EE;
-    --white: #FFFFFF;
-    --green: #10B981;
-    --green-light: #DEF7EC;
+    --br-gold: #D97706;
+
     --amber: #B45309;
+    --amber-dark: #92400E;
     --amber-light: #FEF3C7;
-    --blue: #1D4ED8;
-    --blue-light: #DBEAFE;
-    --purple: #6D28D9;
-    --purple-light: #EDE9FE;
+    --amber-gold: #D97706;
+
+    /* Homepage High-Tech Slate-Navy & Canvas Palette */
+    --bg: #F6F9FC;
+    --bg-white: #FFFFFF;
+    --bg-slate: #F6F9FC;
+    --bg-subtle: #EEF2F6;
+
+    --ink: #0A2540;
+    --ink-dark: #0A192F;
+    --ink-deep: #081424;
+    --ink-light: #1A365D;
+
+    --mute: #425466;
+    --mute-light: #627D98;
+
+    --line: #E3E8EE;
+    --line-solid: #E3E8EE;
+    --line-light: #F1F5F9;
+
+    --card: #FFFFFF;
+    --green-live: #10B981;
+    
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 26px;
+    --radius-pill: 9999px;
+    
     --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
     --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
     --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
-    --max: 1200px;
+    --shadow-device: 0 20px 50px rgba(10, 37, 64, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+    
+    --max-w: 1240px;
   }
 
   * { box-sizing: border-box; }
@@ -55,16 +82,19 @@
   html {
     overflow-x: clip !important;
     overflow-y: auto !important;
+    scroll-behavior: smooth;
   }
 
   body {
     overflow-x: clip !important;
     overflow-y: visible !important;
     min-height: 100vh;
+    background: var(--bg-slate) !important;
+    color: var(--ink);
   }
 
   body, html, #main-content, main, .ft-page {
-    background: #FFFFFF !important;
+    background: var(--bg-slate) !important;
   }
 
   #main-content, main {
@@ -72,8 +102,9 @@
     overflow: visible !important;
   }
 
+  /* Scoped Page Wrapper - Strictly Zero Italics */
   .ft-page {
-    background: #FFFFFF !important;
+    background: var(--bg-slate) !important;
     color: var(--ink);
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 16px;
@@ -87,3000 +118,2681 @@
     font-style: normal !important;
   }
 
-  /* Typography - Matching Home Page */
+  .ft-container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Typography System — Homogeneous with Homepage */
   .ft-page h1 {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: clamp(40px, 5vw, 66px);
-    font-weight: 800;
-    letter-spacing: -0.035em;
-    line-height: 1.08;
-    color: #0A2540;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--ink);
     margin: 0;
+    letter-spacing: -0.035em;
   }
 
   .ft-page h2 {
-    font-family: Effra, sans-serif;
-    font-size: 2.5rem;
-    font-weight: 400;
+    font-family: 'Effra', sans-serif;
+    color: var(--ink);
+    margin: 0;
     letter-spacing: normal;
-    line-height: 1.12;
-    color: #0A2540;
-    margin: 0;
   }
 
-  .ft-page h3, .ft-page h4, .ft-page h5, .ft-page h6 {
-    font-family: Effra, sans-serif;
-    color: #0A2540;
+  .ft-page h3,
+  .ft-page h4,
+  .ft-page h5,
+  .ft-page h6 {
+    font-family: 'Effra', sans-serif;
+    color: var(--ink);
     margin: 0;
-  }
-
-  .ft-page h3 {
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: normal;
   }
 
   .ft-page p {
-    color: #425466;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--mute);
     margin: 0;
     font-size: 16px;
-    font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.65;
     letter-spacing: -0.01em;
   }
 
-  .w {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 0 24px;
-    width: 100%;
-  }
-
-  .section {
-    padding: 85px 0;
-    position: relative;
-    background: #FFFFFF !important;
-    border: none !important;
-    border-top: none !important;
-    border-bottom: none !important;
-  }
-
-  .section.alt {
-    background: #FFFFFF !important;
-    border: none !important;
-    border-top: none !important;
-    border-bottom: none !important;
-  }
-
-  .section.dark {
-    background: #FFFFFF !important;
-    color: var(--ink);
-    border: none !important;
-    border-top: none !important;
-    border-bottom: none !important;
-  }
-  .section.dark h2, .section.dark h3, .section.dark h4 { color: var(--ink); }
-  .section.dark p { color: var(--ink-soft); }
-
-  /* Eyebrows & Headers */
-  .sec-eyebrow {
+  /* Eyebrow Label */
+  .ft-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    gap: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11.5px;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #B45309;
-    background: #FEF3C7;
-    border: 1px solid rgba(217,119,6,0.25);
-    box-shadow: 0 1px 3px rgba(50,50,93,0.05);
+    color: var(--amber);
+    background: var(--amber-light);
+    border: 1px solid rgba(217, 119, 6, 0.25);
     padding: 6px 14px;
-    border-radius: 9999px;
-    margin-bottom: 16px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    border-radius: var(--radius-pill);
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
   }
 
-  /* Icon Box for Operational Difference */
-  .f-icon-box {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .f-icon-box svg {
-    width: 24px;
-    height: 24px;
-    stroke: currentColor;
-    stroke-width: 2;
-    fill: none;
-    display: block;
-  }
-  .f-icon-box.br { background: #FEF3C7; color: #B45309; }
-  .f-icon-box.gr { background: #DEF7EC; color: #10B981; }
-  .f-icon-box.am { background: #FFEDD5; color: #EA580C; }
-
-  .sec-header {
-    text-align: center;
-    max-width: 780px;
-    margin: 0 auto 56px;
-  }
-
-  .sec-header h2 {
-    font-family: Effra, sans-serif;
-    font-size: 2.5rem;
-    font-weight: 400;
-    letter-spacing: normal;
-    line-height: 1.12;
-    margin-bottom: 16px;
-    color: #0A2540;
-  }
-
-  .sec-header p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #425466;
-    font-family: 'Inter', sans-serif;
-  }
-
-  /* Buttons */
-  .btn {
+  /* Button System */
+  .btn-ink-solid {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 13px 26px;
-    border-radius: 12px;
-    font: 700 15px 'Plus Jakarta Sans', sans-serif;
-    text-decoration: none;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: pointer;
-    border: 1px solid transparent;
-  }
-
-  .btn.p {
-    background: #0A2540;
-    color: #fff !important;
-    border-color: #0A2540;
-    box-shadow: 0 4px 12px rgba(10,37,64,0.2);
-  }
-  .btn.p:hover {
-    background: #1A365D;
-    border-color: #1A365D;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(10,37,64,0.28);
-  }
-
-  .btn.o {
-    background: #fff;
-    color: var(--ink);
-    border: 1px solid #CBD5E1;
-    box-shadow: 0 1px 3px rgba(50,50,93,0.05);
-  }
-  .btn.o:hover {
-    background: #F6F9FC;
-    border-color: #0A2540;
-    color: var(--ink);
-    transform: translateY(-2px);
-  }
-
-  /* ===================== HERO SECTION (TOAST-STYLE SAAS STRUCTURE) ===================== */
-  .ft-hero {
-    padding: 70px 0 65px;
-    background: #FFFFFF !important;
-    position: relative;
-    overflow: visible;
-  }
-
-  .ft-hero-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 52px;
-    align-items: center;
-  }
-
-  /* Left Column Typography */
-  .hero-eyebrow-badge {
-    display: inline-block;
-    padding: 5px 14px;
-    background: #FFF7ED;
-    border: 1px solid rgba(234, 88, 12, 0.22);
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #EA580C;
-    margin-bottom: 22px;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  }
-
-  .hero-headline {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: clamp(40px, 5vw, 66px);
-    font-weight: 800;
-    line-height: 1.08;
-    letter-spacing: -0.035em;
-    color: #0A2540;
-    margin: 0 0 20px;
-  }
-
-  .hero-script-word {
-    font-family: inherit;
-    font-size: 1em;
-    font-weight: 800;
-    font-style: normal !important;
-    color: #EA580C;
-    display: inline;
-    transform: none !important;
-    margin-left: 0;
-    letter-spacing: -0.035em;
-    line-height: inherit;
-  }
-
-  .hero-lead-text {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
-    color: #425466;
-    margin: 0 0 32px;
-    max-width: 490px;
-  }
-
-  .hero-actions-row {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-
-  .hero-btn-solid {
-    background: #EA580C;
+    background: var(--ink);
     color: #FFFFFF !important;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 15px;
     font-weight: 700;
     padding: 13px 30px;
-    border-radius: 999px;
-    border: none;
-    cursor: pointer;
+    border-radius: var(--radius-pill);
     text-decoration: none;
-    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.28);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    border: 1.5px solid var(--ink);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(10, 37, 64, 0.22);
+    cursor: pointer;
   }
 
-  .hero-btn-solid:hover {
-    background: #C2410C;
+  .btn-ink-solid:hover {
+    background: var(--ink-light);
+    border-color: var(--ink-light);
     transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(234, 88, 12, 0.38);
+    box-shadow: 0 8px 22px rgba(10, 37, 64, 0.32);
     color: #FFFFFF !important;
   }
 
-  .hero-btn-outline {
+  .btn-ink-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     background: #FFFFFF;
-    color: #EA580C !important;
+    color: var(--ink) !important;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 15px;
     font-weight: 700;
-    padding: 12px 28px;
-    border-radius: 999px;
-    border: 1.5px solid #EA580C;
-    cursor: pointer;
+    padding: 13px 30px;
+    border-radius: var(--radius-pill);
     text-decoration: none;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero-btn-outline:hover {
-    background: #FFF7ED;
-    border-color: #C2410C;
-    color: #C2410C !important;
-    transform: translateY(-2px);
-  }
-
-  .hero-starter-link {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 13.5px;
-    color: #4B5563;
-  }
-
-  .hero-starter-link a {
-    color: #EA580C;
-    text-decoration: none;
-    font-weight: 600;
-    margin-left: 2px;
-    transition: color 0.15s;
-  }
-
-  .hero-starter-link a:hover {
-    color: #C2410C;
-    text-decoration: underline;
-  }
-
-  /* Right Column Visual Composition */
-  .hero-visual-col {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  .hero-composition-stage {
-    position: relative;
-    width: 100%;
-    max-width: 480px;
-  }
-
-  .hero-photo-frame {
-    width: 100%;
-    border-radius: 22px;
-    overflow: hidden;
-    box-shadow: 0 20px 48px -12px rgba(10, 37, 64, 0.16);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    background: #FFFFFF;
-    aspect-ratio: 4 / 3.4;
-  }
-
-  .hero-barista-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* Floating Card overlapping left side of photo */
-  .hero-floating-modifier-card {
-    position: absolute;
-    top: 20px;
-    left: -76px;
-    width: 255px;
-    background: #FFFFFF;
-    border-radius: 16px;
-    box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.22), 0 8px 18px -4px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 12px 14px 16px;
-    z-index: 10;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .hero-floating-modifier-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .mod-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 8px;
-  }
-
-  .mod-card-close {
-    background: none;
-    border: none;
-    color: #EA580C;
-    font-size: 18px;
-    line-height: 1;
-    cursor: pointer;
-    padding: 0;
-    font-weight: 500;
-  }
-
-  .mod-card-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: #111827;
-    margin: 0;
-    text-align: center;
-  }
-
-  .mod-card-img-wrap {
-    width: 100%;
-    height: 120px;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 10px;
-    background: #FFFFFF;
-  }
-
-  .mod-card-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .mod-card-desc {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 11px;
-    line-height: 1.45;
-    color: #64748B;
-    margin: 0 0 12px;
-  }
-
-  .mod-card-section-row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    padding-top: 8px;
-    border-top: 1px solid #F1F5F9;
-  }
-
-  .mod-card-label-group {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .mod-card-label {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 11.5px;
-    font-weight: 700;
-    color: #1E293B;
-    line-height: 1.2;
-  }
-
-  .mod-card-sublabel {
-    font-size: 10px;
-    color: #94A3B8;
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-
-  .mod-card-required-badge {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 8.5px;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    background: #F1F5F9;
-    color: #475569;
-    padding: 3px 6px;
-    border-radius: 4px;
-  }
-
-  .mod-card-options {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .mod-option-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    padding: 2px 0;
-    user-select: none;
-  }
-
-  .mod-radio-dot {
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    border: 1.5px solid #CBD5E1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.15s ease;
-  }
-
-  .mod-option-item.selected .mod-radio-dot {
-    border-color: #EA580C;
-  }
-
-  .mod-radio-inner {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #EA580C;
-  }
-
-  .mod-option-name {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 11.5px;
-    color: #334155;
-    font-weight: 500;
-    flex: 1;
-  }
-
-  .mod-option-item.selected .mod-option-name {
-    color: #0F172A;
-    font-weight: 600;
-  }
-
-  .mod-option-price {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 11px;
-    color: #64748B;
-    font-weight: 500;
-  }
-
-  /* Orange Curved Arrow (Short & Compact) */
-  .hero-arrow-container {
-    position: absolute;
-    left: 42px;
-    bottom: -28px;
-    width: 88px;
-    height: 72px;
-    z-index: 15;
-    pointer-events: none;
-  }
-
-  .hero-drawn-arrow {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 2px 4px rgba(234, 88, 12, 0.2));
-  }
-
-  @media (max-width: 992px) {
-    .ft-hero-grid {
-      grid-template-columns: 1fr;
-      gap: 50px;
-    }
-    .hero-visual-col {
-      justify-content: center;
-    }
-    .hero-composition-stage {
-      max-width: 440px;
-      margin: 0 auto;
-    }
-    .hero-floating-modifier-card {
-      left: -20px;
-      width: 230px;
-    }
-  }
-
-  @media (max-width: 580px) {
-    .hero-floating-modifier-card {
-      left: 0;
-      position: relative;
-      top: 0;
-      width: 100%;
-      margin-top: -60px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.14);
-    }
-    .hero-arrow-container {
-      display: none;
-    }
-  }
-
-
-
-  /* ===================== ECOSYSTEM FLOW ===================== */
-  .eco-flow-card {
-    background: #FFFFFF !important;
-    border-radius: 20px;
-    padding: 36px 28px;
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow-sm);
-    margin-bottom: 40px;
-  }
-
-  .eco-flow-spine {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 28px;
-  }
-
-  .eco-flow-node {
-    flex: 1;
-    min-width: 140px;
-    background: #FFFFFF !important;
     border: 1.5px solid var(--line);
-    border-radius: 12px;
-    padding: 16px 12px;
-    text-align: center;
-    transition: all 0.25s ease;
-  }
-  .eco-flow-node:hover {
-    background: #FFF7ED !important;
-    border-color: #EA580C;
-    transform: translateY(-2px);
-  }
-  .eco-flow-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background: #FFF7ED;
-    color: #EA580C;
-    display: grid;
-    place-items: center;
-    margin: 0 auto 8px;
     box-shadow: var(--shadow-sm);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
   }
-  .eco-flow-icon svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
-  .eco-flow-name { font-weight: 600; font-size: 14px; color: var(--ink); }
 
-  .eco-flow-arr {
-    color: #EA580C;
-    font-size: 18px;
+  .btn-ink-outline:hover {
+    background: var(--bg-slate);
+    border-color: #CBD5E1;
+    transform: translateY(-2px);
+    color: var(--ink) !important;
+  }
+
+  /* Section Spacing & Alternating Rhythm */
+  .ft-section {
+    padding: 100px 0;
+    position: relative;
+    background: var(--bg-white);
+  }
+
+  .ft-section.bg-alt {
+    background: var(--bg-slate);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* Section Header (Centered) */
+  .sec-heading-center {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 60px;
+  }
+
+  .sec-heading-center h2 {
+    font-family: 'Effra', sans-serif;
+    font-size: clamp(32px, 3.8vw, 44px);
     font-weight: 700;
+    line-height: 1.18;
+    margin-bottom: 16px;
+    letter-spacing: normal;
+    color: var(--ink);
   }
 
-  .eco-satellites-row {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding-top: 20px;
-    border-top: 1px solid #F0E8DF;
+  .sec-heading-center p {
+    font-size: 17.5px;
+    color: var(--mute);
+    line-height: 1.6;
   }
 
-  .eco-pill {
-    background: #FFFFFF !important;
-    border: 1px solid #E3E8EE;
-    color: var(--brown);
-    font-size: 13px;
-    font-weight: 500;
-    padding: 6px 14px;
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  /* ===================== TOAST-STYLE ALTERNATING FEATURE SHOWCASE ===================== */
-  .toast-feature-list {
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
-  }
-
-  .toast-feature-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    padding: 36px 0;
-  }
-
-  .toast-feature-row:not(:last-child) {
-    border-bottom: none !important;
-    padding-bottom: 36px;
-  }
-
-  .toast-feature-row.reverse .toast-feature-media {
-    order: 2;
-  }
-
-  .toast-feature-row.reverse .toast-feature-content {
-    order: 1;
-  }
-
-  /* Media Column & Framing */
-  .toast-feature-media {
+  /* ==========================================================================
+     1. HERO SECTION — SPLIT-SCREEN INTERACTIVE 3D STACK
+     ========================================================================== */
+  .ft-hero {
     position: relative;
-    width: 100%;
-  }
-
-  .toast-img-frame {
-    position: relative;
-    width: 100%;
-    border-radius: 22px;
+    padding: 95px 0 100px !important;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 55%, #F1F5F9 100%) !important;
+    border-bottom: 1px solid var(--line);
     overflow: hidden;
-    box-shadow: 0 16px 36px -8px rgba(10, 37, 64, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    background: #FFFFFF;
-    aspect-ratio: 16 / 10.5;
+    color: var(--ink);
   }
 
-  .toast-img-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-
-  .toast-img-frame:hover img {
-    transform: scale(1.025);
-  }
-
-  .toast-media-badge {
+  .ft-hero-mesh-glow {
     position: absolute;
-    top: 14px;
-    left: 14px;
-    background: rgba(17, 24, 39, 0.85);
-    backdrop-filter: blur(8px);
-    color: #FFFFFF;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 5px 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    top: -120px;
+    right: -80px;
+    width: 720px;
+    height: 720px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.08) 0%, rgba(10, 37, 64, 0.04) 45%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .ft-hero .ft-container {
+    position: relative;
     z-index: 2;
   }
 
-  /* Content Column */
-  .toast-feature-content {
-    display: flex;
-    flex-direction: column;
+  .ft-hero-split-grid {
+    display: grid;
+    grid-template-columns: 48% 52%;
+    gap: 48px;
+    align-items: center;
   }
 
-  .toast-feature-pill {
+  /* Left Column: Typography & CTAs */
+  .ft-hero-left {
+    max-width: 580px;
+  }
+
+  .hero-eyebrow-pill {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    align-self: flex-start;
-    font-size: 11px;
+    gap: 8px;
+    background: var(--amber-light);
+    color: var(--amber);
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    font-size: 11.5px;
     font-weight: 700;
-    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #EA580C;
-    background: #FFF7ED;
-    border: 1px solid rgba(234, 88, 12, 0.22);
-    padding: 4px 12px;
-    border-radius: 999px;
-    margin-bottom: 12px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: 0.1em;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 20px;
+    border: 1px solid rgba(217, 119, 6, 0.25);
+    box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
   }
 
-  .toast-feature-title {
-    font-family: Effra, sans-serif !important;
-    font-size: 24px !important;
-    font-weight: 700 !important;
-    color: #0A2540 !important;
-    line-height: 1.25 !important;
-    letter-spacing: -0.02em !important;
-    margin: 0 0 12px !important;
-  }
-
-  .toast-feature-desc {
-    font-family: 'Inter', system-ui, sans-serif !important;
-    font-size: 16px !important;
-    line-height: 1.65 !important;
-    color: #425466 !important;
-    margin: 0 0 20px !important;
-    letter-spacing: -0.01em !important;
-  }
-
-  .toast-workflow-pill {
-    background: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    border-radius: 8px;
-    padding: 8px 14px;
-    font-size: 12.5px;
-    font-weight: 600;
-    color: #1E293B;
-    margin-bottom: 18px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    align-self: flex-start;
-  }
-  .toast-workflow-pill strong {
-    color: #EA580C;
-  }
-
-  .toast-check-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-  }
-
-  .toast-check-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #374151;
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-
-  .toast-check-icon {
-    width: 20px;
-    height: 20px;
+  .hero-eyebrow-pill::before {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
-    background: #EA580C;
-    color: #FFFFFF;
+    background: #10B981;
+    box-shadow: 0 0 8px #10B981;
+    animation: pulseLiveBeacon 2s infinite ease-in-out;
+  }
+
+  @keyframes pulseLiveBeacon {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.7; }
+  }
+
+  .hero-eyebrow-pill svg {
+    width: 13px;
+    height: 13px;
+    fill: #D97706;
+  }
+
+  .ft-hero-title {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: clamp(38px, 4.4vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin: 0 0 18px;
+  }
+
+  .ft-hero-title span.accent-gold {
+    background: linear-gradient(135deg, #B45309 0%, #D97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+  .ft-hero-lead {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--mute);
+    margin: 0 0 32px;
+  }
+
+  .ft-hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .ft-btn-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
+    background: var(--ink);
+    color: #FFFFFF !important;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15.5px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    border: 1.5px solid var(--ink);
+    box-shadow: 0 6px 18px rgba(10, 37, 64, 0.22);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+  }
+
+  .ft-btn-primary:hover {
+    background: var(--ink-light);
+    border-color: var(--ink-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(10, 37, 64, 0.32);
+    color: #FFFFFF !important;
+  }
+
+  .ft-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #FFFFFF;
+    color: var(--ink) !important;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15.5px;
+    font-weight: 700;
+    padding: 14px 30px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    border: 1.5px solid var(--line);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+  }
+
+  .ft-btn-secondary:hover {
+    background: var(--bg-slate);
+    border-color: #CBD5E1;
+    transform: translateY(-2px);
+    color: var(--ink) !important;
+  }
+
+  .ft-hero-trust-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 13.5px;
+    color: var(--mute-light);
+  }
+
+  .ft-trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+  }
+
+  .ft-trust-item svg {
+    color: #10B981;
+    width: 14px;
+    height: 14px;
     flex-shrink: 0;
-    margin-top: 2px;
-    box-shadow: 0 2px 4px rgba(234, 88, 12, 0.25);
   }
 
-  .toast-check-icon svg {
-    width: 13px;
-    height: 13px;
-    fill: #FFFFFF;
+  /* Right Column: Interactive 3D Stack Stage */
+  .ft-hero-right {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+    perspective: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  @media (max-width: 992px) {
-    .toast-feature-row,
-    .toast-feature-row.reverse {
-      grid-template-columns: 1fr;
-      gap: 32px;
-      padding: 28px 0;
-    }
-    .toast-feature-row.reverse .toast-feature-media {
-      order: 1;
-    }
-    .toast-feature-row.reverse .toast-feature-content {
-      order: 2;
-    }
-    .toast-img-frame {
-      aspect-ratio: 16 / 10;
-    }
+  .stack-stage-container {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    height: 500px;
+    transform-style: preserve-3d;
   }
 
-  /* ===================== FEATURE SHOWCASE CARDS ===================== */
-  .ft-grid-2 {
+  /* Base Card: Main Dashboard Command Center */
+  .stack-base-card {
+    position: absolute;
+    top: 35px;
+    left: 20px;
+    right: 20px;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 48px rgba(10, 37, 64, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .stack-base-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 26px 56px rgba(10, 37, 64, 0.14);
+  }
+
+  .stack-header-bar {
+    background: #F8FAFC;
+    border-bottom: 1px solid var(--line);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .stack-header-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .stack-dot {
+    width: 8.5px;
+    height: 8.5px;
+    border-radius: 50%;
+  }
+  .stack-dot.r { background: #FF5F56; }
+  .stack-dot.y { background: #FFBD2E; }
+  .stack-dot.g { background: #27C93F; }
+
+  .stack-url-tag {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 3px 12px;
+    font-size: 11px;
+    color: var(--mute-light);
+    font-family: 'Inter', monospace;
+  }
+
+  .stack-live-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #10B981;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .stack-live-pill::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10B981;
+    animation: pulseGreen 1.5s infinite;
+  }
+
+  .stack-base-body {
+    padding: 20px 22px;
+  }
+
+  .stack-metrics-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 18px;
   }
 
-  .ft-grid-3 {
+  .stack-metric-box {
+    background: var(--bg-slate);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+  }
+
+  .stack-metric-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--mute-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .stack-metric-val {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .stack-metric-val.green { color: #10B981; }
+
+  .stack-tables-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+  }
+
+  .stack-table-pill {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 4px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    background: #FFFFFF;
+    color: var(--ink);
+  }
+
+  .stack-table-pill.active {
+    background: #DEF7EC;
+    border-color: #31C48D;
+    color: #03543F;
+  }
+
+  .stack-table-pill.busy {
+    background: #FEF3C7;
+    border-color: #F59E0B;
+    color: #92400E;
+  }
+
+  .stack-table-pill small {
+    display: block;
+    font-size: 9.5px;
+    font-weight: 500;
+    color: inherit;
+    opacity: 0.85;
+  }
+
+  /* Floating Layer 1 (Top Left): Live POS Checkout Card */
+  .stack-card-pos {
+    position: absolute;
+    top: 0;
+    left: -16px;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1.5px solid rgba(16, 185, 129, 0.35);
+    border-radius: var(--radius-md);
+    box-shadow: 0 16px 36px rgba(10, 37, 64, 0.16), 0 2px 8px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 14px 16px;
+    z-index: 5;
+    animation: floatLayerA 6s ease-in-out infinite;
+    transition: transform 0.25s ease;
+  }
+
+  .stack-card-pos:hover {
+    transform: scale(1.04) translateY(-4px) !important;
+    z-index: 10;
+  }
+
+  .card-pos-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 10px;
+  }
+
+  .card-pos-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .card-pos-tag {
+    font-size: 10px;
+    font-weight: 700;
+    color: #059669;
+    background: #D1FAE5;
+    padding: 2px 7px;
+    border-radius: 999px;
+  }
+
+  .card-pos-items {
+    font-size: 11px;
+    color: var(--mute);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .card-pos-item-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card-pos-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+
+  .card-pos-total-val {
+    color: #10B981;
+  }
+
+  /* Floating Layer 2 (Bottom Right): Kitchen KDS Ticket */
+  .stack-card-kds {
+    position: absolute;
+    bottom: -10px;
+    right: -14px;
+    width: 270px;
+    background: #0A192F;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-md);
+    box-shadow: 0 20px 42px rgba(10, 25, 47, 0.35);
+    padding: 14px 16px;
+    color: #FFFFFF;
+    z-index: 6;
+    animation: floatLayerB 6s ease-in-out infinite alternate;
+    transition: transform 0.25s ease;
+  }
+
+  .stack-card-kds:hover {
+    transform: scale(1.04) translateY(-4px) !important;
+    z-index: 10;
+  }
+
+  .card-kds-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .card-kds-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .card-kds-timer {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #FDE68A;
+    background: rgba(217, 119, 6, 0.3);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    padding: 2px 7px;
+    border-radius: 999px;
+  }
+
+  .card-kds-items {
+    font-size: 11px;
+    color: #CBD5E1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .card-kds-btn {
+    width: 100%;
+    background: #10B981;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    padding: 7px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    cursor: default;
+  }
+
+  /* Floating Layer 3 (Top Right): Mobile QR Menu Card */
+  .stack-card-qr {
+    position: absolute;
+    top: -24px;
+    right: 30px;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    box-shadow: 0 14px 32px rgba(10, 37, 64, 0.14);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 7;
+    animation: floatLayerC 5.5s ease-in-out infinite;
+  }
+
+  .stack-card-qr:hover {
+    transform: scale(1.05) translateY(-3px) !important;
+    z-index: 10;
+  }
+
+  .qr-icon-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--amber-light);
+    color: var(--amber);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+
+  .qr-info-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .qr-info-desc {
+    font-size: 10.5px;
+    color: var(--mute-light);
+  }
+
+  /* Floating Layer 4 (Bottom Left): Live Analytics Metric Pill */
+  .stack-card-analytics {
+    position: absolute;
+    bottom: 24px;
+    left: -10px;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 12px 28px rgba(10, 37, 64, 0.12);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 8;
+    animation: floatLayerD 7s ease-in-out infinite alternate;
+  }
+
+  .analytics-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10B981;
+  }
+
+  .analytics-text {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .analytics-text span {
+    color: #10B981;
+  }
+
+  @keyframes floatLayerA {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+  }
+
+  @keyframes floatLayerB {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+  }
+
+  @keyframes floatLayerC {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  @keyframes floatLayerD {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* ==========================================================================
+     2. FEATURE NAVIGATION STRIP (Sticky Horizontal Bar)
+     ========================================================================== */
+  .ft-nav-strip {
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 70px;
+    z-index: 40;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 4px rgba(50, 50, 93, 0.04);
+  }
+
+  .ft-nav-tabs {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 4px;
+  }
+
+  .ft-nav-tabs::-webkit-scrollbar { display: none; }
+
+  .ft-nav-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 2px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mute);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .ft-nav-tab:hover {
+    color: var(--ink);
+  }
+
+  .ft-nav-tab.active {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+    font-weight: 700;
+  }
+
+  /* ==========================================================================
+     3. FEATURE OVERVIEW (9 Modular Cards Grid)
+     ========================================================================== */
+  .overview-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
   }
 
-  .ft-grid-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-
-  .ft-card {
-    background: #fff;
-    border-radius: 18px;
-    overflow: hidden;
+  .overview-card {
+    background: #FFFFFF;
     border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
     box-shadow: var(--shadow-sm);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+    cursor: default;
     display: flex;
     flex-direction: column;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
 
-  .ft-card:hover {
+  .overview-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
     border-color: #CBD5E1;
   }
 
-  .ft-card-media {
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-    background: #231B15;
-  }
-
-  #sec-orders .ft-card-media,
-  #sec-tables .ft-card-media,
-  #sec-inventory .ft-card-media,
-  #sec-staff .ft-card-media {
-    height: 280px;
-  }
-
-  @media (max-width: 768px) {
-    #sec-orders .ft-card-media,
-    #sec-tables .ft-card-media,
-    #sec-inventory .ft-card-media,
-    #sec-staff .ft-card-media {
-      height: 220px;
-    }
-  }
-
-  .ft-card-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-
-  .ft-card:hover .ft-card-media img {
-    transform: scale(1.04);
-  }
-
-  .ft-card-tag {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    background: rgba(33, 22, 15, 0.85);
-    backdrop-filter: blur(6px);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 6px;
-    border: 1px solid rgba(255,255,255,0.15);
-  }
-
-  .ft-card-body {
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .ft-card-title,
-  .ft-page .ft-card-title {
-    font-size: 21px !important;
-    font-weight: 700 !important;
-    line-height: 1.3 !important;
-    margin: 0 0 12px 0 !important;
-  }
-
-  .ft-card-desc,
-  .ft-page .ft-card-desc {
-    font-size: 14.5px !important;
-    color: var(--ink-soft) !important;
-    line-height: 1.6 !important;
-    margin: 0 0 22px 0 !important;
-  }
-
-  .ft-features-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 24px 0 !important;
+  .overview-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--amber-light);
+    color: var(--amber);
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 13px;
+    place-items: center;
+    margin-bottom: 22px;
+    border: 1px solid rgba(217, 119, 6, 0.2);
+    transition: all 0.25s ease;
   }
 
-  .ft-feature-item {
-    font-size: 13.5px;
+  .overview-card:hover .overview-icon-box {
+    background: var(--ink);
+    color: #FFFFFF;
+    border-color: var(--ink);
+    transform: scale(1.05);
+  }
+
+  .overview-card h3 {
+    font-family: 'Effra', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: normal;
     color: var(--ink);
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    line-height: 1.5;
-  }
-  .ft-feature-item svg {
-    width: 15px;
-    height: 15px;
-    stroke: var(--br);
-    stroke-width: 2.5;
-    fill: none;
-    flex-shrink: 0;
-    margin-top: 3px;
+    transition: color 0.25s ease;
   }
 
-  .ft-workflow-strip {
-    background: #FFFFFF;
-    border-radius: 8px;
-    padding: 10px 14px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--brown);
-    margin: 0 0 20px 0 !important;
-    border: 1px solid #E3E8EE;
+  .overview-card:hover h3 {
+    color: var(--amber);
   }
 
-  .ft-card-footer {
-    margin-top: auto;
-    padding-top: 16px;
-    border-top: 1px solid #F0E9DF;
-    display: flex;
-    justify-content: space-between;
+  .overview-card p {
+    font-size: 14.5px;
+    color: var(--mute);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ==========================================================================
+     DEEP-DIVE SECTIONS (WITH BESPOKE INTERNATIONAL IMAGES)
+     ========================================================================== */
+  .split-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 68px;
     align-items: center;
   }
 
-  .ft-card-link {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--br);
-    text-decoration: none;
+  .split-row.reverse .split-content-col {
+    order: 2;
+  }
+
+  .split-row.reverse .split-visual-col {
+    order: 1;
+  }
+
+  .split-content-col h2 {
+    font-family: 'Effra', sans-serif;
+    font-size: clamp(30px, 3.4vw, 42px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    letter-spacing: normal;
+    color: var(--ink);
+  }
+
+  .split-lead {
+    font-size: 17px;
+    color: var(--mute);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .feature-chips-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .feature-chip {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    transition: gap 0.2s ease;
-  }
-  .ft-card-link:hover {
-    color: var(--br-dark);
-    gap: 10px;
-  }
-
-  /* ===================== FEATURE SEARCH & FILTER ===================== */
-  .ft-search-box {
-    background: #FFFFFF !important;
-    border-radius: 18px;
-    padding: 24px;
-    box-shadow: var(--shadow-sm);
+    background: #FFFFFF;
     border: 1px solid var(--line);
-    margin-bottom: 48px;
-  }
-
-  .ft-search-field-wrap {
-    position: relative;
-    margin-bottom: 18px;
-  }
-
-  .ft-search-field-wrap svg {
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    stroke: var(--ink-faint);
-    fill: none;
-    stroke-width: 2;
-    pointer-events: none;
-  }
-
-  .ft-search-input {
-    width: 100%;
-    padding: 14px 16px 14px 48px;
-    border-radius: 10px;
-    border: 1px solid var(--line);
-    background: #FFFFFF !important;
-    font-size: 15px;
-    font-family: inherit;
-    color: var(--ink);
-    transition: all 0.2s ease;
-  }
-  .ft-search-input:focus {
-    outline: none;
-    border-color: #EA580C;
-    background: #FFFFFF !important;
-    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
-  }
-
-  .ft-filter-chips {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .ft-chip-btn {
-    padding: 7px 16px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    background: #FFFFFF !important;
-    color: var(--ink-soft);
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .ft-chip-btn:hover {
-    border-color: #EA580C;
-    color: #EA580C;
-    background: #FFF7ED !important;
-  }
-  .ft-chip-btn.active {
-    background: #EA580C !important;
-    color: #FFFFFF !important;
-    border-color: #EA580C;
-  }
-
-  /* ===================== DIRECTORY SECTION ===================== */
-  .ft-dir-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-
-  .ft-dir-group {
-    background: #FFFFFF !important;
-    border-radius: 16px;
-    padding: 24px;
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .ft-dir-group-title {
-    font-size: 16px;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 12px;
     font-weight: 600;
-    color: var(--br);
-    border-bottom: 1.5px solid var(--br-light);
-    padding-bottom: 10px;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .ft-dir-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 11px;
-  }
-
-  .ft-dir-list li {
-    font-size: 14px;
-    font-weight: 500;
     color: var(--ink);
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    line-height: 1.45;
-    margin: 0;
+    box-shadow: 0 1px 2px rgba(50, 50, 93, 0.04);
   }
 
-  .ft-dir-list li svg {
-    width: 14px;
-    height: 14px;
-    stroke: var(--br);
-    stroke-width: 2.5;
-    fill: none;
+  .feature-chip svg {
+    color: var(--amber);
     flex-shrink: 0;
   }
 
-  /* ===================== MOBILE DASHBOARD MOCKUP ===================== */
-  .mobile-mock-card {
-    background: #231B15;
-    border-radius: 36px;
-    padding: 28px 20px;
-    max-width: 320px;
-    margin: 0 auto;
-    color: #fff;
-    box-shadow: var(--shadow-lg);
-    border: 4px solid #3F332A;
-  }
-
-  .mobile-mock-notch {
-    width: 100px;
-    height: 18px;
-    background: #17110D;
-    border-radius: 0 0 12px 12px;
-    margin: -28px auto 20px;
-  }
-
-  .mobile-mock-screen {
-    background: #FFFFFF !important;
-    border-radius: 20px;
-    padding: 16px;
-    color: var(--ink);
-    border: 1px solid #E2E8F0;
-  }
-
-  /* ===================== INTERNATIONAL SAAS FAQ (STRIPE 2-COL SPLIT) ===================== */
-  .faq-section {
-    padding: 90px 0;
-    background: #FFFFFF;
-    position: relative;
-  }
-
-  .faq-layout {
-    display: grid;
-    grid-template-columns: 38% 62%;
-    gap: 56px;
-    align-items: start;
-  }
-
-  .faq-left-col {
-    position: sticky;
-    top: 96px;
-  }
-
-  .faq-main-title {
-    font-family: Effra, sans-serif;
-    font-weight: 400;
-    font-size: 2.5rem;
-    line-height: 1.12;
-    color: #0A2540;
-    letter-spacing: normal;
-    margin: 0 0 16px;
-  }
-
-  .faq-lead-desc {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 18px;
-    color: #425466;
-    line-height: 1.6;
-    letter-spacing: -0.01em;
-    margin: 0 0 32px;
-    max-width: 420px;
-  }
-
-  /* Support Help Card */
-  .faq-support-card {
-    background: #FFFFFF !important;
-    border: 1.5px solid #E3E8EE;
-    border-radius: 20px;
-    padding: 24px;
+  .benefit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 36px 0;
     display: flex;
     flex-direction: column;
     gap: 14px;
-    max-width: 420px;
-    transition: all 0.25s ease;
-  }
-  .faq-support-card:hover {
-    border-color: #CBD5E1;
-    box-shadow: 0 8px 20px rgba(10, 37, 64, 0.06);
   }
 
-  .faq-support-header {
+  .benefit-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
+    font-size: 15.5px;
+    color: var(--ink);
+    line-height: 1.5;
   }
-  .faq-support-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
-    background: #FEF3C7;
-    color: #B45309;
+
+  .benefit-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #FFFFFF;
     display: grid;
     place-items: center;
     flex-shrink: 0;
-    border: 1px solid rgba(217, 119, 6, 0.25);
+    margin-top: 2px;
   }
-  .faq-support-icon svg { width: 20px; height: 20px; }
 
-  .faq-support-title {
+  .benefit-icon svg {
+    width: 13px;
+    height: 13px;
+    stroke: currentColor;
+    stroke-width: 2.4;
+  }
+
+  /* Visual Frames with Bespoke International Images */
+  .visual-device-frame {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .visual-device-frame:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -10px rgba(10, 37, 64, 0.22);
+  }
+
+  .visual-device-frame img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  .visual-device-frame:hover img {
+    transform: scale(1.02);
+  }
+
+  /* Cinematic Floating UI Overlay Chip on International Images */
+  .visual-overlay-chip {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    background: rgba(10, 25, 47, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    color: #FFFFFF;
+  }
+
+  .overlay-chip-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .overlay-chip-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(254, 243, 199, 0.15);
+    color: #FDE68A;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+
+  .overlay-chip-title {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 700;
-    color: #0A2540;
-    margin: 0;
-    letter-spacing: -0.015em;
+    color: #FFFFFF;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  .faq-support-text {
-    font-family: 'Inter', sans-serif;
+  .overlay-chip-desc {
+    font-size: 11.5px;
+    color: #CBD5E1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .overlay-chip-badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: #34D399;
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ==========================================================================
+     11. CONNECTED WORKFLOW (Custom 5-Stage Timeline)
+     ========================================================================== */
+  .workflow-timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    position: relative;
+    margin-top: 40px;
+  }
+
+  .workflow-timeline::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: var(--line);
+    z-index: 1;
+  }
+
+  .workflow-step-card {
+    position: relative;
+    z-index: 2;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .workflow-step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: #CBD5E1;
+  }
+
+  .step-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #FFFFFF;
+    display: grid;
+    place-items: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 auto 18px;
+    box-shadow: 0 4px 12px rgba(10, 37, 64, 0.25);
+    transition: background 0.25s ease;
+  }
+
+  .workflow-step-card:hover .step-badge {
+    background: var(--amber);
+  }
+
+  .workflow-step-card h4 {
+    font-family: 'Effra', sans-serif;
+    font-size: 16.5px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: normal;
+    color: var(--ink);
+  }
+
+  .workflow-step-card p {
     font-size: 13.5px;
-    color: #425466;
+    color: var(--mute);
     line-height: 1.55;
     margin: 0;
   }
 
-  .faq-support-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-top: 4px;
-    flex-wrap: wrap;
+  /* ==========================================================================
+     12. INTERNATIONAL INDUSTRY SHOWCASE (4 Concept Cards)
+     ========================================================================== */
+  .industry-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
   }
 
-  .faq-support-btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #0A2540;
-    color: #FFFFFF !important;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13.5px;
+  .industry-card {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: default;
+  }
+
+  .industry-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .industry-photo-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #E2E8F0;
+  }
+
+  .industry-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  .industry-card:hover .industry-photo-wrap img {
+    transform: scale(1.05);
+  }
+
+  .industry-card-body {
+    padding: 22px 20px;
+  }
+
+  .industry-card-body h3 {
+    font-family: 'Effra', sans-serif;
+    font-size: 17.5px;
     font-weight: 700;
-    padding: 9px 18px;
-    border-radius: 10px;
-    text-decoration: none;
-    border: 1px solid #0A2540;
-    transition: all 0.2s ease;
-  }
-  .faq-support-btn-primary:hover {
-    background: #1A365D;
-    border-color: #1A365D;
-    transform: translateY(-1px);
+    margin-bottom: 8px;
+    letter-spacing: normal;
+    color: var(--ink);
   }
 
-  .faq-support-link {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13.5px;
-    font-weight: 600;
-    color: #B45309 !important;
-    text-decoration: none;
-    display: inline-flex;
+  .industry-card-body p {
+    font-size: 14px;
+    color: var(--mute);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .industry-cta-wrap {
+    text-align: center;
+  }
+
+  /* ==========================================================================
+     13. WHY GENI MENU? (Product Ecosystem & Core Pillars)
+     ========================================================================== */
+  .why-layout {
+    display: grid;
+    grid-template-columns: 48% 52%;
+    gap: 56px;
     align-items: center;
-    gap: 4px;
-    transition: gap 0.2s ease;
-  }
-  .faq-support-link:hover {
-    color: #92400E !important;
-    gap: 7px;
   }
 
-  /* Right Column: FAQ Accordion */
-  .faq-right-col {
-    width: 100%;
+  .why-content h2 {
+    font-family: 'Effra', sans-serif;
+    font-size: clamp(30px, 3.4vw, 42px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: normal;
   }
+
+  .why-lead {
+    font-size: 17px;
+    color: var(--mute);
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+
+  .why-benefits-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .why-benefit-item {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line-light);
+  }
+
+  .why-benefit-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .why-icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--amber-light);
+    color: var(--amber);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(217, 119, 6, 0.2);
+  }
+
+  .why-text h4 {
+    font-family: 'Effra', sans-serif;
+    font-size: 16.5px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: normal;
+    color: var(--ink);
+  }
+
+  .why-text p {
+    font-size: 14px;
+    color: var(--mute);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ==========================================================================
+     14. FAQ SECTION (Accordion)
+     ========================================================================== */
+  .faq-container {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
   .faq-accordion-list {
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 14px;
   }
-  .faq-row {
-    border: 1.5px solid #E3E8EE;
-    border-radius: 16px;
+
+  .faq-card {
     background: #FFFFFF;
-    padding: 0 24px;
-    box-shadow: 0 1px 3px rgba(50, 50, 93, 0.04);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all 0.2s ease;
   }
-  .faq-row:hover {
+
+  .faq-card:hover {
     border-color: #CBD5E1;
-    box-shadow: 0 4px 14px rgba(50, 50, 93, 0.08);
   }
-  .faq-row.open {
-    border-color: #0A2540;
-    box-shadow: 0 8px 24px rgba(10, 37, 64, 0.08);
-    background: #FFFFFF;
+
+  .faq-card.open {
+    border-color: var(--ink);
+    box-shadow: var(--shadow-sm);
   }
-  .faq-row button {
+
+  .faq-header-btn {
     width: 100%;
     background: none;
-    border: 0;
-    color: #0A2540;
-    font: 700 16.5px 'Plus Jakarta Sans', sans-serif;
-    letter-spacing: -0.02em;
-    text-align: left;
-    padding: 22px 0;
+    border: none;
+    padding: 22px 26px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
     gap: 16px;
+    text-align: left;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16.5px;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
     outline: none;
   }
-  .faq-row i {
-    color: #0A2540;
-    font-style: normal;
-    font-size: 18px;
-    font-weight: 700;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    flex: none;
-    width: 32px;
-    height: 32px;
+
+  .faq-icon-indicator {
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
-    background: #FFFFFF !important;
+    background: var(--bg-slate);
+    color: var(--ink);
+    border: 1px solid var(--line);
     display: grid;
     place-items: center;
-    border: 1px solid #E3E8EE;
+    flex-shrink: 0;
+    transition: transform 0.25s ease, background 0.2s ease, color 0.2s ease;
   }
-  .faq-row:hover i {
-    border-color: #CBD5E1;
-    background: #FFFFFF !important;
-  }
-  .faq-row.open i {
+
+  .faq-card.open .faq-icon-indicator {
     transform: rotate(45deg);
-    background: #0A2540;
+    background: var(--ink);
     color: #FFFFFF;
-    border-color: #0A2540;
+    border-color: var(--ink);
   }
-  .faq-answer-wrap {
+
+  .faq-body-wrap {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: grid-template-rows 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .faq-row.open .faq-answer-wrap {
+
+  .faq-card.open .faq-body-wrap {
     grid-template-rows: 1fr;
   }
-  .faq-answer-wrap > div {
+
+  .faq-body-inner {
     overflow: hidden;
   }
-  .faq-answer-wrap p {
-    padding: 0 0 22px;
-    color: #425466;
-    font-family: 'Inter', system-ui, sans-serif;
+
+  .faq-body-inner p {
+    padding: 0 26px 22px;
+    color: var(--mute);
     font-size: 15px;
     line-height: 1.65;
-    border-top: 1px solid #F1F5F9;
-    padding-top: 16px;
     margin: 0;
+    border-top: 1px solid var(--line-light);
+    padding-top: 14px;
   }
 
-  @media (max-width: 960px) {
-    .faq-layout {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    .faq-left-col {
-      position: static;
-      max-width: 100%;
-    }
-  }
-
-  /* ===================== FINAL CTA SECTION (TOAST-STYLE EXPERT SWITCH) ===================== */
-  .ft-cta-section {
-    background: #FFFFFF !important;
-    padding: 100px 0 120px;
-    text-align: center;
+  /* ==========================================================================
+     15. FINAL CONVERSION CTA — "LET'S TALK ABOUT YOUR RESTAURANT"
+     ========================================================================== */
+  .ft-final-cta {
     position: relative;
-    border: none !important;
-    border-top: none !important;
-    border-bottom: none !important;
-    width: 100%;
+    background-image: url('{{ asset("assets/images/features/enquiry_banner_bg.jpg") }}') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    padding: 120px 0 130px !important;
+    text-align: center;
+    color: #FFFFFF;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
   }
 
-  .ft-cta-section::before {
-    display: none !important;
+  .ft-final-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      rgba(10, 25, 47, 0.76) 0%,
+      rgba(8, 20, 36, 0.84) 45%,
+      rgba(8, 22, 40, 0.96) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
   }
 
-  .ft-cta-content {
+  .cta-inner-box {
+    max-width: 780px;
+    margin: 0 auto;
     position: relative;
     z-index: 2;
-    max-width: 860px;
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 
-  .toast-expert-title {
-    font-family: 'Plus Jakarta Sans', Effra, sans-serif !important;
-    color: #0A2540 !important;
-    font-size: clamp(30px, 3.8vw, 48px) !important;
-    font-weight: 700 !important;
-    letter-spacing: -0.025em !important;
-    line-height: 1.2 !important;
-    margin: 0 0 14px 0 !important;
-    text-align: center !important;
+  .cta-inner-box h2 {
+    font-family: 'Effra', sans-serif;
+    font-size: clamp(32px, 3.8vw, 48px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: normal;
+    color: #FFFFFF;
   }
 
-  .toast-expert-subhead {
-    color: #475569 !important;
-    font-size: clamp(15.5px, 1.4vw, 18px) !important;
+  .cta-inner-box p {
+    font-size: 18px;
+    color: #CBD5E1;
+    line-height: 1.6;
+    margin: 0 auto 36px;
     max-width: 620px;
-    margin: 0 auto 34px !important;
-    line-height: 1.55 !important;
-    font-family: 'Inter', system-ui, sans-serif !important;
-    font-weight: 400 !important;
-    text-align: center !important;
   }
 
-  .toast-expert-btn-wrap {
+  .cta-btn-row {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
   }
 
-  .toast-expert-cta-btn {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #E64A19 !important;
-    background: linear-gradient(135deg, #F35A14 0%, #E64A19 100%) !important;
+  .btn-white-solid {
+    background: #FFFFFF !important;
+    color: var(--ink) !important;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px 36px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-white-solid:hover {
+    background: #F1F5F9 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
+    color: var(--ink) !important;
+  }
+
+  .btn-glass-outline {
+    background: rgba(255, 255, 255, 0.1);
     color: #FFFFFF !important;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 16px !important;
-    font-weight: 700 !important;
-    padding: 14px 44px !important;
-    border-radius: 9999px !important;
-    text-decoration: none !important;
-    box-shadow: 0 4px 16px rgba(230, 74, 25, 0.35) !important;
-    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    border: none !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 15px 34px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
   }
 
-  .toast-expert-cta-btn:hover {
-    background: linear-gradient(135deg, #EA580C 0%, #C23E14 100%) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 24px rgba(230, 74, 25, 0.45) !important;
+  .btn-glass-outline:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #FFFFFF;
+    transform: translateY(-2px);
     color: #FFFFFF !important;
   }
 
-  /* Responsive Adjustments */
-  @media (max-width: 1024px) {
-    .ft-hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .ft-grid-3, .ft-grid-4 { grid-template-columns: repeat(2, 1fr); }
-    .ft-dir-grid { grid-template-columns: repeat(2, 1fr); }
+  /* ==========================================================================
+     RESPONSIVE BREAKPOINTS
+     ========================================================================== */
+  @media (max-width: 1080px) {
+    .ft-hero { padding: 75px 0 65px !important; }
+    .ft-hero-split-grid { grid-template-columns: 1fr; gap: 48px; }
+    .ft-hero-left { max-width: 100%; text-align: center; }
+    .hero-eyebrow-pill { margin-left: auto; margin-right: auto; }
+    .ft-hero-cta-row { justify-content: center; }
+    .ft-hero-trust-row { justify-content: center; }
+    .ft-hero-right { min-height: 480px; }
+    .stack-stage-container { max-width: 520px; }
+    .stack-card-pos { left: 0; }
+    .stack-card-kds { right: 0; }
+    .overview-grid { grid-template-columns: repeat(2, 1fr); }
+    .split-row, .split-row.reverse { grid-template-columns: 1fr; gap: 44px; }
+    .split-row.reverse .split-content-col { order: 1; }
+    .split-row.reverse .split-visual-col { order: 2; }
+    .workflow-timeline { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .workflow-timeline::before { display: none; }
+    .industry-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-layout { grid-template-columns: 1fr; gap: 40px; }
   }
 
   @media (max-width: 768px) {
-    .section { padding: 60px 0; }
-    .ft-hero { padding: 60px 0 40px; }
-    .ft-hero h1 { font-size: 32px; }
-    .ft-grid-2, .ft-grid-3, .ft-grid-4 { grid-template-columns: 1fr; }
-    .ft-dir-grid { grid-template-columns: 1fr; }
-    .ft-cta-section { padding: 60px 0; }
-    .ft-cta-section h2 { font-size: 28px; }
-    .final-cta-box { padding: 48px 24px; }
-    .final-cta-box h2 { font-size: 28px; }
-  }
-
-  /* --- TOAST-STYLE CONCEPTS BANNER & FLOATING CARD --- */
-  .concepts-banner-section {
-    position: relative;
-    margin: 50px 0 60px;
-    padding: 0;
-    width: 100%;
-    overflow: visible;
-  }
-  .concepts-banner-bg {
-    position: relative;
-    width: 100%;
-    min-height: 440px;
-    background: linear-gradient(180deg, rgba(10, 37, 64, 0.52) 0%, rgba(10, 37, 64, 0.72) 100%), 
-                url('{{ asset("landing/concepts-banner.jpg") }}') center 28% / cover no-repeat;
-    display: flex !important;
-    align-items: flex-start !important;
-    justify-content: center !important;
-    text-align: center !important;
-    padding: 95px 24px 190px !important;
-    box-sizing: border-box !important;
-  }
-  .concepts-banner-bg .w {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    width: 100% !important;
-    margin: 0 auto !important;
-    padding: 0 20px !important;
-  }
-  .concepts-banner-title {
-    font-family: 'Plus Jakarta Sans', Effra, sans-serif !important;
-    font-size: clamp(28px, 3.8vw, 44px) !important;
-    font-weight: 800 !important;
-    color: #FFFFFF !important;
-    text-align: center !important;
-    margin: 0 auto !important;
-    display: block !important;
-    width: 100% !important;
-    max-width: 900px !important;
-    line-height: 1.25 !important;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5) !important;
-    letter-spacing: -0.02em !important;
-  }
-  .concepts-card-wrapper {
-    max-width: 1080px;
-    margin: -130px auto 0;
-    position: relative;
-    z-index: 10;
-    padding: 0 20px;
-    box-sizing: border-box;
-  }
-  .concepts-floating-card {
-    background: #FFFFFF !important;
-    border-radius: 20px !important;
-    box-shadow: 0 20px 50px rgba(10, 37, 64, 0.1), 0 4px 16px rgba(10, 37, 64, 0.04) !important;
-    padding: 44px 52px 42px !important;
-    border: 1px solid #E2E8F0 !important;
-    box-sizing: border-box !important;
-  }
-  .concepts-card-subhead {
-    font-family: 'Inter', system-ui, sans-serif !important;
-    font-size: 16px !important;
-    color: #425466 !important;
-    text-align: center;
-    margin: 0 0 36px 0 !important;
-    font-weight: 400 !important;
-    line-height: 1.5 !important;
-  }
-  .concepts-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 20px 32px !important;
-    align-items: center !important;
-  }
-  .concept-item {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 14px !important;
-    padding: 12px 14px !important;
-    border-radius: 12px !important;
-    background: #FFFFFF !important;
-    border: 1px solid transparent !important;
-    cursor: default !important;
-    user-select: none !important;
-    transition: all 0.22s ease !important;
-  }
-  .concept-item:hover {
-    background: #F8FAFC !important;
-    border-color: #E2E8F0 !important;
-    transform: translateY(-2px);
-  }
-  .concept-icon-wrap {
-    width: 38px !important;
-    height: 38px !important;
-    min-width: 38px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    flex-shrink: 0 !important;
-    transition: transform 0.22s ease !important;
-  }
-  .concept-item:hover .concept-icon-wrap {
-    transform: scale(1.08);
-  }
-  .concept-label {
-    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif !important;
-    font-size: 17px !important;
-    font-weight: 600 !important;
-    color: #0A2540 !important;
-    line-height: 1.35 !important;
-    letter-spacing: -0.01em !important;
-  }
-  .concept-item:hover .concept-label {
-    color: #0A2540 !important;
-  }
-  .concepts-card-actions {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 14px !important;
-    margin-top: 36px !important;
-    padding-top: 28px !important;
-    border-top: 1px solid #F1F5F9 !important;
-    flex-wrap: wrap !important;
-  }
-  .concept-btn-primary {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    background: #0A2540 !important;
-    color: #FFFFFF !important;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 14px !important;
-    font-weight: 700 !important;
-    padding: 11px 24px !important;
-    border-radius: 50px !important;
-    text-decoration: none !important;
-    box-shadow: 0 4px 12px rgba(10, 37, 64, 0.16) !important;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    border: 1px solid #0A2540 !important;
-  }
-  .concept-btn-primary:hover {
-    background: #1A365D !important;
-    border-color: #1A365D !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 18px rgba(10, 37, 64, 0.24) !important;
-    color: #FFFFFF !important;
-  }
-  .concept-btn-secondary {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    background: #FFFFFF !important;
-    color: #0A2540 !important;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 14px !important;
-    font-weight: 700 !important;
-    padding: 11px 24px !important;
-    border-radius: 50px !important;
-    text-decoration: none !important;
-    border: 1.5px solid #CBD5E1 !important;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  }
-  .concept-btn-secondary:hover {
-    background: #F8FAFC !important;
-    border-color: #0A2540 !important;
-    color: #0A2540 !important;
-    transform: translateY(-2px) !important;
-  }
-
-  @media (max-width: 900px) {
-    .concepts-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 18px 24px !important;
-    }
-    .concepts-floating-card {
-      padding: 32px 28px !important;
-    }
-    .concepts-banner-bg {
-      padding: 70px 20px 160px !important;
-      min-height: 380px !important;
-    }
-    .concepts-card-wrapper {
-      margin-top: -110px !important;
-    }
-  }
-
-  @media (max-width: 580px) {
-    .concepts-grid {
-      grid-template-columns: 1fr !important;
-      gap: 12px !important;
-    }
-    .concepts-floating-card {
-      padding: 28px 20px !important;
-      border-radius: 14px !important;
-    }
-    .concepts-banner-title {
-      font-size: 26px !important;
-    }
-    .concepts-banner-bg {
-      padding: 55px 16px 140px !important;
-      min-height: 340px !important;
-    }
-    .concepts-card-wrapper {
-      margin-top: -90px !important;
-    }
-    .concepts-card-actions {
-      flex-direction: column !important;
-      gap: 10px !important;
-    }
-    .concept-btn-primary, .concept-btn-secondary {
-      width: 100% !important;
-      justify-content: center !important;
-    }
+    .ft-hero { padding: 55px 0 45px !important; }
+    .ft-hero-title { font-size: clamp(28px, 6vw, 36px); }
+    .ft-hero-lead { font-size: 15.5px; margin-bottom: 24px; }
+    .ft-hero-cta-row { flex-direction: column; width: 100%; max-width: 320px; margin-left: auto; margin-right: auto; }
+    .ft-btn-primary, .ft-btn-secondary, .btn-white-solid, .btn-glass-outline { width: 100%; justify-content: center; }
+    .ft-hero-trust-row { flex-direction: column; gap: 8px; }
+    .stack-stage-container { height: 430px; }
+    .stack-card-pos { width: 220px; top: -10px; }
+    .stack-card-kds { width: 230px; bottom: -15px; right: -5px; }
+    .stack-card-qr { top: -35px; right: 10px; padding: 6px 10px; }
+    .stack-card-analytics { bottom: 12px; left: 0; padding: 6px 12px; }
+    .ft-section { padding: 65px 0; }
+    .overview-grid { grid-template-columns: 1fr; }
+    .industry-grid { grid-template-columns: 1fr; }
+    .workflow-timeline { grid-template-columns: 1fr; }
+    .ft-nav-tabs { gap: 20px; }
+    .visual-overlay-chip { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .overlay-chip-badge { align-self: flex-start; }
   }
 </style>
 
 <div class="ft-page">
 
-  {{-- 1. HERO SECTION (TOAST-STYLE SAAS STRUCTURE) --}}
-  <section class="ft-hero">
-    <div class="w">
-      <div class="ft-hero-grid">
-        {{-- Left Column: Typography, Actions, Starter Link --}}
-        <div data-aos="fade-right">
-          <h1 class="hero-headline">
-            Everything Your Restaurant Needs.<br>
-            Connected in <span class="hero-script-word">One Platform.</span>
+  {{-- ==========================================================================
+       1. HERO SECTION — SPLIT-SCREEN INTERACTIVE 3D STACK
+       ========================================================================== --}}
+  <header class="ft-hero">
+    <div class="ft-hero-mesh-glow"></div>
+
+    <div class="ft-container">
+      <div class="ft-hero-split-grid">
+        <!-- Left: Bold SaaS Value Proposition & Action Buttons -->
+        <div class="ft-hero-left" data-aos="fade-right">
+          <div class="hero-eyebrow-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2l8 4v4c0 6-4 10-8 12-4-2-8-6-8-12V6l8-4z"/></svg>
+            <span>THE ALL-IN-ONE RESTAURANT SUITE</span>
+          </div>
+
+          <h1 class="ft-hero-title">
+            Everything Your Restaurant Needs. <span class="accent-gold">Synchronized in One Place.</span>
           </h1>
-          <p class="hero-lead-text">
-            From digital menus and orders to kitchen operations, billing, inventory and business reports, Geni Menu brings your essential restaurant operations together in one connected platform.
-          </p>
-          
-          <div class="hero-actions-row">
-            <a href="{{ route('restaurant_signup') }}" class="hero-btn-solid">Get Started &rarr;</a>
-            <button type="button" onclick="openPopup('Book a Demo - Geni Menu Features')" class="hero-btn-outline">Book a Demo &rarr;</button>
-          </div>
 
-          <div class="hero-starter-link">
-            Flexible plans for single &amp; multi-branch &bull; <a href="{{ route('pricing') }}">View pricing plans &rarr;</a>
-          </div>
-        </div>
-
-        {{-- Right Column: Visual Composition with Photo, Floating Modifier Card & Hand-Drawn Arrow --}}
-        <div class="hero-visual-col" data-aos="fade-left">
-          <div class="hero-composition-stage">
-            <!-- Main Photo: Barista at modern POS counter -->
-            <div class="hero-photo-frame">
-              <img src="{{ asset('assets/images/features-hero-barista-pos.jpg') }}" alt="Barista serving at cafe POS counter" class="hero-barista-photo">
-            </div>
-
-            <!-- Floating Item Modifier Card -->
-            <div class="hero-floating-modifier-card">
-              <div class="mod-card-header">
-                <button type="button" class="mod-card-close" aria-label="Close">&times;</button>
-                <h4 class="mod-card-title">Paneer Tikka Sizzler</h4>
-                <span style="width: 14px;"></span>
-              </div>
-
-              <div class="mod-card-img-wrap">
-                <img src="{{ asset('assets/images/paneer-tikka-sizzler.jpg') }}" alt="Paneer Tikka Sizzler">
-              </div>
-
-              <p class="mod-card-desc">
-                Charcoal-grilled cottage cheese cubes marinated in spiced yogurt, bell peppers, and mint chutney.
-              </p>
-
-              <div class="mod-card-section-row">
-                <div class="mod-card-label-group">
-                  <span class="mod-card-label">Portion Size</span>
-                  <span class="mod-card-sublabel">Choose 1</span>
-                </div>
-                <span class="mod-card-required-badge">REQUIRED</span>
-              </div>
-
-              <div class="mod-card-options">
-                <label class="mod-option-item selected" data-value="regular">
-                  <span class="mod-radio-dot"><span class="mod-radio-inner"></span></span>
-                  <span class="mod-option-name">Regular Portion</span>
-                </label>
-
-                <label class="mod-option-item" data-value="large">
-                  <span class="mod-radio-dot"></span>
-                  <span class="mod-option-name">Large Platter</span>
-                  <span class="mod-option-price">+ $1.50</span>
-                </label>
-
-                <label class="mod-option-item" data-value="combo">
-                  <span class="mod-radio-dot"></span>
-                  <span class="mod-option-name">Chef's Sizzler Combo</span>
-                  <span class="mod-option-price">+ $2.50</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Hand-drawn curved orange arrow pointing to POS (Short & Compact) -->
-            <div class="hero-arrow-container">
-              <svg class="hero-drawn-arrow" viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M 18 6 C 18 36, 12 62, 34 68 C 50 72, 70 62, 84 48" stroke="#EA580C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M 68 47 L 85 48 L 82 65" stroke="#EA580C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  {{-- 3. INTRODUCTION & VISUAL ECOSYSTEM --}}
-  <section class="section" id="all-features">
-    <div class="w">
-      <div class="sec-header" data-aos="fade-up">
-        <h2>One Platform. Every Part of Your Restaurant.</h2>
-        <p>Geni Menu connects front-of-house, back-of-house and business operations so your team can manage everyday restaurant activities from one connected platform.</p>
-      </div>
-
-      <div class="eco-flow-card" data-aos="fade-up">
-        <div class="eco-flow-spine">
-          <div class="eco-flow-node">
-            <div class="eco-flow-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="2" x2="18" y2="22"/><path d="M14 2v7a3 3 0 0 0 6 0V2"/><path d="M6 2v4a2 2 0 0 0 4 0V2"/><line x1="8" y1="8" x2="8" y2="22"/></svg></div>
-            <div class="eco-flow-name">Menu</div>
-            <div style="font-size:11px; color:var(--ink-soft);">Categories &amp; Items</div>
-          </div>
-          <span class="eco-flow-arr">&rarr;</span>
-          <div class="eco-flow-node">
-            <div class="eco-flow-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
-            <div class="eco-flow-name">Orders</div>
-            <div style="font-size:11px; color:var(--ink-soft);">Table &amp; Counter</div>
-          </div>
-          <span class="eco-flow-arr">&rarr;</span>
-          <div class="eco-flow-node">
-            <div class="eco-flow-icon"><svg viewBox="0 0 24 24"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/></svg></div>
-            <div class="eco-flow-name">Kitchen KOT</div>
-            <div style="font-size:11px; color:var(--ink-soft);">Live Prep Routing</div>
-          </div>
-          <span class="eco-flow-arr">&rarr;</span>
-          <div class="eco-flow-node">
-            <div class="eco-flow-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="7" y1="15" x2="11" y2="15"/></svg></div>
-            <div class="eco-flow-name">Billing POS</div>
-            <div style="font-size:11px; color:var(--ink-soft);">3-Click Checkout</div>
-          </div>
-          <span class="eco-flow-arr">&rarr;</span>
-          <div class="eco-flow-node">
-            <div class="eco-flow-icon"><svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
-            <div class="eco-flow-name">Inventory</div>
-            <div style="font-size:11px; color:var(--ink-soft);">Recipe Stock Sync</div>
-          </div>
-          <span class="eco-flow-arr">&rarr;</span>
-          <div class="eco-flow-node">
-            <div class="eco-flow-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-            <div class="eco-flow-name">Reports</div>
-            <div style="font-size:11px; color:var(--ink-soft);">Sales &amp; Margins</div>
-          </div>
-        </div>
-
-        <div class="eco-satellites-row">
-          <span class="eco-pill">&#9679; Table Management</span>
-          <span class="eco-pill">&#9679; Reservations</span>
-          <span class="eco-pill">&#9679; Waiter Requests</span>
-          <span class="eco-pill">&#9679; Customer CRM</span>
-          <span class="eco-pill">&#9679; Staff Roles &amp; Access</span>
-          <span class="eco-pill">&#9679; Multi-Branch HQ</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {{-- 4. MENU & CUSTOMER EXPERIENCE --}}
-  <section class="section" id="sec-menu">
-    <div class="w">
-      <div class="sec-header" data-aos="fade-up">
-        <h2>Create Better Customer Experiences From the First Click.</h2>
-        <p>Manage your menu, products and customer interactions from one connected system.</p>
-      </div>
-
-      <div class="toast-feature-list">
-        {{-- Row 1: Menu Management (Media Left, Content Right) --}}
-        <div class="toast-feature-row" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Core Menu</span>
-              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=900&auto=format&fit=crop" alt="Menu Management" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Core Menu</div>
-            <h3 class="toast-feature-title">Menu Management</h3>
-            <p class="toast-feature-desc">Create, organize and update your restaurant menu from one simple dashboard.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Menu categories &amp; sub-items</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Pricing, variations &amp; addons where supported</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Real-time availability &amp; 86-ing</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Digital QR menu instant publishing</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 2: Customer Management (CRM) (Media Right, Content Left - Reverse) --}}
-        <div class="toast-feature-row reverse" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Guest Retention</span>
-              <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=900&auto=format&fit=crop" alt="Customer Management" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Guest Retention</div>
-            <h3 class="toast-feature-title">Customer Management (CRM)</h3>
-            <p class="toast-feature-desc">Keep customer information, visit counts and order history organized to drive repeat dining.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Centralized guest directory &amp; phone contacts</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Full visit logs &amp; past dining receipts</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Customer-linked orders for fast billing</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Birthday and anniversary engagement</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 3: Kiosk Ordering (Media Left, Content Right) --}}
-        <div class="toast-feature-row" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Self-Service</span>
-              <img src="https://images.unsplash.com/photo-1556742049-0a67e5572293?q=80&w=900&auto=format&fit=crop" alt="Kiosk Ordering" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Self-Service</div>
-            <h3 class="toast-feature-title">Kiosk Ordering</h3>
-            <p class="toast-feature-desc">Make self-service ordering intuitive and queue-free with interactive touch kiosk mode.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Digital visual product browsing</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Self-order creation directly to kitchen KOT</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Smart upselling combos &amp; beverage prompts</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Supported contactless counter payment</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {{-- 5. ORDERS & KITCHEN --}}
-  <section class="section" id="sec-orders">
-    <div class="w">
-      <div class="sec-header" data-aos="fade-up">
-        <h2>From Customer Order to Kitchen Preparation.</h2>
-        <p>Keep orders organized and give your kitchen team a clear view of what needs to be prepared without confusion.</p>
-      </div>
-
-      <div class="toast-feature-list">
-        {{-- Row 1: Order Management (Media Left, Content Right) --}}
-        <div class="toast-feature-row" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Order Pipeline</span>
-              <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=900&auto=format&fit=crop" alt="Order Management" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Order Pipeline</div>
-            <h3 class="toast-feature-title">Order Management</h3>
-            <p class="toast-feature-desc">Manage dine-in, takeaway and supported order types from one unified workspace.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Live order status (Pending, Cooking, Ready, Completed)</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Table-linked orders &amp; takeaway parcel tags</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Item modifications, cooking instructions &amp; special notes</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Direct dispatch into kitchen prep queues</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 2: KOT Management (Media Right, Content Left - Reverse) --}}
-        <div class="toast-feature-row reverse" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Kitchen Tickets</span>
-              <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?q=80&w=900&auto=format&fit=crop" alt="KOT Management" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Kitchen Tickets</div>
-            <h3 class="toast-feature-title">KOT (Kitchen Order Ticket) Management</h3>
-            <p class="toast-feature-desc">Use Kitchen Order Tickets to communicate order details accurately to the kitchen staff.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Instant digital &amp; thermal KOT ticket dispatch</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Item-level preparation notes &amp; allergy highlights</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Multi-station kitchen routing where supported</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Elimination of verbal misunderstandings in the kitchen</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 3: Kitchen Operations Management (Media Left, Content Right) --}}
-        <div class="toast-feature-row" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Kitchen Operations</span>
-              <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=900&auto=format&fit=crop" alt="Kitchen Operations" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Kitchen Operations</div>
-            <h3 class="toast-feature-title">Kitchen Operations Management</h3>
-            <p class="toast-feature-desc">Manage active kitchen orders, preparation activity and coordination between cook stations.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Real-time view of all preparing dishes</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Order prioritization during rush dining hours</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Ready notification handover to serving staff</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Multi-course dining coordination where supported</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 4: Waiter Requests (Media Right, Content Left - Reverse) --}}
-        <div class="toast-feature-row reverse" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Table Calls</span>
-              <img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=900&auto=format&fit=crop" alt="Waiter Requests" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Table Calls</div>
-            <h3 class="toast-feature-title">Waiter Requests</h3>
-            <p class="toast-feature-desc">Help floor teams respond to guest calls and table service requests faster and without shouting.</p>
-            <div class="toast-workflow-pill">
-              <strong>Workflow:</strong> Request &rarr; Staff Notify &rarr; Respond &rarr; Complete
-            </div>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>One-tap QR call waiter, water refill, and bill request</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Real-time notifications on assigned waiter devices</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Live table-linked request tracking &amp; resolution timers</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Higher table turnover &amp; improved diner satisfaction</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {{-- 6. TABLES & RESERVATIONS --}}
-  <section class="section" id="sec-tables">
-    <div class="w">
-      <div class="sec-header" data-aos="fade-up">
-        <h2>Know Every Table. Manage Every Booking.</h2>
-        <p>Keep your dining floor organized and connect reservations directly with table operations.</p>
-      </div>
-
-      <div class="toast-feature-list">
-        {{-- Row 1: Table Management (Media Left, Content Right) --}}
-        <div class="toast-feature-row" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Dining Floor</span>
-              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=900&auto=format&fit=crop" alt="Table Management" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Dining Floor</div>
-            <h3 class="toast-feature-title">Table Management</h3>
-            <p class="toast-feature-desc">Visual floor plans with live color-coded dining status to manage seatings effortlessly.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Interactive visual restaurant floor map</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Live status indicators (Available, Occupied, Billed)</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Multi-zone seating (AC Hall, Garden, Rooftop)</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Table-linked orders &amp; instant waiter assignment</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 2: Reservation Management (Media Right, Content Left - Reverse) --}}
-        <div class="toast-feature-row reverse" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Guest Bookings</span>
-              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=900&auto=format&fit=crop" alt="Reservation Management" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Guest Bookings</div>
-            <h3 class="toast-feature-title">Reservation Management</h3>
-            <p class="toast-feature-desc">Manage guest bookings, seating capacity and arrival status from one synchronized calendar.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Advance table booking creation &amp; guest contact storage</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Reservation calendar with time slot allocation</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Prevention of double-bookings during peak hours</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Direct connection to table allocation upon arrival</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {{-- 7. POS & PAYMENTS --}}
-  <section class="section" id="sec-pos">
-    <div class="w">
-      <div class="sec-header" data-aos="fade-up">
-        <h2>Faster Billing. Smoother Restaurant Operations.</h2>
-        <p>Process orders, print thermal receipts and collect payments through a restaurant-focused POS workflow.</p>
-      </div>
-
-      <div class="toast-feature-list">
-        {{-- Row 1: POS Management (Media Left, Content Right) --}}
-        <div class="toast-feature-row" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Fast Billing</span>
-              <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=900&auto=format&fit=crop" alt="POS Management" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Fast Billing</div>
-            <h3 class="toast-feature-title">POS Management</h3>
-            <p class="toast-feature-desc">Lightning-fast billing built for high-volume lunch rushes and counter operations.</p>
-            <div class="toast-workflow-pill">
-              <strong>Workflow:</strong> Select &rarr; Order &rarr; Bill &rarr; Pay &rarr; Complete
-            </div>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>3-click bill generation with barcode support</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Split bills, custom discounts &amp; GST compliance</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Dine-in, takeaway, delivery &amp; counter modes</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Thermal receipt &amp; digital e-bill printing</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 2: Payments Management (Media Right, Content Left - Reverse) --}}
-        <div class="toast-feature-row reverse" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Payment Records</span>
-              <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=900&auto=format&fit=crop" alt="Payments Management" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Payment Records</div>
-            <h3 class="toast-feature-title">Payments Management</h3>
-            <p class="toast-feature-desc">Frictionless payment acceptance and automated day-end cash reconciliation.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Cash, Dynamic UPI QR, Card &amp; Net Banking</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Transaction logs with cashier timestamp audit</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Automated daily closing register reconciliation</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Zero revenue leakage across multiple payment modes</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 3: Payment Gateway (Media Left, Content Right) --}}
-        <div class="toast-feature-row" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Online Gateway</span>
-              <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=900&auto=format&fit=crop" alt="Payment Gateway" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Online Gateway</div>
-            <h3 class="toast-feature-title">Payment Gateway</h3>
-            <p class="toast-feature-desc">Connect modern digital payment gateways for online ordering and contactless checkout.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Gateway integration support where available</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Online payment status verification</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Digital transaction records and settlement logs</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Available in applicable subscription plans</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {{-- 8. INVENTORY & OPERATIONS --}}
-  <section class="section" id="sec-inventory">
-    <div class="w">
-      <div class="sec-header" data-aos="fade-up">
-        <h2>Stay Ready for Every Service.</h2>
-        <p>Monitor stock, raw materials, expenses and operational activity to keep your restaurant prepared.</p>
-      </div>
-
-      <div class="toast-feature-list">
-        {{-- Row 1: Inventory Management (Media Left, Content Right) --}}
-        <div class="toast-feature-row" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Stock Control</span>
-              <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=900&auto=format&fit=crop" alt="Inventory Management" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Stock Control</div>
-            <h3 class="toast-feature-title">Inventory Management</h3>
-            <p class="toast-feature-desc">Real-time raw material tracking, low-stock alerts, and wastage control for lower food costs.</p>
-            <div class="toast-workflow-pill">
-              <strong>Workflow:</strong> Purchase &rarr; Stock &rarr; Consume &rarr; Monitor &rarr; Replenish
-            </div>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Ingredient stock levels, units (kg, liters, pcs)</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Low-stock automated alerts before ingredients run out</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Vendor purchase records where supported</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Stock movement &amp; manual adjustment logs</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 2: Expense Management (Media Right, Content Left - Reverse) --}}
-        <div class="toast-feature-row reverse" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Expense Tracking</span>
-              <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=900&auto=format&fit=crop" alt="Expense Management" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Expense Tracking</div>
-            <h3 class="toast-feature-title">Expense Management</h3>
-            <p class="toast-feature-desc">Keep operational expenses visible across categories like ingredients, utilities, and maintenance.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Categorized expense vouchers (Kitchen, Staff, Maintenance)</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Date-based expense tracking &amp; petty cash records</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Net profit vs. operating cost comparisons</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Instant export for accounting and audits</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 3: Multiple Kitchen Management (Media Left, Content Right) --}}
-        <div class="toast-feature-row" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Kitchen Stations</span>
-              <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=900&auto=format&fit=crop" alt="Multiple Kitchens" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Kitchen Stations</div>
-            <h3 class="toast-feature-title">Multiple Kitchen Management</h3>
-            <p class="toast-feature-desc">Organize multiple preparation stations like Grill, Pizza Oven, Bakery, and Beverage Bar seamlessly.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Station-specific item routing (Grill, Bar, Bakery)</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Independent station printers or digital screens where supported</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Reduced chaos and cross-kitchen congestion</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Available in applicable multi-station plans</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 4: Multiple Branch Management (Media Right, Content Left - Reverse) --}}
-        <div class="toast-feature-row reverse" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Multi-Outlet</span>
-              <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=900&auto=format&fit=crop" alt="Multi-Branch Management" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Multi-Outlet</div>
-            <h3 class="toast-feature-title">Multiple Branch Management</h3>
-            <p class="toast-feature-desc">Control multiple restaurant locations and franchise outlets from a single head-office workspace.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>1-click branch switching from master admin</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Branch-wise sales comparisons &amp; revenue leaderboards</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Centralized menu catalog with outlet-level pricing</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Inter-branch stock tracking where enabled</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {{-- 9. CUSTOMERS & STAFF --}}
-  <section class="section" id="sec-staff">
-    <div class="w">
-      <div class="sec-header" data-aos="fade-up">
-        <h2>Give Your Team the Right Tools.</h2>
-        <p>Set clear roles, safeguard billing permissions, and coordinate staff with ease.</p>
-      </div>
-
-      <div class="toast-feature-list">
-        {{-- Row 1: Staff Management (Media Left, Content Right) --}}
-        <div class="toast-feature-row" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Team Permissions</span>
-              <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=900&auto=format&fit=crop" alt="Staff Management" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Team Permissions</div>
-            <h3 class="toast-feature-title">Staff Management</h3>
-            <p class="toast-feature-desc">Granular roles and permission controls to manage cashiers, waiters, chefs, and store managers.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Role-based security for Admin, Cashier, Waiter, and Chef</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Protection against unauthorized bill edits and discounts</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Waiter table assignment &amp; order punching logging</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Complete accountability for staff actions</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 2: Delivery Executive Management (Media Right, Content Left - Reverse) --}}
-        <div class="toast-feature-row reverse" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Rider Operations</span>
-              <img src="https://images.unsplash.com/photo-1526367790999-0150786686a2?q=80&w=900&auto=format&fit=crop" alt="Delivery Management" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Rider Operations</div>
-            <h3 class="toast-feature-title">Delivery Executive Management</h3>
-            <p class="toast-feature-desc">Keep takeaway delivery operations organized and assign orders to delivery personnel where supported.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Delivery executive profiles &amp; contact logs</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Order assignment workflow where supported</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Delivery dispatch and handover status</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Cash-on-delivery tracking in applicable plans</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {{-- 10. REPORTS & BUSINESS --}}
-  <section class="section" id="sec-reports">
-    <div class="w">
-      <div class="sec-header" data-aos="fade-up">
-        <h2>Turn Restaurant Data Into Better Decisions.</h2>
-        <p>Understand sales, orders, payments, products, inventory and business activity through clear reports.</p>
-      </div>
-
-      <div class="toast-feature-list">
-        {{-- Row 1: Reports & Analytics (Media Left, Content Right) --}}
-        <div class="toast-feature-row" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Live Analytics</span>
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=900&auto=format&fit=crop" alt="Reports &amp; Analytics" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Analytics Engine</div>
-            <h3 class="toast-feature-title">Reports &amp; Analytics</h3>
-            <p class="toast-feature-desc">Real-time revenue, item popularity, and peak sales hour intelligence.</p>
-
-            <div style="background:#FFFFFF; border-radius:12px; padding:16px 18px; border:1px solid #E2E8F0; margin-bottom:18px; font-size:13.5px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-              <div style="display:flex; justify-content:space-between; margin-bottom:6px;"><span>Today's Sales:</span> <strong style="color:#0A2540;">&#8377;86,450</strong></div>
-              <div style="display:flex; justify-content:space-between; margin-bottom:6px;"><span>Total Orders:</span> <strong style="color:#0A2540;">94</strong></div>
-              <div style="display:flex; justify-content:space-between; margin-bottom:6px;"><span>Average Order Value:</span> <strong style="color:#0A2540;">&#8377;920</strong></div>
-              <div style="display:flex; justify-content:space-between;"><span>Best Seller:</span> <strong style="color:#0A2540;">Margherita Pizza</strong></div>
-              <div style="font-size:10.5px; color:#64748B; margin-top:8px; text-align:right;">*Sample demo data</div>
-            </div>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Live revenue monitoring and order counter summaries</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Average order value and product performance tracking</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Best-selling dishes and fast-moving menu item rankings</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Peak hour rush analytics for staff scheduling</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 2: Export Reports (Media Right, Content Left - Reverse) --}}
-        <div class="toast-feature-row reverse" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Data Export</span>
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=900&auto=format&fit=crop" alt="Export Reports" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Data Export</div>
-            <h3 class="toast-feature-title">Export Reports</h3>
-            <p class="toast-feature-desc">Take your business data with you for tax filing, audits, or external spreadsheets.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Date-filtered sales revenue reports</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Item-wise order summaries &amp; quantities</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Payment breakdown (Cash, UPI, Card)</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Inventory consumption &amp; wastage logs</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {{-- Row 3: Customized Settings (Media Left, Content Right) --}}
-        <div class="toast-feature-row" data-aos="fade-up">
-          <div class="toast-feature-media">
-            <div class="toast-img-frame">
-              <span class="toast-media-badge">Configuration</span>
-              <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=900&auto=format&fit=crop" alt="Customized Settings" loading="lazy">
-            </div>
-          </div>
-          <div class="toast-feature-content">
-            <div class="toast-feature-pill">Configuration</div>
-            <h3 class="toast-feature-title">Customized Settings</h3>
-            <p class="toast-feature-desc">Configure taxes, receipts, currencies, and dining operational preferences to match your brand.</p>
-            <ul class="toast-check-list">
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Custom receipt headers, footers &amp; logos</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Flexible GST, VAT, service charges &amp; tips</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>Operational preferences &amp; currency controls</span>
-              </li>
-              <li class="toast-check-item">
-                <span class="toast-check-icon"><svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></span>
-                <span>User settings where supported</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
-
-  {{-- 15. INDUSTRY-SPECIFIC CONCEPTS (TOAST-STYLE HERO BANNER & FLOATING CARD) --}}
-  <section class="concepts-banner-section" data-aos="fade-up">
-    <!-- Top Photo Banner -->
-    <div class="concepts-banner-bg">
-      <div class="w" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        <h2 class="concepts-banner-title">
-          Features That Adapt to Your Business.
-        </h2>
-      </div>
-    </div>
-
-    <!-- Centered Overlapping Floating Card -->
-    <div class="concepts-card-wrapper">
-      <div class="concepts-floating-card" data-aos="fade-up" data-aos-delay="100">
-        <p class="concepts-card-subhead">
-          See how Geni Menu works for your business type.
-        </p>
-
-        <div class="concepts-grid">
-          <!-- 1. Family Restaurant -->
-          <div class="concept-item">
-            <div class="concept-icon-wrap">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M4 14C4 11 8 9 16 9C24 9 28 11 28 14" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
-                <path d="M7 14V25M25 14V25" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="16" cy="18" r="5" fill="#FFF7ED" stroke="#F37023" stroke-width="2"/>
-                <path d="M10 6C10 4.5 11 3.5 12.5 3.5C14 3.5 15 4.5 15 6" stroke="#F37023" stroke-width="1.8" stroke-linecap="round"/>
-                <path d="M17 6C17 4.5 18 3.5 19.5 3.5C21 3.5 22 4.5 22 6" stroke="#F37023" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <span class="concept-label">Family Restaurant</span>
-          </div>
-
-          <!-- 2. Dine-in Restaurant -->
-          <div class="concept-item">
-            <div class="concept-icon-wrap">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <rect x="5" y="10" width="22" height="5" rx="2" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
-                <path d="M9 15V26M23 15V26" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="16" cy="7" r="3" fill="#FFF7ED" stroke="#F37023" stroke-width="2"/>
-                <path d="M14 26H18" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <span class="concept-label">Dine-in Restaurant</span>
-          </div>
-
-          <!-- 3. Fine Dining -->
-          <div class="concept-item">
-            <div class="concept-icon-wrap">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M4 23C4 23 9 25 16 25C23 25 28 23 28 23H4Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/>
-                <line x1="2" y1="23" x2="30" y2="23" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
-                <path d="M7 21C7 14 11 10 16 10C21 10 25 14 25 21H7Z" fill="#FFF7ED" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/>
-                <circle cx="16" cy="8" r="2.2" fill="#F37023"/>
-                <path d="M13 5L14 7" stroke="#F37023" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M19 5L18 7" stroke="#F37023" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <span class="concept-label">Fine Dining</span>
-          </div>
-
-          <!-- 4. Quick Service (QSR) -->
-          <div class="concept-item">
-            <div class="concept-icon-wrap">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M6 11L8.2 26C8.3 26.8 9 27.5 9.8 27.5H16.2C17 27.5 17.7 26.8 17.8 26L19 18" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
-                <path d="M5 11H20" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
-                <path d="M12.5 11L14 4.5H17" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M17 15L18.5 27.5H25.5L27 15H17Z" fill="#FFF7ED" stroke="#F37023" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M19.5 15V9" stroke="#F37023" stroke-width="2" stroke-linecap="round"/>
-                <path d="M22.5 15V7.5" stroke="#F37023" stroke-width="2" stroke-linecap="round"/>
-                <path d="M25.5 15V10" stroke="#F37023" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <span class="concept-label">Quick Service (QSR)</span>
-          </div>
-
-          <!-- 5. Takeaway Restaurant -->
-          <div class="concept-item">
-            <div class="concept-icon-wrap">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M6 11L8 26C8.2 27 9 27.5 10 27.5H22C23 27.5 23.8 27 24 26L26 11H6Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M11 11V8C11 5.8 12.8 4 15 4H17C19.2 4 21 5.8 21 8V11" stroke="#F37023" stroke-width="2" stroke-linecap="round"/>
-                <line x1="10" y1="17" x2="22" y2="17" stroke="#F37023" stroke-width="1.8" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <span class="concept-label">Takeaway Restaurant</span>
-          </div>
-
-          <!-- 6. Cafes & Coffee -->
-          <div class="concept-item">
-            <div class="concept-icon-wrap">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M7 13H21V19C21 22.3 18.3 25 15 25H13C9.7 25 7 22.3 7 19V13Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M21 15H23.5C24.9 15 26 16.1 26 17.5C26 18.9 24.9 20 23.5 20H21" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
-                <path d="M5 26.5H23" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
-                <path d="M10 9C10 7 12 7 12 5" stroke="#F37023" stroke-width="2" stroke-linecap="round"/>
-                <path d="M14 9C14 7 16 7 16 5" stroke="#F37023" stroke-width="2" stroke-linecap="round"/>
-                <path d="M18 9C18 7 20 7 20 5" stroke="#F37023" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <span class="concept-label">Caf&eacute;s &amp; Coffee</span>
-          </div>
-
-          <!-- 7. Bakeries & Cake Shops -->
-          <div class="concept-item">
-            <div class="concept-icon-wrap">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M5 21H27V26C27 27.1 26.1 28 25 28H7C5.9 28 5 27.1 5 26V21Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
-                <path d="M7 14H25V21H7V14Z" fill="#FFF7ED" stroke="#2563EB" stroke-width="2"/>
-                <path d="M7 16C9 17 11 15 13 17C15 15 17 17 19 15C21 17 23 15 25 16" stroke="#F37023" stroke-width="2" stroke-linecap="round"/>
-                <path d="M16 14V9" stroke="#F37023" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="16" cy="6" r="2" fill="#F37023"/>
-              </svg>
-            </div>
-            <span class="concept-label">Bakeries &amp; Cakes</span>
-          </div>
-
-          <!-- 8. Sweet & Snack Shops -->
-          <div class="concept-item">
-            <div class="concept-icon-wrap">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <rect x="6" y="11" width="20" height="15" rx="3" fill="#FFF7ED" stroke="#F37023" stroke-width="2"/>
-                <path d="M6 16H26" stroke="#F37023" stroke-width="2"/>
-                <path d="M16 11V26" stroke="#F37023" stroke-width="2"/>
-                <circle cx="11" cy="13.5" r="1.5" fill="#2563EB"/>
-                <circle cx="21" cy="13.5" r="1.5" fill="#2563EB"/>
-                <path d="M11 6C13 8 15 11 16 11C17 11 19 8 21 6" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <span class="concept-label">Sweet Shops</span>
-          </div>
-
-          <!-- 9. Juice & Beverage -->
-          <div class="concept-item">
-            <div class="concept-icon-wrap">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M9 7L11 26C11.1 26.8 11.8 27.5 12.6 27.5H19.4C20.2 27.5 20.9 26.8 21 26L23 7H9Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M8 7H24" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
-                <path d="M12 15C14 16 18 14 20 15" stroke="#F37023" stroke-width="1.8"/>
-                <path d="M18 7L21 2H23" stroke="#F37023" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="7" cy="10" r="3.5" fill="#FFF7ED" stroke="#F37023" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <span class="concept-label">Juice &amp; Beverage</span>
-          </div>
-
-          <!-- 10. Pizzerias -->
-          <div class="concept-item">
-            <div class="concept-icon-wrap">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M6 8.5C12 5.5 20 5.5 26 8.5L16 28L6 8.5Z" fill="#FFFBEB" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M6 8.5C12 5.5 20 5.5 26 8.5" stroke="#F37023" stroke-width="3" stroke-linecap="round"/>
-                <circle cx="16" cy="13" r="2.2" fill="#F37023"/>
-                <circle cx="12.5" cy="18" r="1.8" fill="#F37023"/>
-                <circle cx="19" cy="20" r="1.8" fill="#F37023"/>
-                <circle cx="15.5" cy="23.5" r="1.2" fill="#F37023"/>
-              </svg>
-            </div>
-            <span class="concept-label">Pizzerias</span>
-          </div>
-
-          <!-- 11. Canteens -->
-          <div class="concept-item">
-            <div class="concept-icon-wrap">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <rect x="4" y="9" width="24" height="17" rx="3" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
-                <rect x="7" y="12" width="8" height="6" rx="1.5" fill="#FFF7ED" stroke="#F37023" stroke-width="1.5"/>
-                <rect x="17" y="12" width="8" height="6" rx="1.5" fill="#FFF7ED" stroke="#F37023" stroke-width="1.5"/>
-                <rect x="7" y="20" width="18" height="3.5" rx="1" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <span class="concept-label">Canteens &amp; Cafeterias</span>
-          </div>
-
-          <!-- 12. Bars & Breweries -->
-          <div class="concept-item">
-            <div class="concept-icon-wrap">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M6 8L16 19L26 8H6Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/>
-                <line x1="16" y1="19" x2="16" y2="26" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
-                <line x1="11" y1="26" x2="21" y2="26" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="24" cy="7" r="4.5" fill="#FFF7ED" stroke="#F37023" stroke-width="1.8"/>
-                <path d="M24 2.5V11.5M19.5 7H28.5" stroke="#F37023" stroke-width="1"/>
-              </svg>
-            </div>
-            <span class="concept-label">Bars &amp; Breweries</span>
-          </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="concepts-card-actions">
-          <a href="{{ route('solutions') }}" class="concept-btn-primary">
-            <span>Explore Solutions</span>
-            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 12l4-4-4-4"/>
-            </svg>
-          </a>
-          <a href="{{ route('contact.us') }}" class="concept-btn-secondary">
-            <span>Schedule a Demo</span>
-            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 12l4-4-4-4"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {{-- 16. PLAN CTA --}}
-  <section class="section">
-    <div class="w">
-      <div class="sec-header" data-aos="fade-up">
-        <div class="sec-eyebrow">FLEXIBLE PLANS</div>
-        <h2>Choose the Features Your Business Needs.</h2>
-        <p>Start with essential operations and unlock more capabilities as your restaurant grows.</p>
-      </div>
-
-      <div style="display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:36px;" data-aos="fade-up">
-        <div style="background:#fff; padding:18px 24px; border-radius:12px; border:1px solid var(--line); text-align:center; min-width:200px;">
-          <strong style="color:var(--br);">STANDARD</strong>
-          <div style="font-size:13px; color:var(--ink-soft); margin-top:4px;">Essential Operations</div>
-        </div>
-        <span style="font-size:22px; color:var(--gold);">&rarr;</span>
-        <div style="background:#fff; padding:18px 24px; border-radius:12px; border:1.5px solid var(--br); text-align:center; min-width:200px; box-shadow:var(--shadow-sm);">
-          <strong style="color:var(--br);">PREMIUM</strong>
-          <div style="font-size:13px; color:var(--ink-soft); margin-top:4px;">Complete Business Suite</div>
-        </div>
-        <span style="font-size:22px; color:var(--gold);">&rarr;</span>
-        <div style="background:#fff; padding:18px 24px; border-radius:12px; border:1px solid var(--line); text-align:center; min-width:200px;">
-          <strong style="color:var(--br);">ENTERPRISE</strong>
-          <div style="font-size:13px; color:var(--ink-soft); margin-top:4px;">Advanced &amp; Multi-Branch</div>
-        </div>
-      </div>
-
-      <div style="text-align:center;">
-        <a href="{{ route('pricing') }}" class="btn p">Compare Plans &rarr;</a>
-      </div>
-    </div>
-  </section>
-
-  {{-- 17. FAQ (International Tier-1 SaaS Layout) --}}
-  <section class="faq-section" id="faq">
-    <div class="w">
-      <div class="faq-layout">
-        <!-- Left Column: Header & Support Contact Card -->
-        <div class="faq-left-col" data-aos="fade-right">
-          <div class="sec-eyebrow">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            FREQUENTLY ASKED QUESTIONS
-          </div>
-          <h2 class="faq-main-title">
-            Questions About<br>
-            <span style="color:var(--br); font-weight:700;">Geni Menu Features.</span>
-          </h2>
-          <p class="faq-lead-desc">
-            Everything you need to know about setting up features, KOT tickets, kitchen routing, inventory tracking, and multi-branch operations.
+          <p class="ft-hero-lead">
+            From contactless QR menus and multi-station kitchen displays to live floor plans, real-time POS billing, and automated inventory &mdash; Geni Menu connects your front-of-house, kitchen, and back office on a single high-performance cloud platform.
           </p>
 
-          <!-- Help / Contact Card -->
-          <div class="faq-support-card">
-            <div class="faq-support-header">
-              <div class="faq-support-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <div class="ft-hero-cta-row">
+            <a href="{{ route('restaurant_signup') }}" class="ft-btn-primary">
+              <span>Get Started</span>
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 12l4-4-4-4"/>
+              </svg>
+            </a>
+
+            <a href="{{ route('pricing') }}" class="ft-btn-secondary">
+              <span>View Pricing</span>
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 12l4-4-4-4"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="ft-hero-trust-row">
+            <span class="ft-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Zero hardware lock-in</span>
+            </span>
+            <span class="ft-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Instant cloud setup</span>
+            </span>
+            <span class="ft-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Free team onboarding</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Right: Interactive 3D Stack Stage (Layered Feature Cards) -->
+        <div class="ft-hero-right" data-aos="fade-left" data-aos-delay="100">
+          <div class="stack-stage-container">
+            <!-- Floating Layer 3: QR Menu Mobile Badge (Top Right) -->
+            <div class="stack-card-qr">
+              <div class="qr-icon-box">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <rect x="3" y="3" width="7" height="7"/>
+                  <rect x="14" y="3" width="7" height="7"/>
+                  <rect x="14" y="14" width="7" height="7"/>
+                  <rect x="3" y="14" width="7" height="7"/>
+                </svg>
               </div>
               <div>
-                <h4 class="faq-support-title">Still have questions?</h4>
-                <span style="font-size: 12px; color: #627D98; font-weight: 500;">We're here to help anytime</span>
+                <div class="qr-info-title">QR Code Menu Active</div>
+                <div class="qr-info-desc">Table 04 &bull; Sourdough $11.00</div>
               </div>
             </div>
-            <p class="faq-support-text">Can't find what you're looking for? Talk directly with our restaurant technology experts.</p>
-            <div class="faq-support-actions">
-              <a href="{{ route('restaurant_signup') }}" class="faq-support-btn-primary">Book a Demo &rarr;</a>
-              <a href="{{ route('contact.us') }}" class="faq-support-link">Contact Support &rarr;</a>
+
+            <!-- Base Card: Command Center Overview -->
+            <div class="stack-base-card">
+              <div class="stack-header-bar">
+                <div class="stack-header-dots">
+                  <span class="stack-dot r"></span>
+                  <span class="stack-dot y"></span>
+                  <span class="stack-dot g"></span>
+                </div>
+                <div class="stack-url-tag">app.genimenu.com/dashboard</div>
+                <div class="stack-live-pill">LIVE POS</div>
+              </div>
+
+              <div class="stack-base-body">
+                <div class="stack-metrics-grid">
+                  <div class="stack-metric-box">
+                    <div class="stack-metric-label">Today's Sales</div>
+                    <div class="stack-metric-val green">$4,820.00</div>
+                  </div>
+                  <div class="stack-metric-box">
+                    <div class="stack-metric-label">Orders</div>
+                    <div class="stack-metric-val">142</div>
+                  </div>
+                  <div class="stack-metric-box">
+                    <div class="stack-metric-label">Avg Ticket</div>
+                    <div class="stack-metric-val">$33.94</div>
+                  </div>
+                </div>
+
+                <div class="stack-tables-row">
+                  <div class="stack-table-pill active">T-01<small>Ready</small></div>
+                  <div class="stack-table-pill busy">T-02<small>Dining</small></div>
+                  <div class="stack-table-pill active">T-03<small>Bill</small></div>
+                  <div class="stack-table-pill busy">T-04<small>Dining</small></div>
+                  <div class="stack-table-pill">T-05<small>Free</small></div>
+                  <div class="stack-table-pill busy">T-06<small>Dining</small></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Layer 1: POS Billing & Register Card (Top Left) -->
+            <div class="stack-card-pos">
+              <div class="card-pos-head">
+                <div class="card-pos-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/></svg>
+                  <span>Register POS</span>
+                </div>
+                <span class="card-pos-tag">Table 04</span>
+              </div>
+              <div class="card-pos-items">
+                <div class="card-pos-item-row">
+                  <span>2x Wagyu Burger</span>
+                  <b>$38.00</b>
+                </div>
+                <div class="card-pos-item-row">
+                  <span>1x Truffle Fries</span>
+                  <b>$9.50</b>
+                </div>
+                <div class="card-pos-item-row">
+                  <span>2x Sparkling Water</span>
+                  <b>$8.00</b>
+                </div>
+              </div>
+              <div class="card-pos-total-row">
+                <span>Total Due</span>
+                <span class="card-pos-total-val">$55.50</span>
+              </div>
+            </div>
+
+            <!-- Floating Layer 2: Kitchen Display KDS Ticket (Bottom Right) -->
+            <div class="stack-card-kds">
+              <div class="card-kds-head">
+                <div class="card-kds-title">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a5 5 0 0 0-5 5c0 1.5.7 2.9 1.8 3.8A3 3 0 0 0 8 13v7h8v-7a3 3 0 0 0-.8-2.2c1.1-.9 1.8-2.3 1.8-3.8a5 5 0 0 0-5-5Z"/></svg>
+                  <span>KDS &bull; Kitchen Ticket #1042</span>
+                </div>
+                <span class="card-kds-timer">06:24m</span>
+              </div>
+              <div class="card-kds-items">
+                <div>&bull; 1x Ribeye Steak (Med-Rare)</div>
+                <div>&bull; 1x Lobster Risotto</div>
+                <div>&bull; 2x Garden Caesar Salad</div>
+              </div>
+              <div class="card-kds-btn">Mark Expedited &bull; Table 08</div>
+            </div>
+
+            <!-- Floating Layer 4: Live Analytics Pulse Pill (Bottom Left) -->
+            <div class="stack-card-analytics">
+              <span class="analytics-dot"></span>
+              <div class="analytics-text">Real-Time Sync: <span>$4,820.00 Gross</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{-- ==========================================================================
+       2. FEATURE NAVIGATION STRIP
+       ========================================================================== --}}
+  <nav class="ft-nav-strip" id="features-nav" aria-label="Feature navigation">
+    <div class="ft-container">
+      <div class="ft-nav-tabs">
+        <a href="#sec-overview" class="ft-nav-tab active">Overview</a>
+        <a href="#sec-menu" class="ft-nav-tab">Menu &amp; Guests</a>
+        <a href="#sec-orders" class="ft-nav-tab">Orders &amp; Kitchen</a>
+        <a href="#sec-tables" class="ft-nav-tab">Tables &amp; Floor Plan</a>
+        <a href="#sec-reservations" class="ft-nav-tab">Reservations</a>
+        <a href="#sec-service" class="ft-nav-tab">Service Coordination</a>
+        <a href="#sec-pos" class="ft-nav-tab">POS &amp; Payments</a>
+        <a href="#sec-analytics" class="ft-nav-tab">Inventory &amp; Analytics</a>
+      </div>
+    </div>
+  </nav>
+
+  {{-- ==========================================================================
+       3. FEATURE OVERVIEW — Modular Grid
+       ========================================================================== --}}
+  <section class="ft-section" id="sec-overview">
+    <div class="ft-container">
+      <div class="sec-heading-center" data-aos="fade-up">
+        <div class="ft-eyebrow">UNIFIED PLATFORM ARCHITECTURE</div>
+        <h2>One Platform. Every Essential Workflow.</h2>
+        <p>From menu management to kitchen coordination and business reporting, Geni Menu brings essential restaurant workflows into one organised environment.</p>
+      </div>
+
+      <div class="overview-grid">
+        <!-- 1. Menu Management -->
+        <div class="overview-card" data-aos="fade-up" data-aos-delay="50">
+          <div class="overview-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+              <path d="M6 6h10M6 10h10M6 14h6"/>
+            </svg>
+          </div>
+          <h3>Menu Management</h3>
+          <p>Organise categories, set dietary preferences, configure item add-ons, and adjust pricing instantly across service shifts.</p>
+        </div>
+
+        <!-- 2. Order Management -->
+        <div class="overview-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="overview-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+              <path d="M9 14h6M9 18h4"/>
+            </svg>
+          </div>
+          <h3>Order Management</h3>
+          <p>Centralise order reception across dine-in, takeaway, and direct channels with live order state tracking from placement to delivery.</p>
+        </div>
+
+        <!-- 3. Kitchen & KOT Management -->
+        <div class="overview-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="overview-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a5 5 0 0 0-5 5c0 1.5.7 2.9 1.8 3.8A3 3 0 0 0 8 13v7h8v-7a3 3 0 0 0-.8-2.2c1.1-.9 1.8-2.3 1.8-3.8a5 5 0 0 0-5-5Z"/>
+            </svg>
+          </div>
+          <h3>Kitchen &amp; KOT Management</h3>
+          <p>Dispatch automated kitchen order tickets straight to preparation stations, maintaining kitchen discipline and eliminating lost notes.</p>
+        </div>
+
+        <!-- 4. Restaurant POS & Billing -->
+        <div class="overview-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="overview-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3>Restaurant POS &amp; Billing</h3>
+          <p>Accelerate table checkout with split bills, customized receipts, discount controls, and configured sales taxes.</p>
+        </div>
+
+        <!-- 5. Table Management -->
+        <div class="overview-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="overview-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 7h18M6 7v13M18 7v13M4 11h16"/>
+            </svg>
+          </div>
+          <h3>Table Management</h3>
+          <p>Monitor dining room capacity with visual floor layouts, occupied status badges, and swift seating reallocations.</p>
+        </div>
+
+        <!-- 6. Reservation Management -->
+        <div class="overview-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="overview-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3>Reservation Management</h3>
+          <p>Organise guest reservations, capture party preferences, prevent overbookings, and prepare tables prior to arrival.</p>
+        </div>
+
+        <!-- 7. Waiter Requests -->
+        <div class="overview-card" data-aos="fade-up" data-aos-delay="350">
+          <div class="overview-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+          </div>
+          <h3>Waiter Requests</h3>
+          <p>Enable swift service alerts for water, cutlery, or the bill, routing guest calls directly to assigned floor staff.</p>
+        </div>
+
+        <!-- 8. Inventory Management -->
+        <div class="overview-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="overview-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+              <path d="m3.3 7 8.7 5 8.7-5M12 22V12"/>
+            </svg>
+          </div>
+          <h3>Inventory Management</h3>
+          <p>Track recipe ingredients, maintain stock on hand, log stock variances, and receive alerts before critical items run out.</p>
+        </div>
+
+        <!-- 9. Reports & Analytics -->
+        <div class="overview-card" data-aos="fade-up" data-aos-delay="450">
+          <div class="overview-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
+          <h3>Reports &amp; Analytics</h3>
+          <p>Review daily revenue, item popularity, peak trading hours, and export audit-ready financial summaries anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- ==========================================================================
+       4. MENU & GUEST EXPERIENCE — Smartphone Digital Menu Showcase
+       ========================================================================== --}}
+  <section class="ft-section bg-alt" id="sec-menu">
+    <div class="ft-container">
+      <div class="split-row">
+        <!-- Content Side -->
+        <div class="split-content-col" data-aos="fade-right">
+          <div class="ft-eyebrow">DIGITAL DINING EXPERIENCE</div>
+          <h2>Make Every Menu Interaction Count.</h2>
+          <p class="split-lead">
+            Deliver a clear, appetising digital dining experience for your guests while keeping menu administration effortless for your management team.
+          </p>
+
+          <div class="feature-chips-row">
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Instant Dollar Updates
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Dietary &amp; Allergen Badges
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              High-Resolution Food Photography
+            </span>
+          </div>
+
+          <ul class="benefit-list">
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Organise dishes into intuitive culinary categories like Starters, Mains, and Desserts.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Maintain item descriptions, allergen badges, and dollar pricing from $11.00 to $38.00.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Publish seasonal specials and shift changes instantly with zero physical reprinting costs.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Provide diners with a polished, modern contactless dining experience on any device.</span>
+            </li>
+          </ul>
+
+          <a href="{{ route('restaurant_signup') }}" class="btn-ink-solid">
+            <span>Get Started</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
+          </a>
+        </div>
+
+        <!-- Visual Side: Bespoke International Photography Frame -->
+        <div class="split-visual-col" data-aos="fade-left">
+          <div class="visual-device-frame">
+            <img src="{{ asset('assets/images/features/feature_digital_menu.jpg') }}" alt="Geni Menu Digital Restaurant Dining Menu Experience" loading="lazy">
+            <div class="visual-overlay-chip">
+              <div class="overlay-chip-left">
+                <div class="overlay-chip-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+                </div>
+                <div>
+                  <div class="overlay-chip-title">The Bistro &bull; Table 04 Digital Menu</div>
+                  <div class="overlay-chip-desc">Artisan Sourdough $11.00 &bull; Herb-Crusted Lamb $38.00</div>
+                </div>
+              </div>
+              <span class="overlay-chip-badge">Live Menu Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- ==========================================================================
+       5. ORDERS & KITCHEN — Kitchen Display & KOT UI (Reversed)
+       ========================================================================== --}}
+  <section class="ft-section" id="sec-orders">
+    <div class="ft-container">
+      <div class="split-row reverse">
+        <!-- Visual Side: Bespoke International Kitchen KDS Photography Frame -->
+        <div class="split-visual-col" data-aos="fade-right">
+          <div class="visual-device-frame">
+            <img src="{{ asset('assets/images/features/feature_kitchen_kds.jpg') }}" alt="Geni Menu Kitchen Display System and KOT Automation" loading="lazy">
+            <div class="visual-overlay-chip">
+              <div class="overlay-chip-left">
+                <div class="overlay-chip-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a5 5 0 0 0-5 5c0 1.5.7 2.9 1.8 3.8A3 3 0 0 0 8 13v7h8v-7a3 3 0 0 0-.8-2.2c1.1-.9 1.8-2.3 1.8-3.8a5 5 0 0 0-5-5Z"/></svg>
+                </div>
+                <div>
+                  <div class="overlay-chip-title">Active Kitchen KDS &bull; Station Routing</div>
+                  <div class="overlay-chip-desc">TKT #142 Table 12 &bull; 08:42 min Prep &bull; Grill &amp; Sauté</div>
+                </div>
+              </div>
+              <span class="overlay-chip-badge">KOT In Progress</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Accordion Items -->
-        <div class="faq-right-col" data-aos="fade-left">
-          <div class="faq-accordion-list">
-            <div class="faq-row open">
-              <button type="button">What features does Geni Menu include? <i>+</i></button>
-              <div class="faq-answer-wrap">
-                <div>
-                  <p>Geni Menu includes menu management, order management, POS, KOT, kitchen, table management, reservations, inventory, customers, staff and reports, with availability depending on your plan and configuration.</p>
+        <!-- Content Side -->
+        <div class="split-content-col" data-aos="fade-left">
+          <div class="ft-eyebrow">KITCHEN COORDINATION &amp; KOT</div>
+          <h2>Keep Every Order Moving Seamlessly.</h2>
+          <p class="split-lead">
+            Help floor staff and kitchen stations work from a shared, real-time view of order activity. Route tickets automatically to eliminate prep delays and handwritten confusion.
+          </p>
+
+          <div class="feature-chips-row">
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Station-Based Routing
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Live Countdown Timers
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Zero Lost Tickets
+            </span>
+          </div>
+
+          <ul class="benefit-list">
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Maintain live visibility into order status across all channels.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Organise kitchen order tickets by station (Grill, Fryer, Pantry, Bar).</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Prioritise orders with visual countdown indicators.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Eliminate order miscommunications between servers and chefs.</span>
+            </li>
+          </ul>
+
+          <a href="{{ route('restaurant_signup') }}" class="btn-ink-solid">
+            <span>Get Started</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- ==========================================================================
+       6. TABLES & FLOOR PLAN ARCHITECTURE
+       ========================================================================= --}}
+  <section class="ft-section bg-alt" id="sec-tables">
+    <div class="ft-container">
+      <div class="split-row">
+        <!-- Content Side -->
+        <div class="split-content-col" data-aos="fade-right">
+          <div class="ft-eyebrow">FLOOR PLAN ARCHITECTURE</div>
+          <h2>Better Table Visibility. More Organised Service.</h2>
+          <p class="split-lead">
+            Manage table capacities, dynamic seating states, and section assignments through visual floor layouts that keep front-of-house teams completely synchronized.
+          </p>
+
+          <div class="feature-chips-row">
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Live Capacity Tracking
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Custom Zone Layouts
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Turn-Time Monitoring
+            </span>
+          </div>
+
+          <ul class="benefit-list">
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Monitor live dining room capacity at a glance across zones.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Distinguish available, seated, reserved, and closing tables.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Reassign walk-ins and large parties without bottlenecks.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Optimize table turn times during peak lunch and dinner rushes.</span>
+            </li>
+          </ul>
+
+          <a href="{{ route('restaurant_signup') }}" class="btn-ink-solid">
+            <span>Get Started</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
+          </a>
+        </div>
+
+        <!-- Visual Side: Bespoke International Floor Plan Photography Frame -->
+        <div class="split-visual-col" data-aos="fade-left">
+          <div class="visual-device-frame">
+            <img src="{{ asset('assets/images/features/feature_table_floorplan.jpg') }}" alt="Geni Menu Interactive Restaurant Floor Plan Management" loading="lazy">
+            <div class="visual-overlay-chip">
+              <div class="overlay-chip-left">
+                <div class="overlay-chip-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 7h18M6 7v13M18 7v13M4 11h16"/></svg>
                 </div>
+                <div>
+                  <div class="overlay-chip-title">HostIQ Floor Plan &bull; Evening Dining</div>
+                  <div class="overlay-chip-desc">24 / 28 Tables Active &bull; Turn Time 48m</div>
+                </div>
+              </div>
+              <span class="overlay-chip-badge">85% Capacity</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- ==========================================================================
+       7. RESERVATION MANAGEMENT — Guest Booking View (Reversed)
+       ========================================================================== --}}
+  <section class="ft-section" id="sec-reservations">
+    <div class="ft-container">
+      <div class="split-row reverse">
+        <!-- Visual Side: Bespoke International Reservation Host Desk Photography Frame -->
+        <div class="split-visual-col" data-aos="fade-right">
+          <div class="visual-device-frame">
+            <img src="{{ asset('assets/images/features/feature_reservation_desk.jpg') }}" alt="Geni Menu Restaurant Guest Reservation Management System" loading="lazy">
+            <div class="visual-overlay-chip">
+              <div class="overlay-chip-left">
+                <div class="overlay-chip-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div>
+                  <div class="overlay-chip-title">Host Stand &bull; Today's Dinner Service</div>
+                  <div class="overlay-chip-desc">Elena Rostova, Lucas Vance &bull; 6:30 &amp; 7:15 PM</div>
+                </div>
+              </div>
+              <span class="overlay-chip-badge">18 Bookings Confirmed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Side -->
+        <div class="split-content-col" data-aos="fade-left">
+          <div class="ft-eyebrow">GUEST RESERVATION SYSTEM</div>
+          <h2>Seamless Booking Management from Day One.</h2>
+          <p class="split-lead">
+            Capture guest reservations with precision. Manage booking times, party sizes, dietary notes, and VIP preferences to deliver personalized hospitality before guests arrive.
+          </p>
+
+          <div class="feature-chips-row">
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Prevent Overbooking
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Guest Preferences
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Automated Capacity
+            </span>
+          </div>
+
+          <ul class="benefit-list">
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Record party size, reservation time, and specific seating requests.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Prevent overbooking during peak operating periods.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Tag VIP guests and anniversary celebrations for floor staff.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Prepare tables ahead of time to eliminate reception line delays.</span>
+            </li>
+          </ul>
+
+          <a href="{{ route('restaurant_signup') }}" class="btn-ink-solid">
+            <span>Get Started</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- ==========================================================================
+       8. WAITER SERVICE COORDINATION — Live Calling Alerts
+       ========================================================================== --}}
+  <section class="ft-section bg-alt" id="sec-service">
+    <div class="ft-container">
+      <div class="split-row">
+        <!-- Content Side -->
+        <div class="split-content-col" data-aos="fade-right">
+          <div class="ft-eyebrow">SERVICE COORDINATION</div>
+          <h2>Attentive Floor Service, Orchestrated in Real Time.</h2>
+          <p class="split-lead">
+            Eliminate hand-waving and delayed guest response. Guests can request water refills, additional cutlery, or their final bill instantly, routing calls directly to designated floor captains.
+          </p>
+
+          <div class="feature-chips-row">
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Instant Digital Calls
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Zone Captain Routing
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Faster Check Drops
+            </span>
+          </div>
+
+          <ul class="benefit-list">
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Enable instant table service alerts directly from the mobile menu.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Route specific request types to assigned zone servers.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Track response times and staff coverage across shifts.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Deliver a smoother, more responsive hospitality experience.</span>
+            </li>
+          </ul>
+
+          <a href="{{ route('restaurant_signup') }}" class="btn-ink-solid">
+            <span>Get Started</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
+          </a>
+        </div>
+
+        <!-- Visual Side: Bespoke International Waiter Handheld Terminal Frame -->
+        <div class="split-visual-col" data-aos="fade-left">
+          <div class="visual-device-frame">
+            <img src="{{ asset('assets/images/features/feature_waiter_service.jpg') }}" alt="Geni Menu Real-Time Waiter Request and Service Call Terminal" loading="lazy">
+            <div class="visual-overlay-chip">
+              <div class="overlay-chip-left">
+                <div class="overlay-chip-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                </div>
+                <div>
+                  <div class="overlay-chip-title">The Oak &amp; Pine &bull; Live Handheld Terminal</div>
+                  <div class="overlay-chip-desc">Table 04 Water Refill &bull; Table 08 Check Request</div>
+                </div>
+              </div>
+              <span class="overlay-chip-badge">Assigned to Sarah</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- ==========================================================================
+       9. POS & BILLING — Checkout Experience in USD ($)
+       ========================================================================== --}}
+  <section class="ft-section" id="sec-pos">
+    <div class="ft-container">
+      <div class="split-row reverse">
+        <!-- Visual Side: Bespoke International POS Checkout Terminal Frame -->
+        <div class="split-visual-col" data-aos="fade-right">
+          <div class="visual-device-frame">
+            <img src="{{ asset('assets/images/features/feature_pos_terminal.jpg') }}" alt="Geni Menu Cloud Point of Sale and Billing Terminal" loading="lazy">
+            <div class="visual-overlay-chip">
+              <div class="overlay-chip-left">
+                <div class="overlay-chip-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div>
+                  <div class="overlay-chip-title">Table 14 Register &bull; Subtotal $51.50</div>
+                  <div class="overlay-chip-desc">Sales Tax $4.57 &bull; Total Due $56.07 &bull; Chip &amp; Tap</div>
+                </div>
+              </div>
+              <span class="overlay-chip-badge">Checkout Ready</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Side -->
+        <div class="split-content-col" data-aos="fade-left">
+          <div class="ft-eyebrow">RESTAURANT POS &amp; BILLING</div>
+          <h2>Fast, Transparent Checkout Built for Hospitality.</h2>
+          <p class="split-lead">
+            Accelerate table turnover with an intuitive point-of-sale workflow designed for restaurant cashiers, servers, and managers.
+          </p>
+
+          <div class="feature-chips-row">
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Split Bill Capabilities
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Custom Dollar Sales Tax
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Detailed Receipts
+            </span>
+          </div>
+
+          <ul class="benefit-list">
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Manage guest checks, split payments, and discounts seamlessly.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Keep order intake and checkout registers synchronized automatically.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Configure international sales taxes, tip suggestions (18%), and service charges in USD.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Provide itemised printed or digital receipts at table or counter.</span>
+            </li>
+          </ul>
+
+          <a href="{{ route('restaurant_signup') }}" class="btn-ink-solid">
+            <span>Get Started</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- ==========================================================================
+       10. INVENTORY & BUSINESS INSIGHTS
+       ========================================================================== --}}
+  <section class="ft-section bg-alt" id="sec-analytics">
+    <div class="ft-container">
+      <div class="split-row">
+        <!-- Content Side -->
+        <div class="split-content-col" data-aos="fade-right">
+          <div class="ft-eyebrow">INVENTORY &amp; AUDIT INSIGHTS</div>
+          <h2>Control Stock. Gain Real-Time Business Clarity.</h2>
+          <p class="split-lead">
+            Gain immediate visibility into ingredient usage, stock balances, and financial performance through accessible reports designed for hospitality operators.
+          </p>
+
+          <div class="feature-chips-row">
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Low-Stock Warnings
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Dollar Revenue Tracking
+            </span>
+            <span class="feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Exportable Reports
+            </span>
+          </div>
+
+          <ul class="benefit-list">
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Monitor recipe ingredients and track stock deductions as orders clear.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Identify low inventory thresholds before prep shortages hit service.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Review gross revenue like $4,820.00, top-selling items, and shift breakdowns.</span>
+            </li>
+            <li class="benefit-item">
+              <span class="benefit-icon"><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9"/></svg></span>
+              <span>Export clean financial records for accounting and audit review.</span>
+            </li>
+          </ul>
+
+          <a href="{{ route('restaurant_signup') }}" class="btn-ink-solid">
+            <span>Get Started</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
+          </a>
+        </div>
+
+        <!-- Visual Side: Bespoke International Analytics Desktop Frame -->
+        <div class="split-visual-col" data-aos="fade-left">
+          <div class="visual-device-frame">
+            <img src="{{ asset('assets/images/features/feature_inventory_analytics.jpg') }}" alt="Geni Menu Business Analytics and Ingredient Inventory Management" loading="lazy">
+            <div class="visual-overlay-chip">
+              <div class="overlay-chip-left">
+                <div class="overlay-chip-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+                <div>
+                  <div class="overlay-chip-title">Daily Sales Gross &bull; $4,820.00</div>
+                  <div class="overlay-chip-desc">Ingredient Stock: Salmon 82%, Beef 92%, Greens 42%</div>
+                </div>
+              </div>
+              <span class="overlay-chip-badge">+12.4% vs Yesterday</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- ==========================================================================
+       11. CONNECTED WORKFLOW — Custom 5-Stage Diagram
+       ========================================================================== --}}
+  <section class="ft-section" id="sec-workflow">
+    <div class="ft-container">
+      <div class="sec-heading-center" data-aos="fade-up">
+        <div class="ft-eyebrow">SEAMLESS OPERATIONS PIPELINE</div>
+        <h2>From Guest Arrival to End-of-Day Reconciliation.</h2>
+        <p>Bring every phase of hospitality operations into an uninterrupted, synchronized digital flow that reduces friction and boosts service speed.</p>
+      </div>
+
+      <div class="workflow-timeline" data-aos="fade-up" data-aos-delay="100">
+        <!-- Step 1 -->
+        <div class="workflow-step-card">
+          <div class="step-badge">01</div>
+          <h4>Present Menu</h4>
+          <p>Guests view structured, beautiful digital menus with photos, allergens, and accurate prices.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="workflow-step-card">
+          <div class="step-badge">02</div>
+          <h4>Manage Orders</h4>
+          <p>Orders are captured accurately across dine-in, takeaway, and counter service with zero manual errors.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="workflow-step-card">
+          <div class="step-badge">03</div>
+          <h4>Coordinate Kitchen</h4>
+          <p>Kitchen order tickets (KOT) are dispatched directly to prep stations with active timer tracking.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="workflow-step-card">
+          <div class="step-badge">04</div>
+          <h4>Complete Billing</h4>
+          <p>Settle checks smoothly with split payments, tax compliance, and fast transaction handling.</p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="workflow-step-card">
+          <div class="step-badge">05</div>
+          <h4>Review Performance</h4>
+          <p>Review daily sales revenue, item velocity, and inventory deductions to optimize operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- ==========================================================================
+       12. INTERNATIONAL INDUSTRY SHOWCASE (4 Concept Cards)
+       ========================================================================== --}}
+  <section class="ft-section bg-alt" id="sec-industry">
+    <div class="ft-container">
+      <div class="sec-heading-center" data-aos="fade-up">
+        <div class="ft-eyebrow">TAILORED HOSPITALITY CONCEPTS</div>
+        <h2>Designed for the Way Your Food Business Operates.</h2>
+        <p>Whether you manage an intimate bistro, a high-volume counter, or a growing multi-location group, Geni Menu adapts to your service model.</p>
+      </div>
+
+      <div class="industry-grid">
+        <!-- Card 1 -->
+        <div class="industry-card" data-aos="fade-up" data-aos-delay="50">
+          <div class="industry-photo-wrap">
+            <img src="{{ asset('assets/images/audience/aud-restaurants.png') }}" alt="Restaurants & Fine Dining" loading="lazy">
+          </div>
+          <div class="industry-card-body">
+            <h3>Restaurants &amp; Fine Dining</h3>
+            <p>Coordinate multi-course dining, floor table plans, guest reservations, and attentive captain call systems.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="industry-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="industry-photo-wrap">
+            <img src="{{ asset('assets/images/audience/aud-qsrs.png') }}" alt="Quick Service & Takeaway" loading="lazy">
+          </div>
+          <div class="industry-card-body">
+            <h3>Quick Service &amp; Takeaway</h3>
+            <p>Accelerate counter queues, speed up ticket fulfillment, and process contactless checkout effortlessly.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="industry-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="industry-photo-wrap">
+            <img src="{{ asset('assets/images/audience/aud-bakeries.png') }}" alt="Bakeries & Cafés" loading="lazy">
+          </div>
+          <div class="industry-card-body">
+            <h3>Bakeries &amp; Caf&eacute;s</h3>
+            <p>Manage daily pastry drops, specialty coffee menus, barista tickets, and ingredient inventory visibility.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="industry-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="industry-photo-wrap">
+            <img src="{{ asset('assets/images/audience/aud-chains.png') }}" alt="Growing Multi-Location Brands" loading="lazy">
+          </div>
+          <div class="industry-card-body">
+            <h3>Multi-Location Brands</h3>
+            <p>Standardize operational excellence, centralized menu catalogs, and cross-branch performance oversight.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="industry-cta-wrap" data-aos="fade-up">
+        <a href="{{ route('solutions') }}" class="btn-ink-solid">
+          <span>Explore Solutions</span>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {{-- ==========================================================================
+       13. WHY GENI MENU? (Product Ecosystem & Core Pillars)
+       ========================================================================== --}}
+  <section class="ft-section" id="sec-why">
+    <div class="ft-container">
+      <div class="why-layout">
+        <!-- Left: Content with 4 benefits -->
+        <div class="why-content" data-aos="fade-right">
+          <div class="ft-eyebrow">THE CONNECTED ADVANTAGE</div>
+          <h2>Built for Real Hospitality Teams.</h2>
+          <p class="why-lead">
+            Traditional restaurant software leaves teams juggling disconnected systems. Geni Menu unifies every service stage into one coherent platform built for reliability.
+          </p>
+
+          <div class="why-benefits-stack">
+            <!-- Benefit 1 -->
+            <div class="why-benefit-item">
+              <div class="why-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                </svg>
+              </div>
+              <div class="why-text">
+                <h4>Connected Workflows</h4>
+                <p>Unify front-of-house service with kitchen preparation and backend billing on one platform.</p>
               </div>
             </div>
 
-            <div class="faq-row">
-              <button type="button">Can I use only the features I need? <i>+</i></button>
-              <div class="faq-answer-wrap">
-                <div>
-                  <p>Feature availability depends on your selected plan and business configuration. You can start with basic counter billing and activate kitchen or inventory modules as needed.</p>
-                </div>
+            <!-- Benefit 2 -->
+            <div class="why-benefit-item">
+              <div class="why-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
+              <div class="why-text">
+                <h4>Operational Visibility</h4>
+                <p>Track live floor capacity, pending kitchen tickets, and register transactions in real time.</p>
               </div>
             </div>
 
-            <div class="faq-row">
-              <button type="button">Can I upgrade my features later? <i>+</i></button>
-              <div class="faq-answer-wrap">
-                <div>
-                  <p>Yes. You can move to a higher plan as your business requirements grow without losing any of your existing products, customers, or historical reports.</p>
-                </div>
+            <!-- Benefit 3 -->
+            <div class="why-benefit-item">
+              <div class="why-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div class="why-text">
+                <h4>Role-Specific Clarity</h4>
+                <p>Provide captains, chefs, and cashiers with uncluttered, role-tailored interface views.</p>
               </div>
             </div>
 
-            <div class="faq-row">
-              <button type="button">Does Geni Menu support multiple branches? <i>+</i></button>
-              <div class="faq-answer-wrap">
-                <div>
-                  <p>Multi-branch capabilities with central head-office reporting, outlet switching, and branch-level inventory are available in applicable plans and enterprise configurations.</p>
-                </div>
+            <!-- Benefit 4 -->
+            <div class="why-benefit-item">
+              <div class="why-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
+              <div class="why-text">
+                <h4>Flexible Configuration</h4>
+                <p>Customize menus, dining zones, service charges, currency formats, and receipt layouts to match your local operations.</p>
               </div>
             </div>
+          </div>
+        </div>
 
-            <div class="faq-row">
-              <button type="button">Can I manage inventory? <i>+</i></button>
-              <div class="faq-answer-wrap">
-                <div>
-                  <p>Yes. Real-time ingredient tracking, low-stock visibility, and wastage adjustments are available in selected subscription plans.</p>
+        <!-- Right: Authentic Software Showcase Visual -->
+        <div class="why-visual" data-aos="fade-left">
+          <div class="visual-device-frame">
+            <img src="{{ asset('assets/images/features/feature_hospitality_team.jpg') }}" alt="Geni Menu Unified Restaurant Operations & Hospitality Platform" loading="lazy">
+            <div class="visual-overlay-chip">
+              <div class="overlay-chip-left">
+                <div class="overlay-chip-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
                 </div>
+                <div>
+                  <div class="overlay-chip-title">Host Stand &bull; Floor Coordination Hub</div>
+                  <div class="overlay-chip-desc">18 Active Tables &bull; Shift Sales $3,480.00</div>
+                </div>
+              </div>
+              <span class="overlay-chip-badge">Full Suite Sync</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{-- ==========================================================================
+       14. FAQ SECTION (Minimal Typography-Led Accordion)
+       ========================================================================== --}}
+  <section class="ft-section bg-alt" id="sec-faq">
+    <div class="ft-container">
+      <div class="sec-heading-center" data-aos="fade-up">
+        <div class="ft-eyebrow">HELP &amp; FREQUENT INQUIRIES</div>
+        <h2>Frequently Asked Questions.</h2>
+        <p>Common questions regarding Geni Menu features, workflows, and platform setup.</p>
+      </div>
+
+      <div class="faq-container" data-aos="fade-up" data-aos-delay="100">
+        <div class="faq-accordion-list">
+          <!-- FAQ 1 -->
+          <div class="faq-card open">
+            <button type="button" class="faq-header-btn" aria-expanded="true">
+              <span>What core features does Geni Menu include?</span>
+              <span class="faq-icon-indicator">+</span>
+            </button>
+            <div class="faq-body-wrap">
+              <div class="faq-body-inner">
+                <p>Geni Menu brings together digital menu management, real-time order coordination, kitchen order tickets (KOT), point-of-sale billing, table floor plans, guest reservations, waiter service requests, ingredient inventory tracking, and business analytics into a single unified cloud platform.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-card">
+            <button type="button" class="faq-header-btn" aria-expanded="false">
+              <span>Can I use only the specific modules my restaurant needs?</span>
+              <span class="faq-icon-indicator">+</span>
+            </button>
+            <div class="faq-body-wrap">
+              <div class="faq-body-inner">
+                <p>Yes. Geni Menu is modular and adaptable. Whether you operate a quick-service takeaway that requires fast counter billing, or a fine dining establishment that needs comprehensive table reservation and multi-course KOT management, you can configure the exact modules your business requires.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-card">
+            <button type="button" class="faq-header-btn" aria-expanded="false">
+              <span>Can I upgrade my features and capacity as my business grows?</span>
+              <span class="faq-icon-indicator">+</span>
+            </button>
+            <div class="faq-body-wrap">
+              <div class="faq-body-inner">
+                <p>Absolutely. You can start with essential billing and digital menu features, and unlock advanced operational capabilities such as inventory management, multiple kitchen printing, and multi-branch controls whenever your business is ready.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-card">
+            <button type="button" class="faq-header-btn" aria-expanded="false">
+              <span>Does Geni Menu support multiple branches and multiple kitchens?</span>
+              <span class="faq-icon-indicator">+</span>
+            </button>
+            <div class="faq-body-wrap">
+              <div class="faq-body-inner">
+                <p>Yes. Geni Menu Enterprise plans support multiple restaurant locations with centralized branch oversight, as well as multiple distinct kitchen stations (e.g., grill, pantry, bar) within a single outlet.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-card">
+            <button type="button" class="faq-header-btn" aria-expanded="false">
+              <span>How does ingredient and inventory tracking work in Geni Menu?</span>
+              <span class="faq-icon-indicator">+</span>
+            </button>
+            <div class="faq-body-wrap">
+              <div class="faq-body-inner">
+                <p>You can link raw ingredients to menu recipes. As orders are completed and billed at the POS, stock deductions occur automatically. Managers can monitor remaining stock, view consumption trends, and receive low-stock reorder reminders.</p>
               </div>
             </div>
           </div>
@@ -3089,15 +2801,29 @@
     </div>
   </section>
 
-  {{-- 18. FINAL CTA SECTION (TOAST-STYLE EXPERT SWITCH) --}}
-  <section class="ft-cta-section" data-aos="fade-up">
-    <div class="w">
-      <div class="ft-cta-content">
-        <h2 class="toast-expert-title">Talk to an expert about a switch to Geni Menu</h2>
-        <p class="toast-expert-subhead">Get a personalized online demo for your restaurant</p>
-        
-        <div class="toast-expert-btn-wrap">
-          <a href="{{ route('restaurant_signup') }}" class="toast-expert-cta-btn">Get a Demo</a>
+  {{-- ==========================================================================
+       15. FINAL CONVERSION CTA — LET'S TALK ABOUT YOUR RESTAURANT
+       ========================================================================== --}}
+  <section class="ft-final-cta" data-aos="fade-up">
+    <div class="ft-container">
+      <div class="cta-inner-box">
+        <div class="ft-eyebrow" style="background: rgba(254, 243, 199, 0.15); color: #FDE68A; border-color: rgba(217, 119, 6, 0.4); margin-bottom: 22px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#D97706"><path d="M12 2l8 4v4c0 6-4 10-8 12-4-2-8-6-8-12V6l8-4z"/></svg>
+          LET’S TALK ABOUT YOUR RESTAURANT.
+        </div>
+        <h2>Looking for a Smarter Way to Manage Your Restaurant?</h2>
+        <p>Tell us about your restaurant and your business needs. Our team will help you explore how Geni Menu can simplify your daily operations and find the right solution for your business.</p>
+
+        <div class="cta-btn-row">
+          <a href="{{ route('contact.us') }}" class="btn-white-solid">
+            <span>Send an Enquiry</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
+          </a>
+
+          <a href="{{ route('pricing') }}" class="btn-glass-outline">
+            <span>View Pricing</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12l4-4-4-4"/></svg>
+          </a>
         </div>
       </div>
     </div>
@@ -3109,56 +2835,72 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // 1. Initialize AOS
+  // 1. Initialize AOS Animations
   if (typeof AOS !== 'undefined') {
     AOS.init({ duration: 600, once: true, offset: 40 });
   }
 
-  // 2. FAQ Accordion Toggle
-  var faqRows = document.querySelectorAll('.faq-row');
-  faqRows.forEach(function(row) {
-    var btn = row.querySelector('button');
+  // 2. FAQ Accordion (Single Open Item)
+  var faqCards = document.querySelectorAll('.faq-card');
+  faqCards.forEach(function(card) {
+    var btn = card.querySelector('.faq-header-btn');
     if (btn) {
       btn.addEventListener('click', function() {
-        var isOpen = row.classList.contains('open');
-        faqRows.forEach(function(r) { r.classList.remove('open'); });
+        var isOpen = card.classList.contains('open');
+        faqCards.forEach(function(c) {
+          c.classList.remove('open');
+          var b = c.querySelector('.faq-header-btn');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
         if (!isOpen) {
-          row.classList.add('open');
+          card.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
         }
       });
     }
   });
 
-
-
-  // 5. Hero Modifier Card Interactive Selection
-  var modOptions = document.querySelectorAll('.mod-option-item');
-  modOptions.forEach(function(opt) {
-    opt.addEventListener('click', function(e) {
-      e.preventDefault();
-      modOptions.forEach(function(o) {
-        o.classList.remove('selected');
-        var dot = o.querySelector('.mod-radio-dot');
-        if (dot) dot.innerHTML = '';
-      });
-      this.classList.add('selected');
-      var thisDot = this.querySelector('.mod-radio-dot');
-      if (thisDot) {
-        thisDot.innerHTML = '<span class="mod-radio-inner"></span>';
+  // 3. Smooth Sticky Tab Navigation
+  var navTabs = document.querySelectorAll('.ft-nav-tab');
+  navTabs.forEach(function(tab) {
+    tab.addEventListener('click', function(e) {
+      var targetId = this.getAttribute('href');
+      if (targetId && targetId.startsWith('#')) {
+        var targetSec = document.querySelector(targetId);
+        if (targetSec) {
+          e.preventDefault();
+          navTabs.forEach(function(t) { t.classList.remove('active'); });
+          this.classList.add('active');
+          var headerOffset = 130;
+          var elementPosition = targetSec.getBoundingClientRect().top;
+          var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
       }
     });
   });
 
-  var modClose = document.querySelector('.mod-card-close');
-  if (modClose) {
-    modClose.addEventListener('click', function() {
-      var card = document.querySelector('.hero-floating-modifier-card');
-      if (card) {
-        card.style.opacity = '0.4';
-        setTimeout(function() { card.style.opacity = '1'; }, 400);
+  // 4. Scroll Spy for Navigation Strip
+  var sections = document.querySelectorAll('section[id^="sec-"]');
+  window.addEventListener('scroll', function() {
+    var scrollPos = window.scrollY + 160;
+    sections.forEach(function(section) {
+      var top = section.offsetTop;
+      var height = section.offsetHeight;
+      var id = section.getAttribute('id');
+      if (scrollPos >= top && scrollPos < top + height) {
+        navTabs.forEach(function(tab) {
+          tab.classList.remove('active');
+          if (tab.getAttribute('href') === '#' + id) {
+            tab.classList.add('active');
+          }
+        });
       }
     });
-  }
+  }, { passive: true });
 });
 </script>
 
