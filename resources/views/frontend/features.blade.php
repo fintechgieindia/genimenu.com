@@ -13,7 +13,7 @@
 {{-- Google Fonts --}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 {{-- AOS Animation Library --}}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
@@ -80,6 +80,11 @@
     line-height: 1.65;
     overflow: visible !important;
     overflow-x: clip !important;
+  }
+
+  .ft-page,
+  .ft-page * {
+    font-style: normal !important;
   }
 
   /* Typography - Matching Home Page */
@@ -304,15 +309,16 @@
   }
 
   .hero-script-word {
-    font-family: 'Caveat', cursive, sans-serif;
-    font-size: 1.25em;
-    font-weight: 700;
-    color: #EA580C; /* Vibrant warm orange matching reference */
-    display: inline-block;
-    transform: rotate(-3deg);
-    margin-left: 2px;
-    letter-spacing: -0.01em;
-    line-height: 0.85;
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: 800;
+    font-style: normal !important;
+    color: #EA580C;
+    display: inline;
+    transform: none !important;
+    margin-left: 0;
+    letter-spacing: -0.035em;
+    line-height: inherit;
   }
 
   .hero-lead-text {
@@ -1483,11 +1489,10 @@
     }
   }
 
-  /* ===================== FINAL CTA SECTION ===================== */
+  /* ===================== FINAL CTA SECTION (TOAST-STYLE EXPERT SWITCH) ===================== */
   .ft-cta-section {
     background: #FFFFFF !important;
-    padding: 95px 0 105px;
-    color: #111827;
+    padding: 100px 0 120px;
     text-align: center;
     position: relative;
     border: none !important;
@@ -1503,67 +1508,66 @@
   .ft-cta-content {
     position: relative;
     z-index: 2;
-    max-width: 820px;
+    max-width: 860px;
     margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  .ft-cta-section h2,
-  .final-cta-box h2 {
-    font-family: Effra, sans-serif !important;
+  .toast-expert-title {
+    font-family: 'Plus Jakarta Sans', Effra, sans-serif !important;
     color: #0A2540 !important;
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-    font-weight: 400;
-    letter-spacing: normal;
-    line-height: 1.12;
+    font-size: clamp(30px, 3.8vw, 48px) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.025em !important;
+    line-height: 1.2 !important;
+    margin: 0 0 14px 0 !important;
+    text-align: center !important;
   }
 
-  .ft-cta-section p,
-  .final-cta-box p {
-    color: #425466 !important;
-    font-size: 18px;
-    max-width: 640px;
-    margin: 0 auto 36px;
-    line-height: 1.6;
-    font-family: 'Inter', sans-serif;
+  .toast-expert-subhead {
+    color: #475569 !important;
+    font-size: clamp(15.5px, 1.4vw, 18px) !important;
+    max-width: 620px;
+    margin: 0 auto 34px !important;
+    line-height: 1.55 !important;
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-weight: 400 !important;
+    text-align: center !important;
   }
 
-  .final-cta-buttons {
+  .toast-expert-btn-wrap {
     display: flex;
     justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
+    align-items: center;
   }
 
-  .ft-cta-section .btn.p,
-  .final-cta-box .btn.p {
-    background: #EA580C !important;
+  .toast-expert-cta-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #E64A19 !important;
+    background: linear-gradient(135deg, #F35A14 0%, #E64A19 100%) !important;
     color: #FFFFFF !important;
-    border-color: #EA580C !important;
-    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.28) !important;
-    font-weight: 700;
-  }
-  .ft-cta-section .btn.p:hover,
-  .final-cta-box .btn.p:hover {
-    background: #C2410C !important;
-    border-color: #C2410C !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(234, 88, 12, 0.38) !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    padding: 14px 44px !important;
+    border-radius: 9999px !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 16px rgba(230, 74, 25, 0.35) !important;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    border: none !important;
   }
 
-  .ft-cta-section .btn.o,
-  .final-cta-box .btn.o {
-    background: #FFFFFF !important;
-    border: 1.5px solid #EA580C !important;
-    color: #EA580C !important;
-    font-weight: 700;
-  }
-  .ft-cta-section .btn.o:hover,
-  .final-cta-box .btn.o:hover {
-    background: #FFF7ED !important;
-    border-color: #C2410C !important;
-    color: #C2410C !important;
-    transform: translateY(-2px);
+  .toast-expert-cta-btn:hover {
+    background: linear-gradient(135deg, #EA580C 0%, #C23E14 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(230, 74, 25, 0.45) !important;
+    color: #FFFFFF !important;
   }
 
   /* Responsive Adjustments */
@@ -1597,25 +1601,38 @@
     position: relative;
     width: 100%;
     min-height: 440px;
-    background: linear-gradient(180deg, rgba(10, 37, 64, 0.45) 0%, rgba(10, 37, 64, 0.68) 100%), 
+    background: linear-gradient(180deg, rgba(10, 37, 64, 0.52) 0%, rgba(10, 37, 64, 0.72) 100%), 
                 url('{{ asset("landing/concepts-banner.jpg") }}') center 28% / cover no-repeat;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 95px 24px 180px;
-    box-sizing: border-box;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 95px 24px 190px !important;
+    box-sizing: border-box !important;
+  }
+  .concepts-banner-bg .w {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
   }
   .concepts-banner-title {
-    font-family: 'Effra', 'Plus Jakarta Sans', sans-serif !important;
+    font-family: 'Plus Jakarta Sans', Effra, sans-serif !important;
     font-size: clamp(28px, 3.8vw, 44px) !important;
-    font-weight: 700 !important;
+    font-weight: 800 !important;
     color: #FFFFFF !important;
-    text-align: center;
-    max-width: 860px;
-    margin: 0 auto;
-    line-height: 1.2 !important;
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
-    letter-spacing: -0.01em;
+    text-align: center !important;
+    margin: 0 auto !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 900px !important;
+    line-height: 1.25 !important;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5) !important;
+    letter-spacing: -0.02em !important;
   }
   .concepts-card-wrapper {
     max-width: 1080px;
@@ -1653,20 +1670,23 @@
     flex-direction: row !important;
     align-items: center !important;
     gap: 14px !important;
-    text-decoration: none !important;
-    padding: 10px 14px !important;
-    border-radius: 10px !important;
+    padding: 12px 14px !important;
+    border-radius: 12px !important;
+    background: #FFFFFF !important;
+    border: 1px solid transparent !important;
+    cursor: default !important;
+    user-select: none !important;
     transition: all 0.22s ease !important;
-    cursor: pointer !important;
   }
   .concept-item:hover {
     background: #F8FAFC !important;
-    transform: translateX(4px);
+    border-color: #E2E8F0 !important;
+    transform: translateY(-2px);
   }
   .concept-icon-wrap {
-    width: 36px !important;
-    height: 36px !important;
-    min-width: 36px !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -1674,19 +1694,72 @@
     transition: transform 0.22s ease !important;
   }
   .concept-item:hover .concept-icon-wrap {
-    transform: scale(1.12);
+    transform: scale(1.08);
   }
   .concept-label {
-    font-family: 'Inter', system-ui, sans-serif !important;
-    font-size: 15.5px !important;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif !important;
+    font-size: 17px !important;
     font-weight: 600 !important;
     color: #0A2540 !important;
-    transition: color 0.2s ease !important;
-    line-height: 1.3 !important;
-    white-space: nowrap !important;
+    line-height: 1.35 !important;
+    letter-spacing: -0.01em !important;
   }
   .concept-item:hover .concept-label {
-    color: #F37023 !important;
+    color: #0A2540 !important;
+  }
+  .concepts-card-actions {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 14px !important;
+    margin-top: 36px !important;
+    padding-top: 28px !important;
+    border-top: 1px solid #F1F5F9 !important;
+    flex-wrap: wrap !important;
+  }
+  .concept-btn-primary {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #0A2540 !important;
+    color: #FFFFFF !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    padding: 11px 24px !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 12px rgba(10, 37, 64, 0.16) !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    border: 1px solid #0A2540 !important;
+  }
+  .concept-btn-primary:hover {
+    background: #1A365D !important;
+    border-color: #1A365D !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(10, 37, 64, 0.24) !important;
+    color: #FFFFFF !important;
+  }
+  .concept-btn-secondary {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #FFFFFF !important;
+    color: #0A2540 !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    padding: 11px 24px !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    border: 1.5px solid #CBD5E1 !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+  .concept-btn-secondary:hover {
+    background: #F8FAFC !important;
+    border-color: #0A2540 !important;
+    color: #0A2540 !important;
+    transform: translateY(-2px) !important;
   }
 
   @media (max-width: 900px) {
@@ -1724,6 +1797,14 @@
     }
     .concepts-card-wrapper {
       margin-top: -90px !important;
+    }
+    .concepts-card-actions {
+      flex-direction: column !important;
+      gap: 10px !important;
+    }
+    .concept-btn-primary, .concept-btn-secondary {
+      width: 100% !important;
+      justify-content: center !important;
     }
   }
 </style>
@@ -2681,7 +2762,7 @@
   <section class="concepts-banner-section" data-aos="fade-up">
     <!-- Top Photo Banner -->
     <div class="concepts-banner-bg">
-      <div class="w">
+      <div class="w" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <h2 class="concepts-banner-title">
           Features That Adapt to Your Business.
         </h2>
@@ -2697,7 +2778,7 @@
 
         <div class="concepts-grid">
           <!-- 1. Family Restaurant -->
-          <a href="{{ route('solutions.family-restaurant') }}" class="concept-item">
+          <div class="concept-item">
             <div class="concept-icon-wrap">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <path d="M4 14C4 11 8 9 16 9C24 9 28 11 28 14" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
@@ -2708,10 +2789,10 @@
               </svg>
             </div>
             <span class="concept-label">Family Restaurant</span>
-          </a>
+          </div>
 
           <!-- 2. Dine-in Restaurant -->
-          <a href="{{ route('solutions.dine-in-restaurant') }}" class="concept-item">
+          <div class="concept-item">
             <div class="concept-icon-wrap">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <rect x="5" y="10" width="22" height="5" rx="2" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
@@ -2721,10 +2802,10 @@
               </svg>
             </div>
             <span class="concept-label">Dine-in Restaurant</span>
-          </a>
+          </div>
 
           <!-- 3. Fine Dining -->
-          <a href="{{ route('solutions') }}" class="concept-item">
+          <div class="concept-item">
             <div class="concept-icon-wrap">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <path d="M4 23C4 23 9 25 16 25C23 25 28 23 28 23H4Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/>
@@ -2736,10 +2817,10 @@
               </svg>
             </div>
             <span class="concept-label">Fine Dining</span>
-          </a>
+          </div>
 
           <!-- 4. Quick Service (QSR) -->
-          <a href="{{ route('solutions.qsr-restaurant') }}" class="concept-item">
+          <div class="concept-item">
             <div class="concept-icon-wrap">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <path d="M6 11L8.2 26C8.3 26.8 9 27.5 9.8 27.5H16.2C17 27.5 17.7 26.8 17.8 26L19 18" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
@@ -2752,10 +2833,10 @@
               </svg>
             </div>
             <span class="concept-label">Quick Service (QSR)</span>
-          </a>
+          </div>
 
           <!-- 5. Takeaway Restaurant -->
-          <a href="{{ route('solutions.takeaway-restaurant') }}" class="concept-item">
+          <div class="concept-item">
             <div class="concept-icon-wrap">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <path d="M6 11L8 26C8.2 27 9 27.5 10 27.5H22C23 27.5 23.8 27 24 26L26 11H6Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/>
@@ -2764,10 +2845,10 @@
               </svg>
             </div>
             <span class="concept-label">Takeaway Restaurant</span>
-          </a>
+          </div>
 
           <!-- 6. Cafes & Coffee -->
-          <a href="{{ route('solutions') }}" class="concept-item">
+          <div class="concept-item">
             <div class="concept-icon-wrap">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <path d="M7 13H21V19C21 22.3 18.3 25 15 25H13C9.7 25 7 22.3 7 19V13Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/>
@@ -2779,10 +2860,10 @@
               </svg>
             </div>
             <span class="concept-label">Caf&eacute;s &amp; Coffee</span>
-          </a>
+          </div>
 
           <!-- 7. Bakeries & Cake Shops -->
-          <a href="{{ route('solutions.bakery') }}" class="concept-item">
+          <div class="concept-item">
             <div class="concept-icon-wrap">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <path d="M5 21H27V26C27 27.1 26.1 28 25 28H7C5.9 28 5 27.1 5 26V21Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
@@ -2793,10 +2874,10 @@
               </svg>
             </div>
             <span class="concept-label">Bakeries &amp; Cakes</span>
-          </a>
+          </div>
 
           <!-- 8. Sweet & Snack Shops -->
-          <a href="{{ route('solutions.sweet-shop') }}" class="concept-item">
+          <div class="concept-item">
             <div class="concept-icon-wrap">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <rect x="6" y="11" width="20" height="15" rx="3" fill="#FFF7ED" stroke="#F37023" stroke-width="2"/>
@@ -2808,10 +2889,10 @@
               </svg>
             </div>
             <span class="concept-label">Sweet Shops</span>
-          </a>
+          </div>
 
           <!-- 9. Juice & Beverage -->
-          <a href="{{ route('solutions.juice-and-snacks') }}" class="concept-item">
+          <div class="concept-item">
             <div class="concept-icon-wrap">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <path d="M9 7L11 26C11.1 26.8 11.8 27.5 12.6 27.5H19.4C20.2 27.5 20.9 26.8 21 26L23 7H9Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/>
@@ -2822,10 +2903,10 @@
               </svg>
             </div>
             <span class="concept-label">Juice &amp; Beverage</span>
-          </a>
+          </div>
 
           <!-- 10. Pizzerias -->
-          <a href="{{ route('solutions.pizzerias') }}" class="concept-item">
+          <div class="concept-item">
             <div class="concept-icon-wrap">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <path d="M6 8.5C12 5.5 20 5.5 26 8.5L16 28L6 8.5Z" fill="#FFFBEB" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/>
@@ -2837,10 +2918,10 @@
               </svg>
             </div>
             <span class="concept-label">Pizzerias</span>
-          </a>
+          </div>
 
           <!-- 11. Canteens -->
-          <a href="{{ route('solutions.college-canteen') }}" class="concept-item">
+          <div class="concept-item">
             <div class="concept-icon-wrap">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <rect x="4" y="9" width="24" height="17" rx="3" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
@@ -2850,10 +2931,10 @@
               </svg>
             </div>
             <span class="concept-label">Canteens &amp; Cafeterias</span>
-          </a>
+          </div>
 
           <!-- 12. Bars & Breweries -->
-          <a href="{{ route('solutions.bars-and-breweries') }}" class="concept-item">
+          <div class="concept-item">
             <div class="concept-icon-wrap">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <path d="M6 8L16 19L26 8H6Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-linejoin="round"/>
@@ -2864,6 +2945,22 @@
               </svg>
             </div>
             <span class="concept-label">Bars &amp; Breweries</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="concepts-card-actions">
+          <a href="{{ route('solutions') }}" class="concept-btn-primary">
+            <span>Explore Solutions</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 12l4-4-4-4"/>
+            </svg>
+          </a>
+          <a href="{{ route('contact.us') }}" class="concept-btn-secondary">
+            <span>Schedule a Demo</span>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 12l4-4-4-4"/>
+            </svg>
           </a>
         </div>
       </div>
@@ -2914,7 +3011,7 @@
           </div>
           <h2 class="faq-main-title">
             Questions About<br>
-            <span style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:600; color:var(--br);">Geni Menu Features.</span>
+            <span style="color:var(--br); font-weight:700;">Geni Menu Features.</span>
           </h2>
           <p class="faq-lead-desc">
             Everything you need to know about setting up features, KOT tickets, kitchen routing, inventory tracking, and multi-branch operations.
@@ -2992,16 +3089,15 @@
     </div>
   </section>
 
-  {{-- 18. FINAL CTA SECTION --}}
+  {{-- 18. FINAL CTA SECTION (TOAST-STYLE EXPERT SWITCH) --}}
   <section class="ft-cta-section" data-aos="fade-up">
     <div class="w">
       <div class="ft-cta-content">
-        <h2>Everything Your Restaurant Needs. One Connected Platform.</h2>
-        <p>From your first menu item to your latest business report, Geni Menu brings your restaurant operations together.</p>
+        <h2 class="toast-expert-title">Talk to an expert about a switch to Geni Menu</h2>
+        <p class="toast-expert-subhead">Get a personalized online demo for your restaurant</p>
         
-        <div class="final-cta-buttons">
-          <a href="{{ route('restaurant_signup') }}" class="btn p">Get Started &rarr;</a>
-          <button type="button" onclick="openPopup('Book a Demo - Geni Menu Features')" class="btn o">Book a Demo &rarr;</button>
+        <div class="toast-expert-btn-wrap">
+          <a href="{{ route('restaurant_signup') }}" class="toast-expert-cta-btn">Get a Demo</a>
         </div>
       </div>
     </div>
