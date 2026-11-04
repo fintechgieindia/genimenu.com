@@ -1,102 +1,60 @@
-<!-- Premium Sticky Navbar for Geni Menu -->
+<!-- Premium Brown Luxury Navbar for Geni Menu (Deep Chocolate & Champagne Beige Theme) -->
 <style>
+  :root {
+    --geni-nav-bg: #32180F;
+    --geni-nav-bg-scrolled: #27130D;
+    --geni-nav-secondary-brown: #4A291B;
+    --geni-nav-coffee: #603A28;
+    --geni-nav-caramel: #C58B50;
+    --geni-nav-champagne: #F2C58D;
+    --geni-nav-warm-white: #FFF8F0;
+    --geni-nav-text-sec: #E4D3C4;
+    --geni-nav-border: rgba(197, 139, 80, 0.22);
+    --geni-nav-border-scrolled: rgba(197, 139, 80, 0.35);
+  }
+
   .geni-pos-nav {
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
     z-index: 9999;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid #E3E8EE;
-    box-shadow: none !important;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    color: #0A2540;
+    background: rgba(50, 24, 15, 0.88) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--geni-nav-border) !important;
+    box-shadow: 0 4px 20px rgba(20, 10, 6, 0.35) !important;
+    font-family: 'Glacial Indifference', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    color: var(--geni-nav-warm-white);
     -webkit-font-smoothing: antialiased;
-    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+    transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* --- Fixed Transparent Overlay Over Hero Section (Homepage Top) --- */
+  /* Fixed Navigation for pages with hero section */
   body.has-hero-nav .geni-pos-nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    background: rgba(50, 24, 15, 0.82) !important;
   }
 
   body.has-hero-nav .geni-pos-nav:not(.is-scrolled) {
-    background: linear-gradient(180deg, rgba(8, 20, 36, 0.70) 0%, rgba(8, 20, 36, 0.20) 75%, transparent 100%) !important;
-    backdrop-filter: blur(2px) !important;
-    -webkit-backdrop-filter: blur(2px) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
-    box-shadow: none !important;
+    background: rgba(50, 24, 15, 0.82) !important;
+    border-bottom: 1px solid var(--geni-nav-border) !important;
+    box-shadow: 0 4px 24px rgba(20, 10, 6, 0.3) !important;
   }
 
-
-
-  /* Nav Links in transparent hero state */
-  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .nav-menu-link {
-    color: rgba(255, 255, 255, 0.94) !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
-  }
-  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .nav-menu-link:hover,
-  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .nav-menu-link.nav-active {
-    color: #FDE68A !important;
-    background: rgba(255, 255, 255, 0.12);
-  }
-
-  /* Language toggle button in transparent hero state */
-  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-lang-toggle {
-    background: rgba(255, 255, 255, 0.14) !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
-    color: #FFFFFF !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
-  }
-  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-lang-toggle .lang-globe-icon {
-    color: #FDE68A !important;
-  }
-  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-lang-toggle:hover,
-  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .nav-lang-dropdown.is-open .btn-lang-toggle {
-    background: rgba(255, 255, 255, 0.25) !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
-  }
-
-  /* Sign in link in transparent hero state */
-  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-signin {
-    color: #FFFFFF !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
-  }
-  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-signin:hover {
-    color: #FDE68A !important;
-  }
-
-  /* Sign up pill in transparent hero state */
-  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-signup-pill {
-    background: #FFFFFF !important;
-    color: #0A2540 !important;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45) !important;
-    font-weight: 700;
-  }
-  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .btn-signup-pill:hover {
-    background: #FEF3C7 !important;
-    color: #0A2540 !important;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.55) !important;
-  }
-
-  /* Mobile burger button in transparent hero state */
-  body.has-hero-nav .geni-pos-nav:not(.is-scrolled) .nav-burger-btn span {
-    background: #FFFFFF !important;
-  }
-
-  /* When Scrolled (scrollY > 30): exact current white sticky navbar */
-  .geni-pos-nav.is-scrolled {
-    background: rgba(255, 255, 255, 0.96) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    border-bottom: 1px solid #E3E8EE !important;
-    box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08) !important;
+  /* When Scrolled (scrollY > 30): persistent luxury deep chocolate navbar */
+  .geni-pos-nav.is-scrolled,
+  body.has-hero-nav .geni-pos-nav.is-scrolled {
+    background: rgba(39, 19, 13, 0.98) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid var(--geni-nav-border-scrolled) !important;
+    box-shadow: 0 8px 32px rgba(10, 5, 3, 0.55) !important;
   }
 
   .geni-pos-nav * {
@@ -104,90 +62,67 @@
   }
 
   .geni-pos-nav .nav-wrap {
-    max-width: 1240px;
+    max-width: 1260px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 28px;
     height: 68px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 20px;
   }
 
-  /* --- Brand Logo (Geni Menu) --- */
+  /* --- Left Brand Logo Area --- */
   .geni-pos-nav .nav-brand {
     display: inline-flex;
     align-items: center;
-    gap: 11px;
+    gap: 14px;
     text-decoration: none;
     flex-shrink: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .geni-pos-nav .nav-brand:hover {
+    opacity: 0.96;
+    transform: scale(1.01);
   }
 
   .geni-pos-nav .brand-logo-img {
-    height: 44px;
+    height: 38px;
     width: auto;
     object-fit: contain;
     display: block;
   }
 
-  .geni-pos-nav .brand-icon-box {
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .geni-pos-nav .brand-divider {
+    width: 1px;
+    height: 26px;
+    background: rgba(197, 139, 80, 0.35);
     flex-shrink: 0;
   }
 
-  .geni-pos-nav .brand-icon-box svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-
-  .geni-pos-nav .brand-name-group {
+  .geni-pos-nav .brand-tagline {
     display: flex;
     flex-direction: column;
-    line-height: 1.15;
-  }
-
-  .geni-pos-nav .brand-title {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    font-size: 21px;
-    font-weight: 700;
-    color: #0A2540;
-    letter-spacing: -0.03em;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .geni-pos-nav .brand-highlight {
-    color: #B45309;
+    justify-content: center;
+    font-size: 10.5px;
+    line-height: 1.25;
     font-weight: 500;
+    color: var(--geni-nav-text-sec);
+    letter-spacing: 0.2px;
+    text-align: left;
+    white-space: nowrap;
   }
 
-  .geni-pos-nav .brand-tag {
-    font-size: 10px;
-    font-weight: 600;
-    color: #8B8177;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-top: 1px;
+  .geni-pos-nav .brand-tagline span:first-child {
+    color: #F8EADB;
   }
 
-  /* --- Left Brand + Navigation Section --- */
-  .geni-pos-nav .nav-left {
+  /* --- Navigation Links --- */
+  .geni-pos-nav .nav-center-menu {
     display: flex;
     align-items: center;
-    gap: 36px;
-  }
-
-  /* Links & Dropdowns */
-  .geni-pos-nav .nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 24px;
+    gap: 8px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -201,270 +136,68 @@
   .geni-pos-nav .nav-menu-btn {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    font-size: 14.5px;
-    font-weight: 600;
-    color: #0A2540;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+    color: var(--geni-nav-warm-white);
     text-decoration: none;
     background: transparent;
     border: none;
-    padding: 10px 0;
+    padding: 10px 16px;
+    border-radius: 6px;
     cursor: pointer;
     white-space: nowrap;
-    transition: color 0.18s ease;
+    position: relative;
+    transition: color 0.2s ease, background 0.2s ease;
   }
 
   .geni-pos-nav .nav-menu-link:hover,
-  .geni-pos-nav .nav-menu-btn:hover,
-  .geni-pos-nav .nav-menu-item:hover .nav-menu-btn {
-    color: #B45309;
+  .geni-pos-nav .nav-menu-btn:hover {
+    color: var(--geni-nav-champagne);
+    background: rgba(242, 197, 141, 0.08);
   }
 
+  /* Elegant underline active state as shown in reference design */
   .geni-pos-nav .nav-menu-link.nav-active {
-    color: #B45309;
-    font-weight: 700;
+    color: var(--geni-nav-champagne) !important;
+    font-weight: 600 !important;
+  }
+
+  .geni-pos-nav .nav-menu-link.nav-active::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background: linear-gradient(90deg, #C58B50 0%, #F2C58D 50%, #C58B50 100%);
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(242, 197, 141, 0.6);
   }
 
   .geni-pos-nav .chevron-icon {
     width: 9px;
     height: 9px;
     transition: transform 0.2s ease;
-    opacity: 0.75;
+    opacity: 0.8;
+    stroke: var(--geni-nav-champagne);
   }
 
   .geni-pos-nav .nav-menu-item:hover .chevron-icon {
     transform: rotate(180deg);
     opacity: 1;
-    stroke: #B45309;
   }
 
-  /* Dropdown panel */
-  .geni-pos-nav .nav-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(8px);
-    background: #ffffff;
-    border: 1px solid #ebebeb;
-    border-radius: 12px;
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
-    z-index: 100;
-    padding: 12px 8px;
-  }
-
-  /* Invisible hover bridge */
-  .geni-pos-nav .nav-dropdown::before {
-    content: "";
-    position: absolute;
-    top: -12px;
-    left: 0;
-    right: 0;
-    height: 12px;
-  }
-
-  .geni-pos-nav .nav-menu-item:hover .nav-dropdown,
-  .geni-pos-nav .nav-menu-item:focus-within .nav-dropdown {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(2px);
-  }
-
-  /* Features mega dropdown centered horizontally relative to its menu item */
-  .geni-pos-nav .nav-dropdown.dropdown-features {
-    width: 820px;
-    padding: 18px;
-    left: 50%;
-    transform: translateX(-50%) translateY(8px);
-  }
-
-  .geni-pos-nav .nav-menu-item:hover .nav-dropdown.dropdown-features,
-  .geni-pos-nav .nav-menu-item:focus-within .nav-dropdown.dropdown-features {
-    transform: translateX(-50%) translateY(2px);
-  }
-
-  /* Rightmost dropdown alignment */
-  .geni-pos-nav .nav-menu-item:last-child .nav-dropdown {
-    left: auto;
-    right: -20px;
-    transform: translateY(8px);
-  }
-
-  .geni-pos-nav .nav-menu-item:last-child:hover .nav-dropdown,
-  .geni-pos-nav .nav-menu-item:last-child:focus-within .nav-dropdown {
-    transform: translateY(2px);
-  }
-
-  .geni-pos-nav .dropdown-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 12px;
-  }
-
-  .geni-pos-nav .dropdown-card {
-    display: flex;
-    gap: 12px;
-    padding: 10px 12px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-
-  .geni-pos-nav .dropdown-card:hover {
-    background: #f9f9fb;
-    transform: translateX(2px);
-  }
-
-  .geni-pos-nav .dropdown-card .card-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 8px;
-    background: #fdfaf6;
-    color: #9C6F3E;
+  /* --- Right CTA & Utilities Group --- */
+  .geni-pos-nav .nav-cta-group {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 14px;
     flex-shrink: 0;
-    border: 1px solid rgba(156, 111, 62, 0.15);
   }
 
-  .geni-pos-nav .dropdown-card .card-icon svg {
-    width: 20px;
-    height: 20px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .geni-pos-nav .dropdown-card .card-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: #0A2540;
-    margin-bottom: 2px;
-  }
-
-  .geni-pos-nav .dropdown-card .card-desc {
-    font-size: 12px;
-    color: #6E6157;
-    line-height: 1.4;
-  }
-
-  .geni-pos-nav .dropdown-footer {
-    margin-top: 14px;
-    padding-top: 12px;
-    border-top: 1px solid #E3E8EE;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .geni-pos-nav .dropdown-footer a {
-    font-size: 13px;
-    font-weight: 600;
-    color: #B45309;
-    text-decoration: none;
-  }
-
-  .geni-pos-nav .dropdown-footer a:hover {
-    text-decoration: underline;
-  }
-
-  /* Simple dropdown */
-  .geni-pos-nav .nav-dropdown.dropdown-simple {
-    width: 290px;
-    padding: 8px;
-    border: 1px solid #E3E8EE;
-  }
-
-  .geni-pos-nav .dropdown-link-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 12px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.15s ease;
-  }
-
-  .geni-pos-nav .dropdown-link-item:hover {
-    background: #FAF7F2;
-  }
-
-  .geni-pos-nav .dropdown-link-item .item-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background: #FAF7F2;
-    color: #B45309;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    border: 1px solid rgba(135, 96, 57, 0.18);
-  }
-
-  .geni-pos-nav .dropdown-link-item .item-icon svg {
-    width: 18px;
-    height: 18px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .geni-pos-nav .dropdown-link-item .item-title {
-    font-size: 13.5px;
-    font-weight: 600;
-    color: #0A2540;
-    display: block;
-  }
-
-  .geni-pos-nav .dropdown-link-item .item-sub {
-    font-size: 11.5px;
-    color: #6E6157;
-    display: block;
-    margin-top: 1px;
-  }
-
-  /* Suppress Google Translate top banner & body offset */
-  body > .skiptranslate,
-  body > iframe.skiptranslate,
-  iframe.skiptranslate,
-  .goog-te-banner-frame,
-  .goog-te-banner-frame.skiptranslate,
-  iframe.goog-te-banner-frame,
-  .goog-te-balloon-frame,
-  .goog-te-banner,
-  body > iframe[id*=":"] {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0px !important;
-    width: 0px !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    border: none !important;
-    position: absolute !important;
-    top: -9999px !important;
-    left: -9999px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  html, body {
-    top: 0px !important;
-    position: static !important;
-  }
-
-  /* --- Language Switcher Dropdown (Near Sign In) --- */
+  /* Language Switcher */
   .geni-pos-nav .nav-lang-dropdown {
     position: relative;
     display: inline-flex;
@@ -475,76 +208,47 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
     padding: 0;
-    background: #FAF7F2;
-    border: 1px solid rgba(135, 96, 57, 0.22);
+    background: rgba(74, 41, 27, 0.6);
+    border: 1px solid rgba(197, 139, 80, 0.38);
     border-radius: 50%;
     font-family: inherit;
     font-size: 13px;
     font-weight: 600;
-    color: #0A2540;
+    color: var(--geni-nav-champagne);
     cursor: pointer;
-    line-height: 1;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    user-select: none;
-    outline: none;
+    transition: all 0.2s ease;
   }
 
   .geni-pos-nav .btn-lang-toggle:hover,
-  .geni-pos-nav .btn-lang-toggle:focus-visible,
   .geni-pos-nav .nav-lang-dropdown.is-open .btn-lang-toggle {
-    background: #F4EFE6;
-    border-color: #B45309;
-    color: #B45309;
-    box-shadow: 0 2px 8px rgba(135, 96, 57, 0.12);
+    background: rgba(197, 139, 80, 0.25);
+    border-color: var(--geni-nav-champagne);
+    color: #FFFFFF;
+    box-shadow: 0 0 12px rgba(242, 197, 141, 0.3);
   }
 
   .geni-pos-nav .lang-globe-icon {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    color: #B45309;
-    transition: transform 0.3s ease;
+    width: 17px;
+    height: 17px;
   }
 
-  .geni-pos-nav .btn-lang-toggle:hover .lang-globe-icon {
-    transform: rotate(20deg);
-  }
-
-  .geni-pos-nav .btn-lang-toggle .active-lang-code,
-  .geni-pos-nav .btn-lang-toggle .lang-chevron {
-    display: none !important;
-  }
-
-  /* Language Dropdown Menu */
   .geni-pos-nav .lang-dropdown-menu {
     position: absolute;
     top: calc(100% + 10px);
     right: 0;
-    min-width: 275px;
-    max-width: 320px;
-    background: #FFFFFF;
-    border: 1px solid #E3E8EE;
-    border-radius: 14px;
-    box-shadow: 0 16px 40px -8px rgba(10, 37, 64, 0.18), 0 0 0 1px rgba(10, 37, 64, 0.04);
-    padding: 8px;
-    z-index: 10002;
+    width: 290px;
+    max-height: 440px;
+    background: #27130D;
+    border: 1px solid rgba(197, 139, 80, 0.35);
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 20px rgba(197, 139, 80, 0.12);
     display: none;
     flex-direction: column;
-    animation: geniDropFade 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  @keyframes geniDropFade {
-    from {
-      opacity: 0;
-      transform: translateY(-6px) scale(0.98);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
+    overflow: hidden;
+    z-index: 10000;
   }
 
   .geni-pos-nav .nav-lang-dropdown.is-open .lang-dropdown-menu {
@@ -552,438 +256,354 @@
   }
 
   .geni-pos-nav .lang-dropdown-header {
-    padding: 6px 10px 8px;
-    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid rgba(197, 139, 80, 0.2);
+    font-size: 12px;
     font-weight: 700;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
-    letter-spacing: 0.7px;
-    color: #6E6157;
-    border-bottom: 1px solid #F0ECE6;
-    margin-bottom: 6px;
+    color: var(--geni-nav-champagne);
+  }
+
+  .geni-pos-nav .lang-search-box {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 12px;
+    margin: 8px 10px 4px;
+    background: #32180F;
+    border: 1px solid rgba(197, 139, 80, 0.25);
+    border-radius: 8px;
   }
 
-  /* Search input */
-  .geni-pos-nav .lang-search-box {
-    position: relative;
-    padding: 0 2px 8px;
-  }
   .geni-pos-nav .lang-search-svg {
-    position: absolute;
-    left: 11px;
-    top: 50%;
-    transform: translateY(calc(-50% - 4px));
     width: 14px;
     height: 14px;
-    color: #8C7E72;
-    pointer-events: none;
-  }
-  .geni-pos-nav .lang-search-input {
-    width: 100%;
-    padding: 7px 10px 7px 32px;
-    background: #FAF7F2;
-    border: 1px solid #E3E8EE;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 12.5px;
-    color: #0A2540;
-    outline: none;
-    transition: all 0.15s ease;
-  }
-  .geni-pos-nav .lang-search-input:focus {
-    background: #FFFFFF;
-    border-color: #B45309;
-    box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.12);
+    color: var(--geni-nav-caramel);
+    flex-shrink: 0;
   }
 
-  .geni-pos-nav .lang-group-header {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-    color: #9C6F3E;
-    padding: 6px 10px 4px;
+  .geni-pos-nav .lang-search-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 12.5px;
+    color: var(--geni-nav-warm-white);
+    font-family: inherit;
+  }
+
+  .geni-pos-nav .lang-search-input::placeholder {
+    color: rgba(228, 211, 196, 0.5);
   }
 
   .geni-pos-nav .lang-options-scroll {
     overflow-y: auto;
-    max-height: 320px;
-    padding-right: 2px;
+    max-height: 310px;
+    padding: 6px 6px 10px;
   }
 
   .geni-pos-nav .lang-options-scroll::-webkit-scrollbar {
     width: 5px;
   }
   .geni-pos-nav .lang-options-scroll::-webkit-scrollbar-thumb {
-    background: #D9D2C7;
-    border-radius: 4px;
+    background: rgba(197, 139, 80, 0.3);
+    border-radius: 3px;
+  }
+
+  .geni-pos-nav .lang-group-header {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--geni-nav-caramel);
+    padding: 8px 10px 4px;
   }
 
   .geni-pos-nav .lang-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
     width: 100%;
     padding: 8px 10px;
     background: transparent;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--geni-nav-warm-white);
     font-family: inherit;
     text-align: left;
-    cursor: pointer;
     transition: background 0.15s ease, color 0.15s ease;
-    color: #0A2540;
-    user-select: none;
-    outline: none;
   }
 
   .geni-pos-nav .lang-item:hover {
-    background: #FAF7F2;
-    color: #B45309;
+    background: rgba(197, 139, 80, 0.18);
+    color: var(--geni-nav-champagne);
   }
 
   .geni-pos-nav .lang-item.is-active {
-    background: #F4EFE6;
-    color: #B45309;
-    font-weight: 600;
+    background: rgba(197, 139, 80, 0.25);
+    color: var(--geni-nav-champagne);
   }
 
   .geni-pos-nav .lang-item-left {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 9px;
   }
 
   .geni-pos-nav .lang-flag {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1;
-    display: inline-block;
   }
 
   .geni-pos-nav .lang-names {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
-    line-height: 1.25;
+    line-height: 1.2;
   }
 
   .geni-pos-nav .lang-native {
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 600;
-    color: inherit;
   }
 
   .geni-pos-nav .lang-english {
-    font-size: 11px;
-    color: #6E6157;
+    font-size: 10.5px;
+    color: var(--geni-nav-text-sec);
+    opacity: 0.75;
   }
 
   .geni-pos-nav .lang-check {
-    width: 16px;
-    height: 16px;
-    color: #B45309;
+    width: 14px;
+    height: 14px;
+    color: var(--geni-nav-champagne);
     opacity: 0;
-    transform: scale(0.7);
-    transition: all 0.15s ease;
   }
 
   .geni-pos-nav .lang-item.is-active .lang-check {
     opacity: 1;
-    transform: scale(1);
   }
 
-  /* Mobile Drawer Language Box */
-  .geni-pos-nav .mobile-lang-box {
-    background: #FAF7F2;
-    border: 1px solid #E3E8EE;
-    border-radius: 10px;
-    padding: 10px 14px;
-    margin-bottom: 6px;
-  }
-  .geni-pos-nav .mobile-lang-label {
-    display: flex;
+  /* --- CTA Button: Sign Up (Primary Rounded Pill in Champagne Beige) --- */
+  .geni-pos-nav .btn-signup-pill {
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 11.5px;
-    font-weight: 700;
-    color: #6E6157;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
-  }
-  .geni-pos-nav .mobile-lang-select {
-    width: 100%;
-    padding: 9px 12px;
-    background: #FFFFFF;
-    border: 1px solid #D9D2C7;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 14px;
+    background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;
+    color: #32180F !important;
+    font-family: 'Glacial Indifference', system-ui, sans-serif;
+    font-size: 13px;
     font-weight: 600;
-    color: #0A2540;
-    outline: none;
-    cursor: pointer;
-  }
-
-  /* --- Right CTA Action Group --- */
-  .geni-pos-nav .nav-cta-group {
-    display: inline-flex;
-    align-items: center;
-    gap: 16px;
-    flex-shrink: 0;
-  }
-
-  .geni-pos-nav .btn-signin {
-    font-size: 14px;
-    font-weight: 600;
-    color: #0A2540;
+    letter-spacing: 0.2px;
     text-decoration: none;
-    transition: color 0.18s ease;
-  }
-
-  .geni-pos-nav .btn-signin:hover {
-    color: #B45309;
-  }
-
-  /* Geni Menu Sign Up Now pill button */
-  .geni-pos-nav .btn-signup-pill {
-    background: #0A2540;
-    color: #ffffff !important;
-    text-decoration: none;
-    padding: 9px 24px;
+    padding: 8.5px 20px;
     border-radius: 9999px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: -0.1px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
+    border: none !important;
+    box-shadow: 0 4px 16px rgba(242, 197, 141, 0.25) !important;
     cursor: pointer;
-    box-shadow: 0 3px 12px rgba(135, 96, 57, 0.28);
-    transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
     white-space: nowrap;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .geni-pos-nav .btn-signup-pill:hover {
-    background: #1A365D;
-    transform: translateY(-1px);
-    box-shadow: 0 5px 16px rgba(135, 96, 57, 0.38);
+    background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%) !important;
+    color: #27130D !important;
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 22px rgba(242, 197, 141, 0.42) !important;
   }
 
-  /* Hamburger for mobile */
+  /* --- CTA Button: Login (Ghost Pill) --- */
+  .geni-pos-nav .btn-signin {
+    display: inline-flex;
+    align-items: center;
+    background: transparent !important;
+    border: 1.5px solid rgba(242, 197, 141, 0.45) !important;
+    color: var(--geni-nav-warm-white) !important;
+    font-family: 'Glacial Indifference', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 7.5px 16px;
+    border-radius: 9999px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+
+  .geni-pos-nav .btn-signin:hover {
+    background: rgba(242, 197, 141, 0.12) !important;
+    border-color: var(--geni-nav-champagne) !important;
+    color: var(--geni-nav-champagne) !important;
+  }
+
+  /* --- Hamburger Menu Button (Mobile/Tablet) --- */
   .geni-pos-nav .nav-burger-btn {
     display: none;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 8px 6px;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     gap: 5px;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: rgba(74, 41, 27, 0.5);
+    border: 1px solid rgba(197, 139, 80, 0.3);
     border-radius: 8px;
-    transition: background 0.2s ease;
+    cursor: pointer;
+    transition: all 0.2s ease;
   }
 
   .geni-pos-nav .nav-burger-btn:hover {
-    background: rgba(135, 96, 57, 0.08);
+    background: rgba(197, 139, 80, 0.2);
+    border-color: var(--geni-nav-champagne);
   }
 
   .geni-pos-nav .nav-burger-btn span {
     display: block;
-    width: 22px;
+    width: 100%;
     height: 2px;
-    background: #0A2540;
+    background: var(--geni-nav-warm-white);
     border-radius: 2px;
-    transition: transform 0.25s ease, opacity 0.25s ease, background 0.25s ease;
+    transition: all 0.25s ease;
   }
 
   .geni-pos-nav .nav-burger-btn.is-active span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
+    background: var(--geni-nav-champagne);
   }
-
   .geni-pos-nav .nav-burger-btn.is-active span:nth-child(2) {
     opacity: 0;
   }
-
   .geni-pos-nav .nav-burger-btn.is-active span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
+    background: var(--geni-nav-champagne);
   }
 
-  /* Mobile Drawer */
+  /* --- Mobile Drawer Panel --- */
   .geni-pos-nav .mobile-panel {
     display: none;
     position: fixed;
-    top: 68px;
+    top: 72px;
     left: 0;
     right: 0;
     bottom: 0;
-    background: #ffffff;
+    background: rgba(39, 19, 13, 0.98);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-top: 1px solid rgba(197, 139, 80, 0.25);
+    padding: 24px;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 20px 20px 40px;
     z-index: 9998;
-    border-top: 1px solid #E3E8EE;
-    box-shadow: 0 10px 30px rgba(33, 22, 15, 0.1);
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .geni-pos-nav .mobile-panel.is-open {
-    display: block;
+    display: flex;
   }
 
   .geni-pos-nav .mobile-list {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
-  .geni-pos-nav .mobile-list-item {
-    border-bottom: 1px solid rgba(135, 96, 57, 0.1);
-  }
-
-  .geni-pos-nav .mobile-direct-link,
-  .geni-pos-nav .mobile-accordion-btn {
+  .geni-pos-nav .mobile-direct-link {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    padding: 14px 4px;
-    font-size: 15px;
+    padding: 14px 16px;
+    color: var(--geni-nav-warm-white);
+    font-size: 16px;
     font-weight: 600;
-    color: #0A2540;
     text-decoration: none;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    text-align: left;
-  }
-
-  .geni-pos-nav .mobile-chevron {
-    width: 16px;
-    height: 16px;
-    transition: transform 0.25s ease;
-    color: #8C7C71;
-  }
-
-  .geni-pos-nav .mobile-list-item.is-expanded .mobile-chevron {
-    transform: rotate(90deg);
-    color: #B45309;
-  }
-
-  .geni-pos-nav .mobile-sub-menu {
-    display: none;
-    padding: 4px 0 14px 8px;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .geni-pos-nav .mobile-list-item.is-expanded .mobile-sub-menu {
-    display: flex;
-  }
-
-  .geni-pos-nav .mobile-sub-link {
-    font-size: 13.5px;
-    color: #6E6157;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 7px 10px;
     border-radius: 8px;
-    transition: background 0.15s ease, color 0.15s ease;
+    border-bottom: 1px solid rgba(197, 139, 80, 0.12);
+    transition: background 0.18s ease, color 0.18s ease;
   }
 
-  .geni-pos-nav .mobile-sub-link:active,
-  .geni-pos-nav .mobile-sub-link:hover {
-    background: #FAF7F2;
-    color: #B45309;
-  }
-
-  .geni-pos-nav .mobile-sub-link svg {
-    width: 17px;
-    height: 17px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    color: #B45309;
-    flex-shrink: 0;
+  .geni-pos-nav .mobile-direct-link:hover {
+    background: rgba(197, 139, 80, 0.15);
+    color: var(--geni-nav-champagne);
   }
 
   .geni-pos-nav .mobile-actions {
     margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(197, 139, 80, 0.25);
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
 
-  /* Responsive queries */
-  @media (max-width: 1080px) {
-    .geni-pos-nav .nav-menu {
+  .geni-pos-nav .mobile-lang-box {
+    margin-bottom: 8px;
+  }
+
+  .geni-pos-nav .mobile-lang-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--geni-nav-champagne);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .geni-pos-nav .mobile-lang-select {
+    width: 100%;
+    padding: 10px 14px;
+    background: #32180F;
+    border: 1px solid rgba(197, 139, 80, 0.35);
+    border-radius: 8px;
+    color: var(--geni-nav-warm-white);
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 991px) {
+    .geni-pos-nav .nav-center-menu {
       display: none;
     }
-
-    .geni-pos-nav .btn-signin {
-      display: none;
-    }
-
-    .geni-pos-nav .btn-lang-toggle .active-lang-code,
-    .geni-pos-nav .btn-lang-toggle .lang-chevron {
-      display: none;
-    }
-
-    .geni-pos-nav .btn-lang-toggle {
-      padding: 8px 9px;
-      border-radius: 50%;
-    }
-
     .geni-pos-nav .nav-burger-btn {
       display: flex;
     }
+    .geni-pos-nav .brand-tagline {
+      display: none;
+    }
+    .geni-pos-nav .brand-divider {
+      display: none;
+    }
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 600px) {
     .geni-pos-nav .nav-wrap {
-      height: 62px;
-      padding: 0 14px;
-      gap: 10px;
+      padding: 0 16px;
+      height: 64px;
     }
-
-    .geni-pos-nav .mobile-panel {
-      top: 62px;
-      padding: 16px 16px 36px;
+    .geni-pos-nav .brand-logo-img {
+      height: 32px !important;
     }
-
-    .geni-pos-nav .nav-brand .brand-logo-img {
-      height: 34px !important;
-    }
-
     .geni-pos-nav .btn-signup-pill {
+      padding: 8px 16px;
+      font-size: 12.5px;
+    }
+    .geni-pos-nav .btn-signin {
       padding: 7px 14px;
       font-size: 12.5px;
     }
-  }
-
-  @media (max-width: 360px) {
-    .geni-pos-nav .nav-wrap {
-      padding: 0 10px;
-      gap: 6px;
-    }
-
-    .geni-pos-nav .nav-brand .brand-logo-img {
-      height: 30px !important;
-    }
-
-    .geni-pos-nav .btn-signup-pill {
-      padding: 6px 10px;
-      font-size: 11.5px;
+    .geni-pos-nav .mobile-panel {
+      top: 64px;
     }
   }
 </style>
@@ -991,82 +611,45 @@
 <header class="geni-pos-nav">
   <div class="nav-wrap">
 
-    <!-- Left side: Brand Logo + Nav Items (Features, Pricing, Solutions, Resources) -->
-    <div class="nav-left">
-      <!-- Brand Logo: Geni Menu (Click to Home) -->
-      <a href="{{ route('home') }}" class="nav-brand" title="Geni Menu - Home">
-        <img id="geniNavLogo"
-             src="{{ asset('assets/images/geni-menu-logo-light.png') }}"
-             data-dark="{{ asset('assets/images/geni-menu-logo.png') }}"
-             data-light="{{ asset('assets/images/geni-menu-logo-light.png') }}"
-             onerror="this.onerror=null;this.src='{{ asset('assets/images/geni-menu-logo.png') }}';"
-             alt="Geni Menu" class="brand-logo-img" style="height: 44px; width: auto; object-fit: contain;">
-      </a>
+    <!-- Left side: Brand Logo + Tagline -->
+    <a href="{{ route('home') }}" class="nav-brand" title="Geni Menu - Home">
+      <img id="geniNavLogo"
+           src="{{ asset('assets/images/geni-menu-logo-light.png') }}"
+           data-dark="{{ asset('assets/images/geni-menu-logo-light.png') }}"
+           data-light="{{ asset('assets/images/geni-menu-logo-light.png') }}"
+           onerror="this.onerror=null;this.src='{{ asset('assets/images/geni-menu-logo-light.png') }}';"
+           alt="Geni Menu" class="brand-logo-img">
+      <div class="brand-divider" aria-hidden="true"></div>
+      <div class="brand-tagline">
+        <span>Restaurant Digital</span>
+        <span>Menu Platform</span>
+      </div>
+    </a>
 
-      <!-- Desktop Nav Items -->
-      <ul class="nav-menu">
+    <!-- Center/Right: Desktop Navigation Items (Preserved order & URLs) -->
+    <ul class="nav-center-menu">
+      <!-- 0. Home -->
+      <li class="nav-menu-item">
+        <a href="{{ route('home') }}" class="nav-menu-link {{ request()->routeIs('home') ? 'nav-active' : '' }}">Home</a>
+      </li>
 
-        <!-- 1. Features -->
-        <li class="nav-menu-item">
-          <a href="{{ route('features') }}" class="nav-menu-link {{ request()->routeIs('features') ? 'nav-active' : '' }}">Features</a>
-        </li>
+      <!-- 1. Features -->
+      <li class="nav-menu-item">
+        <a href="{{ route('features') }}" class="nav-menu-link {{ request()->routeIs('features') ? 'nav-active' : '' }}">Features</a>
+      </li>
 
-        <!-- 2. Pricing -->
-        <li class="nav-menu-item">
-          <a href="{{ route('pricing') }}" class="nav-menu-link {{ request()->routeIs('pricing') ? 'nav-active' : '' }}">Pricing</a>
-        </li>
+      <!-- 2. Pricing -->
+      <li class="nav-menu-item">
+        <a href="{{ route('pricing') }}" class="nav-menu-link {{ request()->routeIs('pricing') ? 'nav-active' : '' }}">Pricing</a>
+      </li>
 
-        <!-- 3. Solutions -->
-        <li class="nav-menu-item">
-          <a href="{{ route('solutions') }}" class="nav-menu-link {{ request()->routeIs('solutions*') ? 'nav-active' : '' }}">Solutions</a>
-        </li>
+      <!-- 3. Solutions -->
+      <li class="nav-menu-item">
+        <a href="{{ route('solutions') }}" class="nav-menu-link {{ request()->routeIs('solutions*') ? 'nav-active' : '' }}">Solutions</a>
+      </li>
+    </ul>
 
-        {{-- 4. Resources ⌵ (Hidden) --}}
-        {{--
-        <li class="nav-menu-item">
-          <button type="button" class="nav-menu-btn" aria-haspopup="true">
-            <span>Resources</span>
-            <svg class="chevron-icon" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 1L5 5L9 1"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown dropdown-simple">
-            <a href="{{ route('how-it-works') }}" class="dropdown-link-item">
-              <span class="item-icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 10.5l6-3M9 13.5l6 3"/></svg></span>
-              <div>
-                <span class="item-title">How It Works</span>
-                <span class="item-sub">Complete 7-step operational loop</span>
-              </div>
-            </a>
-            <a href="{{ route('faq-help') }}" class="dropdown-link-item">
-              <span class="item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-              <div>
-                <span class="item-title">FAQ & Help</span>
-                <span class="item-sub">Setup, printers & hardware guides</span>
-              </div>
-            </a>
-            <a href="{{ route('contact.us') }}" class="dropdown-link-item">
-              <span class="item-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-              <div>
-                <span class="item-title">Contact Support</span>
-                <span class="item-sub">Get help from restaurant specialists</span>
-              </div>
-            </a>
-            <a href="{{ route('terms-and-conditions') }}" class="dropdown-link-item">
-              <span class="item-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
-              <div>
-                <span class="item-title">Terms & Privacy</span>
-                <span class="item-sub">Cloud security & SLA policies</span>
-              </div>
-            </a>
-          </div>
-        </li>
-        --}}
-
-      </ul>
-    </div>
-
-    <!-- Right Side: Language Switcher + Sign In + "Sign Up Now" Pill -->
+    <!-- Right Side: Language Switcher + Sign Up + Login -->
     <div class="nav-cta-group">
 
       <!-- Language Switcher near Sign In -->
@@ -1078,15 +661,12 @@
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
           </svg>
           <span class="active-lang-code" id="activeLangLabel" style="display:none;">English</span>
-          <svg class="lang-chevron" viewBox="0 0 12 12" fill="currentColor" style="display:none;">
-            <path d="M2.22 4.47a.75.75 0 0 1 1.06 0L6 7.19l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L2.22 5.53a.75.75 0 0 1 0-1.06z"/>
-          </svg>
         </button>
 
         <div class="lang-dropdown-menu notranslate" id="langDropdownMenu" role="menu">
           <div class="lang-dropdown-header">
             <span>Select Language</span>
-            <span style="font-size: 10px; opacity: 0.7; font-weight: 600;">Global</span>
+            <span style="font-size: 10px; opacity: 0.8; font-weight: 700;">Global</span>
           </div>
 
           <!-- Quick Search Filter -->
@@ -1221,16 +801,19 @@
         </div>
       </div>
 
+      <!-- Preserved CTA Button: Start Free Trial -->
+      <a href="{{ route('restaurant_signup') }}" class="btn-signup-pill">
+        <span>Start Free Trial</span>
+        <span style="font-size: 15px;">&rarr;</span>
+      </a>
+
+      <!-- Preserved Auth Button: Login / Dashboard -->
       <a href="{{ route('login') }}" class="btn-signin">
         @if (user())
           @lang('menu.dashboard')
         @else
-          Sign In
+          Login
         @endif
-      </a>
-
-      <a href="{{ route('restaurant_signup') }}" class="btn-signup-pill">
-        Sign Up Now
       </a>
 
       <!-- Hamburger toggle for mobile/tablet -->
@@ -1243,48 +826,36 @@
 
   </div>
 
-  <!-- Mobile Drawer Menu -->
+  <!-- Mobile Drawer Menu (Preserves all items & actions) -->
   <div class="mobile-panel" id="geniMobilePanel">
-
     <ul class="mobile-list">
+      <li class="mobile-list-item">
+        <a href="{{ route('home') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
+          <span>Home</span>
+          <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
+        </a>
+      </li>
 
       <li class="mobile-list-item">
         <a href="{{ route('features') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
           <span>Features</span>
-          <span style="font-size: 13px; color: #9C6F3E;">&rarr;</span>
+          <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
         </a>
       </li>
 
       <li class="mobile-list-item">
         <a href="{{ route('pricing') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
           <span>Pricing</span>
-          <span style="font-size: 13px; color: #9C6F3E;">&rarr;</span>
+          <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
         </a>
       </li>
 
       <li class="mobile-list-item">
         <a href="{{ route('solutions') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
           <span>Solutions</span>
-          <span style="font-size: 13px; color: #9C6F3E;">&rarr;</span>
+          <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
         </a>
       </li>
-
-      {{-- Resources (Hidden) --}}
-      {{--
-      <li class="mobile-list-item" id="mobItemResources">
-        <button type="button" class="mobile-accordion-btn" onclick="toggleMobSubmenu('mobItemResources')">
-          <span>Resources</span>
-          <svg class="mobile-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-        <div class="mobile-sub-menu">
-          <a href="{{ route('how-it-works') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 10.5l6-3M9 13.5l6 3"/></svg> How It Works</a>
-          <a href="{{ route('faq-help') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> FAQ & Help</a>
-          <a href="{{ route('contact.us') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Contact Support</a>
-          <a href="{{ route('terms-and-conditions') }}" class="mobile-sub-link" onclick="closeGeniMobile()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Terms & Policies</a>
-        </div>
-      </li>
-      --}}
-
     </ul>
 
     <div class="mobile-actions">
@@ -1331,15 +902,16 @@
 
       <a href="{{ route('restaurant_signup') }}"
          onclick="closeGeniMobile();"
-         class="btn-signup-pill" style="width:100%;text-align:center;padding:12px 20px;font-size:14px;">
-        Sign Up Now
+         class="btn-signup-pill" style="width:100%;text-align:center;justify-content:center;padding:12px 20px;font-size:14px;border-radius:9999px;">
+        <span>Start Free Trial</span>
+        <span style="font-size: 15px; margin-left: 4px;">&rarr;</span>
       </a>
 
-      <a href="{{ route('login') }}" class="btn-signin" style="display:block;text-align:center;padding:12px;font-weight:600;color:#2A2420;">
+      <a href="{{ route('login') }}" class="btn-signin" style="display:block;text-align:center;padding:11px;font-weight:600;color:#FFF8F0;border:1.5px solid rgba(242,197,141,0.45);border-radius:9999px;">
         @if (user())
           @lang('menu.dashboard')
         @else
-          Sign In to Your Restaurant &rarr;
+          Login
         @endif
       </a>
     </div>
@@ -1389,7 +961,6 @@
   }
 
   function getSavedLanguage() {
-    // 1. Check googtrans cookie
     var m = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
     if (m) {
       var parts = decodeURIComponent(m[1]).split('/');
@@ -1398,20 +969,16 @@
         return c;
       }
     }
-    // 2. Check localStorage
     var ls = localStorage.getItem('geni_selected_locale');
     if (ls && GENI_LANG_MAP[ls]) {
       return ls;
     }
-    // 3. Fallback to session / default
     return '{{ session("customer_locale") ?? app()->getLocale() ?? "en" }}';
   }
 
   function setLanguageCookies(lang) {
     var val = (lang === 'en') ? '/en/en' : ('/en/' + lang);
     var host = window.location.hostname;
-
-    // Remove old cookies
     var delStr = '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     document.cookie = 'googtrans' + delStr;
     document.cookie = 'googtrans' + delStr + ' domain=' + host + ';';
@@ -1419,7 +986,6 @@
       document.cookie = 'googtrans' + delStr + ' domain=.' + host + ';';
     }
 
-    // Set new cookie across variations
     document.cookie = 'googtrans=' + val + '; path=/; SameSite=Lax';
     document.cookie = 'googtrans=' + val + '; domain=' + host + '; path=/; SameSite=Lax';
     if (host.indexOf('.') !== -1 && !/^\d+\.\d+\.\d+\.\d+$/.test(host)) {
@@ -1431,11 +997,9 @@
     if (!GENI_LANG_MAP[code]) {
       code = 'en';
     }
-
     localStorage.setItem('geni_selected_locale', code);
     setLanguageCookies(code);
 
-    // Sync with Laravel backend session via AJAX
     try {
       fetch('/change-locale/' + code, {
         method: 'GET',
@@ -1443,24 +1007,19 @@
       }).catch(function() {});
     } catch(e) {}
 
-    // Trigger Google Translate live combobox if already rendered
     var combo = document.querySelector('.goog-te-combo');
     if (combo) {
       combo.value = code;
       combo.dispatchEvent(new Event('change'));
     }
 
-    // Handle RTL
     if (GENI_LANG_MAP[code].rtl) {
       document.documentElement.setAttribute('dir', 'rtl');
     } else {
       document.documentElement.setAttribute('dir', 'ltr');
     }
 
-    // Close dropdown
     closeLangMenu();
-
-    // Reload page smoothly to translate all full-page content
     setTimeout(function() {
       window.location.reload();
     }, 120);
@@ -1498,14 +1057,11 @@
 
   function initLanguageUI() {
     var current = getSavedLanguage();
-
-    // Update active label
     var labelEl = document.getElementById('activeLangLabel');
     if (labelEl && GENI_LANG_MAP[current]) {
       labelEl.textContent = GENI_LANG_MAP[current].native;
     }
 
-    // Update active item in dropdown
     document.querySelectorAll('.lang-item').forEach(function(item) {
       if (item.getAttribute('data-code') === current) {
         item.classList.add('is-active');
@@ -1514,24 +1070,20 @@
       }
     });
 
-    // Update mobile select
     var mobSelect = document.getElementById('mobileLangSelect');
     if (mobSelect) {
       mobSelect.value = current;
     }
 
-    // Set RTL if Arabic
     if (GENI_LANG_MAP[current] && GENI_LANG_MAP[current].rtl) {
       document.documentElement.setAttribute('dir', 'rtl');
     }
 
-    // Attach click toggle
     var btn = document.getElementById('btnLangToggle');
     if (btn) {
       btn.addEventListener('click', toggleLangMenu);
     }
 
-    // Close on outside click
     document.addEventListener('click', function(e) {
       var dropdown = document.getElementById('geniLangDropdown');
       if (dropdown && !dropdown.contains(e.target)) {
@@ -1539,7 +1091,6 @@
       }
     });
 
-    // Close on ESC key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         closeLangMenu();
@@ -1571,28 +1122,13 @@
     document.body.style.overflow = '';
   }
 
-  function toggleMobSubmenu(itemId) {
-    var item = document.getElementById(itemId);
-    if (item) {
-      item.classList.toggle('is-expanded');
-    }
-  }
-
   function handleNavScroll() {
     var nav = document.querySelector('.geni-pos-nav');
-    var logo = document.getElementById('geniNavLogo');
     if (!nav) return;
-    var isHomeWithHero = document.body.classList.contains('has-hero-nav');
-    if (window.scrollY > 30 || !isHomeWithHero) {
+    if (window.scrollY > 30) {
       nav.classList.add('is-scrolled');
-      if (logo && logo.dataset.dark && !logo.src.endsWith('geni-menu-logo.png')) {
-        logo.src = logo.dataset.dark;
-      }
     } else {
       nav.classList.remove('is-scrolled');
-      if (logo && logo.dataset.light && !logo.src.endsWith('geni-menu-logo-light.png')) {
-        logo.src = logo.dataset.light;
-      }
     }
   }
 
