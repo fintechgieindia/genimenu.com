@@ -137,7 +137,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 13.5px;
+    font-size: 15.5px;
     font-weight: 500;
     letter-spacing: 0.15px;
     color: var(--geni-nav-warm-white);
