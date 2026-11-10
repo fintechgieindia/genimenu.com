@@ -429,6 +429,52 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   line-height: 1.35;
 }
 
+/* Explore Solutions CTA Button in Trusted By Section */
+.geni-trust-cta-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 38px;
+  text-align: center;
+}
+
+.btn-trust-solutions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #3A1B10;
+  color: #FFF8F0 !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 12px 32px;
+  border-radius: 9999px;
+  border: 1px solid rgba(197, 139, 80, 0.45);
+  box-shadow: 0 4px 16px rgba(50, 24, 15, 0.16);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-trust-solutions:hover {
+  background: #4E2517;
+  border-color: #F2C58D;
+  color: #F2C58D !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(50, 24, 15, 0.26);
+}
+
+.btn-trust-solutions .btn-arrow {
+  font-size: 16px;
+  transition: transform 0.22s ease;
+  display: inline-block;
+}
+
+.btn-trust-solutions:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
 /* ==========================================================================
    3. WHY GENI MENU (Background Image: genimenu.png with Content on Left)
    ========================================================================== */
@@ -591,7 +637,67 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   max-width: 86px;
 }
 
-/* Primary Action Button: Book a Demo pill */
+/* Action Buttons in Why Geni Section */
+.geni-why-cta-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-why-solutions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #3A1B10;
+  color: #FFF8F0 !important;
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  border: 1px solid rgba(197, 139, 80, 0.40);
+  box-shadow: 0 4px 14px rgba(39, 19, 13, 0.22);
+  text-decoration: none;
+  transition: all 0.22s ease;
+  cursor: pointer;
+}
+
+.btn-why-solutions:hover {
+  background: #4E2517;
+  border-color: #F2C58D;
+  color: #F2C58D !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(39, 19, 13, 0.35);
+}
+
+.btn-why-demo-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(250, 241, 230, 0.7);
+  color: #3A1B10 !important;
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  border: 1.5px solid #C58B50;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  cursor: pointer;
+}
+
+.btn-why-demo-outline:hover {
+  background: #3A1B10;
+  border-color: #3A1B10;
+  color: #FFF8F0 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(39, 19, 13, 0.20);
+}
+
 .btn-why-demo {
   display: inline-flex;
   align-items: center;
@@ -643,6 +749,9 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   .geni-why-features-row {
     margin: 0 auto 24px;
   }
+  .geni-why-cta-wrap {
+    justify-content: center;
+  }
   .geni-why-spacer {
     display: block;
     width: 100%;
@@ -661,6 +770,13 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
     grid-template-columns: repeat(2, 1fr);
     gap: 12px 10px;
   }
+  .geni-why-cta-wrap {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn-why-solutions,
+  .btn-why-demo-outline,
   .btn-why-demo {
     width: 100%;
     justify-content: center;
@@ -1162,6 +1278,51 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   background: #FFF8F0;
   color: #27130D !important;
   transform: translateX(3px);
+}
+
+/* Explore All Features CTA Button */
+.geni-features-cta-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+  text-align: center;
+}
+
+.btn-features-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #C58B50 0%, #D49D63 50%, #C58B50 100%);
+  color: #27130D !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  padding: 13px 34px;
+  border-radius: 9999px;
+  border: 1px solid rgba(242, 197, 141, 0.45);
+  box-shadow: 0 6px 20px rgba(197, 139, 80, 0.25);
+  text-decoration: none;
+  transition: all 0.28s ease;
+  cursor: pointer;
+}
+
+.btn-features-explore:hover {
+  background: linear-gradient(135deg, #F2C58D 0%, #E6B57A 100%);
+  color: #1E0C06 !important;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(197, 139, 80, 0.40);
+}
+
+.btn-features-explore .btn-arrow {
+  font-size: 16px;
+  transition: transform 0.22s ease;
+  display: inline-block;
+}
+
+.btn-features-explore:hover .btn-arrow {
+  transform: translateX(4px);
 }
 
 /* ==========================================================================
@@ -1823,6 +1984,8 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+  gap: 14px !important;
+  flex-wrap: wrap !important;
   margin: 0 auto !important;
 }
 
@@ -1831,6 +1994,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   align-items: center !important;
   gap: 10px !important;
   padding: 12px 30px !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
   font-size: 14.5px !important;
   font-weight: 700 !important;
   border-radius: 999px !important;
@@ -1841,6 +2005,31 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 .geni-final-cta-btn-wrap .btn-primary-gold:hover {
   transform: translateY(-3px) scale(1.02) !important;
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45) !important;
+}
+
+.geni-final-cta-btn-wrap .btn-secondary-outline-gold {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 12px 28px !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  color: #FFF8F0 !important;
+  background: transparent !important;
+  border: 1.5px solid rgba(242, 197, 141, 0.75) !important;
+  border-radius: 999px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.28s ease !important;
+}
+
+.geni-final-cta-btn-wrap .btn-secondary-outline-gold:hover {
+  background: rgba(242, 197, 141, 0.15) !important;
+  border-color: #F2C58D !important;
+  color: #F2C58D !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35) !important;
 }
 
 @media (max-width: 768px) {
@@ -1908,6 +2097,8 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   .geni-trust-cat { padding: 14px 8px 12px; }
   .geni-trust-cat .cat-icon { width: 38px; height: 38px; font-size: 18px; }
   .geni-trust-cat .cat-label { font-size: 11.5px; }
+  .geni-trust-cta-wrap { margin-top: 24px; }
+  .btn-trust-solutions { width: 100%; justify-content: center; }
 
   .geni-why-section { padding: 50px 0; }
   .geni-why-container { grid-template-columns: 1fr; gap: 30px; padding: 0 16px; }
@@ -1916,6 +2107,8 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   .geni-features-section { padding: 55px 0; }
   .geni-features-container { padding: 0 16px; }
   .geni-features-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .geni-features-cta-wrap { margin-top: 28px; }
+  .btn-features-explore { width: 100%; justify-content: center; }
 
   .geni-integrations-section { padding: 50px 0; }
   .geni-integrations-container { padding: 0 16px; }
@@ -2662,6 +2855,14 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
         <span class="cat-label">Canteens & Institutional Dining</span>
       </div>
     </div>
+
+    <!-- Explore Solutions CTA Button -->
+    <div class="geni-trust-cta-wrap">
+      <a href="{{ route('solutions') }}" class="btn-trust-solutions">
+        <span>Explore Solutions</span>
+        <span class="btn-arrow">&rarr;</span>
+      </a>
+    </div>
   </div>
 </section>
 <script>
@@ -2990,11 +3191,19 @@ document.addEventListener('DOMContentLoaded', function () {
             Tables,<br>Reservation,<br>Waiter Calls, Reports
           </h4>
         </div>
-        <a href="{{ route('enquiry') }}" class="geni-bento-accent-btn">
+        <a href="{{ route('features') }}" class="geni-bento-accent-btn">
           <span>10+ More</span>
           <span style="font-size: 14px; margin-left: 4px;">&rarr;</span>
         </a>
       </div>
+    </div>
+
+    <!-- Explore All Features CTA Button -->
+    <div class="geni-features-cta-wrap">
+      <a href="{{ route('features') }}" class="btn-features-explore">
+        <span>Explore All Features</span>
+        <span class="btn-arrow">&rarr;</span>
+      </a>
     </div>
   </div>
 </section>

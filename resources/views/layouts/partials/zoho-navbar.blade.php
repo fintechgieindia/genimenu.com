@@ -638,14 +638,24 @@
         <a href="{{ route('features') }}" class="nav-menu-link {{ request()->routeIs('features') ? 'nav-active' : '' }}">Features</a>
       </li>
 
-      <!-- 2. Pricing -->
+      <!-- 2. Solutions -->
+      <li class="nav-menu-item">
+        <a href="{{ route('solutions') }}" class="nav-menu-link {{ request()->routeIs('solutions*') ? 'nav-active' : '' }}">Solutions</a>
+      </li>
+
+      <!-- 3. Pricing -->
       <li class="nav-menu-item">
         <a href="{{ route('pricing') }}" class="nav-menu-link {{ request()->routeIs('pricing') ? 'nav-active' : '' }}">Pricing</a>
       </li>
 
-      <!-- 3. Solutions -->
+      <!-- 4. About Us -->
       <li class="nav-menu-item">
-        <a href="{{ route('solutions') }}" class="nav-menu-link {{ request()->routeIs('solutions*') ? 'nav-active' : '' }}">Solutions</a>
+        <a href="{{ route('about.us') }}" class="nav-menu-link {{ request()->routeIs('about.us') ? 'nav-active' : '' }}">About Us</a>
+      </li>
+
+      <!-- 5. Contact -->
+      <li class="nav-menu-item">
+        <a href="{{ route('contact.us') }}" class="nav-menu-link {{ request()->routeIs('contact.us') ? 'nav-active' : '' }}">Contact</a>
       </li>
     </ul>
 
@@ -844,6 +854,13 @@
       </li>
 
       <li class="mobile-list-item">
+        <a href="{{ route('solutions') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
+          <span>Solutions</span>
+          <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
+        </a>
+      </li>
+
+      <li class="mobile-list-item">
         <a href="{{ route('pricing') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
           <span>Pricing</span>
           <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
@@ -851,8 +868,15 @@
       </li>
 
       <li class="mobile-list-item">
-        <a href="{{ route('solutions') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
-          <span>Solutions</span>
+        <a href="{{ route('about.us') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
+          <span>About Us</span>
+          <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
+        </a>
+      </li>
+
+      <li class="mobile-list-item">
+        <a href="{{ route('contact.us') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
+          <span>Contact</span>
           <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
         </a>
       </li>
