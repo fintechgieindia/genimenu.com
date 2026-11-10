@@ -442,6 +442,52 @@
 }
 
 /* ==========================================================================
+   CONTACT HERO SECTION (MATCHES REFERENCE IMAGE)
+   ========================================================================== */
+.contact-hero-sec {
+  background: linear-gradient(180deg, #2E150C 0%, #1F0D07 100%);
+  padding: 72px 24px 68px;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid rgba(197, 139, 80, 0.22);
+}
+
+.contact-hero-badge {
+  display: inline-block;
+  font-family: 'Cinzel', serif !important;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #D4A373;
+  background: rgba(197, 139, 80, 0.08);
+  border: 1px solid rgba(197, 139, 80, 0.4);
+  padding: 6px 20px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.contact-hero-title {
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(32px, 4.5vw, 44px);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.contact-hero-desc {
+  font-family: 'Glacial Indifference', 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 16.5px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.65;
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
    FULL-WIDTH GOOGLE MAP IMMEDIATELY ABOVE THE FOOTER
    ========================================================================== */
 .contact-map-bottom-sec {
@@ -470,14 +516,25 @@
   top: 24px;
   left: 24px;
   z-index: 10;
-  width: 330px;
+  width: 340px;
   max-width: calc(100% - 48px);
   background: #FFFFFF;
   border-radius: 20px;
   padding: 22px 24px;
-  box-shadow: 0 10px 30px rgba(39, 19, 13, 0.12), 0 2px 6px rgba(39, 19, 13, 0.04);
-  border: 1px solid rgba(181, 126, 72, 0.25);
+  box-shadow: 0 12px 32px rgba(39, 19, 13, 0.16), 0 2px 6px rgba(39, 19, 13, 0.06);
+  border: 1.5px solid rgba(181, 126, 72, 0.28);
   box-sizing: border-box;
+}
+
+.map-overlay-heading {
+  font-family: 'Cinzel', serif !important;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--geni-chocolate);
+  margin: 0 0 14px 0;
+  text-transform: uppercase;
+  line-height: 1.25;
 }
 
 .map-card-badge {
@@ -573,6 +630,15 @@
 }
 
 @media (max-width: 768px) {
+  .contact-hero-sec {
+    padding: 48px 16px 44px;
+  }
+  .contact-hero-title {
+    font-size: 28px;
+  }
+  .contact-hero-desc {
+    font-size: 14.5px;
+  }
   .contact-main-sec {
     padding: 30px 0 36px;
   }
@@ -609,7 +675,7 @@
     gap: 8px;
   }
   .contact-map-bottom-sec {
-    height: 420px;
+    height: 440px;
     margin-top: 36px !important;
   }
   .map-address-overlay-card {
@@ -618,14 +684,25 @@
     right: 14px;
     width: auto;
     max-width: calc(100% - 28px);
-    padding: 16px;
+    padding: 18px 16px;
+  }
+  .map-overlay-heading {
+    font-size: 19px;
+    margin-bottom: 10px;
   }
 }
 </style>
 
 <div class="contact-page-outer">
 
-    {{-- MAIN SECTION: GET IN TOUCH & ENQUIRY FORM --}}
+    {{-- 1. CONTACT HERO SECTION (MATCHES REFERENCE IMAGE) --}}
+    <section class="contact-hero-sec">
+        <div class="contact-hero-badge">CONTACT GENI MENU</div>
+        <h1 class="contact-hero-title">WE'RE HERE TO HELP</h1>
+        <p class="contact-hero-desc">Whether you are starting a new restaurant, managing an existing outlet or growing into multiple branches, our team can help you find the right Geni Menu setup.</p>
+    </section>
+
+    {{-- 2. MAIN SECTION: GET IN TOUCH & ENQUIRY FORM --}}
     <section class="contact-main-sec" id="form">
         <div class="contact-container">
             <div class="contact-layout-grid">
@@ -878,6 +955,8 @@
     <section class="contact-map-bottom-sec" id="mapSection">
         {{-- Location / Address Details Overlay Card at TOP-LEFT CORNER --}}
         <div class="map-address-overlay-card">
+            <h2 class="map-overlay-heading">VISIT OUR OFFICE</h2>
+
             <div class="map-card-badge">
                 <span class="map-card-badge-dot"></span>
                 <span>OUR LOCATION</span>
@@ -890,7 +969,7 @@
                     </svg>
                 </span>
                 <div class="map-overlay-details">
-                    <h3 class="map-overlay-company">WeGeni</h3>
+                    <div class="map-overlay-company">WeGeni</div>
                     <p class="map-overlay-address-text">
                         166/1, Thiru Nagar Colony,<br>
                         Karur Bypass Road,<br>
