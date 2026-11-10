@@ -119,16 +119,16 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 }
 
 .geni-hero-container {
-  max-width: 1220px;
+  max-width: 1260px;
   width: 100%;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 1.05fr 1.15fr;
+  grid-template-columns: 0.9fr 1.2fr;
   align-items: center;
-  gap: 40px;
+  gap: 36px;
 }
 
 .geni-hero-left {
@@ -310,21 +310,21 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 .geni-hero-showcase-box {
   position: relative;
   width: 100%;
-  max-width: 530px;
+  max-width: 630px;
   animation: geniFloat 6s ease-in-out infinite;
   transition: transform 0.3s ease;
 }
 
 .geni-hero-showcase-box:hover {
-  transform: scale(1.015);
+  transform: scale(1.02);
 }
 
 .geni-hero-showcase-img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 12px;
-  filter: drop-shadow(0 16px 36px rgba(10, 5, 3, 0.60));
+  border-radius: 14px;
+  filter: drop-shadow(0 20px 45px rgba(10, 5, 3, 0.65));
 }
 
 @keyframes geniFloat {

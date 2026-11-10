@@ -1,7 +1,7 @@
 @php
     $meta = [
         'title' => 'About Us — Geni Menu | Digital Dining & Restaurant Platform',
-        'description' => 'Learn how Geni Menu brings digital menus, ordering, and food business management together into one intelligent platform for modern hospitality.',
+        'description' => 'Learn how Geni Menu brings digital menus, ordering, and food business management together into one connected ecosystem for modern hospitality.',
         'keywords' => 'about Geni Menu, digital menu platform, restaurant management software, digital dining experience, restaurant POS, QR code ordering, WeGeni',
     ];
 @endphp
@@ -11,13 +11,13 @@
 @section('content')
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
 @import url('https://fonts.cdnfonts.com/css/glacial-indifference-2');
 
 /* ==========================================================================
    GENI MENU — ABOUT US PAGE STYLES
    - Warm Chocolate & Champagne Gold Design System
-   - Typography: Jost (Headings/Body), Cinzel (Editorial Eyebrows), Outfit
+   - Typography: Cinzel Regular (Headings/Titles, Uppercase), Glacial Indifference Regular (Body Texts)
    ========================================================================== */
 
 :root {
@@ -38,12 +38,58 @@
 }
 
 .geni-about-page {
-  font-family: 'Jost', 'Glacial Indifference', sans-serif;
+  font-family: 'Glacial Indifference', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   color: var(--about-text-dark);
   background-color: var(--about-warm-ivory);
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global Headings: Cinzel Regular, Uppercase */
+.geni-about-page h1,
+.geni-about-page h2,
+.geni-about-page h3,
+.geni-about-page h4,
+.geni-about-page h5,
+.geni-about-page h6,
+.about-hero-title,
+.about-heading,
+.about-subheading,
+.about-dark-card-title,
+.about-vm-title,
+.about-vm-subtitle,
+.about-final-cta-title,
+.about-eyebrow,
+.about-approach-num-title,
+.about-adv-title,
+.about-step-title,
+.about-eco-label {
+  font-family: 'Cinzel', serif !important;
+  text-transform: uppercase !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.04em;
+}
+
+/* Body & Paragraph text: Glacial Indifference Regular */
+.geni-about-page p,
+.geni-about-page li,
+.geni-about-page span:not(.dash):not(.arrow):not(.badge):not(.about-vm-title),
+.about-hero-desc,
+.about-text-lead,
+.about-text,
+.about-eco-desc,
+.about-approach-desc,
+.about-dark-card-desc,
+.about-adv-desc,
+.about-step-desc,
+.about-vm-desc,
+.about-final-cta-desc,
+.about-checklist-item {
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 400 !important;
 }
 
 .about-container {
@@ -60,11 +106,11 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', serif !important;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 400 !important;
   letter-spacing: 0.16em;
-  text-transform: uppercase;
+  text-transform: uppercase !important;
   color: var(--about-text-muted);
   margin-bottom: 12px;
 }
@@ -87,26 +133,30 @@
 
 /* --- Section Headings --- */
 .about-heading {
-  font-family: 'Jost', sans-serif;
+  font-family: 'Cinzel', serif !important;
   font-size: clamp(24px, 2.5vw, 34px);
-  font-weight: 700;
-  line-height: 1.22;
-  letter-spacing: -0.01em;
+  font-weight: 400 !important;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  text-transform: uppercase !important;
   color: var(--about-chocolate);
   margin: 0 0 16px 0;
 }
 
 .about-subheading {
-  font-family: 'Jost', sans-serif;
+  font-family: 'Cinzel', serif !important;
   font-size: clamp(20px, 2vw, 26px);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 400 !important;
+  line-height: 1.28;
+  letter-spacing: 0.04em;
+  text-transform: uppercase !important;
   color: var(--about-chocolate);
   margin: 0 0 14px 0;
 }
 
 .about-text-lead {
-  font-family: 'Glacial Indifference', 'Outfit', sans-serif;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 400 !important;
   font-size: 15.5px;
   line-height: 1.65;
   color: #5D3E30;
@@ -114,11 +164,12 @@
 }
 
 .about-text {
-  font-family: 'Glacial Indifference', 'Outfit', sans-serif;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 400 !important;
   font-size: 14.5px;
   line-height: 1.6;
   color: #6B4C3E;
-  margin: 0 0 20px 0;
+  margin: 0;
 }
 
 .gold-gradient {
@@ -191,75 +242,85 @@
   transform: translateY(-2px);
 }
 
+.btn-secondary-outline-gold .arrow {
+  font-size: 15px;
+  transition: transform 0.22s ease;
+  display: inline-block;
+}
+
+.btn-secondary-outline-gold:hover .arrow {
+  transform: translateX(4px);
+}
+
 /* ==========================================================================
-   1. HERO SECTION (Warm Restaurant Background + Tablet Visual)
+   1. HERO SECTION (Custom Hero Background with Home Page Chocolate & Golden Shade)
    ========================================================================== */
 .about-hero-section {
   position: relative;
-  background: #27130D url('{{ asset("assets/images/about/about-hero-bg.jpg") }}') center center / cover no-repeat;
-  color: #FFF8F0;
-  padding: 90px 0 85px;
+  background-color: #27130D !important;
+  background-image: 
+    radial-gradient(circle at 85% 30%, rgba(197, 139, 80, 0.22) 0%, transparent 48%),
+    radial-gradient(circle at 18% 45%, rgba(96, 58, 40, 0.35) 0%, transparent 55%),
+    linear-gradient(90deg, #27130D 0%, rgba(50, 24, 15, 0.92) 42%, rgba(39, 19, 13, 0.45) 75%, rgba(34, 16, 8, 0.30) 100%),
+    url('{{ asset("assets/images/home/abouthero.png") }}') !important;
+  background-position: center right !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  color: #FFF8F0 !important;
+  padding: 124px 0 84px 0 !important;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
   overflow: hidden;
 }
 
-.about-hero-section::before {
-  content: '';
+.about-hero-ambient-glow {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(39, 19, 13, 0.94) 0%, rgba(50, 24, 15, 0.88) 45%, rgba(39, 19, 13, 0.75) 100%);
+  top: 45%;
+  right: 15%;
+  transform: translate(20%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197, 139, 80, 0.18) 0%, rgba(242, 197, 141, 0.06) 45%, transparent 70%);
+  pointer-events: none;
   z-index: 1;
 }
 
 .about-hero-container {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  display: flex;
   align-items: center;
-  gap: 40px;
+  justify-content: flex-start;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .about-hero-left {
-  max-width: 580px;
+  max-width: 620px;
+  width: 100%;
+  text-align: left;
 }
 
 .about-hero-title {
-  font-family: 'Jost', sans-serif;
-  font-size: clamp(32px, 3.8vw, 48px);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(34px, 4.2vw, 50px);
+  font-weight: 400 !important;
+  line-height: 1.18;
+  letter-spacing: 0.04em;
+  text-transform: uppercase !important;
   color: #FFFFFF;
-  margin: 0 0 18px 0;
+  margin: 0 0 20px 0;
 }
 
 .about-hero-desc {
-  font-family: 'Glacial Indifference', 'Outfit', sans-serif;
-  font-size: 15.5px;
-  line-height: 1.65;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 16px;
+  line-height: 1.68;
   color: #E6D2C3;
-  margin: 0 0 28px 0;
-  max-width: 520px;
-}
-
-.about-hero-visual-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.about-hero-tablet-img {
-  width: 100%;
-  max-width: 480px;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55), 0 0 32px rgba(245, 185, 71, 0.15);
-  transition: transform 0.3s ease;
-}
-
-.about-hero-tablet-img:hover {
-  transform: translateY(-4px) scale(1.01);
+  margin: 0 0 32px 0;
+  max-width: 580px;
 }
 
 /* Flowing Champagne Curve below Hero */
@@ -289,41 +350,46 @@
 
 .about-who-grid {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: 0.75fr 1.25fr;
   align-items: center;
-  gap: 48px;
+  gap: 44px;
 }
 
 .about-who-photo-wrap {
   position: relative;
+  max-width: 380px;
+  width: 100%;
+  margin: 0 auto;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 16px 36px rgba(50, 24, 15, 0.10);
-  border: 1.5px solid rgba(197, 139, 80, 0.30);
+  box-shadow: 0 14px 32px rgba(50, 24, 15, 0.10);
+  border: 1.5px solid rgba(197, 139, 80, 0.28);
 }
 
 .about-who-photo-wrap img {
   width: 100%;
+  max-height: 440px;
   height: auto;
   display: block;
   object-fit: cover;
+  object-position: top center;
   transition: transform 0.4s ease;
 }
 
 .about-who-photo-wrap:hover img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .about-who-content {
-  max-width: 540px;
+  max-width: 600px;
 }
 
 /* ==========================================================================
-   3. OUR PURPOSE & PLATFORM (Split: Why We Exist vs One Connected Ecosystem)
+   3. OUR PURPOSE & PLATFORM (Why We Exist vs One Connected Ecosystem)
    ========================================================================== */
 .about-purpose-section {
   background: var(--about-warm-ivory);
-  padding: 40px 0 70px;
+  padding: 30px 0 70px;
 }
 
 .about-purpose-grid {
@@ -333,7 +399,7 @@
   align-items: stretch;
 }
 
-/* Left: Why We Exist */
+/* Left: Why We Exist / Our Purpose */
 .about-exist-card {
   background: #FAF2E8;
   border: 1px solid rgba(197, 139, 80, 0.24);
@@ -348,20 +414,29 @@
 .about-checklist {
   list-style: none;
   padding: 0;
-  margin: 10px 0 0 0;
+  margin: 18px 0 0 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .about-checklist-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
-  font-family: 'Glacial Indifference', 'Outfit', sans-serif;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 400 !important;
   font-size: 14.5px;
-  font-weight: 600;
   color: var(--about-chocolate);
+  line-height: 1.5;
+}
+
+.about-checklist-item strong {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em;
+  color: #27130D;
 }
 
 .about-check-icon {
@@ -374,6 +449,7 @@
   justify-content: center;
   color: #FFFFFF;
   flex-shrink: 0;
+  margin-top: 2px;
   box-shadow: 0 2px 6px rgba(233, 154, 36, 0.35);
 }
 
@@ -382,12 +458,12 @@
   height: 14px;
 }
 
-/* Right: One Connected Ecosystem */
+/* Right: One Connected Ecosystem / Our Technology */
 .about-ecosystem-card {
   background: #FAF2E8;
   border: 1px solid rgba(197, 139, 80, 0.24);
   border-radius: 18px;
-  padding: 38px 32px;
+  padding: 36px 30px;
   box-shadow: 0 10px 28px rgba(50, 24, 15, 0.04);
 }
 
@@ -402,12 +478,12 @@
   background: #FFFFFF;
   border: 1px solid rgba(197, 139, 80, 0.20);
   border-radius: 12px;
-  padding: 16px 10px 14px;
+  padding: 16px 12px 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 8px;
+  gap: 6px;
   transition: all 0.22s ease;
   cursor: default;
 }
@@ -420,20 +496,21 @@
 }
 
 .about-eco-icon-wrap {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: rgba(197, 139, 80, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--about-caramel);
+  margin-bottom: 2px;
   transition: all 0.22s ease;
 }
 
 .about-eco-icon-wrap svg {
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
 }
 
 .about-eco-item:hover .about-eco-icon-wrap {
@@ -443,11 +520,23 @@
 }
 
 .about-eco-label {
-  font-family: 'Glacial Indifference', 'Outfit', sans-serif;
-  font-size: 11.5px;
-  font-weight: 600;
+  font-family: 'Cinzel', serif !important;
+  font-size: 12.5px;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em;
   line-height: 1.25;
   color: var(--about-chocolate);
+  margin: 0;
+}
+
+.about-eco-desc {
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #6B4C3E;
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -455,7 +544,7 @@
    ========================================================================== */
 .about-approach-section {
   background: var(--about-warm-ivory);
-  padding: 20px 0 65px;
+  padding: 15px 0 65px;
 }
 
 .about-approach-panel {
@@ -468,7 +557,7 @@
 
 .about-approach-header {
   text-align: center;
-  max-width: 620px;
+  max-width: 680px;
   margin: 0 auto 34px;
 }
 
@@ -480,7 +569,7 @@
 }
 
 .about-approach-col {
-  padding: 0 22px;
+  padding: 0 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -523,17 +612,20 @@
 }
 
 .about-approach-num-title {
-  font-family: 'Jost', sans-serif;
+  font-family: 'Cinzel', serif !important;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em;
   color: var(--about-chocolate);
   margin: 0 0 6px 0;
 }
 
 .about-approach-desc {
-  font-family: 'Glacial Indifference', 'Outfit', sans-serif;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 400 !important;
   font-size: 13px;
-  line-height: 1.45;
+  line-height: 1.5;
   color: #6B4C3E;
   margin: 0;
 }
@@ -543,7 +635,7 @@
    ========================================================================== */
 .about-why-section {
   background: var(--about-warm-ivory);
-  padding: 20px 0 65px;
+  padding: 15px 0 65px;
 }
 
 .about-why-grid {
@@ -553,12 +645,12 @@
   align-items: stretch;
 }
 
-/* Left: Chocolate-Brown Panel */
+/* Left: Chocolate-Brown Advantage Panel */
 .about-advantage-panel {
   background: linear-gradient(135deg, #32180F 0%, #27130D 100%);
   border: 1px solid rgba(245, 185, 71, 0.35);
   border-radius: 20px;
-  padding: 38px 32px;
+  padding: 38px 30px;
   color: #FFFFFF;
   box-shadow: 0 16px 40px rgba(39, 19, 13, 0.28);
   display: flex;
@@ -567,28 +659,35 @@
 }
 
 .about-dark-card-title {
-  font-family: 'Jost', sans-serif;
-  font-size: clamp(22px, 2.2vw, 28px);
-  font-weight: 700;
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(21px, 2.2vw, 27px);
+  font-weight: 400 !important;
   line-height: 1.25;
+  letter-spacing: 0.04em;
+  text-transform: uppercase !important;
   color: #FFFFFF;
+  margin: 0 0 12px 0;
+}
+
+.about-dark-card-desc {
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #E2CEBF;
   margin: 0 0 24px 0;
 }
 
 .about-advantage-2col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px 18px;
+  gap: 16px 16px;
 }
 
 .about-adv-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
-  font-family: 'Glacial Indifference', 'Outfit', sans-serif;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: #FFF4E5;
 }
 
 .about-adv-check {
@@ -601,13 +700,33 @@
   justify-content: center;
   color: #27130D;
   flex-shrink: 0;
+  margin-top: 2px;
   box-shadow: 0 2px 6px rgba(245, 185, 71, 0.3);
 }
 
 .about-adv-check svg {
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
   stroke-width: 2.5;
+}
+
+.about-adv-title {
+  font-family: 'Cinzel', serif !important;
+  font-size: 13.5px;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em;
+  color: #FFF4E5;
+  margin: 0 0 2px 0;
+}
+
+.about-adv-desc {
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: #D4BDB0;
+  margin: 0;
 }
 
 /* Right: Product Workflow Timeline */
@@ -623,19 +742,17 @@
 }
 
 .about-workflow-content-wrap {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 20px;
-  align-items: center;
-  margin-top: 14px;
+  display: block;
+  width: 100%;
+  margin-top: 22px;
 }
 
-/* Horizontal 5-Step Process */
+/* Horizontal 5-Step Process (Full Width & Perfectly Aligned) */
 .about-process-steps-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 4px;
+  gap: 10px;
   width: 100%;
 }
 
@@ -644,56 +761,63 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 6px;
+  gap: 8px;
   flex: 1;
+  min-width: 0;
 }
 
 .about-step-badge {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: #32180F;
   color: #FFF8F0;
-  font-family: 'Jost', sans-serif;
+  font-family: 'Cinzel', serif !important;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 400 !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid var(--about-champagne-gold);
-  box-shadow: 0 4px 10px rgba(50, 24, 15, 0.15);
+  border: 2px solid var(--about-champagne-gold);
+  box-shadow: 0 4px 12px rgba(50, 24, 15, 0.18);
   transition: all 0.22s ease;
+  flex-shrink: 0;
 }
 
 .about-step-node:hover .about-step-badge {
   background: var(--about-champagne-gold);
   color: #27130D;
   transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(245, 185, 71, 0.4);
 }
 
 .about-step-arrow {
   color: var(--about-caramel);
-  font-size: 14px;
+  font-size: 16px;
   flex-shrink: 0;
   opacity: 0.75;
+  margin-top: 8px;
 }
 
-.about-step-text {
-  font-family: 'Glacial Indifference', 'Outfit', sans-serif;
-  font-size: 10.5px;
-  font-weight: 600;
-  line-height: 1.25;
+.about-step-title {
+  font-family: 'Cinzel', serif !important;
+  font-size: 12.5px;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em;
+  line-height: 1.28;
   color: var(--about-chocolate);
-  max-width: 72px;
+  margin: 0;
 }
 
-.about-workflow-phone-img {
-  width: 110px;
-  height: auto;
-  border-radius: 12px;
-  border: 1.5px solid rgba(197, 139, 80, 0.35);
-  box-shadow: 0 8px 20px rgba(50, 24, 15, 0.12);
-  display: block;
+.about-step-desc {
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: #6B4C3E;
+  margin: 0;
+  max-width: 120px;
 }
 
 /* ==========================================================================
@@ -717,7 +841,7 @@
   padding: 36px 32px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   box-shadow: 0 10px 28px rgba(50, 24, 15, 0.04);
   transition: all 0.25s ease;
 }
@@ -753,18 +877,29 @@
 }
 
 .about-vm-title {
-  font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', serif !important;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 400 !important;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
+  text-transform: uppercase !important;
   color: var(--about-chocolate);
   margin: 0;
 }
 
+.about-vm-subtitle {
+  font-family: 'Cinzel', serif !important;
+  font-size: 16px;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em;
+  color: var(--about-chocolate);
+  margin: 4px 0 2px 0;
+}
+
 .about-vm-desc {
-  font-family: 'Glacial Indifference', 'Outfit', sans-serif;
-  font-size: 14.5px;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 14px;
   line-height: 1.6;
   color: #5D3E30;
   margin: 0;
@@ -775,7 +910,7 @@
    ========================================================================== */
 .about-commitment-section {
   background: var(--about-warm-ivory);
-  padding: 20px 0 80px;
+  padding: 15px 0 80px;
 }
 
 .about-commitment-grid {
@@ -796,10 +931,10 @@
 }
 
 .about-rocket-img {
-  max-width: 320px;
+  max-width: 440px;
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 14px 28px rgba(233, 154, 36, 0.2));
+  filter: drop-shadow(0 14px 28px rgba(50, 24, 15, 0.12));
   transition: transform 0.4s ease;
 }
 
@@ -808,112 +943,105 @@
 }
 
 /* ==========================================================================
-   8. FINAL CTA SECTION (Full-Width Dark Chocolate with Flowing Curves)
+   8. FINAL CTA SECTION (Compact Full-Width with about cta.png Background)
    ========================================================================== */
 .about-final-cta-section {
   position: relative;
-  background: linear-gradient(135deg, #27130D 0%, #32180F 50%, #200E07 100%);
+  background-color: #27130D !important;
+  background-image: linear-gradient(180deg, rgba(39, 19, 13, 0.65) 0%, rgba(39, 19, 13, 0.78) 100%), url('{{ asset("assets/images/home/about cta.png") }}') !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
   color: #FFF8F0;
-  padding: 75px 0 80px;
+  padding: 52px 0 50px !important;
   overflow: hidden;
-}
-
-/* Flowing Golden Wave on top of CTA */
-.about-cta-wave-wrap {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -1px;
-  height: 48px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.about-cta-wave-wrap svg {
-  width: 100%;
-  height: 100%;
-  display: block;
+  text-align: center;
 }
 
 .about-final-cta-container {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  max-width: 820px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 36px;
+  text-align: center;
+  gap: 12px;
   position: relative;
   z-index: 2;
 }
 
-/* Left: Golden Cloche Logo */
-.about-cloche-wrap {
-  width: 82px;
-  height: 82px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-cloche-icon {
-  width: 78px;
-  height: 60px;
-  display: block;
-}
-
 /* Center Content */
 .about-final-cta-content {
-  max-width: 540px;
+  max-width: 740px;
+  width: 100%;
+  text-align: center;
 }
 
 .about-final-cta-title {
-  font-family: 'Jost', sans-serif;
-  font-size: clamp(22px, 2.3vw, 29px);
-  font-weight: 700;
-  line-height: 1.25;
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(24px, 2.8vw, 35px);
+  font-weight: 400 !important;
+  line-height: 1.22;
+  letter-spacing: 0.04em;
+  text-transform: uppercase !important;
   color: #FFFFFF;
   margin: 0 0 10px 0;
+  text-align: center;
 }
 
 .about-final-cta-desc {
-  font-family: 'Glacial Indifference', 'Outfit', sans-serif;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 400 !important;
   font-size: 14.5px;
-  line-height: 1.55;
+  line-height: 1.58;
   color: #EBD8C7;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 660px;
+  text-align: center;
 }
 
-/* Right Buttons */
+/* Center Buttons */
 .about-final-cta-actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
+  margin-top: 6px;
 }
 
 /* ==========================================================================
    RESPONSIVE DESIGN (Tablets & Mobile Devices)
    ========================================================================== */
 @media (max-width: 991px) {
+  .about-hero-section {
+    padding: 100px 0 60px !important;
+    min-height: auto;
+  }
   .about-hero-container {
-    grid-template-columns: 1fr;
+    justify-content: center;
     text-align: center;
-    gap: 32px;
   }
   .about-hero-left {
     max-width: 100%;
     margin: 0 auto;
+    text-align: center;
   }
   .about-hero-desc {
     margin-left: auto;
     margin-right: auto;
   }
-  .about-hero-tablet-img {
-    max-width: 380px;
-  }
 
   .about-who-grid {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 30px;
+    gap: 26px;
+  }
+  .about-who-photo-wrap {
+    max-width: 320px;
+    margin: 0 auto;
   }
   .about-who-content {
     max-width: 100%;
@@ -947,12 +1075,8 @@
   }
 
   .about-final-cta-container {
-    grid-template-columns: 1fr;
     text-align: center;
-    gap: 24px;
-  }
-  .about-cloche-wrap {
-    margin: 0 auto;
+    gap: 14px;
   }
   .about-final-cta-content {
     max-width: 100%;
@@ -980,11 +1104,17 @@
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  .about-workflow-content-wrap {
-    grid-template-columns: 1fr;
+  .about-process-steps-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 12px;
   }
-  .about-workflow-phone-img {
-    margin: 10px auto 0;
+  .about-step-node {
+    min-width: 100px;
+    max-width: 130px;
+  }
+  .about-step-arrow {
+    display: none;
   }
   .about-vision-grid {
     grid-template-columns: 1fr;
@@ -1004,9 +1134,11 @@
 <div class="geni-about-page">
 
   <!-- ========================================================================
-       1. HERO SECTION (Brand Introduction)
+       01. HERO – BRAND INTRODUCTION
        ======================================================================== -->
   <section class="about-hero-section">
+    <div class="about-hero-ambient-glow" aria-hidden="true"></div>
+
     <div class="about-container about-hero-container">
       
       <!-- Left: Editorial Content -->
@@ -1021,24 +1153,17 @@
         </h1>
 
         <p class="about-hero-desc">
-          Geni Menu brings digital menus, ordering and food business management together in one intelligent platform. We help businesses simplify operations, improve customer experiences and embrace smarter ways of working.
+          Geni Menu is a next-generation digital platform that brings menus, ordering and food business operations into one connected ecosystem. We combine intuitive technology with intelligent management tools to help businesses deliver exceptional dining experiences, optimise daily operations and unlock new opportunities for growth.
         </p>
 
         <a href="{{ route('restaurant_signup') }}" class="btn-primary-gold">
-          <span>Get Started Today</span>
+          <span>Discover Geni Menu</span>
           <span class="arrow">&rarr;</span>
         </a>
       </div>
-
-      <!-- Right: Product Visual (Tablet on Restaurant Table) -->
-      <div class="about-hero-visual-wrap">
-        <img src="{{ asset('assets/images/about/about-hero-tablet.png') }}"
-             alt="Geni Menu Digital Menu Tablet Visual"
-             class="about-hero-tablet-img">
-      </div>
     </div>
 
-    <!-- Soft flowing champagne curve into next section -->
+    <!-- Soft flowing champagne curve below Hero -->
     <div class="about-hero-wave-wrap" aria-hidden="true">
       <svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none">
         <path d="M0,0 C360,48 1080,48 1440,0 L1440,48 L0,48 Z" fill="#FFF4E5"/>
@@ -1048,7 +1173,7 @@
 
 
   <!-- ========================================================================
-       2. WHO WE ARE SECTION (Two-Column Layout)
+       02. WHO WE ARE
        ======================================================================== -->
   <section class="about-who-section">
     <div class="about-container">
@@ -1056,8 +1181,8 @@
         
         <!-- Left: Fine Dining Restaurant Photography -->
         <div class="about-who-photo-wrap">
-          <img src="{{ asset('assets/images/about/about-who-photo.jpg') }}"
-               alt="Fine Dining Restaurant Ambiance"
+          <img src="{{ asset('assets/images/home/aboutheroma.png') }}"
+               alt="About Geni Menu - Who We Are"
                loading="lazy">
         </div>
 
@@ -1069,11 +1194,19 @@
           </div>
 
           <h2 class="about-heading">
-            Technology That Makes<br>Food Business Management Smarter.
+            Bringing Food, Technology<br>and Business Together.
           </h2>
 
-          <p class="about-text-lead">
-            Geni Menu is an intelligent digital platform designed to simplify food business operations and transform the way businesses manage their daily activities.
+          <p class="about-text-lead" style="margin-bottom: 14px;">
+            Geni Menu was built around a simple idea: managing a food business should be as effortless as the experience it delivers.
+          </p>
+
+          <p class="about-text" style="margin-bottom: 14px;">
+            We bring essential food service operations together through a unified digital platform, connecting customer interactions, order management and business workflows.
+          </p>
+
+          <p class="about-text">
+            By combining practical functionality with modern technology, Geni Menu helps businesses move beyond traditional processes and embrace a more intelligent, connected approach to food business management.
           </p>
         </div>
 
@@ -1083,25 +1216,33 @@
 
 
   <!-- ========================================================================
-       3. OUR PURPOSE & PLATFORM SECTION (Why We Exist vs One Connected Ecosystem)
+       03. WHY WE EXIST & 04. ONE CONNECTED ECOSYSTEM
        ======================================================================== -->
   <section class="about-purpose-section">
     <div class="about-container">
       <div class="about-purpose-grid">
 
-        <!-- Left Column: Why We Exist -->
+        <!-- Left Column: 03. Why We Exist -->
         <div class="about-exist-card">
           <div class="about-eyebrow">
             <span class="dash"></span>
-            <span>WHY WE EXIST</span>
+            <span>OUR PURPOSE</span>
           </div>
 
           <h3 class="about-subheading">
-            Simplifying Operations<br>Through Smart Technology.
+            Turning Everyday Operational<br>Challenges into Smarter Possibilities.
           </h3>
 
+          <p class="about-text" style="margin-bottom: 10px;">
+            Food businesses operate in a fast-moving environment where every order, transaction and operational decision matters.
+          </p>
+
+          <p class="about-text" style="margin-bottom: 10px;">
+            Disconnected systems, repetitive manual tasks and limited operational visibility can create unnecessary complexity.
+          </p>
+
           <p class="about-text">
-            Managing food business operations involves multiple tasks, systems and workflows. Geni Menu aims to bring these activities together through a unified digital solution.
+            Geni Menu addresses these challenges through connected digital solutions designed to make everyday management more structured, efficient and accessible.
           </p>
 
           <ul class="about-checklist">
@@ -1111,7 +1252,7 @@
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </div>
-              <span>Reduce manual processes.</span>
+              <span><strong>Less Manual Work:</strong> Reduce repetitive processes through digital workflows.</span>
             </li>
 
             <li class="about-checklist-item">
@@ -1120,7 +1261,7 @@
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </div>
-              <span>Simplify menu management.</span>
+              <span><strong>Centralised Management:</strong> Bring essential operations together.</span>
             </li>
 
             <li class="about-checklist-item">
@@ -1129,7 +1270,7 @@
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </div>
-              <span>Organise order workflows.</span>
+              <span><strong>Faster Coordination:</strong> Improve communication between ordering and kitchen operations.</span>
             </li>
 
             <li class="about-checklist-item">
@@ -1138,7 +1279,7 @@
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </div>
-              <span>Improve operational coordination.</span>
+              <span><strong>Greater Visibility:</strong> Access meaningful information across business activities.</span>
             </li>
 
             <li class="about-checklist-item">
@@ -1147,28 +1288,28 @@
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </div>
-              <span>Enable better business visibility.</span>
+              <span><strong>Smarter Decisions:</strong> Use operational insights to identify opportunities for improvement.</span>
             </li>
           </ul>
         </div>
 
-        <!-- Right Column: One Connected Ecosystem (9 Compact Cards) -->
+        <!-- Right Column: 04. One Connected Ecosystem -->
         <div class="about-ecosystem-card">
           <div class="about-eyebrow">
             <span class="dash"></span>
-            <span>ONE CONNECTED ECOSYSTEM</span>
+            <span>OUR TECHNOLOGY</span>
           </div>
 
           <h3 class="about-subheading">
-            Everything Connected. Everything Simplified.
+            Every Essential Operation.<br>One Intelligent Platform.
           </h3>
 
-          <p class="about-text">
-            Explore the capabilities that bring your food business operations together.
+          <p class="about-text" style="margin-bottom: 18px;">
+            Geni Menu connects the key components of modern food business management, creating a unified environment where information and operations work together.
           </p>
 
           <div class="about-eco-grid">
-            <!-- 1. Digital Menu Management -->
+            <!-- 01. Digital Menu Management -->
             <div class="about-eco-item">
               <div class="about-eco-icon-wrap" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1178,10 +1319,11 @@
                   <line x1="9" y1="11" x2="15" y2="11"></line>
                 </svg>
               </div>
-              <span class="about-eco-label">Digital Menu Management</span>
+              <h5 class="about-eco-label">Digital Menu Management</h5>
+              <p class="about-eco-desc">Build engaging digital menus, organise categories, showcase food items and manage pricing with greater flexibility.</p>
             </div>
 
-            <!-- 2. QR Code Ordering -->
+            <!-- 02. QR Code Ordering -->
             <div class="about-eco-item">
               <div class="about-eco-icon-wrap" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1194,10 +1336,11 @@
                   <line x1="7" y1="17" x2="7.01" y2="17"></line>
                 </svg>
               </div>
-              <span class="about-eco-label">QR Code Ordering</span>
+              <h5 class="about-eco-label">QR Code Ordering</h5>
+              <p class="about-eco-desc">Connect customers directly to digital menus and provide a convenient, technology-enabled ordering experience.</p>
             </div>
 
-            <!-- 3. POS & Billing -->
+            <!-- 03. POS & Billing -->
             <div class="about-eco-item">
               <div class="about-eco-icon-wrap" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1206,10 +1349,11 @@
                   <line x1="6" y1="15" x2="10" y2="15"></line>
                 </svg>
               </div>
-              <span class="about-eco-label">POS &amp; Billing</span>
+              <h5 class="about-eco-label">POS &amp; Billing</h5>
+              <p class="about-eco-desc">Manage transactions, sales and billing activities through an integrated point-of-sale experience.</p>
             </div>
 
-            <!-- 4. Kitchen Order Management -->
+            <!-- 04. Kitchen Order Management -->
             <div class="about-eco-item">
               <div class="about-eco-icon-wrap" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1217,10 +1361,11 @@
                   <line x1="6" y1="17" x2="18" y2="17"></line>
                 </svg>
               </div>
-              <span class="about-eco-label">Kitchen Order Management</span>
+              <h5 class="about-eco-label">Kitchen Order Management</h5>
+              <p class="about-eco-desc">Coordinate incoming orders and kitchen workflows to support accurate preparation and efficient service.</p>
             </div>
 
-            <!-- 5. Inventory Management -->
+            <!-- 05. Inventory Management -->
             <div class="about-eco-item">
               <div class="about-eco-icon-wrap" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1229,10 +1374,11 @@
                   <line x1="12" y1="22.08" x2="12" y2="12"></line>
                 </svg>
               </div>
-              <span class="about-eco-label">Inventory Management</span>
+              <h5 class="about-eco-label">Inventory Management</h5>
+              <p class="about-eco-desc">Monitor stock levels, track inventory movement and maintain better control over ingredients and supplies.</p>
             </div>
 
-            <!-- 6. Table Management -->
+            <!-- 06. Table Management -->
             <div class="about-eco-item">
               <div class="about-eco-icon-wrap" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1244,10 +1390,11 @@
                   <rect x="5" y="6" width="14" height="4" rx="1.5"></rect>
                 </svg>
               </div>
-              <span class="about-eco-label">Table Management</span>
+              <h5 class="about-eco-label">Table Management</h5>
+              <p class="about-eco-desc">Organise table allocation, monitor availability and improve dining floor coordination.</p>
             </div>
 
-            <!-- 7. Reservation Management -->
+            <!-- 07. Reservation Management -->
             <div class="about-eco-item">
               <div class="about-eco-icon-wrap" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1258,10 +1405,11 @@
                   <path d="M9 16l2 2 4-4"></path>
                 </svg>
               </div>
-              <span class="about-eco-label">Reservation Management</span>
+              <h5 class="about-eco-label">Reservation Management</h5>
+              <p class="about-eco-desc">Manage table bookings and reservation activities through a structured digital workflow.</p>
             </div>
 
-            <!-- 8. Delivery Management -->
+            <!-- 08. Delivery Management -->
             <div class="about-eco-item">
               <div class="about-eco-icon-wrap" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1271,10 +1419,11 @@
                   <circle cx="18.5" cy="18.5" r="2.5"></circle>
                 </svg>
               </div>
-              <span class="about-eco-label">Delivery Management</span>
+              <h5 class="about-eco-label">Delivery Management</h5>
+              <p class="about-eco-desc">Organise delivery orders and coordinate fulfilment activities from order placement to completion.</p>
             </div>
 
-            <!-- 9. Business Analytics -->
+            <!-- 09. Business Analytics -->
             <div class="about-eco-item">
               <div class="about-eco-icon-wrap" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1284,7 +1433,8 @@
                   <polyline points="4 6 12 12 20 4"></polyline>
                 </svg>
               </div>
-              <span class="about-eco-label">Business Analytics</span>
+              <h5 class="about-eco-label">Business Analytics</h5>
+              <p class="about-eco-desc">Transform operational data into meaningful insights that support informed business decisions.</p>
             </div>
           </div>
         </div>
@@ -1295,7 +1445,7 @@
 
 
   <!-- ========================================================================
-       4. OUR APPROACH SECTION (Full-Width Cream Panel with 4 Dividers)
+       05. OUR APPROACH
        ======================================================================== -->
   <section class="about-approach-section">
     <div class="about-container">
@@ -1308,25 +1458,29 @@
             <span class="dash"></span>
           </div>
 
-          <h2 class="about-heading" style="text-align: center; margin: 0;">
-            Designed Around the<br>Way Businesses Work.
+          <h2 class="about-heading" style="text-align: center; margin: 0 0 10px 0;">
+            Technology Built Around Real Business Needs.
           </h2>
+
+          <p class="about-text-lead" style="text-align: center; max-width: 620px; margin: 0 auto;">
+            We believe great technology is not defined by complexity. It is defined by how effectively it solves real problems.
+          </p>
         </div>
 
         <div class="about-approach-grid">
           
-          <!-- 01. Simplicity First -->
+          <!-- 01. Simplicity by Design -->
           <div class="about-approach-col">
             <div class="about-approach-icon-wrap" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
               </svg>
             </div>
-            <h4 class="about-approach-num-title">01. Simplicity First</h4>
-            <p class="about-approach-desc">Making everyday operations easier.</p>
+            <h4 class="about-approach-num-title">01. Simplicity by Design</h4>
+            <p class="about-approach-desc">We focus on intuitive experiences that make technology easier to understand, access and use.</p>
           </div>
 
-          <!-- 02. Connected Technology -->
+          <!-- 02. Connected Intelligence -->
           <div class="about-approach-col">
             <div class="about-approach-icon-wrap" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1337,11 +1491,11 @@
                 <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
               </svg>
             </div>
-            <h4 class="about-approach-num-title">02. Connected Technology</h4>
-            <p class="about-approach-desc">Bringing essential business activities together.</p>
+            <h4 class="about-approach-num-title">02. Connected Intelligence</h4>
+            <p class="about-approach-desc">We bring essential business functions together to create more coordinated operational workflows.</p>
           </div>
 
-          <!-- 03. Customer Experience -->
+          <!-- 03. Experience-Led Innovation -->
           <div class="about-approach-col">
             <div class="about-approach-icon-wrap" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1351,11 +1505,11 @@
                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
               </svg>
             </div>
-            <h4 class="about-approach-num-title">03. Customer Experience</h4>
-            <p class="about-approach-desc">Creating convenient and engaging experiences.</p>
+            <h4 class="about-approach-num-title">03. Experience-Led Innovation</h4>
+            <p class="about-approach-desc">We design digital experiences that consider both the people managing operations and the customers interacting with them.</p>
           </div>
 
-          <!-- 04. Continuous Innovation -->
+          <!-- 04. Continuous Evolution -->
           <div class="about-approach-col">
             <div class="about-approach-icon-wrap" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -1364,8 +1518,8 @@
                 <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path>
               </svg>
             </div>
-            <h4 class="about-approach-num-title">04. Continuous Innovation</h4>
-            <p class="about-approach-desc">Evolving to meet changing business needs.</p>
+            <h4 class="about-approach-num-title">04. Continuous Evolution</h4>
+            <p class="about-approach-desc">We continuously refine our solutions to adapt to changing expectations, emerging technologies and evolving business requirements.</p>
           </div>
 
         </div>
@@ -1376,81 +1530,109 @@
 
 
   <!-- ========================================================================
-       5. WHY CHOOSE GENI MENU SECTION (Advantage Panel + 5-Step Process)
+       06. THE GENI MENU ADVANTAGE & 07. HOW GENI MENU WORKS
        ======================================================================== -->
   <section class="about-why-section">
     <div class="about-container">
       <div class="about-why-grid">
 
-        <!-- Left: Deep Chocolate-Brown Advantage Panel -->
+        <!-- Left: 06. The Geni Menu Advantage (Deep Chocolate-Brown Panel) -->
         <div class="about-advantage-panel">
           <div class="about-eyebrow light">
             <span class="dash gold"></span>
-            <span>THE GENI MENU ADVANTAGE</span>
+            <span>WHY GENI MENU</span>
           </div>
 
           <h3 class="about-dark-card-title">
-            More Than Features.<br>A Smarter Way to Operate.
+            More Than Software.<br>A Smarter Way to Run Your Business.
           </h3>
 
+          <p class="about-dark-card-desc">
+            Geni Menu goes beyond individual digital tools by connecting essential business activities within one management ecosystem.
+          </p>
+
           <div class="about-advantage-2col">
+            <!-- 1. Unified Platform -->
             <div class="about-adv-item">
               <div class="about-adv-check">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <span>All-in-One Platform</span>
+              <div>
+                <h5 class="about-adv-title">Unified Platform</h5>
+                <p class="about-adv-desc">Access multiple business capabilities through one connected environment.</p>
+              </div>
             </div>
 
+            <!-- 2. Operational Efficiency -->
             <div class="about-adv-item">
               <div class="about-adv-check">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <span>Connected Operations</span>
+              <div>
+                <h5 class="about-adv-title">Operational Efficiency</h5>
+                <p class="about-adv-desc">Organise everyday workflows and reduce unnecessary manual effort.</p>
+              </div>
             </div>
 
+            <!-- 3. Flexible Management -->
             <div class="about-adv-item">
               <div class="about-adv-check">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <span>Simplified Workflows</span>
+              <div>
+                <h5 class="about-adv-title">Flexible Management</h5>
+                <p class="about-adv-desc">Adapt menus, pricing and operational settings as business requirements change.</p>
+              </div>
             </div>
 
+            <!-- 4. Connected Operations -->
             <div class="about-adv-item">
               <div class="about-adv-check">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <span>Real-Time Business Visibility</span>
+              <div>
+                <h5 class="about-adv-title">Connected Operations</h5>
+                <p class="about-adv-desc">Bring ordering, billing, kitchen and management activities closer together.</p>
+              </div>
             </div>
 
+            <!-- 5. Actionable Intelligence -->
             <div class="about-adv-item">
               <div class="about-adv-check">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <span>Flexible Digital Management</span>
+              <div>
+                <h5 class="about-adv-title">Actionable Intelligence</h5>
+                <p class="about-adv-desc">Gain useful visibility into business activities and operational performance.</p>
+              </div>
             </div>
 
+            <!-- 6. Growth-Ready Technology -->
             <div class="about-adv-item">
               <div class="about-adv-check">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <span>Scalable Technology</span>
+              <div>
+                <h5 class="about-adv-title">Growth-Ready Technology</h5>
+                <p class="about-adv-desc">Build on a flexible digital foundation that can support evolving business needs.</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Right: Simple. Smart. Connected. Product Workflow -->
+        <!-- Right: 07. How Geni Menu Works (Process Timeline) -->
         <div class="about-workflow-panel">
           <div class="about-eyebrow">
             <span class="dash"></span>
@@ -1458,57 +1640,60 @@
           </div>
 
           <h3 class="about-subheading">
-            From Digital Menus to<br>Smarter Management.
+            From Customer Interaction<br>to Business Intelligence.
           </h3>
+
+          <p class="about-text" style="margin-bottom: 8px;">
+            Geni Menu connects the customer journey with the operational processes that keep a food business running.
+          </p>
 
           <div class="about-workflow-content-wrap">
             
             <!-- Horizontal 5-Step Process Timeline -->
             <div class="about-process-steps-row">
-              <!-- Step 1 -->
+              <!-- Step 01 -->
               <div class="about-step-node">
-                <div class="about-step-badge">1</div>
-                <span class="about-step-text">Create Your Digital Menu</span>
+                <div class="about-step-badge">01</div>
+                <h6 class="about-step-title">Build Your Digital Presence</h6>
+                <p class="about-step-desc">Create a structured digital menu with items, descriptions, images and pricing.</p>
               </div>
 
               <span class="about-step-arrow">&rarr;</span>
 
-              <!-- Step 2 -->
+              <!-- Step 02 -->
               <div class="about-step-node">
-                <div class="about-step-badge">2</div>
-                <span class="about-step-text">Connect With Your Customers</span>
+                <div class="about-step-badge">02</div>
+                <h6 class="about-step-title">Connect Your Customers</h6>
+                <p class="about-step-desc">Make your menu accessible through QR codes and digital sharing.</p>
               </div>
 
               <span class="about-step-arrow">&rarr;</span>
 
-              <!-- Step 3 -->
+              <!-- Step 03 -->
               <div class="about-step-node">
-                <div class="about-step-badge">3</div>
-                <span class="about-step-text">Manage Incoming Orders</span>
+                <div class="about-step-badge">03</div>
+                <h6 class="about-step-title">Capture &amp; Manage Orders</h6>
+                <p class="about-step-desc">Organise incoming orders through a centralised ordering workflow.</p>
               </div>
 
               <span class="about-step-arrow">&rarr;</span>
 
-              <!-- Step 4 -->
+              <!-- Step 04 -->
               <div class="about-step-node">
-                <div class="about-step-badge">4</div>
-                <span class="about-step-text">Coordinate Business Operations</span>
+                <div class="about-step-badge">04</div>
+                <h6 class="about-step-title">Coordinate Operations</h6>
+                <p class="about-step-desc">Connect billing, kitchen activities, tables and inventory management.</p>
               </div>
 
               <span class="about-step-arrow">&rarr;</span>
 
-              <!-- Step 5 -->
+              <!-- Step 05 -->
               <div class="about-step-node">
-                <div class="about-step-badge">5</div>
-                <span class="about-step-text">Monitor Performance and Grow</span>
+                <div class="about-step-badge">05</div>
+                <h6 class="about-step-title">Understand &amp; Improve</h6>
+                <p class="about-step-desc">Review business performance and monitor operational activities.</p>
               </div>
             </div>
-
-            <!-- Supporting Visual: Smartphone displaying QR Menu -->
-            <img src="{{ asset('assets/images/about/about-process-phone.png') }}"
-                 alt="Smartphone with QR Menu scan"
-                 class="about-workflow-phone-img"
-                 loading="lazy">
           </div>
         </div>
 
@@ -1518,10 +1703,18 @@
 
 
   <!-- ========================================================================
-       6. VISION & MISSION SECTION (Two Side-by-Side Cards)
+       08. OUR VISION & MISSION
        ======================================================================== -->
   <section class="about-vision-section">
     <div class="about-container">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div class="about-eyebrow" style="justify-content: center; margin-bottom: 8px;">
+          <span class="dash"></span>
+          <span>OUR DIRECTION</span>
+          <span class="dash"></span>
+        </div>
+      </div>
+
       <div class="about-vision-grid">
 
         <!-- Left: Our Vision -->
@@ -1533,11 +1726,14 @@
                 <circle cx="12" cy="12" r="3"></circle>
               </svg>
             </div>
-            <h4 class="about-vm-title">OUR VISION</h4>
+            <div>
+              <h4 class="about-vm-title">OUR VISION</h4>
+              <h5 class="about-vm-subtitle">A More Connected Future for Food Businesses.</h5>
+            </div>
           </div>
 
           <p class="about-vm-desc">
-            To shape the future of food service through intelligent technology, connected operations and exceptional customer experiences.
+            To shape the future of food service through intelligent technology, connected operations and digital experiences that redefine how businesses serve and grow.
           </p>
         </div>
 
@@ -1551,11 +1747,14 @@
                 <circle cx="12" cy="12" r="2"></circle>
               </svg>
             </div>
-            <h4 class="about-vm-title">OUR MISSION</h4>
+            <div>
+              <h4 class="about-vm-title">OUR MISSION</h4>
+              <h5 class="about-vm-subtitle">Making Business Management Smarter and More Accessible.</h5>
+            </div>
           </div>
 
           <p class="about-vm-desc">
-            To empower food businesses with accessible, innovative and scalable digital solutions that simplify operations and support sustainable growth.
+            To empower food businesses with innovative, practical and scalable digital solutions that simplify operations, enhance customer experiences and create lasting business value.
           </p>
         </div>
 
@@ -1565,7 +1764,7 @@
 
 
   <!-- ========================================================================
-       7. OUR COMMITMENT SECTION (Text + 3D Golden Rocket Visual)
+       09. OUR COMMITMENT
        ======================================================================== -->
   <section class="about-commitment-section">
     <div class="about-container">
@@ -1579,22 +1778,26 @@
           </div>
 
           <h2 class="about-heading">
-            Technology That Grows<br>With Your Ambition.
+            Innovation Today.<br>Possibilities for Tomorrow.
           </h2>
 
           <p class="about-text-lead" style="margin-bottom: 14px;">
-            We believe technology should simplify business, empower people and create meaningful experiences.
+            At Geni Menu, we see technology as an ongoing journey of improvement.
           </p>
 
-          <p class="about-text" style="margin: 0;">
-            Our commitment is to continuously improve, innovate and deliver practical digital solutions that help businesses operate with confidence.
+          <p class="about-text" style="margin-bottom: 14px;">
+            Our commitment extends beyond building software. It is about understanding business challenges, developing meaningful solutions and creating technology that delivers practical value.
+          </p>
+
+          <p class="about-text">
+            We continuously work towards making food business management more intuitive, connected and adaptable, helping businesses embrace new possibilities with confidence.
           </p>
         </div>
 
-        <!-- Right Column: 3D Golden Rocket Illustration -->
+        <!-- Right Column: Visual -->
         <div class="about-commitment-visual-wrap">
-          <img src="{{ asset('assets/images/about/about-rocket.png') }}"
-               alt="3D Golden Rocket Launching Through Clouds"
+          <img src="{{ asset('assets/images/home/abouthow.png') }}"
+               alt="Built for What's Next - Geni Menu"
                class="about-rocket-img"
                loading="lazy">
         </div>
@@ -1605,52 +1808,28 @@
 
 
   <!-- ========================================================================
-       8. FINAL CTA SECTION (Full-Width Dark Chocolate with Flowing Waves)
+       10. FINAL CTA
        ======================================================================== -->
   <section class="about-final-cta-section">
-    <!-- Flowing top curve -->
-    <div class="about-cta-wave-wrap" aria-hidden="true">
-      <svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none">
-        <path d="M0,48 C480,0 960,0 1440,48 L1440,0 L0,0 Z" fill="#FFF4E5"/>
-      </svg>
-    </div>
-
     <div class="about-container about-final-cta-container">
       
-      <!-- Left: Geni Menu Golden Cloche Logo -->
-      <div class="about-cloche-wrap" aria-hidden="true">
-        <svg viewBox="0 0 88 64" fill="none" class="about-cloche-icon" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="clocheGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#FCE8D2"/>
-              <stop offset="50%" stop-color="#F5B947"/>
-              <stop offset="100%" stop-color="#C58B50"/>
-            </linearGradient>
-          </defs>
-          <!-- Handle knob -->
-          <circle cx="44" cy="11" r="5" fill="url(#clocheGoldGrad)"/>
-          <path d="M44 14v4" stroke="#F5B947" stroke-width="2.5" stroke-linecap="round"/>
-          <!-- Dome lid -->
-          <path d="M12 46c2-18 16-28 32-28s30 10 32 28H12z" fill="url(#clocheGoldGrad)"/>
-          <!-- Soft lid sheen -->
-          <path d="M22 43c2-12 11-19 22-19" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" stroke-linecap="round"/>
-          <!-- Serving Tray Base -->
-          <rect x="8" y="48" width="72" height="6.5" rx="3.25" fill="url(#clocheGoldGrad)"/>
-          <path d="M20 58h48" stroke="#F5B947" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
-        </svg>
-      </div>
-
       <!-- Center: Heading & Description -->
       <div class="about-final-cta-content">
+        <div class="about-eyebrow light" style="justify-content: center; margin-bottom: 8px;">
+          <span class="dash gold"></span>
+          <span>THE NEXT CHAPTER STARTS HERE</span>
+          <span class="dash gold"></span>
+        </div>
+
         <h2 class="about-final-cta-title">
-          Ready to Experience a Smarter Way<br>to Manage Your Food Business?
+          Give Your Food Business a<br>Smarter Digital Foundation.
         </h2>
         <p class="about-final-cta-desc">
-          Bring your menus, orders and operations together with Geni Menu.
+          Bring your menus, ordering and business operations together with Geni Menu. Experience connected technology designed to simplify management, elevate customer interactions and support your next stage of growth.
         </p>
       </div>
 
-      <!-- Right: Action Buttons -->
+      <!-- Action Buttons -->
       <div class="about-final-cta-actions">
         <a href="{{ route('restaurant_signup') }}" class="btn-primary-gold">
           <span>Get Started Today</span>
@@ -1659,6 +1838,7 @@
 
         <a href="{{ route('enquiry') }}" class="btn-secondary-outline-gold">
           <span>Book a Personalised Demo</span>
+          <span class="arrow">&rarr;</span>
         </a>
       </div>
 
