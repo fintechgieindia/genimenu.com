@@ -439,8 +439,8 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   background-repeat: no-repeat !important;
   background-position: right center !important;
   background-size: contain !important;
-  min-height: 520px;
-  padding: 44px 0 48px;
+  min-height: 440px;
+  padding: 34px 0 36px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -452,9 +452,9 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
   position: relative;
   z-index: 2;
 }
@@ -464,7 +464,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  max-width: 440px;
+  max-width: 520px;
   width: 100%;
 }
 
@@ -478,7 +478,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #603A28;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .geni-section-eyebrow .dash {
@@ -490,30 +490,31 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 }
 
 .geni-why-title {
-  font-family: 'Playfair Display', Georgia, serif !important;
-  font-size: clamp(24px, 2.3vw, 32px) !important;
-  font-weight: 700 !important;
-  line-height: 1.25 !important;
-  letter-spacing: -0.01em !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(23px, 2.3vw, 30px) !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0.02em !important;
   color: #27130D !important;
-  text-transform: none !important;
-  margin: 0 0 12px 0 !important;
-  max-width: 420px;
+  text-transform: uppercase !important;
+  margin: 0 0 10px 0 !important;
+  max-width: 520px;
 }
 
 .geni-why-highlight-wrap {
   position: relative;
   display: inline-block;
   color: #A35C2E;
+  white-space: nowrap;
 }
 
 .geni-why-italic {
-  font-family: 'Playfair Display', Georgia, serif !important;
-  font-style: italic !important;
+  font-family: 'Cinzel', serif !important;
+  font-style: normal !important;
   font-weight: 600 !important;
-  text-transform: none !important;
+  text-transform: uppercase !important;
   color: #A35C2E !important;
-  letter-spacing: 0 !important;
+  letter-spacing: 0.02em !important;
 }
 
 .geni-why-swoosh {
@@ -527,11 +528,11 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 
 .geni-why-desc {
   font-family: 'Glacial Indifference', sans-serif !important;
-  font-size: 13.5px;
+  font-size: 14.5px !important;
   line-height: 1.55;
-  color: #6B5549;
-  margin: 0 0 22px 0;
-  max-width: 410px;
+  color: #634C40;
+  margin: 0 0 18px 0;
+  max-width: 480px;
   font-weight: 400 !important;
 }
 
@@ -540,9 +541,9 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  max-width: 420px;
+  max-width: 460px;
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .geni-why-feat-col {
@@ -550,13 +551,13 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 7px;
+  gap: 6px;
 }
 
 .geni-why-feat-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
   background: #FAF1E6;
   border: 1px solid #E5D2C0;
   display: flex;
@@ -565,6 +566,11 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   color: #A35C2E;
   box-shadow: 0 2px 6px rgba(50, 24, 15, 0.04);
   transition: all 0.22s ease;
+}
+
+.geni-why-feat-icon-box svg {
+  width: 20px;
+  height: 20px;
 }
 
 .geni-why-feat-col:hover .geni-why-feat-icon-box {
@@ -576,13 +582,13 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 
 .geni-why-feat-label {
   font-family: 'Glacial Indifference', sans-serif !important;
-  font-size: 10.5px;
+  font-size: 11px !important;
   font-weight: 600;
   line-height: 1.3;
   color: #27130D;
   text-align: center;
   display: block;
-  max-width: 82px;
+  max-width: 86px;
 }
 
 /* Primary Action Button: Book a Demo pill */
@@ -1208,7 +1214,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 26px;
-  margin-bottom: 46px;
+  margin-bottom: 0;
 }
 
 .geni-int-cat-card {
@@ -1311,27 +1317,27 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 }
 
 .geni-hardware-item {
-  background: #FAF6F2;
-  border: 1px solid rgba(197, 139, 80, 0.18);
-  border-radius: 14px;
-  padding: 16px 8px 14px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(197, 139, 80, 0.22);
+  border-radius: 18px;
+  padding: 18px 10px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 10px;
+  gap: 12px;
+  box-shadow: 0 4px 14px rgba(50, 24, 15, 0.03);
   transition: all 0.24s ease;
 }
 
 .geni-hardware-item:hover {
-  background: #FFFFFF;
-  border-color: rgba(197, 139, 80, 0.45);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(50, 24, 15, 0.09);
+  border-color: rgba(197, 139, 80, 0.55);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(50, 24, 15, 0.10);
 }
 
 .geni-hardware-img-wrap {
-  height: 54px;
+  height: 72px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -1339,20 +1345,20 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 }
 
 .geni-hardware-real-img {
-  max-height: 50px;
-  max-width: 100%;
+  max-height: 68px;
+  max-width: 92%;
   object-fit: contain;
-  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.12));
-  transition: transform 0.22s ease;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
+  transition: transform 0.24s ease;
 }
 
 .geni-hardware-item:hover .geni-hardware-real-img {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
 .geni-hardware-label {
   font-family: 'Glacial Indifference', sans-serif;
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 600;
   color: #3E2417;
   line-height: 1.25;
@@ -1475,26 +1481,45 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 }
 
 .geni-reviews-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 6px 2px 14px;
+}
+
+.geni-reviews-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .geni-testimonial-card {
+  flex: 0 0 calc(50% - 9px);
+  min-width: calc(50% - 9px);
+  scroll-snap-align: start;
   background: rgba(74, 41, 27, 0.50);
   border: 1px solid rgba(197, 139, 80, 0.25);
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 22px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .geni-testimonial-card:hover {
-  transform: translateY(-2.5px);
+  transform: translateY(-3px);
   border-color: var(--geni-champagne);
+}
+
+@media (max-width: 768px) {
+  .geni-testimonial-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
 }
 
 .geni-quote-mark {
@@ -1524,16 +1549,25 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 .geni-author-info {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .geni-author-avatar {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
+  background: linear-gradient(135deg, rgba(197, 139, 80, 0.32) 0%, rgba(200, 16, 46, 0.42) 100%);
   border: 1.5px solid var(--geni-champagne);
-  object-fit: cover;
-  display: block;
+  color: #FFF8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
 }
 
 .geni-author-meta {
@@ -1562,11 +1596,13 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 }
 
 /* ==========================================================================
-   7. FREQUENTLY ASKED QUESTIONS (Warm Cream Section)
+   7. FREQUENTLY ASKED QUESTIONS (Minimalist Luxury SaaS Editorial Layout)
    ========================================================================== */
 .geni-faq-section {
   background: var(--geni-cream) !important;
-  padding: 68px 0;
+  padding: 95px 0 105px;
+  position: relative;
+  border-bottom: 1px solid rgba(197, 139, 80, 0.16);
 }
 
 .geni-faq-container {
@@ -1574,69 +1610,106 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 0.85fr 2fr;
-  align-items: flex-start;
-  gap: 44px;
+  grid-template-columns: 1fr 1.6fr;
+  align-items: start;
+  gap: 64px;
 }
 
 .geni-faq-left {
   text-align: left;
+  position: sticky;
+  top: 120px;
 }
 
 .geni-faq-title {
   font-family: 'Cinzel', serif;
-  font-size: clamp(23px, 2.5vw, 29px);
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  font-size: clamp(32px, 3.6vw, 46px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
   color: var(--geni-text-dark);
-  line-height: 1.3;
-  margin: 0 0 10px 0;
+  line-height: 1.15;
+  margin: 0 0 14px 0;
+  text-transform: none;
 }
 
 .geni-faq-subtitle {
-  font-size: 14px;
-  line-height: 1.58;
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
   color: var(--geni-text-muted);
-  margin: 0;
-  max-width: 300px;
+  margin: 0 0 28px 0;
+  max-width: 360px;
 }
 
-.geni-faq-accordion-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px 20px;
+/* Left CTA Button matching reference */
+.geni-faq-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #27130D;
+  color: #FFF8F0;
+  border: 1px solid rgba(197, 139, 80, 0.35);
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: all 0.28s ease;
+  box-shadow: 0 4px 14px rgba(39, 19, 13, 0.18);
+}
+
+.geni-faq-cta-btn svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.24s ease;
+}
+
+.geni-faq-cta-btn:hover {
+  background: #3D1F14;
+  color: #FBE6CE;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(39, 19, 13, 0.26);
+}
+
+.geni-faq-cta-btn:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Right Column: Clean single-column accordion list with horizontal line dividers */
+.geni-faq-accordion-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(197, 139, 80, 0.24);
+  width: 100%;
 }
 
 .geni-faq-item {
-  background: #FFFFFF;
-  border: 1px solid rgba(197, 139, 80, 0.22);
-  border-radius: 9px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(197, 139, 80, 0.24);
+  border-radius: 0;
   overflow: hidden;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.geni-faq-item.is-open {
-  border-color: var(--geni-caramel);
-  box-shadow: 0 3px 14px rgba(50, 24, 15, 0.06);
+  transition: background-color 0.2s ease;
 }
 
 .geni-faq-trigger {
   width: 100%;
   background: transparent;
   border: none;
-  padding: 14px 18px;
+  padding: 22px 4px 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 20px;
   cursor: pointer;
   text-align: left;
   font-family: 'Glacial Indifference', sans-serif;
-  font-size: 14px;
+  font-size: 16.5px;
   font-weight: 700;
   color: var(--geni-text-dark);
-  transition: color 0.18s ease;
+  transition: color 0.2s ease;
 }
 
 .geni-faq-trigger:hover {
@@ -1644,23 +1717,30 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 }
 
 .geni-faq-icon {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--geni-caramel);
+  font-size: 22px;
+  font-weight: 300;
+  color: #A35C2E;
   line-height: 1;
-  transition: transform 0.22s ease;
+  transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
   flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .geni-faq-item.is-open .geni-faq-icon {
   transform: rotate(45deg);
+  color: #27130D;
 }
 
 .geni-faq-content {
   display: none;
-  padding: 0 18px 14px;
-  font-size: 13px;
-  line-height: 1.58;
+  padding: 0 40px 24px 0;
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
   font-weight: 400;
   color: var(--geni-text-muted);
 }
@@ -1669,91 +1749,108 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   display: block;
 }
 
+@media (max-width: 991px) {
+  .geni-faq-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .geni-faq-left {
+    position: static;
+  }
+}
+
 /* ==========================================================================
-   8. FINAL CTA (Chocolate-Brown Banner with Dining Photo & Gold Button)
+   8. FINAL CTA (Full-Width Section with cta.png Background & Centered Content)
    ========================================================================== */
 .geni-final-cta-section {
-  background: var(--geni-cream) !important;
-  padding: 0 0 65px 0;
+  position: relative;
+  background-color: #27130D !important;
+  background-image: linear-gradient(180deg, rgba(39, 19, 13, 0.60) 0%, rgba(39, 19, 13, 0.72) 100%), url('{{ asset("assets/images/home/cta.png") }}') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  padding: 60px 0 !important;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.geni-final-cta-wrap {
-  max-width: 1220px;
+.geni-final-cta-container {
+  max-width: 860px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 24px;
-}
-
-.geni-final-cta-card {
-  background: linear-gradient(135deg, #27130D 0%, #361A10 65%, #221008 100%);
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(197, 139, 80, 0.28);
-  box-shadow: 0 16px 40px rgba(39, 19, 13, 0.30);
-  display: grid;
-  grid-template-columns: 220px 1fr auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 28px;
-  padding-right: 36px;
-  position: relative;
-}
-
-.geni-final-cta-photo {
-  height: 100%;
-  min-height: 150px;
-  position: relative;
-  overflow: hidden;
-}
-
-.geni-final-cta-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.geni-final-cta-photo::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 50px;
-  background: linear-gradient(90deg, transparent 0%, #27130D 100%);
-}
-
-.geni-final-cta-content {
-  padding: 24px 0;
-  text-align: left;
+  text-align: center;
 }
 
 .geni-final-cta-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(20px, 2.2vw, 26px);
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--geni-text-light);
-  line-height: 1.32;
-  margin: 0 0 8px 0;
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(26px, 3vw, 38px) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase !important;
+  color: #FFF8F0 !important;
+  line-height: 1.25 !important;
+  margin: 0 0 10px 0 !important;
+  text-align: center !important;
 }
 
 .geni-final-cta-title .gold-accent {
-  color: var(--geni-champagne);
-  font-weight: 600;
-  text-transform: uppercase;
+  color: #F2C58D !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
 }
 
 .geni-final-cta-desc {
-  font-size: 13.5px;
-  line-height: 1.55;
-  color: var(--geni-text-sec-light);
-  margin: 0;
-  max-width: 520px;
-  font-weight: 400;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 15.5px !important;
+  line-height: 1.55 !important;
+  color: #EBD8C7 !important;
+  margin: 0 auto 22px auto !important;
+  max-width: 640px !important;
+  text-align: center !important;
+  font-weight: 400 !important;
 }
 
 .geni-final-cta-btn-wrap {
-  flex-shrink: 0;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+}
+
+.geni-final-cta-btn-wrap .btn-primary-gold {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 12px 30px !important;
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+  transition: all 0.28s ease !important;
+}
+
+.geni-final-cta-btn-wrap .btn-primary-gold:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45) !important;
+}
+
+@media (max-width: 768px) {
+  .geni-final-cta-section {
+    padding: 50px 0 !important;
+  }
+  .geni-final-cta-desc {
+    font-size: 14.5px !important;
+    margin-bottom: 20px !important;
+  }
 }
 
 /* ==========================================================================
@@ -1839,6 +1936,508 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   .geni-final-cta-btn-wrap { width: 100%; }
   .geni-final-cta-btn-wrap .btn-primary-gold { width: 100%; justify-content: center; }
 }
+/* ==========================================================================
+   5B. HOW IT WORKS (3-Step Section matching Integrations Cream Theme)
+   ========================================================================== */
+.geni-how-section {
+  background: var(--geni-cream) !important;
+  padding: 85px 0 95px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(197, 139, 80, 0.16);
+}
+
+.geni-how-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.geni-how-header {
+  max-width: 700px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.geni-how-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #603A28;
+  margin-bottom: 12px;
+}
+
+.geni-how-eyebrow .dash {
+  width: 24px;
+  height: 2px;
+  background: #C58B50;
+  display: inline-block;
+  border-radius: 1px;
+}
+
+.geni-how-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #27130D;
+  margin: 0 0 14px 0;
+  line-height: 1.3;
+}
+
+.geni-how-title .title-accent {
+  color: #A35C2E;
+}
+
+.geni-how-desc {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #6B5549;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+/* 3-Card Process Grid with Directional Arrows */
+.geni-how-grid {
+  display: grid;
+  grid-template-columns: 1fr 36px 1fr 36px 1fr;
+  align-items: center;
+  gap: 14px;
+}
+
+.geni-how-card-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Luxury Step Pill Badge (matching site dark chocolate & gold button theme) */
+.geni-how-step-badge {
+  position: absolute;
+  top: -14px;
+  z-index: 3;
+  background: linear-gradient(135deg, #27130D 0%, #3D1F14 100%);
+  color: #FFF8F0;
+  border: 1px solid rgba(197, 139, 80, 0.45);
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 18px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(39, 19, 13, 0.25);
+}
+
+.geni-how-card {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid rgba(197, 139, 80, 0.22);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(60, 40, 20, 0.05);
+  transition: all 0.26s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.geni-how-card:hover {
+  transform: translateY(-4px);
+  border-color: #C58B50;
+  box-shadow: 0 16px 36px rgba(50, 24, 15, 0.10);
+}
+
+/* Top Image Container: Square aspect-ratio ensures 1:1 image is never cut */
+.geni-how-img-box {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #FFFFFF;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.geni-how-step-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.geni-how-card:hover .geni-how-step-img {
+  transform: scale(1.03);
+}
+
+/* Bottom Content Area */
+.geni-how-content {
+  padding: 22px 20px 24px;
+  background: #FFFFFF;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.geni-how-step-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.geni-how-step-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #FAF1E6;
+  border: 1px solid #E5D2C0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #A35C2E;
+  box-shadow: 0 2px 6px rgba(50, 24, 15, 0.04);
+}
+
+.geni-how-step-icon i {
+  font-size: 19px;
+  color: #A35C2E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.geni-how-step-title {
+  font-family: 'Cinzel', serif;
+  font-size: 17px;
+  font-weight: 700 !important;
+  -webkit-text-stroke: 0.35px #27130D;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #27130D;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.geni-how-step-desc {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #6B5549;
+  margin: 0;
+  padding-left: 52px;
+}
+
+/* Directional Arrow between Cards */
+.geni-how-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #FAF1E6;
+  border: 1px solid rgba(197, 139, 80, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4A291B;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(50, 24, 15, 0.06);
+  transition: all 0.22s ease;
+}
+
+.geni-how-arrow:hover {
+  background: #27130D;
+  color: #FFF8F0;
+  border-color: #C58B50;
+}
+
+.geni-how-arrow svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+@media (max-width: 991px) {
+  .geni-how-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+  .geni-how-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 540px) {
+  .geni-how-step-desc {
+    padding-left: 0;
+    margin-top: 4px;
+  }
+}
+
+/* ==========================================================================
+   6B. SOCIAL MEDIA SHOWCASE (Warm Cream & Champagne-Gold Instagram Gallery)
+   ========================================================================== */
+.geni-social-section {
+  background: var(--geni-cream) !important;
+  position: relative;
+  padding: 85px 0 95px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(197, 139, 80, 0.16);
+}
+
+.geni-social-curve {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.geni-social-curve-tl {
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 200px;
+  background: radial-gradient(ellipse at top left, rgba(242, 197, 141, 0.45) 0%, rgba(197, 139, 80, 0.14) 50%, transparent 75%);
+}
+
+.geni-social-curve-br {
+  bottom: 0;
+  right: 0;
+  width: 260px;
+  height: 210px;
+  background: radial-gradient(ellipse at bottom right, rgba(242, 197, 141, 0.45) 0%, rgba(197, 139, 80, 0.14) 50%, transparent 75%);
+}
+
+.geni-social-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.geni-social-header {
+  max-width: 720px;
+  margin: 0 auto 38px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.geni-social-eyebrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.geni-social-eyebrow-wrap .dash {
+  width: 28px;
+  height: 1.5px;
+  background: #C58B50;
+  display: inline-block;
+  border-radius: 1px;
+}
+
+.geni-social-eyebrow-pill {
+  background: #FBE6CE;
+  border: 1px solid rgba(197, 139, 80, 0.38);
+  border-radius: 999px;
+  padding: 5px 18px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4A291B;
+  box-shadow: 0 2px 6px rgba(74, 41, 27, 0.04);
+}
+
+.geni-social-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #27130D;
+  margin: 0 0 12px 0;
+  line-height: 1.25;
+}
+
+.geni-social-title .title-accent {
+  color: #C58B50;
+}
+
+.geni-social-desc {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #603A28;
+  margin: 0 auto 22px;
+  max-width: 600px;
+}
+
+.geni-social-btn-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.geni-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: #32180F;
+  border: 1.5px solid #C58B50;
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(74, 41, 27, 0.04);
+}
+
+.geni-social-btn i {
+  font-size: 18px;
+  color: #C58B50;
+  transition: transform 0.28s ease, color 0.28s ease;
+}
+
+.geni-social-btn:hover {
+  background: #27130D;
+  color: #FFF8F0;
+  border-color: #27130D;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(39, 19, 13, 0.16);
+}
+
+.geni-social-btn:hover i {
+  color: #F2C58D;
+  transform: scale(1.1);
+}
+
+/* 5-Card Gallery Grid */
+.geni-social-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 1220px;
+  margin: 40px auto 0;
+}
+
+.geni-social-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid rgba(197, 139, 80, 0.22);
+  box-shadow: 0 8px 24px rgba(50, 24, 15, 0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.geni-social-card:hover {
+  transform: translateY(-6px);
+  border-color: #C58B50;
+  box-shadow: 0 16px 36px rgba(50, 24, 15, 0.14);
+}
+
+/* Subtle Instagram Hover Overlay on each card */
+.geni-social-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(39, 19, 13, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  backdrop-filter: blur(1.5px);
+  z-index: 2;
+}
+
+.geni-social-overlay i {
+  font-size: 32px;
+  color: #FFF8F0;
+  transform: scale(0.8);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+}
+
+.geni-social-card:hover .geni-social-overlay {
+  opacity: 1;
+}
+
+.geni-social-card:hover .geni-social-overlay i {
+  transform: scale(1);
+}
+
+.geni-social-img-wrap {
+  width: 100%;
+  aspect-ratio: 184 / 201;
+  overflow: hidden;
+  position: relative;
+  background: #FAF4ED;
+}
+
+.geni-social-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.geni-social-card:hover .geni-social-img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 991px) {
+  .geni-social-gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .geni-social-gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 12px;
+  }
+  .geni-social-gallery::-webkit-scrollbar {
+    display: none;
+  }
+  .geni-social-card {
+    flex: 0 0 240px;
+    min-width: 240px;
+    scroll-snap-align: start;
+  }
+}
+
 </style>
 
 <!-- ==========================================================================
@@ -2065,6 +2664,21 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
     </div>
   </div>
 </section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var grid = document.querySelector('.geni-reviews-grid');
+  var prevBtn = document.querySelector('.geni-arrow-btn[aria-label="Previous review"]');
+  var nextBtn = document.querySelector('.geni-arrow-btn[aria-label="Next review"]');
+  if (grid && prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', function () {
+      grid.scrollBy({ left: -(grid.offsetWidth * 0.85), behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', function () {
+      grid.scrollBy({ left: (grid.offsetWidth * 0.85), behavior: 'smooth' });
+    });
+  }
+});
+</script>
 
 <!-- ==========================================================================
      3. WHY GENI MENU (Background Image: genimenu.png with Content on Left)
@@ -2079,9 +2693,9 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
       </div>
 
       <h2 class="geni-why-title">
-        A Smarter Digital Menu for <br>
+        A SMARTER DIGITAL MENU FOR <br>
         <span class="geni-why-highlight-wrap">
-          <span class="geni-why-italic">Modern Restaurants.</span>
+          <span class="geni-why-italic">MODERN RESTAURANTS.</span>
           <svg class="geni-why-swoosh" viewBox="0 0 320 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             <path d="M 4,14 Q 160,2 316,12" stroke="#C58B50" stroke-width="3.5" stroke-linecap="round" fill="none"/>
           </svg>
@@ -2418,7 +3032,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
         <div class="geni-int-platforms-row">
           <!-- Swiggy -->
           <div class="geni-int-box-card" title="Swiggy">
-            <img src="{{ asset('assets/images/home/icon_swiggy.png') }}" alt="Swiggy" class="geni-int-box-img">
+            <img src="{{ asset('assets/images/home/tile_swiggy.png') }}" alt="Swiggy" class="geni-int-box-img">
           </div>
 
           <!-- Zomato -->
@@ -2467,27 +3081,27 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
         <div class="geni-int-platforms-row">
           <!-- PhonePe -->
           <div class="geni-int-box-card" title="PhonePe">
-            <img src="{{ asset('assets/images/home/icon_phonepe.png') }}" alt="PhonePe" class="geni-int-box-img">
+            <img src="{{ asset('assets/images/home/tile_phonepe.png') }}" alt="PhonePe" class="geni-int-box-img">
           </div>
 
           <!-- Google Pay -->
           <div class="geni-int-box-card" title="Google Pay">
-            <img src="{{ asset('assets/images/home/icon_gpay.png') }}" alt="Google Pay" class="geni-int-box-img">
+            <img src="{{ asset('assets/images/home/tile_gpay.png') }}" alt="Google Pay" class="geni-int-box-img">
           </div>
 
           <!-- Paytm -->
           <div class="geni-int-box-card" title="Paytm">
-            <img src="{{ asset('assets/images/home/icon_paytm.png') }}" alt="Paytm" class="geni-int-box-img">
+            <img src="{{ asset('assets/images/home/tile_paytm.png') }}" alt="Paytm" class="geni-int-box-img">
           </div>
 
           <!-- Razorpay -->
           <div class="geni-int-box-card" title="Razorpay">
-            <img src="{{ asset('assets/images/home/icon_razorpay.png') }}" alt="Razorpay" class="geni-int-box-img">
+            <img src="{{ asset('assets/images/home/tile_razorpay.png') }}" alt="Razorpay" class="geni-int-box-img">
           </div>
 
           <!-- UPI -->
           <div class="geni-int-box-card" title="UPI">
-            <img src="{{ asset('assets/images/home/icon_upi.png') }}" alt="UPI" class="geni-int-box-img">
+            <img src="{{ asset('assets/images/home/tile_upi.png') }}" alt="UPI" class="geni-int-box-img">
           </div>
 
           <!-- Stripe -->
@@ -2514,7 +3128,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
         <div class="geni-int-platforms-row">
           <!-- WhatsApp Business Box Card -->
           <div class="geni-int-box-card" style="min-width: 110px; height: 96px;" title="WhatsApp Business">
-            <img src="{{ asset('assets/images/home/icon_whatsapp.png') }}" alt="WhatsApp Business" class="geni-int-box-img" style="max-height: 56px;">
+            <img src="{{ asset('assets/images/home/tile_whatsapp.png') }}" alt="WhatsApp Business" class="geni-int-box-img" style="max-height: 56px;">
           </div>
         </div>
       </div>
@@ -2571,13 +3185,114 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
         </div>
       </div>
     </div>
+</div>
+</section>
 
-    <!-- Bottom Explore Integrations CTA -->
-    <div class="geni-integrations-cta-wrap">
-      <a href="{{ route('enquiry') }}" class="btn-integration-explore">
-        <span>Explore Integrations</span>
-        <span style="font-size: 16px;">&rarr;</span>
-      </a>
+<!-- ==========================================================================
+     5B. HOW IT WORKS (Cream Background, Bootstrap Icons, Uncut Images, Bold Titles)
+     ========================================================================== -->
+<section class="geni-how-section" id="how-it-works">
+  <div class="geni-how-container">
+    <div class="geni-how-header">
+      <div class="geni-how-eyebrow">
+        <span class="dash"></span>
+        <span>HOW IT WORKS</span>
+        <span class="dash"></span>
+      </div>
+      <h2 class="geni-how-title">
+        <span class="title-accent">FROM SCAN TO SELECTION</span> IN JUST A FEW STEPS.
+      </h2>
+      <p class="geni-how-desc">
+        A simple and contactless way for your guests to explore your menu and choose their favourites.
+      </p>
+    </div>
+
+    <!-- 3-Step Horizontal Layout with Directional Arrows -->
+    <div class="geni-how-grid">
+      <!-- STEP 01 -->
+      <div class="geni-how-card-wrap">
+        <span class="geni-how-step-badge">STEP 01</span>
+        <div class="geni-how-card">
+          <!-- Replaceable Step 1 Image Container (1:1 uncut) -->
+          <div class="geni-how-img-box">
+            <img src="{{ asset('assets/images/home/how-step-1.png') }}" alt="STEP 01 – SCAN THE QR CODE" class="geni-how-step-img">
+          </div>
+          <!-- Step 1 Content Area -->
+          <div class="geni-how-content">
+            <div class="geni-how-step-header">
+              <div class="geni-how-step-icon" aria-hidden="true">
+                <i class="bi bi-qr-code-scan"></i>
+              </div>
+              <h3 class="geni-how-step-title">SCAN THE QR CODE</h3>
+            </div>
+            <p class="geni-how-step-desc">
+              Use your phone camera to scan the QR code at your table.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrow 1 -->
+      <div class="geni-how-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </div>
+
+      <!-- STEP 02 -->
+      <div class="geni-how-card-wrap">
+        <span class="geni-how-step-badge">STEP 02</span>
+        <div class="geni-how-card">
+          <!-- Replaceable Step 2 Image Container (1:1 uncut) -->
+          <div class="geni-how-img-box">
+            <img src="{{ asset('assets/images/home/how-step-2.png') }}" alt="STEP 02 – EXPLORE THE DIGITAL MENU" class="geni-how-step-img">
+          </div>
+          <!-- Step 2 Content Area -->
+          <div class="geni-how-content">
+            <div class="geni-how-step-header">
+              <div class="geni-how-step-icon" aria-hidden="true">
+                <i class="bi bi-grid-fill"></i>
+              </div>
+              <h3 class="geni-how-step-title">EXPLORE THE DIGITAL MENU</h3>
+            </div>
+            <p class="geni-how-step-desc">
+              Browse dishes, view images, check prices and discover new favourites.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrow 2 -->
+      <div class="geni-how-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </div>
+
+      <!-- STEP 03 -->
+      <div class="geni-how-card-wrap">
+        <span class="geni-how-step-badge">STEP 03</span>
+        <div class="geni-how-card">
+          <!-- Replaceable Step 3 Image Container (1:1 uncut) -->
+          <div class="geni-how-img-box">
+            <img src="{{ asset('assets/images/home/how-step-3.png') }}" alt="STEP 03 – DISCOVER YOUR FAVOURITE DISHES" class="geni-how-step-img">
+          </div>
+          <!-- Step 3 Content Area -->
+          <div class="geni-how-content">
+            <div class="geni-how-step-header">
+              <div class="geni-how-step-icon" aria-hidden="true">
+                <i class="bi bi-cup-hot-fill"></i>
+              </div>
+              <h3 class="geni-how-step-title">DISCOVER YOUR FAVOURITE DISHES</h3>
+            </div>
+            <p class="geni-how-step-desc">
+              Choose what you love and enjoy a seamless dining experience.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2593,7 +3308,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
         <span style="color: var(--geni-champagne);">OUR CUSTOMERS SAY</span>
       </div>
       <h2 class="geni-reviews-title">
-        Loved by Restaurant Owners Worldwide.
+        Loved by Food Owners Worldwide.
       </h2>
       <div class="geni-reviews-arrows" aria-hidden="true">
         <button type="button" class="geni-arrow-btn" aria-label="Previous review">
@@ -2620,10 +3335,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
         </div>
         <div class="geni-testimonial-author">
           <div class="geni-author-info">
-            <img src="{{ asset('assets/images/avatar-daniel.png') }}"
-                 alt="Daniel Morris"
-                 class="geni-author-avatar"
-                 onerror="this.style.display='none';">
+            <div class="geni-author-avatar">D</div>
             <div class="geni-author-meta">
               <span class="geni-author-name">Daniel Morris</span>
               <span class="geni-author-role">Restaurant Owner, USA</span>
@@ -2643,10 +3355,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
         </div>
         <div class="geni-testimonial-author">
           <div class="geni-author-info">
-            <img src="{{ asset('assets/images/avatar-emma.png') }}"
-                 alt="Emma Clarke"
-                 class="geni-author-avatar"
-                 onerror="this.style.display='none';">
+            <div class="geni-author-avatar">E</div>
             <div class="geni-author-meta">
               <span class="geni-author-name">Emma Clarke</span>
               <span class="geni-author-role">Caf&eacute; Owner, UK</span>
@@ -2655,98 +3364,339 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
           <div class="geni-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         </div>
       </div>
+
+      <!-- Testimonial 3: Rajesh Patel -->
+      <div class="geni-testimonial-card">
+        <div>
+          <div class="geni-quote-mark">&ldquo;</div>
+          <p class="geni-testimonial-text">
+            &ldquo;Switching to QR ordering reduced our table wait times by 30%. The multi-language support is a huge bonus for our diverse guests.&rdquo;
+          </p>
+        </div>
+        <div class="geni-testimonial-author">
+          <div class="geni-author-info">
+            <div class="geni-author-avatar">R</div>
+            <div class="geni-author-meta">
+              <span class="geni-author-name">Rajesh Patel</span>
+              <span class="geni-author-role">Fine Dining Owner, India</span>
+            </div>
+          </div>
+          <div class="geni-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+      </div>
+
+      <!-- Testimonial 4: Sofia Rossi -->
+      <div class="geni-testimonial-card">
+        <div>
+          <div class="geni-quote-mark">&ldquo;</div>
+          <p class="geni-testimonial-text">
+            &ldquo;Our average order value increased immediately because guests can see vibrant, high-res photos of every pasta and dessert before ordering.&rdquo;
+          </p>
+        </div>
+        <div class="geni-testimonial-author">
+          <div class="geni-author-info">
+            <div class="geni-author-avatar">S</div>
+            <div class="geni-author-meta">
+              <span class="geni-author-name">Sofia Rossi</span>
+              <span class="geni-author-role">Trattoria Owner, Italy</span>
+            </div>
+          </div>
+          <div class="geni-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+      </div>
+
+      <!-- Testimonial 5: Marcus Chen -->
+      <div class="geni-testimonial-card">
+        <div>
+          <div class="geni-quote-mark">&ldquo;</div>
+          <p class="geni-testimonial-text">
+            &ldquo;Managing multiple branch menus from one dashboard used to take hours. Geni Menu centralised everything seamlessly with zero downtime.&rdquo;
+          </p>
+        </div>
+        <div class="geni-testimonial-author">
+          <div class="geni-author-info">
+            <div class="geni-author-avatar">M</div>
+            <div class="geni-author-meta">
+              <span class="geni-author-name">Marcus Chen</span>
+              <span class="geni-author-role">Bistro Chain Founder, Singapore</span>
+            </div>
+          </div>
+          <div class="geni-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+      </div>
+
+      <!-- Testimonial 6: Lucas Moreau -->
+      <div class="geni-testimonial-card">
+        <div>
+          <div class="geni-quote-mark">&ldquo;</div>
+          <p class="geni-testimonial-text">
+            &ldquo;The POS integration and instant WhatsApp alerts keep our staff completely in sync during busy dinner rushes. Truly indispensable.&rdquo;
+          </p>
+        </div>
+        <div class="geni-testimonial-author">
+          <div class="geni-author-info">
+            <div class="geni-author-avatar">L</div>
+            <div class="geni-author-meta">
+              <span class="geni-author-name">Lucas Moreau</span>
+              <span class="geni-author-role">Boulangerie &amp; Caf&eacute;, France</span>
+            </div>
+          </div>
+          <div class="geni-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+      </div>
+
+      <!-- Testimonial 7: Aisha Al-Mansoor -->
+      <div class="geni-testimonial-card">
+        <div>
+          <div class="geni-quote-mark">&ldquo;</div>
+          <p class="geni-testimonial-text">
+            &ldquo;Customer feedback has been overwhelmingly positive. The sleek design matches our luxury ambiance and makes reordering effortless.&rdquo;
+          </p>
+        </div>
+        <div class="geni-testimonial-author">
+          <div class="geni-author-info">
+            <div class="geni-author-avatar">A</div>
+            <div class="geni-author-meta">
+              <span class="geni-author-name">Aisha Al-Mansoor</span>
+              <span class="geni-author-role">Lounge &amp; Grill, UAE</span>
+            </div>
+          </div>
+          <div class="geni-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+      </div>
+
+      <!-- Testimonial 8: Carlos Mendez -->
+      <div class="geni-testimonial-card">
+        <div>
+          <div class="geni-quote-mark">&ldquo;</div>
+          <p class="geni-testimonial-text">
+            &ldquo;Real-time inventory syncing and daily sales reports give us total operational control. The best technology upgrade we made this year.&rdquo;
+          </p>
+        </div>
+        <div class="geni-testimonial-author">
+          <div class="geni-author-info">
+            <div class="geni-author-avatar">C</div>
+            <div class="geni-author-meta">
+              <span class="geni-author-name">Carlos Mendez</span>
+              <span class="geni-author-role">Restobar Director, Spain</span>
+            </div>
+          </div>
+          <div class="geni-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var grid = document.querySelector('.geni-reviews-grid');
+  var prevBtn = document.querySelector('.geni-arrow-btn[aria-label="Previous review"]');
+  var nextBtn = document.querySelector('.geni-arrow-btn[aria-label="Next review"]');
+  if (grid && prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', function () {
+      grid.scrollBy({ left: -(grid.offsetWidth * 0.85), behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', function () {
+      grid.scrollBy({ left: (grid.offsetWidth * 0.85), behavior: 'smooth' });
+    });
+  }
+});
+</script>
+
+@php
+  // ============================================================================
+  // INSTAGRAM CONFIGURATION & INDIVIDUAL CARD POST LINKS
+  // ============================================================================
+  // Main Profile Link (used for the "Follow Geni Menu" button)
+  $geni_instagram_url = 'https://www.instagram.com/your_geni_menu/';
+
+  // Individual Instagram links for each card.
+  // Paste your custom Instagram post, reel, or story URL into the 'url' field below:
+  $geni_social_cards = [
+      [
+          'id'    => 'card-1',
+          'theme' => 'Chef Experience',
+          'image' => asset('assets/images/home/social-1.png'),
+          'alt'   => 'Chef Experience – Geni Menu',
+          'url'   => 'https://www.instagram.com/p/your_post_1/', // <-- PASTE CARD 1 INSTAGRAM LINK HERE
+      ],
+      [
+          'id'    => 'card-2',
+          'theme' => 'Digital Menu Experience',
+          'image' => asset('assets/images/home/social-2.png'),
+          'alt'   => 'Digital Menu Experience – Geni Menu',
+          'url'   => 'https://www.instagram.com/p/your_post_2/', // <-- PASTE CARD 2 INSTAGRAM LINK HERE
+      ],
+      [
+          'id'    => 'card-3',
+          'theme' => 'QR Menu Experience',
+          'image' => asset('assets/images/home/social-3.png'),
+          'alt'   => 'QR Menu Experience – Geni Menu',
+          'url'   => 'https://www.instagram.com/p/your_post_3/', // <-- PASTE CARD 3 INSTAGRAM LINK HERE
+      ],
+      [
+          'id'    => 'card-4',
+          'theme' => 'Café Experience',
+          'image' => asset('assets/images/home/social-4.png'),
+          'alt'   => 'Café Experience – Geni Menu',
+          'url'   => 'https://www.instagram.com/p/your_post_4/', // <-- PASTE CARD 4 INSTAGRAM LINK HERE
+      ],
+      [
+          'id'    => 'card-5',
+          'theme' => 'Dining Experience',
+          'image' => asset('assets/images/home/social-5.png'),
+          'alt'   => 'Dining Experience – Geni Menu',
+          'url'   => 'https://www.instagram.com/p/your_post_5/', // <-- PASTE CARD 5 INSTAGRAM LINK HERE
+      ],
+  ];
+@endphp
+
+<!-- ==========================================================================
+     6B. SOCIAL MEDIA SHOWCASE (Warm Cream & Champagne-Gold Instagram Gallery)
+     ========================================================================== -->
+<section class="geni-social-section" id="social-showcase">
+  <!-- Subtle decorative ambient gold corner curves -->
+  <div class="geni-social-curve geni-social-curve-tl" aria-hidden="true"></div>
+  <div class="geni-social-curve geni-social-curve-br" aria-hidden="true"></div>
+
+  <div class="geni-social-container">
+    <!-- Centered Editorial Header -->
+    <div class="geni-social-header">
+      <div class="geni-social-eyebrow-wrap">
+        <span class="dash"></span>
+        <span class="geni-social-eyebrow-pill">FOLLOW THE EXPERIENCE</span>
+        <span class="dash"></span>
+      </div>
+
+      <h2 class="geni-social-title">
+        A Taste of <span class="title-accent">What&rsquo;s Happening</span>
+      </h2>
+
+      <p class="geni-social-desc">
+        Discover menu inspiration, restaurant moments and fresh ideas from the world of digital dining.
+      </p>
+
+      <div class="geni-social-btn-wrap">
+        <a href="{{ $geni_instagram_url }}" target="_blank" rel="noopener noreferrer" class="geni-social-btn" title="Follow Geni Menu on Instagram">
+          <i class="bi bi-instagram"></i>
+          <span>Follow Geni Menu</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 5-Card Horizontal Image Gallery (Each Card Clickable to Instagram) -->
+    <div class="geni-social-gallery">
+      @foreach ($geni_social_cards as $card)
+        <a href="{{ $card['url'] }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="geni-social-card"
+           title="View on Instagram – {{ $card['theme'] }}"
+           aria-label="View on Instagram – {{ $card['theme'] }}">
+          <div class="geni-social-img-wrap">
+            <img src="{{ $card['image'] }}" alt="{{ $card['alt'] }}" class="geni-social-img" loading="lazy">
+            <!-- Subtle Instagram Hover Overlay Icon -->
+            <div class="geni-social-overlay" aria-hidden="true">
+              <i class="bi bi-instagram"></i>
+            </div>
+          </div>
+        </a>
+      @endforeach
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     7. FREQUENTLY ASKED QUESTIONS (Warm Cream Section)
+     7. FREQUENTLY ASKED QUESTIONS (Minimalist Luxury SaaS Editorial Layout)
      ========================================================================== -->
 <section class="geni-faq-section" id="faq">
   <div class="geni-faq-container">
+    <!-- Left Column: Heading + CTA Button -->
     <div class="geni-faq-left">
       <div class="geni-section-eyebrow">
         <span class="dash"></span>
         <span>FAQ</span>
       </div>
       <h2 class="geni-faq-title">
-        Frequently Asked Questions
+        Frequently<br>asked questions
       </h2>
       <p class="geni-faq-subtitle">
         Find quick answers to common questions about Geni Menu.
       </p>
+      <a href="{{ route('enquiry') }}" class="geni-faq-cta-btn">
+        <span>Get a demo</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
     </div>
 
-    <div class="geni-faq-accordion-grid">
-      <!-- Col 1 -->
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <!-- Q1 -->
-        <div class="geni-faq-item is-open">
-          <button type="button" class="geni-faq-trigger" onclick="toggleGeniFaq(this)">
-            <span>What is Geni Menu?</span>
-            <span class="geni-faq-icon">+</span>
-          </button>
-          <div class="geni-faq-content">
-            Geni Menu is an all-in-one digital menu and restaurant technology platform that allows hospitality businesses to create, manage, and share modern interactive menus instantly through QR codes and online links.
-          </div>
-        </div>
-
-        <!-- Q2 -->
-        <div class="geni-faq-item">
-          <button type="button" class="geni-faq-trigger" onclick="toggleGeniFaq(this)">
-            <span>How do customers access the menu?</span>
-            <span class="geni-faq-icon">+</span>
-          </button>
-          <div class="geni-faq-content">
-            Customers simply point their smartphone camera at the customized QR code on table stands, coasters, or counters. No app download or registration is required.
-          </div>
-        </div>
-
-        <!-- Q3 -->
-        <div class="geni-faq-item">
-          <button type="button" class="geni-faq-trigger" onclick="toggleGeniFaq(this)">
-            <span>Can I update menu items and prices?</span>
-            <span class="geni-faq-icon">+</span>
-          </button>
-          <div class="geni-faq-content">
-            Yes! You can update item descriptions, photos, prices, categories, and item availability in real time from your Geni Menu dashboard. Changes reflect immediately across all customer devices.
-          </div>
+    <!-- Right Column: Single Vertical Accordion List with Horizontal Line Dividers -->
+    <div class="geni-faq-accordion-list">
+      <!-- Q1 -->
+      <div class="geni-faq-item is-open">
+        <button type="button" class="geni-faq-trigger" onclick="toggleGeniFaq(this)">
+          <span>What is Geni Menu?</span>
+          <span class="geni-faq-icon">+</span>
+        </button>
+        <div class="geni-faq-content">
+          Geni Menu is an all-in-one digital menu and restaurant technology platform that allows hospitality businesses to create, manage, and share modern interactive menus instantly through QR codes and online links.
         </div>
       </div>
 
-      <!-- Col 2 -->
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <!-- Q4 -->
-        <div class="geni-faq-item">
-          <button type="button" class="geni-faq-trigger" onclick="toggleGeniFaq(this)">
-            <span>Does it work on smartphones and tablets?</span>
-            <span class="geni-faq-icon">+</span>
-          </button>
-          <div class="geni-faq-content">
-            Absolutely. Geni Menu is fully responsive and optimized for all iOS and Android smartphones, iPad/Android tablets, laptops, and desktop browsers.
-          </div>
+      <!-- Q2 -->
+      <div class="geni-faq-item">
+        <button type="button" class="geni-faq-trigger" onclick="toggleGeniFaq(this)">
+          <span>How do customers access the menu?</span>
+          <span class="geni-faq-icon">+</span>
+        </button>
+        <div class="geni-faq-content">
+          Customers simply point their smartphone camera at the customized QR code on table stands, coasters, or counters. No app download or registration is required.
         </div>
+      </div>
 
-        <!-- Q5 -->
-        <div class="geni-faq-item">
-          <button type="button" class="geni-faq-trigger" onclick="toggleGeniFaq(this)">
-            <span>Can I customise my digital menu?</span>
-            <span class="geni-faq-icon">+</span>
-          </button>
-          <div class="geni-faq-content">
-            Yes, you can customize your digital menu with your restaurant logo, custom brand colors, high-resolution food photography, dietary badges (Veg, Vegan, Gluten-Free), and special chef recommendations.
-          </div>
+      <!-- Q3 -->
+      <div class="geni-faq-item">
+        <button type="button" class="geni-faq-trigger" onclick="toggleGeniFaq(this)">
+          <span>Can I update menu items and prices?</span>
+          <span class="geni-faq-icon">+</span>
+        </button>
+        <div class="geni-faq-content">
+          Yes! You can update item descriptions, photos, prices, categories, and item availability in real time from your Geni Menu dashboard. Changes reflect immediately across all customer devices.
         </div>
+      </div>
 
-        <!-- Q6 -->
-        <div class="geni-faq-item">
-          <button type="button" class="geni-faq-trigger" onclick="toggleGeniFaq(this)">
-            <span>Can I use it for multiple locations?</span>
-            <span class="geni-faq-icon">+</span>
-          </button>
-          <div class="geni-faq-content">
-            Yes, Geni Menu features complete multi-outlet and franchise support. You can manage multiple branches, sync master menus, or customize individual branch pricing and availability seamlessly.
-          </div>
+      <!-- Q4 -->
+      <div class="geni-faq-item">
+        <button type="button" class="geni-faq-trigger" onclick="toggleGeniFaq(this)">
+          <span>Does it work on smartphones and tablets?</span>
+          <span class="geni-faq-icon">+</span>
+        </button>
+        <div class="geni-faq-content">
+          Absolutely. Geni Menu is fully responsive and optimized for all iOS and Android smartphones, iPad/Android tablets, laptops, and desktop browsers.
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="geni-faq-item">
+        <button type="button" class="geni-faq-trigger" onclick="toggleGeniFaq(this)">
+          <span>Can I customise my digital menu?</span>
+          <span class="geni-faq-icon">+</span>
+        </button>
+        <div class="geni-faq-content">
+          Yes, you can customize your digital menu with your restaurant logo, custom brand colors, high-resolution food photography, dietary badges (Veg, Vegan, Gluten-Free), and special chef recommendations.
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="geni-faq-item">
+        <button type="button" class="geni-faq-trigger" onclick="toggleGeniFaq(this)">
+          <span>Can I use it for multiple locations?</span>
+          <span class="geni-faq-icon">+</span>
+        </button>
+        <div class="geni-faq-content">
+          Yes, Geni Menu features complete multi-outlet and franchise support. You can manage multiple branches, sync master menus, or customize individual branch pricing and availability seamlessly.
         </div>
       </div>
     </div>
@@ -2754,35 +3704,21 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 </section>
 
 <!-- ==========================================================================
-     8. FINAL CTA (Chocolate-Brown Banner with Dining Photo & Gold Button)
+     8. FINAL CTA (Full-Width Section with cta.png Background & Centered Content)
      ========================================================================== -->
 <section class="geni-final-cta-section" id="cta-banner">
-  <div class="geni-final-cta-wrap">
-    <div class="geni-final-cta-card">
-      <!-- Dining Photo on Left -->
-      <div class="geni-final-cta-photo">
-        <img src="{{ asset('assets/images/final-cta-dining-2x.png') }}"
-             alt="Restaurant Dining Experience"
-             loading="lazy">
-      </div>
-
-      <!-- Heading & Supporting Copy -->
-      <div class="geni-final-cta-content">
-        <h2 class="geni-final-cta-title">
-          Ready to Transform Your <span class="gold-accent">Digital Dining Experience?</span>
-        </h2>
-        <p class="geni-final-cta-desc">
-          Create a stunning digital menu, connect with your guests and simplify the way your restaurant manages its offerings.
-        </p>
-      </div>
-
-      <!-- Action Button on Right -->
-      <div class="geni-final-cta-btn-wrap">
-        <a href="{{ route('restaurant_signup') }}" class="btn-primary-gold">
-          <span>Start Your Free Trial</span>
-          <span style="font-size: 14px;">&rarr;</span>
-        </a>
-      </div>
+  <div class="geni-final-cta-container">
+    <h2 class="geni-final-cta-title">
+      Ready to Transform Your <span class="gold-accent">Digital Dining Experience?</span>
+    </h2>
+    <p class="geni-final-cta-desc">
+      Create a stunning digital menu, connect with your guests and simplify the way your restaurant manages its offerings.
+    </p>
+    <div class="geni-final-cta-btn-wrap">
+      <a href="{{ route('restaurant_signup') }}" class="btn-primary-gold">
+        <span>Start Your Free Trial</span>
+        <span style="font-size: 15px; margin-left: 4px;">&rarr;</span>
+      </a>
     </div>
   </div>
 </section>
