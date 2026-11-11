@@ -27,6 +27,8 @@
 
                         @livewire('sidebar-menu-item', ['name' => __('menu.landingSites'), 'icon' => 'landing', 'link' => route('superadmin.landing-sites.index'), 'active' => request()->routeIs('superadmin.landing-sites.*')])
 
+                        @livewire('sidebar-menu-item', ['name' => __('menu.messages'), 'icon' => 'messages', 'link' => route('superadmin.messages.index'), 'active' => request()->routeIs('superadmin.messages.*')])
+
                         @foreach (custom_module_plugins() as $item)
                             @includeIf(strtolower($item) . '::sections.superadmin-sidebar')
                         @endforeach

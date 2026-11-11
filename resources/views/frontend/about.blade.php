@@ -180,30 +180,30 @@
   display: inline-block;
 }
 
-/* --- Primary Buttons --- */
+/* --- Unified Action Buttons (Matches Home Page System) --- */
 .btn-primary-gold {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #F5B947 0%, #E99A24 100%);
-  color: #27130D !important;
-  font-family: 'Glacial Indifference', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  padding: 12px 28px;
-  border-radius: 9999px;
-  border: none;
-  box-shadow: 0 6px 18px rgba(245, 185, 71, 0.35);
+  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;
+  color: #32180F !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 11.5px 24px !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.28) !important;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: all 0.22s ease;
   cursor: pointer;
 }
 
 .btn-primary-gold:hover {
-  background: linear-gradient(135deg, #FCE8D2 0%, #F5B947 100%);
+  background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%) !important;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(245, 185, 71, 0.45);
+  box-shadow: 0 6px 22px rgba(242, 197, 141, 0.42) !important;
   color: #27130D !important;
 }
 
@@ -221,25 +221,26 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: transparent;
+  background: transparent !important;
   color: #FFF8F0 !important;
-  font-family: 'Glacial Indifference', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  padding: 11px 26px;
-  border-radius: 9999px;
-  border: 1.5px solid rgba(245, 185, 71, 0.7);
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 11px 24px !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid rgba(242, 197, 141, 0.60) !important;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: all 0.22s ease;
   cursor: pointer;
 }
 
 .btn-secondary-outline-gold:hover {
-  background: rgba(245, 185, 71, 0.15);
-  border-color: #F5B947;
-  color: #F5B947 !important;
+  background: rgba(242, 197, 141, 0.15) !important;
+  border-color: #F2C58D !important;
+  color: #F2C58D !important;
   transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.20) !important;
 }
 
 .btn-secondary-outline-gold .arrow {

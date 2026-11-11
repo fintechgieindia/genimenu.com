@@ -19,7 +19,7 @@
     left: 0;
     right: 0;
     z-index: 9999;
-    background: rgba(50, 24, 15, 0.88) !important;
+    background: #27130D !important;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--geni-nav-border) !important;
@@ -38,11 +38,11 @@
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(50, 24, 15, 0.82) !important;
+    background: rgba(39, 19, 13, 0.88) !important;
   }
 
   body.has-hero-nav .geni-pos-nav:not(.is-scrolled) {
-    background: rgba(50, 24, 15, 0.82) !important;
+    background: rgba(39, 19, 13, 0.88) !important;
     border-bottom: 1px solid var(--geni-nav-border) !important;
     box-shadow: 0 4px 24px rgba(20, 10, 6, 0.3) !important;
   }
@@ -137,14 +137,14 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 15.5px;
+    font-size: 13.5px;
     font-weight: 500;
-    letter-spacing: 0.15px;
+    letter-spacing: 0.2px;
     color: var(--geni-nav-warm-white);
     text-decoration: none;
     background: transparent;
     border: none;
-    padding: 10px 16px;
+    padding: 8px 14px;
     border-radius: 6px;
     cursor: pointer;
     white-space: nowrap;
@@ -168,8 +168,8 @@
     content: '';
     position: absolute;
     bottom: 2px;
-    left: 16px;
-    right: 16px;
+    left: 14px;
+    right: 14px;
     height: 2px;
     background: linear-gradient(90deg, #C58B50 0%, #F2C58D 50%, #C58B50 100%);
     border-radius: 2px;
@@ -518,9 +518,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 16px;
+    padding: 12px 14px;
     color: var(--geni-nav-warm-white);
-    font-size: 16px;
+    font-size: 14.5px;
     font-weight: 600;
     text-decoration: none;
     border-radius: 8px;
@@ -621,7 +621,7 @@
            alt="Geni Menu" class="brand-logo-img">
       <div class="brand-divider" aria-hidden="true"></div>
       <div class="brand-tagline">
-        <span>Restaurant Digital</span>
+        <span>Digital</span>
         <span>Menu Platform</span>
       </div>
     </a>
@@ -1013,31 +1013,70 @@
     if (m) {
       var parts = decodeURIComponent(m[1]).split('/');
       var c = parts[parts.length - 1];
-      if (c && c !== 'auto' && GENI_LANG_MAP[c]) {
+      if (c && c !== 'auto' && c !== 'en' && GENI_LANG_MAP[c]) {
         return c;
       }
     }
     var ls = localStorage.getItem('geni_selected_locale');
-    if (ls && GENI_LANG_MAP[ls]) {
+    if (ls && ls !== 'en' && GENI_LANG_MAP[ls]) {
       return ls;
     }
-    return '{{ session("customer_locale") ?? app()->getLocale() ?? "en" }}';
+    return 'en';
+  }
+
+  function clearGoogleTranslateCookies() {
+    var host = window.location.hostname;
+    var delStr = '=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+    var domains = ['', host, '.' + host];
+    var parts = host.split('.');
+    if (parts.length > 2) {
+      domains.push('.' + parts.slice(-2).join('.'));
+    }
+    domains.forEach(function(d) {
+      document.cookie = 'googtrans' + delStr + ' path=/;' + (d ? ' domain=' + d + ';' : '');
+      document.cookie = 'googtrans' + delStr + ' path=' + window.location.pathname + ';' + (d ? ' domain=' + d + ';' : '');
+    });
   }
 
   function setLanguageCookies(lang) {
-    var val = (lang === 'en') ? '/en/en' : ('/en/' + lang);
-    var host = window.location.hostname;
-    var delStr = '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    document.cookie = 'googtrans' + delStr;
-    document.cookie = 'googtrans' + delStr + ' domain=' + host + ';';
-    if (host.indexOf('.') !== -1 && !/^\d+\.\d+\.\d+\.\d+$/.test(host)) {
-      document.cookie = 'googtrans' + delStr + ' domain=.' + host + ';';
+    clearGoogleTranslateCookies();
+    if (lang === 'en') {
+      return;
     }
 
+    var val = '/en/' + lang;
+    var host = window.location.hostname;
     document.cookie = 'googtrans=' + val + '; path=/; SameSite=Lax';
     document.cookie = 'googtrans=' + val + '; domain=' + host + '; path=/; SameSite=Lax';
     if (host.indexOf('.') !== -1 && !/^\d+\.\d+\.\d+\.\d+$/.test(host)) {
       document.cookie = 'googtrans=' + val + '; domain=.' + host + '; path=/; SameSite=Lax';
+    }
+  }
+
+  function updateLanguageUI(code) {
+    if (!GENI_LANG_MAP[code]) code = 'en';
+    var labelEl = document.getElementById('activeLangLabel');
+    if (labelEl) {
+      labelEl.textContent = GENI_LANG_MAP[code].native;
+    }
+
+    document.querySelectorAll('.lang-item').forEach(function(item) {
+      if (item.getAttribute('data-code') === code) {
+        item.classList.add('is-active');
+      } else {
+        item.classList.remove('is-active');
+      }
+    });
+
+    var mobSelect = document.getElementById('mobileLangSelect');
+    if (mobSelect) {
+      mobSelect.value = code;
+    }
+
+    if (GENI_LANG_MAP[code] && GENI_LANG_MAP[code].rtl) {
+      document.documentElement.setAttribute('dir', 'rtl');
+    } else {
+      document.documentElement.setAttribute('dir', 'ltr');
     }
   }
 
@@ -1055,22 +1094,42 @@
       }).catch(function() {});
     } catch(e) {}
 
+    updateLanguageUI(code);
+    closeLangMenu();
+
+    if (code === 'en') {
+      clearGoogleTranslateCookies();
+      var combo = document.querySelector('.goog-te-combo');
+      if (combo) {
+        combo.value = '';
+        combo.dispatchEvent(new Event('change'));
+      }
+      setTimeout(function() {
+        window.location.reload();
+      }, 100);
+      return;
+    }
+
+    // Translate smoothly in-place without reloading the page
     var combo = document.querySelector('.goog-te-combo');
     if (combo) {
       combo.value = code;
       combo.dispatchEvent(new Event('change'));
-    }
-
-    if (GENI_LANG_MAP[code].rtl) {
-      document.documentElement.setAttribute('dir', 'rtl');
     } else {
-      document.documentElement.setAttribute('dir', 'ltr');
+      var attempts = 0;
+      var interval = setInterval(function() {
+        attempts++;
+        var c = document.querySelector('.goog-te-combo');
+        if (c) {
+          c.value = code;
+          c.dispatchEvent(new Event('change'));
+          clearInterval(interval);
+        } else if (attempts >= 10) {
+          clearInterval(interval);
+          window.location.reload();
+        }
+      }, 100);
     }
-
-    closeLangMenu();
-    setTimeout(function() {
-      window.location.reload();
-    }, 120);
   }
 
   function toggleLangMenu(e) {
@@ -1105,27 +1164,7 @@
 
   function initLanguageUI() {
     var current = getSavedLanguage();
-    var labelEl = document.getElementById('activeLangLabel');
-    if (labelEl && GENI_LANG_MAP[current]) {
-      labelEl.textContent = GENI_LANG_MAP[current].native;
-    }
-
-    document.querySelectorAll('.lang-item').forEach(function(item) {
-      if (item.getAttribute('data-code') === current) {
-        item.classList.add('is-active');
-      } else {
-        item.classList.remove('is-active');
-      }
-    });
-
-    var mobSelect = document.getElementById('mobileLangSelect');
-    if (mobSelect) {
-      mobSelect.value = current;
-    }
-
-    if (GENI_LANG_MAP[current] && GENI_LANG_MAP[current].rtl) {
-      document.documentElement.setAttribute('dir', 'rtl');
-    }
+    updateLanguageUI(current);
 
     var btn = document.getElementById('btnLangToggle');
     if (btn) {

@@ -179,9 +179,10 @@
 
         /* Footer styles */
         .footer {
-            background-color: var(--bg2, #FFFFFF);
-            padding: 60px 20px 20px;
-            border-top: 1px solid var(--line, #E3E8EE);
+            background-color: #FAF2E8 !important;
+            padding: 38px 20px 18px;
+            border-top: 1px solid rgba(197, 139, 80, 0.28) !important;
+            font-family: 'Glacial Indifference', -apple-system, BlinkMacSystemFont, sans-serif !important;
         }
 
         @media (min-width: 768px) {
@@ -190,8 +191,8 @@
                 flex-wrap: wrap;
                 max-width: 1240px;
                 margin: auto;
-                gap: 30px;
-                padding-bottom: 40px;
+                gap: 24px;
+                padding-bottom: 22px;
             }
         }
 
@@ -214,84 +215,108 @@
 
         /* Logo styling */
         .footer-logo img {
-            height: 48px;
+            height: 40px;
             width: auto;
             object-fit: contain;
-            margin-bottom: 20px;
-        }
-
-        /* Headings */
-        .footer h5 {
-            color: var(--ink, #21160F);
-            font-weight: 700;
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-
-        /* Text */
-        .footer p {
-            color: var(--mute, #6E6157);
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        /* Links */
-        .footer a {
-            text-decoration: none;
-            color: var(--mute, #6E6157);
-            display: block;
             margin-bottom: 12px;
-            transition: color 0.3s ease;
-            font-size: 15px;
+        }
+
+        /* Headings: Cinzel Regular, Uppercase */
+        .footer h5 {
+            font-family: 'Cinzel', serif !important;
+            color: #32180F !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.06em !important;
+            margin-bottom: 12px;
+            font-size: 15px !important;
+        }
+
+        /* Body Text: Glacial Indifference Regular */
+        .footer p {
+            font-family: 'Glacial Indifference', sans-serif !important;
+            color: #5A4234 !important;
+            font-size: 13.5px !important;
+            font-weight: 400 !important;
+            line-height: 1.55;
+            margin-bottom: 8px;
+        }
+
+        /* Links: Glacial Indifference Regular */
+        .footer a {
+            font-family: 'Glacial Indifference', sans-serif !important;
+            text-decoration: none;
+            color: #5A4234 !important;
+            font-weight: 400 !important;
+            display: block;
+            margin-bottom: 7px;
+            transition: all 0.22s ease;
+            font-size: 13.5px !important;
+            line-height: 1.35;
         }
 
         .footer a:hover {
-            color: var(--br, #876039);
+            color: #C58B50 !important;
+            transform: translateX(3px);
+        }
+
+        .footer a.active {
+            color: #32180F !important;
+            font-weight: 700 !important;
         }
 
         /* Social icons */
         .social-icons {
             display: flex;
-            gap: 12px;
-            margin-top: 16px;
+            gap: 10px;
+            margin-top: 10px;
         }
 
         .social-icons a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 42px;
-            height: 42px;
-            border: 1px solid var(--br, #876039);
+            width: 36px;
+            height: 36px;
+            background-color: #FFFDF9;
+            border: 1.5px solid rgba(197, 139, 80, 0.45);
             border-radius: 50%;
-            color: var(--br, #876039);
-            font-size: 18px;
-            transition: all 0.3s ease;
+            color: #32180F !important;
+            font-size: 15px;
+            transition: all 0.25s ease;
+            margin-bottom: 0;
         }
 
         .social-icons a:hover,
         .social-icons a:active {
-            background-color: var(--br, #876039);
-            color: #fff;
+            background-color: #32180F;
+            border-color: #32180F;
+            color: #F2C58D !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(50, 24, 15, 0.18);
         }
         
         .footer-bottom {
             max-width: 1240px;
             margin: 0 auto;
-            padding-top: 24px;
-            border-top: 1px solid var(--line, rgba(168, 91, 43, 0.16));
+            padding-top: 16px;
+            border-top: 1px solid rgba(197, 139, 80, 0.25);
             text-align: center;
+            font-family: 'Glacial Indifference', sans-serif !important;
         }
         .footer-bottom span {
-            color: var(--mute, #6E6157);
-            font-size: 14px;
+            color: #6E6157 !important;
+            font-size: 13px !important;
+            font-family: 'Glacial Indifference', sans-serif !important;
         }
         .footer-bottom a {
             display: inline;
-            color: var(--br, #876039);
+            color: #32180F !important;
+            font-weight: 700 !important;
+            transform: none !important;
         }
         .footer-bottom a:hover {
+            color: #C58B50 !important;
             text-decoration: underline;
         }
 
@@ -405,7 +430,7 @@
 
 </head>
 
-<body class="font-sans antialiased :bg-gray-900 {{ request()->routeIs('home', 'about.us') ? 'has-hero-nav' : '' }}">
+<body class="font-sans antialiased :bg-gray-900 {{ request()->routeIs('home', 'about.us', 'contact.us', 'contact') ? 'has-hero-nav' : '' }}">
 
     <div class="">
         @include('layouts.partials.zoho-navbar')
@@ -431,12 +456,10 @@
             <!-- Logo & Description -->
             <div class="footer-column col-5">
                 <div class="footer-logo">
-                    <img src="{{ asset('assets/images/geni-menu-logo-light.png') }}" alt="Geni Menu Logo" style="height: 48px; width: auto; object-fit: contain;">
+                    <img src="{{ asset('assets/images/geni-menu-logo-light.png') }}" alt="Geni Menu Logo" style="height: 40px; width: auto; object-fit: contain;">
                 </div>
                 <p style="text-align: justify; padding-right: 30px;">
-                    <strong>All-in-one restaurant billing and management software</strong> for handle orders, payments,
-                    and reports with ease. Manage daily operations efficiently, improve service quality, and keep
-                    customers satisfied.
+                    Powering smarter operations through connected digital solutions for menus, orders, billing and business management.
                 </p>
             </div>
 
@@ -448,12 +471,10 @@
                     class=" fnav-link {{ request()->routeIs('about.us') ? 'active' : '' }}">About Us</a>
                 <a href="{{ route('features') }}"
                     class="fnav-link {{ request()->routeIs('features') ? 'active' : '' }}">Features</a>
+                <a href="{{ route('solutions') }}"
+                    class="fnav-link {{ request()->routeIs('solutions*') ? 'active' : '' }}">Solutions</a>
                 <a href="{{ route('pricing') }}"
                     class="fnav-link {{ request()->routeIs('pricing') ? 'active' : '' }}">Pricing</a>
-                <a href="{{ route('how-it-works') }}"
-                    class="fnav-link {{ request()->routeIs('how-it-works') ? 'active' : '' }}">How It Works</a>
-                <a href="{{ route('faq-help') }}"
-                    class="fnav-link {{ request()->routeIs('faq-help') ? 'active' : '' }}">FAQ & Help</a>
                 <a href="{{ route('contact.us') }}"
                     class="fnav-link {{ request()->routeIs('contact.us') ? 'active' : '' }}">Contact Us</a>
             </div>
@@ -540,41 +561,148 @@
         <span>Book a Demo</span>
     </button>
 
+    @php
+        $popupCountriesList = \App\Models\Country::orderBy('countries_name')->get();
+        $popupPriorityCodes = ['IN', 'AE', 'US', 'GB', 'SG', 'MY', 'SA', 'QA', 'CA', 'AU'];
+        $popupPriorityCountries = $popupCountriesList->whereIn('countries_code', $popupPriorityCodes)->sortBy(function($c) use ($popupPriorityCodes) {
+            return array_search($c->countries_code, $popupPriorityCodes);
+        });
+        $popupDefaultCountry = 'India';
+        $popupDefaultPhoneCode = '+91';
+    @endphp
+
     <!-- Popup Lead Modal -->
     <div id="popupLeadModal" class="popup-modal-overlay">
         <div class="popup-modal-content popup-with-image">
-            <button class="popup-close-btn" id="closePopupModal">&times;</button>
-            <div class="popup-left-side" style="padding: 0; background: none;">
-                <img src="{{ asset('landing/popup-side-image.jpg') }}" alt="Geni Menu" style="width: 100%; height: 100%; object-fit: cover;">
+            <button class="popup-close-btn" id="closePopupModal" aria-label="Close modal">&times;</button>
+            
+            {{-- Left Side --}}
+            <div class="popup-left-side">
+                <div class="popup-left-bg"></div>
+                <div class="popup-left-overlay"></div>
+                <div class="popup-left-content">
+                    <div class="popup-left-top">
+                        <span class="popup-connect-badge">LET'S CONNECT</span>
+                        <h3 class="popup-connect-title">Experience Smarter Business Management.</h3>
+                        <p class="popup-connect-desc">
+                            Discover how Geni Menu brings your essential business operations together through one intelligent digital platform.
+                        </p>
+                    </div>
+
+                    <div class="popup-contact-info">
+                        <a href="tel:+918667205661" class="popup-contact-item">
+                            <span class="popup-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </span>
+                            <span class="popup-contact-text">+91 86672 05661</span>
+                        </a>
+
+                        <a href="mailto:genimenuglobal@gmail.com" class="popup-contact-item">
+                            <span class="popup-contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </span>
+                            <span class="popup-contact-text">genimenuglobal@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+            {{-- Right Side --}}
             <div class="popup-right-side">
                 <div class="popup-header">
-                    <h3>Get Started with Geni Menu</h3>
-                    <p>Fill out the form below and our team will get in touch with you shortly.</p>
+                    <h3>Request a Personalised Demo</h3>
+                    <p>Share your details and our team will connect with you.</p>
                 </div>
-                <form action="{{ route('popup.lead.store') }}" method="POST" class="popup-form">
+
+                <div id="popupAlert" class="popup-alert" style="display: none;"></div>
+
+                <form action="{{ route('popup.lead.store') }}" method="POST" class="popup-form" id="popupLeadForm" novalidate>
                     @csrf
-                    <div class="form-group">
-                        <label>Full Name *</label>
-                        <input type="text" name="full_name" required placeholder="John Doe">
+                    <div class="form-group" id="group_popup_full_name">
+                        <label for="popup_full_name">Full Name *</label>
+                        <input type="text" id="popup_full_name" name="full_name" placeholder="Enter your full name" autocomplete="name">
+                        <span class="popup-error-msg" id="err_popup_full_name"></span>
                     </div>
-                    <div class="form-group">
-                        <label>Email Address *</label>
-                        <input type="email" name="email" required placeholder="john@example.com">
+                    <div class="form-group" id="group_popup_business_name">
+                        <label for="popup_business_name">Business Name *</label>
+                        <input type="text" id="popup_business_name" name="business_name" placeholder="Enter business name" autocomplete="organization">
+                        <span class="popup-error-msg" id="err_popup_business_name"></span>
                     </div>
-                    <div class="form-group">
-                        <label>Phone Number *</label>
-                        <input type="tel" name="phone" required placeholder="+1 234 567 890">
+                    <div class="form-group" id="group_popup_email">
+                        <label for="popup_email">Business Email *</label>
+                        <input type="email" id="popup_email" name="email" placeholder="Enter business email" autocomplete="email">
+                        <span class="popup-error-msg" id="err_popup_email"></span>
                     </div>
-                    <div class="form-group">
-                        <label>Restaurant Name *</label>
-                        <input type="text" name="restaurant_name" required placeholder="Geni's Cafe">
+                    <div class="form-group" id="group_popup_country">
+                        <label for="popup_country">Country *</label>
+                        <select name="country" id="popup_country" class="popup-select">
+                            <option value="">Select your country</option>
+                            <optgroup label="Popular Countries">
+                                @foreach ($popupPriorityCountries as $c)
+                                    <option value="{{ $c->countries_name }}" data-phonecode="+{{ $c->phonecode }}" {{ ($popupDefaultCountry == $c->countries_name) ? 'selected' : '' }}>
+                                        {{ $c->countries_name }}
+                                    </option>
+                                @endforeach
+                            </optgroup>
+                            <optgroup label="All Countries">
+                                @foreach ($popupCountriesList as $c)
+                                    @if (!in_array($c->countries_code, $popupPriorityCodes))
+                                        <option value="{{ $c->countries_name }}" data-phonecode="+{{ $c->phonecode }}" {{ ($popupDefaultCountry == $c->countries_name) ? 'selected' : '' }}>
+                                            {{ $c->countries_name }}
+                                        </option>
+                                    @endif
+                                @endforeach
+                            </optgroup>
+                        </select>
+                        <span class="popup-error-msg" id="err_popup_country"></span>
                     </div>
-                    <div class="form-group">
-                        <label>City *</label>
-                        <input type="text" name="city" required placeholder="New York">
+                    <div class="form-group" id="group_popup_phone">
+                        <label for="popup_phone_number">Phone Number with country code *</label>
+                        <div class="popup-phone-group">
+                            <select name="phone_code" id="popup_phone_code" class="popup-phone-code-select" aria-label="Country Code">
+                                <optgroup label="Popular">
+                                    @foreach ($popupPriorityCountries as $c)
+                                        <option value="+{{ $c->phonecode }}" {{ ($popupDefaultPhoneCode == '+'.$c->phonecode && $c->countries_code == 'IN') ? 'selected' : '' }}>
+                                            +{{ $c->phonecode }} ({{ $c->countries_code }})
+                                        </option>
+                                    @endforeach
+                                </optgroup>
+                                <optgroup label="All Countries">
+                                    @foreach ($popupCountriesList as $c)
+                                        @if (!in_array($c->countries_code, $popupPriorityCodes))
+                                            <option value="+{{ $c->phonecode }}">
+                                                +{{ $c->phonecode }} ({{ $c->countries_code }})
+                                            </option>
+                                        @endif
+                                    @endforeach
+                                </optgroup>
+                            </select>
+                            <input type="tel" id="popup_phone_number" name="phone_number" placeholder="86672 05661" autocomplete="tel-national">
+                            <input type="hidden" id="popup_phone" name="phone">
+                        </div>
+                        <span class="popup-error-msg" id="err_popup_phone"></span>
                     </div>
-                    <button type="submit" class="submit-btn">Submit Request</button>
+                    <button type="submit" class="submit-btn" id="popupSubmitBtn">
+                        <span id="popupBtnText">Request a Demo &rarr;</span>
+                        <span id="popupBtnSpinner" style="display:none; align-items:center; justify-content:center; gap:6px;">
+                            <svg class="popup-spinner" viewBox="0 0 50 50" style="width:15px;height:15px;animation:popupSpin 1s linear infinite;">
+                                <circle cx="25" cy="25" r="20" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-dasharray="31.4 31.4"></circle>
+                            </svg>
+                            <span>Submitting...</span>
+                        </span>
+                    </button>
+                    <p class="popup-privacy-note">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;flex-shrink:0;">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <span>Your information is kept secure and used only to respond to your request.</span>
+                    </p>
                 </form>
             </div>
         </div>
@@ -650,74 +778,131 @@
         .popup-modal-content {
             background: #fff;
             width: 100%;
-            max-width: 450px;
-            border-radius: 16px;
+            max-width: 400px;
+            border-radius: 14px;
             position: relative;
             transform: scale(0.95);
             transition: transform 0.3s ease;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Glacial Indifference', sans-serif;
             overflow: hidden;
         }
         .popup-modal-content.popup-with-image {
-            max-width: 800px;
+            max-width: 740px;
+            width: 94%;
             display: flex;
             padding: 0;
+            border-radius: 14px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
         }
         .popup-left-side {
-            display: none;
+            display: flex;
+            flex: 0 0 42%;
+            position: relative;
+            min-height: 460px;
+            overflow: hidden;
+            padding: 26px 22px;
+            box-sizing: border-box;
+            color: #fff;
+        }
+        .popup-left-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('{{ asset('assets/images/home/popup.png') }}');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+        .popup-left-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(28, 18, 12, 0.80) 0%, rgba(28, 18, 12, 0.93) 100%);
+            z-index: 2;
+        }
+        .popup-left-content {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            height: 100%;
+            width: 100%;
+            font-family: 'Glacial Indifference', sans-serif;
+        }
+        .popup-connect-badge {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #E5B26E;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .popup-connect-title {
+            font-family: 'Cinzel', serif;
+            font-size: 16.5px;
+            font-weight: 700;
+            line-height: 1.35;
+            color: #FFFFFF;
+            margin: 0 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .popup-connect-desc {
+            font-family: 'Glacial Indifference', sans-serif;
+            font-size: 12.5px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+        .popup-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin-top: 0;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.16);
+        }
+        .popup-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 12.5px;
+            font-weight: 600;
+            font-family: 'Glacial Indifference', sans-serif;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .popup-contact-item:hover {
+            color: #E5B26E;
+            transform: translateX(2px);
+        }
+        .popup-contact-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .popup-contact-icon svg {
+            width: 14px;
+            height: 14px;
+            stroke: #FFFFFF;
         }
         .popup-right-side {
-            padding: 40px 30px;
+            padding: 22px 24px;
             flex: 1;
-        }
-        @media (min-width: 768px) {
-            .popup-left-side {
-                display: flex;
-                flex: 1.1;
-                background: linear-gradient(135deg, #876039 0%, #a67c52 100%);
-                padding: 40px;
-                flex-direction: column;
-                justify-content: space-between;
-                position: relative;
-                color: #fff;
-            }
-            .popup-brand {
-                position: relative;
-                z-index: 2;
-            }
-            .popup-logo-img {
-                height: 48px;
-                width: auto;
-                object-fit: contain;
-                margin-bottom: 20px;
-            }
-            .popup-brand h4 {
-                font-family: 'Plus Jakarta Sans', sans-serif;
-                font-size: 22px;
-                font-weight: 700;
-                margin: 0 0 20px;
-                line-height: 1.3;
-            }
-            .popup-features {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-            .popup-features li {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                margin-bottom: 12px;
-                font-size: 15px;
-                font-weight: 500;
-                opacity: 0.9;
-            }
-            .popup-features li svg {
-                width: 20px;
-                height: 20px;
-                color: #fff;
-            }
+            background: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
         }
         
         .popup-modal-overlay.active .popup-modal-content {
@@ -725,120 +910,218 @@
         }
 
         @media (max-width: 767px) {
-            .popup-modal-content {
-                width: calc(100% - 32px);
-                margin: 16px;
-                max-height: 90vh;
+            .popup-modal-content.popup-with-image {
+                flex-direction: column;
+                width: calc(100% - 24px);
+                margin: 12px;
+                max-height: 92vh;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
             }
+            .popup-left-side {
+                min-height: 160px;
+                padding: 20px 16px;
+            }
             .popup-right-side {
-                padding: 24px 18px;
+                padding: 18px 16px;
             }
             .popup-header h3 {
-                font-size: 19px;
+                font-size: 15px;
             }
-            .popup-form input {
-                padding: 10px 14px;
-                font-size: 14px;
+            .popup-form input, .popup-form select {
+                padding: 6px 10px;
+                font-size: 12px;
             }
             .popup-form .submit-btn {
-                padding: 12px;
-                font-size: 15px;
+                padding: 8px 12px;
+                font-size: 12px;
             }
         }
 
         /* Close Button */
         .popup-close-btn {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(0,0,0,0.05);
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.06);
             border: none;
-            font-size: 20px;
+            font-size: 18px;
             color: #555;
             cursor: pointer;
-            width: 36px;
-            height: 36px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: background 0.2s, color 0.2s;
             z-index: 10;
+            line-height: 1;
         }
         .popup-close-btn:hover {
             color: #111;
-            background: rgba(0,0,0,0.1);
+            background: rgba(0,0,0,0.12);
         }
 
         /* Header */
         .popup-header {
-            margin-bottom: 24px;
+            margin-bottom: 12px;
             text-align: left;
         }
         .popup-header h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 22px;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 16.5px;
             font-weight: 700;
-            color: #1a1a1a;
-            margin: 0 0 8px;
+            color: #21160F;
+            margin: 0 0 3px;
         }
         .popup-header p {
-            font-size: 14px;
-            color: #666;
+            font-size: 11.5px;
+            color: #6E6157;
             margin: 0;
-            line-height: 1.5;
+            line-height: 1.35;
+            font-family: 'Glacial Indifference', sans-serif;
         }
 
         /* Form */
         .popup-form .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 7px;
         }
         .popup-form label {
             display: block;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
-            color: #444;
-            margin-bottom: 6px;
+            color: #374151;
+            margin-bottom: 2px;
+            font-family: 'Glacial Indifference', sans-serif;
         }
-        .popup-form input {
+        .popup-form input, .popup-form select {
             width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 14px;
+            height: 32px;
+            padding: 5px 10px;
+            border: 1px solid #D8CFC5;
+            border-radius: 6px;
+            font-size: 12px;
             transition: border-color 0.2s, box-shadow 0.2s;
-            font-family: 'Inter', sans-serif;
-            background: #fdfdfd;
+            font-family: 'Glacial Indifference', sans-serif;
+            background: #FAF7F2;
+            box-sizing: border-box;
+            color: #21160F;
         }
-        .popup-form input:focus {
+        .popup-form input:focus, .popup-form select:focus {
             outline: none;
             border-color: #876039;
-            box-shadow: 0 0 0 3px rgba(135, 96, 57, 0.1);
+            box-shadow: 0 0 0 3px rgba(135, 96, 57, 0.12);
             background: #fff;
         }
         
+        .popup-phone-group {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            width: 100%;
+        }
+        .popup-phone-code-select {
+            width: 115px !important;
+            flex-shrink: 0;
+            height: 32px;
+            padding: 4px 6px;
+            font-size: 11px;
+            border: 1px solid #D8CFC5;
+            border-radius: 6px;
+            background: #FAF7F2;
+            cursor: pointer;
+        }
+        .popup-phone-group input[type="tel"] {
+            flex: 1;
+            height: 32px;
+        }
+
         /* Submit Button */
         .popup-form .submit-btn {
             width: 100%;
-            padding: 14px;
+            height: 36px;
+            padding: 8px 12px;
             background: #876039;
             color: #fff;
             border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            border-radius: 6px;
+            font-size: 12.5px;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 8px;
             transition: background 0.2s, transform 0.1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
         .popup-form .submit-btn:hover {
-            background: #72502f;
+            background: #6f4e2d;
         }
         .popup-form .submit-btn:active {
             transform: scale(0.98);
+        }
+
+        .popup-privacy-note {
+            font-size: 10.5px;
+            color: #786C63;
+            text-align: center;
+            margin: 8px 0 0 0;
+            line-height: 1.3;
+            font-family: 'Glacial Indifference', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        /* Validation & Feedback */
+        .popup-error-msg {
+            display: none;
+            font-size: 10.5px;
+            color: #DC2626;
+            margin-top: 2px;
+            font-weight: 500;
+            font-family: 'Glacial Indifference', sans-serif;
+            line-height: 1.2;
+        }
+        .popup-form .form-group.has-error input,
+        .popup-form .form-group.has-error select {
+            border-color: #EF4444 !important;
+            background-color: #FFFBFB !important;
+            box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.15) !important;
+        }
+        .popup-form .form-group.has-error .popup-error-msg {
+            display: block;
+        }
+        .popup-alert {
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 11.5px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-family: 'Glacial Indifference', sans-serif;
+            line-height: 1.4;
+        }
+        .popup-alert.success {
+            background-color: #ECFDF5;
+            border: 1px solid #A7F3D0;
+            color: #065F46;
+        }
+        .popup-alert.error {
+            background-color: #FEF2F2;
+            border: 1px solid #FECACA;
+            color: #991B1B;
+        }
+        @keyframes popupSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 
@@ -874,6 +1157,11 @@
             const modal = document.getElementById("popupLeadModal");
             const btn = document.getElementById("floatingDemoBtn");
             const closeBtn = document.getElementById("closePopupModal");
+            const popupForm = document.getElementById("popupLeadForm");
+            const popupAlert = document.getElementById("popupAlert");
+            const submitBtn = document.getElementById("popupSubmitBtn");
+            const btnText = document.getElementById("popupBtnText");
+            const btnSpinner = document.getElementById("popupBtnSpinner");
 
             // Auto show on load (once per session)
             if(modal && !sessionStorage.getItem('geniPopupShown')) {
@@ -903,6 +1191,216 @@
                     if(e.target === modal) {
                         closePopup();
                     }
+                });
+            }
+
+            // Auto match country code on country select
+            const countrySelect = document.getElementById("popup_country");
+            const phoneCodeSelect = document.getElementById("popup_phone_code");
+            if (countrySelect && phoneCodeSelect) {
+                countrySelect.addEventListener("change", function() {
+                    const opt = this.options[this.selectedIndex];
+                    const code = opt ? opt.getAttribute("data-phonecode") : null;
+                    if (code) {
+                        for (let i = 0; i < phoneCodeSelect.options.length; i++) {
+                            if (phoneCodeSelect.options[i].value === code) {
+                                phoneCodeSelect.selectedIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Helper to set field error
+            function setFieldError(fieldId, errorMsg) {
+                const group = document.getElementById('group_' + fieldId);
+                const errSpan = document.getElementById('err_' + fieldId);
+                if (group) group.classList.add('has-error');
+                if (errSpan) errSpan.textContent = errorMsg;
+            }
+
+            // Helper to clear field error
+            function clearFieldError(fieldId) {
+                const group = document.getElementById('group_' + fieldId);
+                const errSpan = document.getElementById('err_' + fieldId);
+                if (group) group.classList.remove('has-error');
+                if (errSpan) errSpan.textContent = '';
+            }
+
+            // Clear on input
+            const inputFields = [
+                { id: 'popup_full_name', errKey: 'popup_full_name' },
+                { id: 'popup_business_name', errKey: 'popup_business_name' },
+                { id: 'popup_email', errKey: 'popup_email' },
+                { id: 'popup_country', errKey: 'popup_country' },
+                { id: 'popup_phone_number', errKey: 'popup_phone' },
+            ];
+
+            inputFields.forEach(item => {
+                const el = document.getElementById(item.id);
+                if (el) {
+                    el.addEventListener('input', () => clearFieldError(item.errKey));
+                    el.addEventListener('change', () => clearFieldError(item.errKey));
+                }
+            });
+
+            // Validation function
+            function validatePopupForm() {
+                let isValid = true;
+                let firstInvalidEl = null;
+
+                // 1. Full Name
+                const fullName = document.getElementById('popup_full_name');
+                if (!fullName || !fullName.value.trim() || fullName.value.trim().length < 2) {
+                    setFieldError('popup_full_name', 'Please enter your full name (at least 2 characters).');
+                    isValid = false;
+                    if (!firstInvalidEl) firstInvalidEl = fullName;
+                } else {
+                    clearFieldError('popup_full_name');
+                }
+
+                // 2. Business Name
+                const businessName = document.getElementById('popup_business_name');
+                if (!businessName || !businessName.value.trim() || businessName.value.trim().length < 2) {
+                    setFieldError('popup_business_name', 'Please enter your business or restaurant name.');
+                    isValid = false;
+                    if (!firstInvalidEl) firstInvalidEl = businessName;
+                } else {
+                    clearFieldError('popup_business_name');
+                }
+
+                // 3. Email
+                const email = document.getElementById('popup_email');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email || !email.value.trim()) {
+                    setFieldError('popup_email', 'Please enter your business email.');
+                    isValid = false;
+                    if (!firstInvalidEl) firstInvalidEl = email;
+                } else if (!emailRegex.test(email.value.trim())) {
+                    setFieldError('popup_email', 'Please enter a valid email address.');
+                    isValid = false;
+                    if (!firstInvalidEl) firstInvalidEl = email;
+                } else {
+                    clearFieldError('popup_email');
+                }
+
+                // 4. Country
+                const country = document.getElementById('popup_country');
+                if (!country || !country.value.trim()) {
+                    setFieldError('popup_country', 'Please select your country.');
+                    isValid = false;
+                    if (!firstInvalidEl) firstInvalidEl = country;
+                } else {
+                    clearFieldError('popup_country');
+                }
+
+                // 5. Phone Number
+                const phoneNum = document.getElementById('popup_phone_number');
+                const phoneDigits = phoneNum ? phoneNum.value.replace(/[^0-9]/g, '') : '';
+                if (!phoneNum || !phoneNum.value.trim()) {
+                    setFieldError('popup_phone', 'Please enter your phone number.');
+                    isValid = false;
+                    if (!firstInvalidEl) firstInvalidEl = phoneNum;
+                } else if (phoneDigits.length < 6 || phoneDigits.length > 15) {
+                    setFieldError('popup_phone', 'Please enter a valid phone number (6-15 digits).');
+                    isValid = false;
+                    if (!firstInvalidEl) firstInvalidEl = phoneNum;
+                } else {
+                    clearFieldError('popup_phone');
+                }
+
+                if (firstInvalidEl) {
+                    firstInvalidEl.focus();
+                }
+
+                return isValid;
+            }
+
+            // Handle AJAX Submit with Validation
+            if (popupForm) {
+                popupForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    if (popupAlert) {
+                        popupAlert.style.display = 'none';
+                        popupAlert.className = 'popup-alert';
+                        popupAlert.textContent = '';
+                    }
+
+                    if (!validatePopupForm()) {
+                        return;
+                    }
+
+                    // Sync full phone into hidden input
+                    const code = document.getElementById('popup_phone_code');
+                    const num = document.getElementById('popup_phone_number');
+                    const hiddenPhone = document.getElementById('popup_phone');
+                    if (code && num && hiddenPhone) {
+                        hiddenPhone.value = (code.value ? code.value + ' ' : '') + num.value.trim();
+                    }
+
+                    // Set loading state
+                    if (submitBtn) submitBtn.disabled = true;
+                    if (btnText) btnText.style.display = 'none';
+                    if (btnSpinner) btnSpinner.style.display = 'inline-flex';
+
+                    const formData = new FormData(popupForm);
+
+                    fetch(popupForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(async (response) => {
+                        const data = await response.json().catch(() => ({}));
+                        if (!response.ok) {
+                            if (response.status === 422 && data.errors) {
+                                // Field validation errors from backend
+                                if (data.errors.full_name) setFieldError('popup_full_name', data.errors.full_name[0]);
+                                if (data.errors.business_name) setFieldError('popup_business_name', data.errors.business_name[0]);
+                                if (data.errors.email) setFieldError('popup_email', data.errors.email[0]);
+                                if (data.errors.country) setFieldError('popup_country', data.errors.country[0]);
+                                if (data.errors.phone || data.errors.phone_number) setFieldError('popup_phone', (data.errors.phone || data.errors.phone_number)[0]);
+
+                                throw new Error('Please correct the highlighted fields.');
+                            }
+                            throw new Error(data.message || 'Something went wrong. Please try again.');
+                        }
+                        return data;
+                    })
+                    .then((data) => {
+                        if (popupAlert) {
+                            popupAlert.className = 'popup-alert success';
+                            popupAlert.textContent = data.message || 'Thank you! Your demo request has been received. Our team will contact you shortly.';
+                            popupAlert.style.display = 'block';
+                        }
+                        popupForm.reset();
+                        // Re-select defaults
+                        if (countrySelect) countrySelect.value = '{{ $popupDefaultCountry }}';
+                        if (phoneCodeSelect) phoneCodeSelect.value = '{{ $popupDefaultPhoneCode }}';
+
+                        // Auto-close after 3 seconds
+                        setTimeout(() => {
+                            closePopup();
+                            if (popupAlert) popupAlert.style.display = 'none';
+                        }, 3000);
+                    })
+                    .catch((err) => {
+                        if (popupAlert) {
+                            popupAlert.className = 'popup-alert error';
+                            popupAlert.textContent = err.message || 'Submission failed. Please check your details and try again.';
+                            popupAlert.style.display = 'block';
+                        }
+                    })
+                    .finally(() => {
+                        if (submitBtn) submitBtn.disabled = false;
+                        if (btnText) btnText.style.display = 'inline';
+                        if (btnSpinner) btnSpinner.style.display = 'none';
+                    });
                 });
             }
 

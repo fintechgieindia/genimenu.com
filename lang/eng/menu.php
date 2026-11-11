@@ -45,6 +45,7 @@ return array(
     'users' => 'Users',
     'deliveryExecutive' => 'Delivery Executive',
     'landingSites' => 'Landing Site',
+    'messages' => 'Messages',
     'waiterRequest' => 'Waiter Requests',
     'itemModifiers' => 'Item Modifiers',
     'modifierGroups' => 'Modifier Groups',

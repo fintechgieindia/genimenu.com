@@ -13,6 +13,10 @@
     <strong>Email:</strong> {{ $email }} <br>
     <strong>Phone:</strong> {{ $phone }} <br>
 
+    @if(!empty($address))
+        <strong>Country:</strong> {{ $address }} <br>
+    @endif
+
     @if(!empty($company))
         <strong>Company:</strong> {{ $company }} <br>
     @endif

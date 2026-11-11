@@ -10,14 +10,116 @@
 
 
 @section('content')
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.cdnfonts.com/css/glacial-indifference-2');
+
+body {
+    background-color: #FFF4E5 !important;
+}
+
+.policy-page-wrapper {
+    background-color: #FFF4E5 !important;
+    padding-top: 110px;
+    padding-bottom: 70px;
+    font-family: 'Glacial Indifference', sans-serif !important;
+    color: #381A0D;
+}
+
+.policy-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E8DFD5 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 6px 24px rgba(50, 24, 15, 0.05) !important;
+    padding: 34px 28px;
+}
+
+@media (min-width: 640px) {
+    .policy-card {
+        padding: 48px 46px;
+    }
+}
+
+.policy-card h1,
+.policy-card h2,
+.policy-card h3,
+.policy-card h4,
+.policy-card h5,
+.policy-card h6 {
+    font-family: 'Cinzel', serif !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    color: #21160F !important;
+    letter-spacing: 0.04em;
+}
+
+.policy-card h1 {
+    font-size: 26px !important;
+    color: #32180F !important;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .policy-card h1 {
+        font-size: 32px !important;
+    }
+}
+
+.policy-card h2 {
+    font-size: 19px !important;
+    color: #572A13 !important;
+    margin-top: 28px !important;
+    margin-bottom: 12px !important;
+    border-bottom: 1px solid #F1E9DF;
+    padding-bottom: 8px;
+}
+
+.policy-card h3 {
+    font-size: 15.5px !important;
+    color: #6E4028 !important;
+    margin-top: 16px !important;
+    margin-bottom: 8px !important;
+}
+
+.policy-card p,
+.policy-card li,
+.policy-card span,
+.policy-card strong {
+    font-family: 'Glacial Indifference', sans-serif !important;
+}
+
+.policy-card p,
+.policy-card li {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4A3A31;
+}
+
+.policy-card a {
+    color: #876039 !important;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.policy-card a:hover {
+    color: #572A13 !important;
+}
+
+.policy-highlight-box {
+    background-color: #FAF4ED !important;
+    border: 1px solid #E8DFD5 !important;
+    border-radius: 10px;
+    padding: 16px 20px;
+}
+</style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-    <div style="padding-top: 104px; padding-bottom: 60px;" class="px-4 sm:px-6">
-        <div class="mx-auto max-w-4xl bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-gray-100">
+    <div class="policy-page-wrapper px-4 sm:px-6">
+        <div class="mx-auto max-w-4xl policy-card">
             <header class="mb-8">
-                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-center">Compliance - Geni Fast</h1>
+                <h1 class="font-bold mb-4">Compliance - Geni Menu</h1>
                 <p class="text-xl text-gray-600"></p>
-                <p class="text-sm text-gray-500 mt-2 text-center">Last updated: {{ date('F j, Y') }}</p>
+                <p class="text-sm text-gray-500 mt-2 text-center" style="font-family: 'Glacial Indifference', sans-serif;">Last updated: {{ date('F j, Y') }}</p>
             </header>
 
             <section class="mb-8">

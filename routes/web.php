@@ -31,6 +31,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CustomMenuController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\LandingSiteController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Middleware\CustomerSiteMiddleware;
 use App\Http\Middleware\VerifyRestaurantAccess;
@@ -273,6 +274,10 @@ Route::middleware(['auth', config('jetstream.auth_session'), 'verified', SuperAd
         Route::put('custom-modules/{custom_module}', [CustomModuleController::class, 'update'])->withoutMiddleware('csrf')->name('custom-modules.update');
 
         Route::resource('landing-sites', LandingSiteController::class);
+
+        Route::get('messages', [MessageController::class, 'index'])->name('messages.index');
+        Route::get('messages/{id}', [MessageController::class, 'show'])->name('messages.show');
+        Route::delete('messages/{id}', [MessageController::class, 'destroy'])->name('messages.destroy');
     });
 });
 

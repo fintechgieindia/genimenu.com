@@ -206,50 +206,52 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%);
+  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;
   color: #32180F !important;
-  font-family: 'Glacial Indifference', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 11.5px 24px;
-  border-radius: 9999px;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  padding: 11.5px 24px !important;
+  border-radius: 9999px !important;
+  border: none !important;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.25);
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.28) !important;
   transition: all 0.22s ease;
   cursor: pointer;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em !important;
 }
 
 .btn-primary-gold:hover {
-  background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%);
+  background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%) !important;
   color: #27130D !important;
-  transform: translateY(-1.5px);
-  box-shadow: 0 8px 22px rgba(242, 197, 141, 0.38);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(242, 197, 141, 0.42) !important;
 }
 
 .btn-ghost-gold {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: transparent;
+  background-color: transparent !important;
   color: var(--geni-text-light) !important;
-  font-family: 'Glacial Indifference', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 11px 22px;
-  border-radius: 9999px;
-  border: 1.5px solid rgba(242, 197, 141, 0.45);
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  padding: 11px 24px !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid rgba(242, 197, 141, 0.60) !important;
   text-decoration: none;
   transition: all 0.22s ease;
   cursor: pointer;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em !important;
 }
 
 .btn-ghost-gold:hover {
-  background-color: rgba(242, 197, 141, 0.10);
-  border-color: var(--geni-champagne);
-  color: var(--geni-champagne) !important;
-  transform: translateY(-1.5px);
+  background-color: rgba(242, 197, 141, 0.15) !important;
+  border-color: #F2C58D !important;
+  color: #F2C58D !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.20) !important;
 }
 
 .geni-hero-features-wrap {
@@ -441,32 +443,31 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 .btn-trust-solutions {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: #3A1B10;
-  color: #FFF8F0 !important;
+  gap: 8px;
+  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;
+  color: #32180F !important;
   font-family: 'Glacial Indifference', sans-serif !important;
-  font-size: 14.5px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  padding: 12px 32px;
-  border-radius: 9999px;
-  border: 1px solid rgba(197, 139, 80, 0.45);
-  box-shadow: 0 4px 16px rgba(50, 24, 15, 0.16);
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 11.5px 24px !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.28) !important;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: all 0.22s ease;
   cursor: pointer;
 }
 
 .btn-trust-solutions:hover {
-  background: #4E2517;
-  border-color: #F2C58D;
-  color: #F2C58D !important;
+  background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%) !important;
+  color: #27130D !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(50, 24, 15, 0.26);
+  box-shadow: 0 6px 22px rgba(242, 197, 141, 0.42) !important;
 }
 
 .btn-trust-solutions .btn-arrow {
-  font-size: 16px;
+  font-size: 15px;
   transition: transform 0.22s ease;
   display: inline-block;
 }
@@ -484,23 +485,23 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   background-image: url('{{ asset("assets/images/home/genimenu.png") }}') !important;
   background-repeat: no-repeat !important;
   background-position: right center !important;
-  background-size: contain !important;
-  min-height: 440px;
-  padding: 34px 0 36px;
+  background-size: cover !important;
+  min-height: 480px;
+  padding: 42px 0 44px;
   display: flex;
   align-items: center;
   overflow: hidden;
 }
 
 .geni-why-container {
-  max-width: 1220px;
+  max-width: 1260px;
   width: 100%;
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
   position: relative;
   z-index: 2;
 }
@@ -510,7 +511,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  max-width: 520px;
+  max-width: 580px;
   width: 100%;
 }
 
@@ -574,11 +575,11 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 
 .geni-why-desc {
   font-family: 'Glacial Indifference', sans-serif !important;
-  font-size: 14.5px !important;
-  line-height: 1.55;
+  font-size: 15px !important;
+  line-height: 1.58;
   color: #634C40;
-  margin: 0 0 18px 0;
-  max-width: 480px;
+  margin: 0 0 20px 0;
+  max-width: 540px;
   font-weight: 400 !important;
 }
 
@@ -586,10 +587,10 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 .geni-why-features-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  max-width: 460px;
+  gap: 12px;
+  max-width: 540px;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .geni-why-feat-col {
@@ -641,61 +642,106 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 .geni-why-cta-wrap {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
+}
+
+.btn-why-view-menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;
+  color: #32180F !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 11.5px 24px !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.28) !important;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  cursor: pointer;
+}
+
+.btn-why-view-menu:hover {
+  background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%) !important;
+  color: #27130D !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(242, 197, 141, 0.42) !important;
+}
+
+.btn-why-view-menu .arrow {
+  font-size: 15px;
+  transition: transform 0.22s ease;
+  display: inline-block;
+}
+
+.btn-why-view-menu:hover .arrow {
+  transform: translateX(4px);
 }
 
 .btn-why-solutions {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #3A1B10;
-  color: #FFF8F0 !important;
-  font-family: 'Glacial Indifference', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  padding: 10px 22px;
-  border-radius: 9999px;
-  border: 1px solid rgba(197, 139, 80, 0.40);
-  box-shadow: 0 4px 14px rgba(39, 19, 13, 0.22);
+  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;
+  color: #32180F !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 11.5px 24px !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.28) !important;
   text-decoration: none;
   transition: all 0.22s ease;
   cursor: pointer;
 }
 
 .btn-why-solutions:hover {
-  background: #4E2517;
-  border-color: #F2C58D;
-  color: #F2C58D !important;
+  background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%) !important;
+  color: #27130D !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(39, 19, 13, 0.35);
+  box-shadow: 0 6px 22px rgba(242, 197, 141, 0.42) !important;
 }
 
 .btn-why-demo-outline {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(250, 241, 230, 0.7);
-  color: #3A1B10 !important;
-  font-family: 'Glacial Indifference', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  padding: 10px 20px;
-  border-radius: 9999px;
-  border: 1.5px solid #C58B50;
+  background: transparent !important;
+  color: #32180F !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 11px 24px !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid rgba(197, 139, 80, 0.65) !important;
   text-decoration: none;
   transition: all 0.22s ease;
   cursor: pointer;
 }
 
 .btn-why-demo-outline:hover {
-  background: #3A1B10;
-  border-color: #3A1B10;
+  background: #32180F !important;
+  border-color: #32180F !important;
   color: #FFF8F0 !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(39, 19, 13, 0.20);
+  box-shadow: 0 6px 16px rgba(39, 19, 13, 0.20) !important;
+}
+
+.btn-why-demo-outline .arrow {
+  font-size: 15px;
+  transition: transform 0.22s ease;
+  display: inline-block;
+}
+
+.btn-why-demo-outline:hover .arrow {
+  transform: translateX(4px);
 }
 
 .btn-why-demo {
@@ -776,6 +822,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
     gap: 10px;
   }
   .btn-why-solutions,
+  .btn-why-view-menu,
   .btn-why-demo-outline,
   .btn-why-demo {
     width: 100%;
@@ -1292,31 +1339,31 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 .btn-features-explore {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: linear-gradient(135deg, #C58B50 0%, #D49D63 50%, #C58B50 100%);
-  color: #27130D !important;
+  gap: 8px;
+  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;
+  color: #32180F !important;
   font-family: 'Glacial Indifference', sans-serif !important;
-  font-size: 14.5px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  padding: 13px 34px;
-  border-radius: 9999px;
-  border: 1px solid rgba(242, 197, 141, 0.45);
-  box-shadow: 0 6px 20px rgba(197, 139, 80, 0.25);
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 11.5px 24px !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.28) !important;
   text-decoration: none;
-  transition: all 0.28s ease;
+  transition: all 0.22s ease;
   cursor: pointer;
 }
 
 .btn-features-explore:hover {
-  background: linear-gradient(135deg, #F2C58D 0%, #E6B57A 100%);
-  color: #1E0C06 !important;
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 28px rgba(197, 139, 80, 0.40);
+  background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%) !important;
+  color: #27130D !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(242, 197, 141, 0.42) !important;
 }
 
 .btn-features-explore .btn-arrow {
-  font-size: 16px;
+  font-size: 15px;
   transition: transform 0.22s ease;
   display: inline-block;
 }
@@ -1802,36 +1849,38 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   max-width: 360px;
 }
 
-/* Left CTA Button matching reference */
+/* Left CTA Button matching unified design system */
 .geni-faq-cta-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: #27130D;
-  color: #FFF8F0;
-  border: 1px solid rgba(197, 139, 80, 0.35);
-  border-radius: 999px;
-  padding: 12px 26px;
-  font-family: 'Glacial Indifference', sans-serif;
-  font-size: 14.5px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  gap: 8px;
+  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;
+  color: #32180F !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  padding: 11.5px 24px !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
   text-decoration: none;
-  transition: all 0.28s ease;
-  box-shadow: 0 4px 14px rgba(39, 19, 13, 0.18);
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.28) !important;
+  cursor: pointer;
 }
 
 .geni-faq-cta-btn svg {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
+  stroke: #32180F;
   transition: transform 0.24s ease;
 }
 
 .geni-faq-cta-btn:hover {
-  background: #3D1F14;
-  color: #FBE6CE;
+  background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%) !important;
+  color: #27130D !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(39, 19, 13, 0.26);
+  box-shadow: 0 6px 22px rgba(242, 197, 141, 0.42) !important;
 }
 
 .geni-faq-cta-btn:hover svg {
@@ -2958,12 +3007,18 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </div>
 
-      <!-- Action Button -->
-      <a href="{{ route('enquiry') }}" class="btn-why-demo">
-        <i class="bi bi-calendar3" style="font-size: 15px; color: #FFF8F0;"></i>
-        <span>Book a Demo</span>
-        <span style="font-size: 16px; margin-left: 2px;">&rarr;</span>
-      </a>
+      <!-- Action Buttons -->
+      <div class="geni-why-cta-wrap">
+        <a href="{{ route('about.us') }}" class="btn-why-view-menu" title="Learn more about Geni Menu">
+          <span>View Geni Menu</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a href="{{ route('enquiry') }}" class="btn-why-demo-outline" title="Book a Demo">
+          <i class="bi bi-calendar3" style="font-size: 14px;"></i>
+          <span>Book a Demo</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
     </div>
 
     <!-- Right Column Placeholder (visual devices are directly in the background) -->
@@ -3191,7 +3246,7 @@ document.addEventListener('DOMContentLoaded', function () {
             Tables,<br>Reservation,<br>Waiter Calls, Reports
           </h4>
         </div>
-        <a href="{{ route('features') }}" class="geni-bento-accent-btn">
+        <a href="{{ route('enquiry') }}" class="geni-bento-accent-btn" title="Enquire about more features">
           <span>10+ More</span>
           <span style="font-size: 14px; margin-left: 4px;">&rarr;</span>
         </a>

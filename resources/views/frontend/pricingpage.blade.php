@@ -1,8 +1,8 @@
 @php
     $meta = [
-        'title' => 'Pricing Plans | Geni Menu',
-        'description' => 'Compare Geni Menu pricing plans for your food business. Choose from Standard, Premium, or Enterprise plans with monthly and yearly billing options.',
-        'keywords' => 'Geni Menu pricing, restaurant software plans, restaurant POS pricing, Geni Menu cost'
+        'title' => 'Transparent Pricing. Powerful Possibilities. | Geni Menu',
+        'description' => 'Choose a plan that aligns with your business needs. Get the right tools, features and flexibility to deliver a better dining experience.',
+        'keywords' => 'Geni Menu pricing, restaurant digital menu cost, QR menu pricing, restaurant menu software, digital menu plans'
     ];
 @endphp
 
@@ -10,1179 +10,2529 @@
 
 @section('content')
 
-{{-- Google Fonts --}}
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+{{-- Import Fonts: Cinzel & Glacial Indifference (matching About Us) --}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/glacial-indifference-2">
 
 <style>
+/* ==========================================================================
+   GENI MENU - INTERNATIONAL PRICING PAGE STYLING
+   Typography System:
+     - Headings / Titles / Badges: Cinzel Regular (400), Uppercase
+     - Body Texts / Descriptions / Lists: Glacial Indifference Regular (400)
+   Brand Palette:
+     - Dark Chocolate: #32180F
+     - Deep Brown:     #451D0C
+     - Warm Brown:     #572A13
+     - Cream:          #FFF4E5
+     - Light Peach:    #FCE8D2
+     - Champagne Gold: #F5B947
+     - Accent Orange:  #E99A24
+     - White:          #FFFFFF
+   ========================================================================== */
+
 :root {
-  --br: #B45309;
-  --br-dark: #92400E;
-  --br-light: #FEF3C7;
-  --br-gold: #D97706;
+  --gm-dark-chocolate: #32180F;
+  --gm-deep-brown:     #451D0C;
+  --gm-brown:          #572A13;
+  --gm-cream:          #FFF4E5;
+  --gm-cream-light:    #FFFDF9;
+  --gm-peach:          #FCE8D2;
+  --gm-gold:           #F5B947;
+  --gm-gold-hover:     #E99A24;
+  --gm-text-dark:      #2A150D;
+  --gm-text-muted:     #6D5F56;
+  --gm-border-light:   #EBDED2;
+  --gm-border-subtle:  #F2E7DC;
 
-  /* Stripe High-Tech Slate-Blue Palette */
-  --bg: #FFFFFF;
-  --bg2: #F6F9FC;
-  --bg3: #EEF2F6;
-
-  --ink: #0A2540;
-  --ink-light: #1A365D;
-  --mute: #425466;
-  --mute-light: #627D98;
-
-  --line: #E3E8EE;
-  --line-solid: #E3E8EE;
-
-  --card: #FFFFFF;
-
-  /* Stripe Multi-Layer Elevation Shadows */
-  --shadow-sm: 0 2px 4px rgba(50, 50, 93, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 6px 12px -2px rgba(50, 50, 93, 0.08), 0 3px 7px -3px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 13px 27px -5px rgba(50, 50, 93, 0.12), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
-  --green: #10B981;
+  --font-serif: 'Cinzel', serif;
+  --font-sans:  'Glacial Indifference', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-::selection { background: #0A2540; color: #FFFFFF; }
 
 body {
-  margin: 0;
-  font: 400 16px/1.65 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: var(--ink);
-  background: var(--bg) !important;
-  overflow-x: clip;
+  background-color: #FFF4E5 !important;
+}
+
+.pricing-page-scope {
+  font-family: 'Glacial Indifference', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 400 !important;
+  color: var(--gm-text-dark);
+  background-color: #FFF4E5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-h1 {
-  margin: 0;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: clamp(40px, 5vw, 66px);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.08;
-  color: var(--ink);
+/* --------------------------------------------------------------------------
+   TYPOGRAPHY ENFORCEMENT:
+   1. Headings & Titles: Cinzel Regular, Uppercase
+   -------------------------------------------------------------------------- */
+.pricing-page-scope h1,
+.pricing-page-scope h2,
+.pricing-page-scope h3,
+.pricing-page-scope h4,
+.pricing-page-scope h5,
+.pricing-page-scope h6,
+.pricing-hero-title,
+.card-plan-title,
+.enterprise-main-title,
+.enterprise-cap-title,
+.comparison-title,
+.final-cta-title,
+.th-name,
+.cat-title-text,
+.card-tier-badge,
+.pro-floating-badge,
+.enterprise-eyebrow,
+.enterprise-subhead,
+.card-features-heading,
+.phh-title {
+  font-family: 'Cinzel', serif !important;
+  text-transform: uppercase !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.04em !important;
 }
 
-h2 {
-  margin: 0;
-  font-family: Effra, sans-serif;
-  font-size: 2.5rem;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1.12;
-  color: var(--ink);
+/* --------------------------------------------------------------------------
+   2. Body Text & Descriptions: Glacial Indifference Regular
+   -------------------------------------------------------------------------- */
+.pricing-page-scope p,
+.pricing-page-scope li,
+.pricing-hero-desc,
+.phh-sub,
+.card-plan-desc,
+.card-best-for,
+.enterprise-main-desc,
+.enterprise-cap-desc,
+.enterprise-offering-item,
+.comparison-subtitle,
+.final-cta-desc,
+.td-feature-name,
+.tbl-badge-text,
+.spec-text,
+.cap-pill,
+.cbf-val,
+.cbf-label,
+.card-price-period,
+.card-price-note,
+.enterprise-contact-note,
+.cat-count-pill,
+.th-price-sub {
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 400 !important;
 }
 
-h3, h4, h5, h6 {
-  margin: 0;
-  font-family: Effra, sans-serif;
-  color: var(--ink);
+/* Buttons: Glacial Indifference Bold */
+.card-cta-btn,
+.btn-contact-sales,
+.btn-email-us,
+.btn-discuss-req,
+.final-cta-btn,
+.btn-toggle-all-cats {
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-weight: 700 !important;
 }
 
-h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+/* ==========================================================================
+   1. HERO BANNER
+   ========================================================================== */
+.pricing-hero-section {
+  position: relative;
+  background-color: #1F0E07;
+  background: linear-gradient(90deg, rgba(31, 14, 7, 0.92) 0%, rgba(31, 14, 7, 0.82) 48%, rgba(31, 14, 7, 0) 68%),
+              url('{{ asset('assets/images/home/pricingheeroo.png') }}') right center / cover no-repeat;
+  padding: 52px 24px 46px;
+  color: #FFFFFF;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(245, 185, 71, 0.12);
+}
 
-p { margin: 0; color: var(--mute); font-size: 16px; font-family: 'Inter', system-ui, sans-serif; line-height: 1.65; letter-spacing: -0.01em; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; margin: 0; padding: 0; }
+.pricing-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+  min-height: 330px;
+}
 
-.eb {
+.pricing-hero-content {
+  flex: 1 1 56%;
+  max-width: 620px;
+}
+
+.pricing-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(30px, 3.6vw, 42px);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.18;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+
+.pricing-hero-desc {
+  font-size: 15.5px;
+  color: #E6D8CA;
+  line-height: 1.6;
+  margin: 0 0 22px;
+  max-width: 530px;
+}
+
+.pricing-hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.pricing-hero-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.phh-icon-box {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gm-gold);
+  flex-shrink: 0;
+}
+
+.phh-icon-box svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--gm-gold);
+}
+
+.phh-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+}
+
+.phh-sub {
+  font-size: 12.5px;
+  color: #C8B7A6;
+  margin-top: 2px;
+}
+
+.pricing-hero-visual {
+  flex: 1 1 44%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 330px;
+}
+
+/* On desktop, the tablet in the pricingheeroo.png background is displayed directly with perfect natural perspective */
+.pricing-hero-visual img {
+  display: none;
+}
+
+/* ==========================================================================
+   2. PRICING PLANS (SIDE-BY-SIDE)
+   ========================================================================== */
+.pricing-plans-section {
+  padding: 56px 20px 38px;
+  background-color: #FFF4E5;
+}
+
+.pricing-plans-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Pricing Region & Billing Switcher Header */
+.pricing-region-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 26px;
+  gap: 10px;
+}
+
+.currency-badge-pill {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  font-size: 11.5px;
-  letter-spacing: 0.1em;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #B45309;
-  margin-bottom: 16px;
-  background: #FEF3C7;
-  padding: 6px 14px;
+  gap: 8px;
+  background: #572A13;
+  color: #FFFFFF;
+  padding: 8px 20px;
   border-radius: 9999px;
-  border: 1px solid rgba(217, 119, 6, 0.25);
-  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 4px 14px rgba(87, 42, 19, 0.22);
+  user-select: none;
 }
 
-.w { max-width: 1240px; margin: auto; padding: 0 24px; position: relative; z-index: 1; }
-section { padding: clamp(56px, 7vw, 92px) 0; background: var(--bg); position: relative; }
-section.alt { background: var(--bg2); }
+.currency-globe-icon {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+}
 
-.hd { max-width: 760px; margin: 0 auto 44px; text-align: center; }
-.hd p { margin-top: 16px; font-size: 18px; line-height: 1.6; color: var(--mute); font-family: 'Inter', sans-serif; }
+.curr-intl-label {
+  color: #FFFFFF;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px;
+  font-weight: 700 !important;
+}
 
-/* Buttons */
-.btn {
+.curr-code-label {
+  color: #F5B947;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px;
+  font-weight: 700 !important;
+  margin-left: 2px;
+}
+
+.pricing-billing-pill {
   display: inline-flex;
+  align-items: center;
+  background: #FAF2E8;
+  border: 1px solid rgba(197, 139, 80, 0.38);
+  color: #572A13;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 13px;
+  font-weight: 700 !important;
+  padding: 5px 16px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(87, 42, 19, 0.04);
+}
+
+.pricing-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+  align-items: stretch;
+}
+
+.pricing-card {
+  border-radius: 18px;
+  padding: 28px 26px 26px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Standard Plan Card */
+.pricing-card-standard {
+  background: #FAF2E8;
+  border: 1px solid rgba(197, 139, 80, 0.28);
+  box-shadow: 0 10px 28px rgba(50, 24, 15, 0.04);
+}
+
+.pricing-card-standard:hover {
+  box-shadow: 0 14px 32px rgba(50, 24, 15, 0.08);
+  border-color: rgba(197, 139, 80, 0.45);
+}
+
+/* Pro Plan Card */
+.pricing-card-pro {
+  background: #FAF2E8;
+  border: 1.5px solid #F5B947;
+  box-shadow: 0 10px 28px rgba(245, 185, 71, 0.16);
+}
+
+.pricing-card-pro:hover {
+  box-shadow: 0 16px 36px rgba(245, 185, 71, 0.24);
+  border-color: #E99A24;
+}
+
+/* Floating Golden Badge */
+.pro-floating-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gm-gold);
+  color: var(--gm-dark-chocolate);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 5px 16px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(245, 185, 71, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  z-index: 5;
+}
+
+.pro-floating-badge svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.card-tier-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gm-dark-chocolate);
+  background: var(--gm-peach);
+  border: 1px solid rgba(87, 42, 19, 0.15);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  margin-bottom: 8px;
+}
+
+.card-tier-badge-gold {
+  color: var(--gm-dark-chocolate);
+  background: rgba(245, 185, 71, 0.35);
+  border-color: rgba(233, 154, 36, 0.4);
+}
+
+/* Card Header */
+.card-header-block {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.card-plan-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gm-dark-chocolate);
+  margin: 0 0 4px;
+  line-height: 1.25;
+}
+
+.card-plan-desc {
+  font-size: 13px;
+  color: var(--gm-text-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.card-best-for {
+  background: #F2E5D5;
+  border: 1px solid rgba(197, 139, 80, 0.2);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 11.5px;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.card-best-for-gold {
+  background: rgba(245, 185, 71, 0.18);
+  border-color: rgba(245, 185, 71, 0.35);
+}
+
+.cbf-label {
+  font-weight: 700;
+  color: var(--gm-dark-chocolate);
+  margin-right: 4px;
+}
+
+.cbf-val {
+  color: var(--gm-text-muted);
+}
+
+/* 3 Quick Specs Row */
+.card-specs-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.card-spec-item {
+  background: #FFFDF9;
+  border: 1px solid rgba(197, 139, 80, 0.2);
+  border-radius: 8px;
+  padding: 6px 3px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.pricing-card-pro .card-spec-item {
+  background: #FFFDF9;
+  border-color: rgba(245, 185, 71, 0.35);
+}
+
+.spec-icon {
+  font-size: 13px;
+}
+
+.spec-text {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--gm-dark-chocolate);
+  line-height: 1.2;
+}
+
+/* Capability Chips */
+.card-caps-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.cap-pill {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--gm-dark-chocolate);
+  background: #F2E5D5;
+  border: 1px solid rgba(197, 139, 80, 0.2);
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.pricing-card-pro .cap-pill {
+  background: rgba(245, 185, 71, 0.18);
+  border-color: rgba(245, 185, 71, 0.35);
+}
+
+/* Pricing Row */
+.card-price-wrap {
+  text-align: left;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.card-price-num {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--gm-dark-chocolate);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.card-price-period {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gm-text-muted);
+}
+
+.card-price-note {
+  font-size: 11.5px;
+  color: var(--gm-text-muted);
+  margin-bottom: 16px;
+}
+
+/* CTA Buttons */
+.card-cta-btn {
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 13px 26px;
-  border-radius: 12px;
-  font: 700 15px 'Plus Jakarta Sans', sans-serif;
-  border: 1px solid transparent;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  padding: 11.5px 24px;
+  border-radius: 9999px;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
   text-decoration: none;
-}
-.btn.p {
-  background: #0A2540;
-  color: #FFFFFF !important;
-  border-color: #0A2540;
-  box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
-}
-.btn.p:hover {
-  background: #1A365D;
-  border-color: #1A365D;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(10, 37, 64, 0.28);
-}
-.btn.o {
-  color: var(--ink);
-  background: #FFFFFF;
-  border: 1px solid #CBD5E1;
-  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
-}
-.btn.o:hover {
-  background: #F6F9FC;
-  border-color: #0A2540;
-  transform: translateY(-2px);
+  cursor: pointer;
+  transition: all 0.22s ease;
+  margin-bottom: 20px;
 }
 
-/* Billing Toggle */
-.billing-toggle {
+.btn-arrow {
+  display: inline-block;
+  font-size: 15px;
+  transition: transform 0.22s ease;
+}
+
+.card-cta-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-choose-standard {
+  background: transparent !important;
+  color: #32180F !important;
+  border: 1.5px solid rgba(197, 139, 80, 0.65) !important;
+}
+
+.btn-choose-standard:hover {
+  background: #32180F !important;
+  border-color: #32180F !important;
+  color: #FFF8F0 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(39, 19, 13, 0.20) !important;
+}
+
+.btn-choose-pro {
+  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;
+  color: #32180F !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.28) !important;
+}
+
+.btn-choose-pro:hover {
+  background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%) !important;
+  color: #27130D !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(242, 197, 141, 0.42) !important;
+}
+
+.card-features-heading {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gm-dark-chocolate);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(87, 42, 19, 0.12);
+}
+
+/* Feature Checklist */
+.card-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.card-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--gm-text-dark);
+  font-weight: 500;
+}
+
+.card-check-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  color: var(--gm-dark-chocolate);
+  stroke-width: 2.5;
+}
+
+/* ==========================================================================
+   3. ENTERPRISE & CUSTOM SOLUTIONS SECTION
+   ========================================================================== */
+.enterprise-section {
+  padding: 16px 20px 36px;
+  background: #FFF4E5;
+}
+
+.enterprise-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.enterprise-card {
+  background: #FAF2E8;
+  border: 1px solid rgba(197, 139, 80, 0.28);
+  border-radius: 18px;
+  padding: 30px 28px 28px;
+  box-shadow: 0 10px 28px rgba(50, 24, 15, 0.04);
+}
+
+.enterprise-card-header {
+  margin-bottom: 20px;
+}
+
+.enterprise-eyebrow {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gm-dark-chocolate);
+  background: var(--gm-peach);
+  border: 1px solid rgba(87, 42, 19, 0.15);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  margin-bottom: 8px;
+}
+
+.enterprise-main-title {
+  font-family: var(--font-serif);
+  font-size: 23px;
+  font-weight: 700;
+  color: var(--gm-dark-chocolate);
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+
+.enterprise-main-desc {
+  font-size: 13px;
+  color: var(--gm-text-muted);
+  line-height: 1.55;
+  margin: 0 0 16px;
+  max-width: 760px;
+}
+
+/* Contact CTAs Row */
+.enterprise-cta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.btn-contact-sales {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;
+  color: #32180F !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 11.5px 24px !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.28) !important;
+  transition: all 0.22s ease;
+  cursor: pointer;
+}
+
+.btn-contact-sales:hover {
+  background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%) !important;
+  color: #27130D !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(242, 197, 141, 0.42) !important;
+}
+
+.btn-email-us {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent !important;
+  color: #32180F !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 11px 24px !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid rgba(197, 139, 80, 0.65) !important;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  cursor: pointer;
+}
+
+.btn-email-us:hover {
+  background: #32180F !important;
+  border-color: #32180F !important;
+  color: #FFF8F0 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(39, 19, 13, 0.20) !important;
+}
+
+.enterprise-contact-note {
+  font-size: 11.5px;
+  color: var(--gm-text-muted);
+  margin-top: 4px;
+}
+
+/* Section Divider */
+.enterprise-divider {
+  height: 1px;
+  background: var(--gm-border-subtle);
+  margin: 20px 0 18px;
+}
+
+/* Section Subhead */
+.enterprise-subhead {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gm-dark-chocolate);
+  margin: 0 0 12px;
+}
+
+/* 4 Capabilities Grid */
+.enterprise-caps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.enterprise-cap-card {
+  background: #FFFDF9;
+  border: 1px solid rgba(197, 139, 80, 0.2);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.enterprise-cap-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  background: var(--gm-peach);
+  color: var(--gm-dark-chocolate);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.enterprise-cap-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.enterprise-cap-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gm-dark-chocolate);
+  margin: 0 0 2px;
+  line-height: 1.3;
+}
+
+.enterprise-cap-desc {
+  font-size: 11.5px;
+  color: var(--gm-text-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Offerings 2-Column List */
+.enterprise-offerings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 16px;
+  margin-bottom: 20px;
+}
+
+.enterprise-offering-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12.5px;
+  color: var(--gm-text-dark);
+  font-weight: 500;
+}
+
+.enterprise-offering-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--gm-dark-chocolate);
+  stroke-width: 2.5;
+}
+
+/* Bottom Action Row */
+.enterprise-bottom-action {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.btn-discuss-req {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;
+  color: #32180F !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 11.5px 24px !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.28) !important;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  cursor: pointer;
+}
+
+.btn-discuss-req:hover {
+  background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%) !important;
+  color: #27130D !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(242, 197, 141, 0.42) !important;
+}
+
+/* ==========================================================================
+   4. PLAN COMPARISON TABLE
+   ========================================================================== */
+.comparison-section {
+  padding: 48px 24px 60px;
+  background: #FFF4E5;
+}
+
+.comparison-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.comparison-header-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.comparison-title {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gm-dark-chocolate);
+  margin: 0;
+}
+
+.comparison-subtitle {
+  font-size: 14.5px;
+  color: var(--gm-text-muted);
+  margin: 0;
+}
+
+.comparison-table-wrapper {
+  background: #FAF2E8;
+  border: 1px solid rgba(197, 139, 80, 0.28);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(50, 24, 15, 0.04);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.comparison-table th {
+  padding: 18px 20px 16px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.comparison-table th.col-feature {
+  width: 44%;
+  text-align: left;
+  background: #F0E3D3;
+  border-bottom: 1.5px solid rgba(197, 139, 80, 0.28);
+}
+
+.comparison-table th.col-standard {
+  width: 28%;
+  background: #FAF2E8;
+  border-bottom: 1.5px solid rgba(197, 139, 80, 0.28);
+  border-left: 1px solid rgba(197, 139, 80, 0.2);
+  border-right: 1px solid rgba(197, 139, 80, 0.2);
+}
+
+.comparison-table th.col-pro {
+  width: 28%;
+  background: #32180F;
+  color: #FFFFFF;
+  border-bottom: 1.5px solid #32180F;
+}
+
+.th-header-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #F6F9FC;
-  border: 1px solid var(--line);
-  border-radius: 99px;
-  padding: 5px;
-  box-shadow: var(--shadow-sm);
-  margin: 0 auto;
-  gap: 4px;
-}
-.bt-btn {
-  padding: 10px 24px;
-  border-radius: 99px;
-  font-size: 14px;
-  font-weight: 700;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: var(--mute);
-  cursor: pointer;
-  transition: .2s;
-  user-select: none;
-  border: none;
-  background: transparent;
-}
-.bt-btn.act {
-  background: #0A2540;
-  color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(10, 37, 64, 0.2);
-}
-.bt-save {
-  font-size: 12.5px;
-  font-weight: 700;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #047857;
-  margin-left: 12px;
-  padding: 5px 14px;
-  background: #DEF7EC;
-  border-radius: 99px;
-  display: inline-block;
-  vertical-align: middle;
-  border: 1px solid rgba(4, 120, 87, 0.2);
+  padding: 5.5px 18px;
+  border-radius: 9999px;
+  font-family: 'Cinzel', serif !important;
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 5px;
+  line-height: 1.25;
 }
 
-/* Main Pricing Cards */
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; align-items: stretch; padding-top: 24px; }
-.pr-card {
+.th-pill-feature {
+  background: rgba(87, 42, 19, 0.10);
+  color: #32180F;
+  border: 1px solid rgba(87, 42, 19, 0.18);
+}
+
+.th-pill-standard {
   background: #FFFFFF;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
-  position: relative;
-  box-shadow: var(--shadow-sm);
+  color: #32180F;
+  border: 1.5px solid rgba(197, 139, 80, 0.45);
+  box-shadow: 0 2px 8px rgba(50, 24, 15, 0.05);
 }
-.pr-card:hover {
-  border-color: #CBD5E1;
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
+
+.th-pill-pro {
+  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%);
+  color: #32180F;
+  border: none;
+  box-shadow: 0 3px 12px rgba(242, 197, 141, 0.32);
 }
-.pr-card.popular {
-  border: 2px solid #0A2540;
-  box-shadow: 0 16px 36px rgba(10, 37, 64, 0.12);
-  transform: scale(1.02);
-}
-.pr-card.popular:hover {
-  transform: scale(1.02) translateY(-4px);
-  box-shadow: 0 22px 44px rgba(10, 37, 64, 0.18);
-}
-.pr-badge {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #0A2540;
-  color: #FFFFFF;
-  font-size: 11.5px;
+
+.th-name {
+  font-family: var(--font-serif);
+  font-size: 18px;
   font-weight: 700;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  padding: 6px 18px;
-  border-radius: 99px;
-  letter-spacing: .08em;
+  margin-bottom: 3px;
   text-transform: uppercase;
-  box-shadow: 0 4px 14px rgba(10, 37, 64, 0.25);
-  z-index: 10;
+}
+
+.col-standard .th-name { color: var(--gm-dark-chocolate); }
+.col-pro .th-name { color: #FFFFFF; }
+
+.th-price-sub {
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.th-feature-sub { color: var(--gm-text-muted); }
+.col-standard .th-price-sub { color: var(--gm-text-muted); }
+.col-pro .th-price-sub { color: #F5B947; }
+
+/* Table Body */
+.comparison-table td {
+  padding: 13px 20px;
+  border-bottom: 1px solid rgba(197, 139, 80, 0.18);
+  font-size: 14px;
+  vertical-align: middle;
+  transition: background-color 0.15s ease;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tr:hover td {
+  background-color: #F4E7D7;
+}
+
+.comparison-category-row {
+  cursor: pointer;
+  user-select: none;
+}
+
+.comparison-category-row td {
+  background: #EFE2D1 !important;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gm-dark-chocolate);
+  padding: 12px 20px;
+  border-top: 1.5px solid rgba(197, 139, 80, 0.28);
+  border-bottom: 1px solid rgba(197, 139, 80, 0.28);
+  transition: background-color 0.2s ease;
+}
+
+.comparison-category-row:hover td {
+  background: #E7D7C3 !important;
+}
+
+.cat-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cat-toggle-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gm-dark-chocolate);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.comparison-category-row:hover .cat-toggle-btn {
+  transform: scale(1.08);
+}
+
+.cat-plus-icon {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2.6;
+}
+
+.cat-vert-line {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.comparison-category-row.is-open .cat-toggle-btn {
+  background: var(--gm-gold);
+  color: var(--gm-dark-chocolate);
+}
+
+.comparison-category-row.is-open .cat-vert-line {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+.cat-title-text {
+  flex: 1;
+}
+
+.cat-count-pill {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--gm-text-muted);
+  background: rgba(87, 42, 19, 0.08);
+  padding: 2px 10px;
+  border-radius: 9999px;
+}
+
+.btn-toggle-all-cats {
+  background: #FAF2E8 !important;
+  color: #32180F !important;
+  border: 1.5px solid rgba(197, 139, 80, 0.5) !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 8px 18px !important;
+  border-radius: 9999px !important;
+  cursor: pointer;
+  transition: all 0.22s ease;
   white-space: nowrap;
 }
-.pr-label { font-size: 12.5px; font-weight: 700; color: #B45309; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; font-family: 'Plus Jakarta Sans', sans-serif; }
-.pr-sub { font-size: 19px; font-weight: 800; color: var(--ink); margin-bottom: 12px; font-family: 'Plus Jakarta Sans', sans-serif; }
-.pr-desc { font-size: 14.5px; color: var(--mute); margin-bottom: 24px; line-height: 1.55; min-height: 42px; }
-.pr-price { font-size: 38px; font-weight: 800; color: var(--ink); margin-bottom: 6px; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.03em; }
-.pr-price span { font-size: 14.5px; font-weight: 600; color: var(--mute-light); }
-.pr-freq { font-size: 13px; color: var(--mute-light); margin-bottom: 28px; font-weight: 600; }
-.pr-custom-price { font-size: 32px; font-weight: 800; color: var(--ink); margin-bottom: 8px; line-height: 1.2; padding-bottom: 18px; font-family: 'Plus Jakarta Sans', sans-serif; }
-.pr-features { margin-top: 24px; margin-bottom: 28px; flex: 1; }
-.pr-feat-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-size: 14.5px; color: var(--ink); line-height: 1.5; }
-.pr-feat-icon { flex-shrink: 0; color: #B45309; }
 
-/* Positioning Strip */
-.pos-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; max-width: 1100px; margin-left: auto; margin-right: auto; text-align: center; }
-.pos-item h4 { font-size: 18px; margin-bottom: 8px; color: var(--ink); font-weight: 700; }
-.pos-item p { font-size: 14.5px; color: var(--mute); }
-
-/* Industry Selector */
-.ind-tabs { display: flex; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; justify-content: center; }
-.ind-tab { padding: 10px 20px; border-radius: 99px; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13.5px; cursor: pointer; border: 1px solid var(--line); background: #FFFFFF; color: var(--mute); transition: .2s; }
-.ind-tab.act { background: #0A2540; color: #FFFFFF; border-color: #0A2540; box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2); }
-
-/* Compact Cards */
-.c-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.c-card { background: #FFFFFF; border: 1px solid var(--line); border-radius: 20px; padding: 24px; box-shadow: var(--shadow-sm); }
-.c-label { font-size: 12px; font-weight: 700; color: #B45309; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em; font-family: 'Plus Jakarta Sans', sans-serif; }
-.c-price { font-size: 28px; font-weight: 800; color: var(--ink); margin-bottom: 16px; font-family: 'Plus Jakarta Sans', sans-serif; }
-.c-price span { font-size: 13px; font-weight: 600; color: var(--mute-light); }
-.c-feat { font-size: 14.5px; line-height: 1.6; color: var(--ink); }
-
-[x-cloak] { display: none !important; }
-
-/* Comparison Table */
-.comp-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; background: #FFFFFF; border-radius: 20px; border: 1px solid var(--line); box-shadow: var(--shadow-md); margin-top: 16px; }
-.comp-table { width: 100%; border-collapse: collapse; min-width: 700px; }
-.comp-table th { padding: 16px 18px; text-align: center; font-size: 14.5px; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; border-bottom: 1px solid var(--line); background: #F6F9FC; position: sticky; top: 0; z-index: 10; color: var(--ink); }
-.comp-table th:first-child { text-align: left; }
-.comp-table td { padding: 14px 18px; text-align: center; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--mute); transition: background-color 0.15s ease; }
-.comp-table td:first-child { text-align: left; font-weight: 600; color: var(--ink); }
-.comp-table tbody tr:not(.comp-group-row):hover td { background-color: #F8FAFC; }
-
-.comp-group-row { cursor: pointer; user-select: none; }
-.comp-group-row:hover .comp-group { background: #EEF2F6; }
-.comp-group { background: #F6F9FC; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: uppercase; font-size: 12.5px; letter-spacing: .06em; color: var(--ink); text-align: left !important; padding: 14px 18px !important; border-bottom: 1px solid var(--line); }
-.comp-group-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-.comp-toggle-badge { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; border: 1.5px solid #CBD5E1; color: #0A2540; font-size: 16px; font-weight: 800; line-height: 1; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(10, 37, 64, 0.08); }
-.comp-group-row:hover .comp-toggle-badge { border-color: #B45309; color: #B45309; transform: scale(1.08); }
-.comp-toggle-badge.open { background: #FEF3C7; border-color: #B45309; color: #B45309; }
-.check { color: #10B981; }
-.dash { color: #CBD5E1; }
-
-/* Visual Stages */
-.stage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center; }
-.stage-card { padding: 32px 24px; background: #FFFFFF; border: 1px solid var(--line); border-radius: 20px; position: relative; box-shadow: var(--shadow-sm); }
-.stage-card::after { content: '→'; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); font-size: 24px; color: var(--mute-light); z-index: 2; font-weight: 700; }
-.stage-card:last-child::after { display: none; }
-.stage-lbl { font-size: 12px; font-weight: 700; color: #B45309; margin-bottom: 16px; letter-spacing: .08em; text-transform: uppercase; font-family: 'Plus Jakarta Sans', sans-serif; }
-.stage-card h3 { margin-bottom: 8px; font-weight: 700; }
-
-/* ===================== INTERNATIONAL SAAS FAQ (STRIPE 2-COL SPLIT) ===================== */
-.faq-section {
-  padding: 90px 0;
-  background: #FFFFFF;
-  position: relative;
+.btn-toggle-all-cats:hover {
+  background: #32180F !important;
+  border-color: #32180F !important;
+  color: #FFF8F0 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(39, 19, 13, 0.15) !important;
 }
 
-.faq-layout {
-  display: grid;
-  grid-template-columns: 38% 62%;
-  gap: 56px;
-  align-items: start;
+.tbl-badge-text {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gm-dark-chocolate);
+  background: #EFE3D3;
+  padding: 2px 9px;
+  border-radius: 9999px;
+  border: 1px solid rgba(197, 139, 80, 0.24);
 }
 
-.faq-left-col {
-  position: sticky;
-  top: 96px;
+.tbl-badge-addon {
+  background: rgba(245, 185, 71, 0.25);
+  border-color: rgba(233, 154, 36, 0.4);
+  color: var(--gm-dark-chocolate);
 }
 
-.faq-main-title {
-  font-family: Effra, sans-serif;
-  font-weight: 400;
-  font-size: 2.5rem;
-  line-height: 1.12;
-  color: #0A2540;
-  letter-spacing: normal;
-  margin: 0 0 16px;
+.td-feature-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 600;
+  color: var(--gm-dark-chocolate);
 }
 
-.faq-lead-desc {
-  font-family: 'Inter', system-ui, sans-serif;
+.td-feature-name {
+  font-weight: 600;
+  color: var(--gm-dark-chocolate);
+}
+
+.feature-inline-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #FAF4ED;
+  color: var(--gm-dark-chocolate);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature-inline-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.td-center-val {
+  text-align: center;
+  font-weight: 600;
+  color: var(--gm-dark-chocolate);
+}
+
+.tbl-check-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--gm-dark-chocolate);
+  stroke-width: 2.8;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.tbl-dash {
+  color: #A3968B;
+  font-weight: 700;
   font-size: 18px;
-  color: #425466;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
-  margin: 0 0 32px;
-  max-width: 420px;
 }
 
-/* Support Help Card */
-.faq-support-card {
-  background: #F6F9FC;
-  border: 1px solid #E3E8EE;
-  border-radius: 20px;
-  padding: 24px;
+/* ==========================================================================
+   5. FINAL CTA FULL-WIDTH SECTION
+   ========================================================================== */
+.final-cta-section {
+  position: relative;
+  width: 100%;
+  background: #241108 url('{{ asset('assets/images/home/pricingcta.png') }}') center center / cover no-repeat;
+  padding: 48px 24px 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.final-cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(50, 24, 15, 0.74) 0%, rgba(69, 29, 12, 0.64) 50%, rgba(50, 24, 15, 0.80) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.final-cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 740px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  max-width: 420px;
-  transition: all 0.25s ease;
-}
-.faq-support-card:hover {
-  border-color: #CBD5E1;
-  box-shadow: 0 8px 20px rgba(10, 37, 64, 0.06);
-}
-
-.faq-support-header {
-  display: flex;
   align-items: center;
-  gap: 12px;
-}
-.faq-support-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: #FEF3C7;
-  color: #B45309;
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  border: 1px solid rgba(217, 119, 6, 0.25);
-}
-.faq-support-icon svg { width: 20px; height: 20px; }
-
-.faq-support-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: #0A2540;
-  margin: 0;
-  letter-spacing: -0.015em;
+  text-align: center;
 }
 
-.faq-support-text {
-  font-family: 'Inter', sans-serif;
+.final-cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Cinzel', serif !important;
+  font-size: 11.5px;
+  font-weight: 500 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: #F5B947;
+  margin-bottom: 8px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+.final-cta-eyebrow .eyebrow-dash {
+  width: 18px;
+  height: 1.5px;
+  background: #F5B947;
+  display: inline-block;
+}
+
+.final-cta-title {
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 400 !important;
+  color: #FFFFFF;
+  line-height: 1.28;
+  margin: 0 0 10px;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
+.final-cta-desc {
   font-size: 13.5px;
-  color: #425466;
+  color: #F8EFE4;
   line-height: 1.55;
-  margin: 0;
+  max-width: 650px;
+  margin: 0 0 20px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
 }
 
-.faq-support-actions {
+.final-cta-btn-wrap {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding-top: 4px;
+  justify-content: center;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
-.faq-support-btn-primary {
+.final-cta-btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: #0A2540;
-  color: #FFFFFF !important;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13.5px;
-  font-weight: 700;
-  padding: 9px 18px;
-  border-radius: 10px;
+  gap: 8px;
+  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;
+  color: #32180F !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 11.5px 24px !important;
+  border-radius: 9999px !important;
+  border: none !important;
   text-decoration: none;
-  border: 1px solid #0A2540;
-  transition: all 0.2s ease;
-}
-.faq-support-btn-primary:hover {
-  background: #1A365D;
-  border-color: #1A365D;
-  transform: translateY(-1px);
-}
-
-.faq-support-link {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: #B45309 !important;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  transition: gap 0.2s ease;
-}
-.faq-support-link:hover {
-  color: #92400E !important;
-  gap: 7px;
-}
-
-/* Right Column: FAQ Accordion */
-.faq-right-col {
-  width: 100%;
-}
-.faq-accordion-list {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.faq-row {
-  border: 1.5px solid #E3E8EE;
-  border-radius: 16px;
-  background: #FFFFFF;
-  padding: 0 24px;
-  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.04);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.faq-row:hover {
-  border-color: #CBD5E1;
-  box-shadow: 0 4px 14px rgba(50, 50, 93, 0.08);
-}
-.faq-row.open {
-  border-color: #0A2540;
-  box-shadow: 0 8px 24px rgba(10, 37, 64, 0.08);
-  background: #FFFFFF;
-}
-.faq-row button {
-  width: 100%;
-  background: none;
-  border: 0;
-  color: #0A2540;
-  font: 700 16.5px 'Plus Jakarta Sans', sans-serif;
-  letter-spacing: -0.02em;
-  text-align: left;
-  padding: 22px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.28) !important;
+  transition: all 0.22s ease;
   cursor: pointer;
-  gap: 16px;
-  outline: none;
 }
-.faq-row i {
-  color: #0A2540;
-  font-style: normal;
-  font-size: 18px;
-  font-weight: 700;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  flex: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #F6F9FC;
-  display: grid;
-  place-items: center;
-  border: 1px solid #E3E8EE;
+
+.final-cta-btn-primary:hover {
+  background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%) !important;
+  color: #27130D !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(242, 197, 141, 0.42) !important;
 }
-.faq-row:hover i {
-  border-color: #CBD5E1;
-  background: #FFFFFF;
-}
-.faq-row.open i {
-  transform: rotate(45deg);
-  background: #0A2540;
-  color: #FFFFFF;
-  border-color: #0A2540;
-}
-.faq-answer-wrap {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.faq-row.open .faq-answer-wrap {
-  grid-template-rows: 1fr;
-}
-.faq-answer-wrap > div {
-  overflow: hidden;
-}
-.faq-answer-wrap p {
-  padding: 0 0 22px;
-  color: #425466;
-  font-family: 'Inter', system-ui, sans-serif;
+
+.final-cta-btn-primary .arrow,
+.final-cta-btn-secondary .arrow {
+  transition: transform 0.22s ease;
+  display: inline-block;
   font-size: 15px;
-  line-height: 1.65;
-  border-top: 1px solid #F1F5F9;
-  padding-top: 16px;
-  margin: 0;
 }
 
-@media (max-width: 960px) {
-  .faq-layout {
+.final-cta-btn-primary:hover .arrow,
+.final-cta-btn-secondary:hover .arrow {
+  transform: translateX(4px);
+}
+
+.final-cta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent !important;
+  color: #FFF8F0 !important;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  padding: 11px 24px !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid rgba(242, 197, 141, 0.60) !important;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  cursor: pointer;
+}
+
+.final-cta-btn-secondary:hover {
+  background-color: rgba(242, 197, 141, 0.15) !important;
+  border-color: #F2C58D !important;
+  color: #F2C58D !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(242, 197, 141, 0.20) !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+.comparison-mobile-hint {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .pricing-hero-section {
+    background-image: linear-gradient(180deg, rgba(31, 14, 7, 0.94) 0%, rgba(31, 14, 7, 0.90) 100%),
+                      url('{{ asset('assets/images/home/pricingheeroo.png') }}');
+    background-position: center;
+    padding: 42px 20px 36px;
+  }
+  .pricing-hero-container {
+    flex-direction: column;
+    text-align: center;
+    min-height: auto;
+  }
+  .pricing-hero-content {
+    max-width: 100%;
+  }
+  .pricing-hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pricing-hero-highlights {
+    justify-content: center;
+  }
+  .pricing-hero-visual {
+    min-height: auto;
+    width: 100%;
+    margin-top: 24px;
+  }
+  .pricing-hero-visual img {
+    display: block;
+    max-width: 100%;
+    width: 360px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.45));
+  }
+  .final-cta-section {
+    padding: 40px 18px 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-hero-section {
+    padding: 36px 16px 28px;
+  }
+  .pricing-plans-section {
+    padding: 42px 16px 32px;
+  }
+  .pricing-cards-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    max-width: 440px;
+    margin: 0 auto;
+    gap: 36px;
   }
-  .faq-left-col {
-    position: static;
-    max-width: 100%;
+  .enterprise-section {
+    padding: 24px 16px 44px;
   }
-  .faq-lead-desc,
-  .faq-support-card {
-    max-width: 100%;
+  .enterprise-card {
+    padding: 24px 18px;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .enterprise-caps-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .enterprise-offerings-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .enterprise-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .btn-contact-sales,
+  .btn-email-us,
+  .btn-discuss-req {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .btn-email-us {
+    word-break: break-all;
+  }
+  .enterprise-bottom-action {
+    justify-content: center;
+  }
+  .comparison-section {
+    padding: 38px 16px 48px;
+  }
+  .comparison-header-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .btn-toggle-all-cats {
+    align-self: flex-start;
+  }
+  .comparison-mobile-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--gm-text-muted);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .comparison-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 14px;
+  }
+  .comparison-table {
+    min-width: 560px;
+  }
+  .comparison-table th.col-feature,
+  .comparison-table td.col-feature {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: #FAF2E8;
+    box-shadow: 2px 0 6px rgba(50, 24, 15, 0.05);
+  }
+  .comparison-table th.col-feature {
+    background: #F2E5D5;
+  }
+  .comparison-category-row td {
+    position: sticky;
+    left: 0;
+  }
+  .comparison-row:hover td.col-feature {
+    background: #F3E7D7;
+  }
+  .final-cta-btn-wrap {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .final-cta-btn-primary,
+  .final-cta-btn-secondary {
+    width: 100%;
+    justify-content: center;
   }
 }
 
-
-/* CTA: International High-Tech Dark Slate Banner */
-.cta-sec { padding: 90px 0; background: radial-gradient(circle at 50% 0%, #1A2E4C 0%, #0A192F 100%); color: #FFFFFF; text-align: center; position: relative; overflow: hidden; }
-.cta-box { position: relative; z-index: 2; max-width: 760px; margin: auto; }
-.cta-box h2 { color: #FFFFFF !important; margin-bottom: 16px; font-weight: 800; font-size: clamp(30px, 4vw, 44px); }
-.cta-box p { color: #A0AEC0 !important; font-size: 17px; line-height: 1.6; }
-.cta-sec .btn.p { background: #FFFFFF !important; color: #0A2540 !important; border-color: #FFFFFF !important; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-.cta-sec .btn.p:hover { background: #F6F9FC !important; transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
-.cta-sec .btn.o { background: rgba(255, 255, 255, 0.08) !important; border-color: rgba(255, 255, 255, 0.25) !important; color: #FFFFFF !important; }
-.cta-sec .btn.o:hover { background: rgba(255, 255, 255, 0.16) !important; border-color: rgba(255, 255, 255, 0.4) !important; }
-.cta-flow { display: flex; justify-content: center; gap: 16px; align-items: center; margin-top: 36px; font-size: 13.5px; font-weight: 600; letter-spacing: .04em; color: #A0AEC0; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif; }
-.cta-flow span { color: #FEF3C7; font-weight: 700; }
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .pricing-grid { grid-template-columns: 1fr; max-width: 520px; }
-  .pr-card.popular { transform: none; }
-  .pr-card.popular:hover { transform: translateY(-4px); }
-  .pos-strip { grid-template-columns: 1fr; gap: 20px; }
-  .c-grid { grid-template-columns: 1fr; }
-  .stage-grid { grid-template-columns: 1fr; }
-  .stage-card::after { content: '↓'; right: auto; bottom: -20px; top: auto; left: 50%; transform: translateX(-50%); }
-}
-
-@media (max-width: 640px) {
-  .w { padding: 0 16px; }
-  .pr-card { padding: 24px 18px; border-radius: 18px; }
-  .pr-price { font-size: 30px; }
-  .billing-toggle { width: 100%; max-width: 320px; }
-  .bt-btn { flex: 1; padding: 8px 16px; font-size: 13px; }
-  .bt-save { display: block; margin: 8px auto 0; text-align: center; }
-  .ind-tabs { gap: 8px; }
-  .ind-tab { padding: 8px 14px; font-size: 12.5px; }
-  .faq-item { padding: 16px 18px; }
-  .faq-item summary { font-size: 15px; }
+@media (max-width: 576px) {
+  .pricing-hero-section {
+    padding: 30px 14px 24px;
+  }
+  .pricing-hero-title {
+    font-size: 24px !important;
+    line-height: 1.22;
+  }
+  .pricing-hero-desc {
+    font-size: 13.5px;
+    margin-bottom: 18px;
+  }
+  .pricing-hero-highlights {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .pricing-hero-highlight-item {
+    width: 100%;
+    max-width: 270px;
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .pricing-plans-section {
+    padding: 32px 12px 24px;
+  }
+  .pricing-card {
+    padding: 22px 14px;
+  }
+  .card-specs-row {
+    gap: 4px;
+  }
+  .card-spec-item {
+    padding: 6px 3px;
+  }
+  .spec-text {
+    font-size: 9.5px;
+  }
+  .card-price-num {
+    font-size: 32px;
+  }
+  .enterprise-section {
+    padding: 16px 12px 36px;
+  }
+  .enterprise-card {
+    padding: 20px 14px;
+  }
+  .enterprise-main-title {
+    font-size: 19px;
+  }
+  .enterprise-cap-card {
+    padding: 10px 12px;
+  }
+  .comparison-section {
+    padding: 30px 12px 40px;
+  }
+  .comparison-title {
+    font-size: 20px;
+  }
+  .final-cta-section {
+    padding: 34px 14px 38px;
+  }
+  .final-cta-eyebrow {
+    font-size: 10.5px;
+  }
+  .final-cta-heading {
+    font-size: 19px;
+  }
+  .final-cta-desc {
+    font-size: 13px;
+  }
 }
 </style>
 
-<div x-data="pricing()">
-    
-    {{-- 3. HERO SECTION --}}
-    <section class="hero" style="padding-top:40px; padding-bottom:30px;">
-        <div class="w hd">
-            <div class="eb">Geni Menu Pricing</div>
-            <h1>Plans That Grow With Your Business</h1>
-            <p>Choose the right Geni Menu plan for your business — from essential daily operations to advanced multi-branch management.</p>
-            
-            <div style="margin-top:30px;">
-                <div class="billing-toggle">
-                    <button class="bt-btn" :class="billing === 'monthly' ? 'act' : ''" @click="billing = 'monthly'">Monthly</button>
-                    <button class="bt-btn" :class="billing === 'yearly' ? 'act' : ''" @click="billing = 'yearly'">Yearly</button>
-                </div>
-                <div x-show="billing === 'yearly'" class="bt-save" x-transition>Save with yearly billing</div>
+<div class="pricing-page-scope">
+
+  {{-- =========================================================================
+       1. HERO BANNER
+       ========================================================================= --}}
+  <section class="pricing-hero-section">
+    <div class="pricing-hero-container">
+      
+      {{-- Left Content --}}
+      <div class="pricing-hero-content">
+        <h1 class="pricing-hero-title">Transparent Pricing. Powerful Possibilities.</h1>
+        <p class="pricing-hero-desc">Choose a plan that aligns with your business needs. Get the right tools, features and flexibility to deliver a better dining experience.</p>
+        
+        {{-- Three feature highlights with icons --}}
+        <div class="pricing-hero-highlights">
+          
+          <div class="pricing-hero-highlight-item">
+            <div class="phh-icon-box">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
             </div>
+            <div>
+              <div class="phh-title">Flexible Plans</div>
+              <div class="phh-sub">Options for Every Business</div>
+            </div>
+          </div>
+
+          <div class="pricing-hero-highlight-item">
+            <div class="phh-icon-box">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div>
+              <div class="phh-title">Powerful Capabilities</div>
+              <div class="phh-sub">Everything in One Platform</div>
+            </div>
+          </div>
+
+          <div class="pricing-hero-highlight-item">
+            <div class="phh-icon-box">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="phh-title">Scalable Solutions</div>
+              <div class="phh-sub">Built for Business Growth</div>
+            </div>
+          </div>
+
         </div>
-    </section>
+      </div>
 
-    {{-- 4. MAIN PRICING CARDS & 5. POSITIONING STRIP --}}
-    <section style="padding-top:0; overflow: visible;">
-        <div class="w" style="overflow: visible;">
-            <div class="pricing-grid">
-                
-                {{-- STANDARD --}}
-                <div class="pr-card">
-                    <div class="pr-label">STANDARD</div>
-                    <div class="pr-sub">Essential Operations</div>
-                    <div class="pr-desc">For small restaurants and food businesses that need the essentials to manage daily sales and operations.</div>
-                    
-                    <div>
-                        <div class="pr-price">₹799 <span>/ mo</span></div>
-                        <div class="pr-freq">Starting price • Yearly plans available</div>
-                    </div>
-                    
-                    <a href="{{ route('restaurant_signup', ['plan' => 'standard']) }}" class="btn o" style="width:100%;">Get Started &rarr;</a>
-                    
-                    <div class="pr-features">
-                        <div style="font-size:13px; font-weight: 500; color:var(--ink); margin-bottom:16px;">INCLUDED</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Menu Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Menu Categories</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Product Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Order Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>POS / Billing</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Payment Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Basic Customer Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Basic Reports</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Product Availability</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Basic Settings</div>
-                    </div>
-                </div>
+      {{-- Right Visual: Digital Menu Tablet Mockup (for mobile/tablet screens) --}}
+      <div class="pricing-hero-visual">
+        <img src="{{ asset('assets/images/pricing_hero_tablet_heeroo.png') }}" alt="Geni Menu Restaurant Digital Menu Tablet Mockup">
+      </div>
 
-                {{-- PREMIUM --}}
-                <div class="pr-card popular">
-                    <div class="pr-badge">MOST POPULAR</div>
-                    <div class="pr-label">PREMIUM</div>
-                    <div class="pr-sub">Complete Business Management</div>
-                    <div class="pr-desc">For growing restaurants and food businesses that need connected kitchen, inventory, customer and operational management.</div>
-                    
-                    <div>
-                        <div class="pr-price">₹1,999 <span>/ mo</span></div>
-                        <div class="pr-freq">Starting price • Yearly plans available</div>
-                    </div>
-                    
-                    <a href="{{ route('restaurant_signup', ['plan' => 'premium']) }}" class="btn p" style="width:100%;">Start Premium &rarr;</a>
-                    
-                    <div class="pr-features">
-                        <div style="font-size:13px; font-weight: 500; color:var(--ink); margin-bottom:16px;">EVERYTHING IN STANDARD, PLUS:</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Kitchen Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>KOT Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Table Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Reservation Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Customer & Staff Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Inventory & Stock Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Expense Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Advanced & Export Reports</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Payment Gateway Integration</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Waiter Requests</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Delivery Executive Management</div>
-                    </div>
-                </div>
+    </div>
+  </section>
 
-                {{-- ENTERPRISE --}}
-                <div class="pr-card">
-                    <div class="pr-label">ENTERPRISE</div>
-                    <div class="pr-sub">Advanced & Multi-Branch Operations</div>
-                    <div class="pr-desc">For established businesses, restaurant chains and growing businesses managing multiple locations.</div>
-                    
-                    <div>
-                        <div class="pr-custom-price">Custom Pricing</div>
-                        <div class="pr-freq" style="margin-bottom:12px;">Built around your business requirements</div>
-                    </div>
-                    
-                    <a href="{{ route('contact.us') }}" class="btn o" style="width:100%;">Talk to Sales →</a>
-                    
-                    <div class="pr-features">
-                        <div style="font-size:13px; font-weight: 500; color:var(--ink); margin-bottom:16px;">EVERYTHING IN PREMIUM, PLUS:</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Multi-Branch Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Branch-Wise Operations</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Centralized Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Advanced Analytics</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Branch-Wise Reports</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Kiosk Management</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Advanced User & Staff Controls</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Theme Customization</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Enterprise Reporting</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Extended Payment Integrations</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Multi-Location Inventory</div>
-                        <div class="pr-feat-item"><svg class="pr-feat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Dedicated Business Setup / Support where applicable</div>
-                    </div>
-                </div>
+  {{-- =========================================================================
+       2. PRICING PLANS (SIDE BY SIDE)
+       ========================================================================= --}}
+  <section class="pricing-plans-section">
+    <div class="pricing-plans-container">
 
-            </div>
-
-            <div class="pos-strip">
-                <div class="pos-item">
-                    <h4>Run Your Daily Operations</h4>
-                    <p>Essential tools for everyday business management.</p>
-                </div>
-                <div class="pos-item">
-                    <h4>Manage Your Business End-to-End</h4>
-                    <p>Connected tools for growing food businesses.</p>
-                </div>
-                <div class="pos-item">
-                    <h4>Scale Across Locations</h4>
-                    <p>Advanced controls for multi-branch and larger operations.</p>
-                </div>
-            </div>
+      {{-- Regional Badge & Light Brown Annual Billing Pill --}}
+      <div class="pricing-region-header">
+        <div class="currency-badge-pill">
+          <svg class="currency-globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span class="curr-intl-label">International</span>
+          <span class="curr-code-label">$ USD</span>
         </div>
-    </section>
 
-    {{-- 6 & 7: INDUSTRY-SPECIFIC PRICING --}}
-    <section class="alt" id="industry-pricing">
-        <div class="w">
-            <div class="hd">
-                <h2>Choose Your Business Type</h2>
-                <p>Plans are tailored to the operational needs of different food and hospitality businesses.</p>
-            </div>
-
-            <div class="ind-tabs">
-                <template x-for="(data, key) in industries" :key="key">
-                    <button class="ind-tab" :class="ind === key ? 'act' : ''" @click="ind = key" x-text="data.name"></button>
-                </template>
-            </div>
-
-            <div class="c-grid">
-                {{-- Standard --}}
-                <div class="c-card">
-                    <div class="c-label">STANDARD</div>
-                    <div class="c-price" x-text="formatPrice(industries[ind].s[billing])"></div>
-                    <div class="c-feat" x-html="industries[ind].s.feat"></div>
-                </div>
-                {{-- Premium --}}
-                <div class="c-card" style="border-color:var(--br); box-shadow:var(--shadow-md);">
-                    <div class="c-label" style="color:var(--br);">PREMIUM</div>
-                    <div class="c-price" x-text="formatPrice(industries[ind].p[billing])"></div>
-                    <div class="c-feat" x-html="industries[ind].p.feat"></div>
-                </div>
-                {{-- Enterprise --}}
-                <div class="c-card">
-                    <div class="c-label">ENTERPRISE</div>
-                    <div class="c-price" x-text="formatPrice(industries[ind].e[billing])"></div>
-                    <div class="c-feat" x-html="industries[ind].e.feat"></div>
-                </div>
-            </div>
+        <div class="pricing-billing-pill" id="pricing-billing-pill">
+          <span>Billed annually &bull; Prices in USD</span>
         </div>
-    </section>
+      </div>
 
-    {{-- 19: FEATURE COMPARISON --}}
-    <section>
-        <div class="w">
-            <div class="hd">
-                <h2>Compare Plans & Features</h2>
-                <p>See exactly what's included in each plan to find the right fit for your operations.</p>
+      <div class="pricing-cards-grid">
+
+        {{-- STARTER TIER (ESSENTIAL OPERATIONS) --}}
+        <div class="pricing-card pricing-card-standard">
+          <div class="card-tier-badge">Starter Tier</div>
+
+          <div class="card-header-block">
+            <h3 class="card-plan-title">Essential Operations</h3>
+            <p class="card-plan-desc">Core setup to run fast POS counter billing, QR menu, and everyday sales operations smoothly.</p>
+          </div>
+
+          <div class="card-best-for">
+            <span class="cbf-label">Best for:</span>
+            <span class="cbf-val">Cafes, QSR, Takeaway & Small Outlets</span>
+          </div>
+
+          {{-- 3 Quick Specs Pills --}}
+          <div class="card-specs-row">
+            <div class="card-spec-item">
+              <span class="spec-icon">⚡</span>
+              <span class="spec-text">1 Counter POS</span>
             </div>
-
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:28px; margin-bottom:12px; flex-wrap:wrap; gap:10px;">
-                <span style="font-size:13.5px; color:var(--mute); font-weight:600;">Click any category with + to view plan comparison</span>
-                <button type="button" @click="toggleAllGroups()" style="background:#F6F9FC; border:1px solid var(--line); color:#B45309; font-size:13px; font-weight:700; cursor:pointer; font-family:'Plus Jakarta Sans',sans-serif; display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:8px; transition:.2s;">
-                    <span x-text="allOpen ? 'Collapse All −' : 'Expand All +'">Expand All +</span>
-                </button>
+            <div class="card-spec-item">
+              <span class="spec-icon">👥</span>
+              <span class="spec-text">Up to 5 Staff</span>
             </div>
-
-            <div class="comp-wrapper" style="margin-top:0;">
-                <table class="comp-table">
-                    <thead>
-                        <tr>
-                            <th style="width:40%;">Feature</th>
-                            <th style="width:20%;">Standard</th>
-                            <th style="width:20%;">Premium</th>
-                            <th style="width:20%;">Enterprise</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{-- Menu & Products --}}
-                        <tr class="comp-group-row" @click="toggleGroup('menu')">
-                            <td colspan="4" class="comp-group">
-                                <div class="comp-group-inner">
-                                    <span>Menu &amp; Products</span>
-                                    <span class="comp-toggle-badge" :class="openGroups.menu ? 'open' : ''" x-text="openGroups.menu ? '−' : '+'">+</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr x-show="openGroups.menu" x-cloak><td>Menu Management</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.menu" x-cloak><td>Menu Categories</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.menu" x-cloak><td>Product Management</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.menu" x-cloak><td>Product Availability</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.menu" x-cloak><td>Product Variations</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-
-                        {{-- Orders & Service --}}
-                        <tr class="comp-group-row" @click="toggleGroup('orders')">
-                            <td colspan="4" class="comp-group">
-                                <div class="comp-group-inner">
-                                    <span>Orders &amp; Service</span>
-                                    <span class="comp-toggle-badge" :class="openGroups.orders ? 'open' : ''" x-text="openGroups.orders ? '−' : '+'">+</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr x-show="openGroups.orders" x-cloak><td>Order Management</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.orders" x-cloak><td>KOT Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.orders" x-cloak><td>Kitchen Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.orders" x-cloak><td>Waiter Requests</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.orders" x-cloak><td>Delivery Executive Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-
-                        {{-- Tables & Reservations --}}
-                        <tr class="comp-group-row" @click="toggleGroup('tables')">
-                            <td colspan="4" class="comp-group">
-                                <div class="comp-group-inner">
-                                    <span>Tables &amp; Reservations</span>
-                                    <span class="comp-toggle-badge" :class="openGroups.tables ? 'open' : ''" x-text="openGroups.tables ? '−' : '+'">+</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr x-show="openGroups.tables" x-cloak><td>Table Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.tables" x-cloak><td>Reservation Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.tables" x-cloak><td>Area Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-
-                        {{-- Customers & Staff --}}
-                        <tr class="comp-group-row" @click="toggleGroup('customers')">
-                            <td colspan="4" class="comp-group">
-                                <div class="comp-group-inner">
-                                    <span>Customers &amp; Staff</span>
-                                    <span class="comp-toggle-badge" :class="openGroups.customers ? 'open' : ''" x-text="openGroups.customers ? '−' : '+'">+</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr x-show="openGroups.customers" x-cloak><td>Customer Management</td><td>Basic</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.customers" x-cloak><td>Staff Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.customers" x-cloak><td>Customer History</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-
-                        {{-- Billing & Payments --}}
-                        <tr class="comp-group-row" @click="toggleGroup('billing')">
-                            <td colspan="4" class="comp-group">
-                                <div class="comp-group-inner">
-                                    <span>Billing &amp; Payments</span>
-                                    <span class="comp-toggle-badge" :class="openGroups.billing ? 'open' : ''" x-text="openGroups.billing ? '−' : '+'">+</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr x-show="openGroups.billing" x-cloak><td>POS</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.billing" x-cloak><td>Billing</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.billing" x-cloak><td>Payments</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.billing" x-cloak><td>Payment Gateway</td><td><span class="dash">—</span></td><td>Add-on</td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.billing" x-cloak><td>Payment Reports</td><td>Basic</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-
-                        {{-- Inventory --}}
-                        <tr class="comp-group-row" @click="toggleGroup('inventory')">
-                            <td colspan="4" class="comp-group">
-                                <div class="comp-group-inner">
-                                    <span>Inventory</span>
-                                    <span class="comp-toggle-badge" :class="openGroups.inventory ? 'open' : ''" x-text="openGroups.inventory ? '−' : '+'">+</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr x-show="openGroups.inventory" x-cloak><td>Inventory Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.inventory" x-cloak><td>Stock Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.inventory" x-cloak><td>Stock Movement</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.inventory" x-cloak><td>Multi-Location Inventory</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
-
-                        {{-- Business Management --}}
-                        <tr class="comp-group-row" @click="toggleGroup('business')">
-                            <td colspan="4" class="comp-group">
-                                <div class="comp-group-inner">
-                                    <span>Business Management</span>
-                                    <span class="comp-toggle-badge" :class="openGroups.business ? 'open' : ''" x-text="openGroups.business ? '−' : '+'">+</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr x-show="openGroups.business" x-cloak><td>Expense Management</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.business" x-cloak><td>Reports</td><td>Basic</td><td>Advanced</td><td>Enterprise</td></tr>
-                        <tr x-show="openGroups.business" x-cloak><td>Export Reports</td><td><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.business" x-cloak><td>Advanced Analytics</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.business" x-cloak><td>Branch Management</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
-
-                        {{-- Advanced --}}
-                        <tr class="comp-group-row" @click="toggleGroup('advanced')">
-                            <td colspan="4" class="comp-group">
-                                <div class="comp-group-inner">
-                                    <span>Advanced</span>
-                                    <span class="comp-toggle-badge" :class="openGroups.advanced ? 'open' : ''" x-text="openGroups.advanced ? '−' : '+'">+</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr x-show="openGroups.advanced" x-cloak><td>Kiosk</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.advanced" x-cloak><td>Multi-Branch</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.advanced" x-cloak><td>Branch-Wise Reports</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.advanced" x-cloak><td>Theme Settings</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
-                        <tr x-show="openGroups.advanced" x-cloak><td>Advanced Settings</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
-                    </tbody>
-                </table>
+            <div class="card-spec-item">
+              <span class="spec-icon">🧾</span>
+              <span class="spec-text">Unlimited Orders</span>
             </div>
+          </div>
+
+          {{-- Mini Capability Tags --}}
+          <div class="card-caps-row">
+            <span class="cap-pill">POS Billing</span>
+            <span class="cap-pill">Digital Menu QR</span>
+            <span class="cap-pill">Sales Reports</span>
+          </div>
+
+          {{-- Price Block (in Dollars) --}}
+          <div class="card-price-wrap">
+            <span class="card-price-num price-val-starter">$9.99</span>
+            <span class="card-price-period">/ mo</span>
+          </div>
+
+          {{-- CTA Button --}}
+          <a href="{{ route('restaurant_signup', ['plan' => 'standard']) }}" class="card-cta-btn btn-choose-standard">
+            <span>Get Started Free</span>
+            <span class="btn-arrow">&rarr;</span>
+          </a>
+
+          {{-- Features Section --}}
+          <div class="card-features-heading">WHAT'S INCLUDED</div>
+          <ul class="card-features-list">
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Menu Management</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Menu Categories</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Product Management</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Order Management</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>POS / Billing</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Payment Management</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Basic Customer Management</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Basic Reports</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Product Availability</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Basic Settings</span>
+            </li>
+          </ul>
         </div>
-    </section>
 
-    {{-- 20: WHY CHOOSE --}}
-    <section class="alt">
-        <div class="w">
-            <div class="hd">
-                <h2>A Plan for Every Stage of Growth</h2>
+        {{-- GROWTH & KITCHEN OPERATIONS (MOST POPULAR) --}}
+        <div class="pricing-card pricing-card-pro">
+          {{-- Floating Golden Badge --}}
+          <div class="pro-floating-badge">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" />
+            </svg>
+            <span>MOST POPULAR CHOICE</span>
+          </div>
+
+          <div class="card-tier-badge card-tier-badge-gold">Growth & Kitchen Operations</div>
+
+          <div class="card-header-block">
+            <h3 class="card-plan-title">Complete Business Management</h3>
+            <p class="card-plan-desc">End-to-end automation connecting kitchen displays, table layout, live stock inventory, and customer orders.</p>
+          </div>
+
+          <div class="card-best-for card-best-for-gold">
+            <span class="cbf-label">Best for:</span>
+            <span class="cbf-val">Dine-in Restaurants, Bars & Busy Cloud Kitchens</span>
+          </div>
+
+          {{-- 3 Quick Specs Pills --}}
+          <div class="card-specs-row">
+            <div class="card-spec-item">
+              <span class="spec-icon">🍳</span>
+              <span class="spec-text">Kitchen + Tables</span>
             </div>
-            <div class="stage-grid">
-                <div class="stage-card">
-                    <div class="stage-lbl">STANDARD</div>
-                    <h3>Start Simple</h3>
-                    <p>Manage the essential operations of your food business.</p>
-                </div>
-                <div class="stage-card">
-                    <div class="stage-lbl" style="color:var(--ink);">PREMIUM</div>
-                    <h3>Grow With Confidence</h3>
-                    <p>Connect your kitchen, customers, inventory and daily operations.</p>
-                </div>
-                <div class="stage-card">
-                    <div class="stage-lbl" style="color:var(--mute);">ENTERPRISE</div>
-                    <h3>Scale Without Complexity</h3>
-                    <p>Manage multiple locations, advanced reporting and centralized operations.</p>
-                </div>
+            <div class="card-spec-item">
+              <span class="spec-icon">👥</span>
+              <span class="spec-text">Unlimited Staff</span>
             </div>
+            <div class="card-spec-item">
+              <span class="spec-icon">📦</span>
+              <span class="spec-text">Live Stock Alerts</span>
+            </div>
+          </div>
+
+          {{-- Mini Capability Tags --}}
+          <div class="card-caps-row">
+            <span class="cap-pill">Live KOT Screen</span>
+            <span class="cap-pill">Table Layout</span>
+            <span class="cap-pill">Inventory</span>
+            <span class="cap-pill">Online Gateway</span>
+          </div>
+
+          {{-- Price Block (in Dollars) --}}
+          <div class="card-price-wrap">
+            <span class="card-price-num price-val-growth">$24.99</span>
+            <span class="card-price-period">/ mo</span>
+          </div>
+
+          {{-- CTA Button --}}
+          <a href="{{ route('restaurant_signup', ['plan' => 'premium']) }}" class="card-cta-btn btn-choose-pro">
+            <span>Start Premium Free</span>
+            <span class="btn-arrow">&rarr;</span>
+          </a>
+
+          {{-- Features Section --}}
+          <div class="card-features-heading">EVERYTHING IN STANDARD, PLUS:</div>
+          <ul class="card-features-list">
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Kitchen Management</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>KOT Management</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Table Management</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Reservation Management</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Customer & Staff Management</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Inventory & Stock Management</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Expense Management</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Advanced & Export Reports</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Payment Gateway Integration</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Waiter Requests</span>
+            </li>
+            <li>
+              <svg class="card-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Delivery Executive Management</span>
+            </li>
+          </ul>
         </div>
-    </section>
 
-    {{-- 21: FAQ (International Tier-1 SaaS Layout) --}}
-    <section class="faq-section" id="faq">
-        <div class="w">
-            <div class="faq-layout">
-                <!-- Left Column: Header & Support Contact Card -->
-                <div class="faq-left-col">
-                    <span class="eb">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                        FREQUENTLY ASKED QUESTIONS
-                    </span>
-                    <h2 class="faq-main-title">
-                        Questions About<br>
-                        <span style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:600; color:var(--br);">Plans &amp; Pricing.</span>
-                    </h2>
-                    <p class="faq-lead-desc">
-                        Everything you need to know about billing cycles, plan upgrades, multi-branch licensing, and enterprise scale.
-                    </p>
+      </div>
+    </div>
+  </section>
 
-                    <!-- Help / Contact Card -->
-                    <div class="faq-support-card">
-                        <div class="faq-support-header">
-                            <div class="faq-support-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                            </div>
-                            <div>
-                                <h4 class="faq-support-title">Need custom pricing?</h4>
-                                <span style="font-size: 12px; color: #627D98; font-weight: 500;">Multi-outlet &amp; franchise support</span>
-                            </div>
-                        </div>
-                        <p class="faq-support-text">Have special requirements or running more than 5 outlets? Talk with our enterprise restaurant consultants.</p>
-                        <div class="faq-support-actions">
-                            <a href="{{ route('restaurant_signup') }}" class="faq-support-btn-primary">Book a Demo &rarr;</a>
-                            <a href="{{ route('contact.us') }}" class="faq-support-link">Contact Sales &rarr;</a>
-                        </div>
-                    </div>
-                </div>
+  {{-- =========================================================================
+       3. ENTERPRISE & CUSTOM PRICING
+       ========================================================================= --}}
+  <section class="enterprise-section">
+    <div class="enterprise-container">
+      <div class="enterprise-card">
 
-                <!-- Right Column: Accordion Items -->
-                <div class="faq-right-col">
-                    <div class="faq-accordion-list">
-                        <div class="faq-row open">
-                            <button type="button">Are monthly and yearly plans available? <i>+</i></button>
-                            <div class="faq-answer-wrap">
-                                <div>
-                                    <p>Yes. Geni Menu provides both monthly and yearly billing options with discounted rates for annual commitments.</p>
-                                </div>
-                            </div>
-                        </div>
+        {{-- Header Block --}}
+        <div class="enterprise-card-header">
+          <span class="enterprise-eyebrow">Enterprise & Custom Solutions</span>
+          <h2 class="enterprise-main-title">Built Around Your Business. Designed for Growth.</h2>
+          <p class="enterprise-main-desc">Every business has unique operational needs. With Geni Menu, you can explore customised solutions, tailored configurations and advanced capabilities that align with your business requirements.</p>
 
-                        <div class="faq-row">
-                            <button type="button">Can I upgrade my plan later? <i>+</i></button>
-                            <div class="faq-answer-wrap">
-                                <div>
-                                    <p>Yes. You can seamlessly move to a higher plan as your operational requirements grow without interrupting daily kitchen and billing workflows.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="faq-row">
-                            <button type="button">What is the difference between Standard and Premium? <i>+</i></button>
-                            <div class="faq-answer-wrap">
-                                <div>
-                                    <p>Standard focuses on essential daily operations (menu, billing, KOT), while Premium adds deeper kitchen display, table layout, table reservations, staff tracking, and live inventory control.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="faq-row">
-                            <button type="button">What is Enterprise designed for? <i>+</i></button>
-                            <div class="faq-answer-wrap">
-                                <div>
-                                    <p>Enterprise is designed for expanding chains and high-volume restaurants that need multi-branch central controls, self-ordering kiosks, online payment gateways, and advanced executive analytics.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="faq-row">
-                            <button type="button">Does every industry have the same pricing? <i>+</i></button>
-                            <div class="faq-answer-wrap">
-                                <div>
-                                    <p>No. Pricing is tailored by business type (Dine-in, QSR, Bakery, Cafe, etc.) based on the specific operational modules and hardware workflows each format requires.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="faq-row">
-                            <button type="button">Is payment gateway included in every plan? <i>+</i></button>
-                            <div class="faq-answer-wrap">
-                                <div>
-                                    <p>No. Integrated online payment gateway functionality is included in selected Premium or Enterprise configurations depending on the business solution.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="faq-row">
-                            <button type="button">Can I manage multiple branches? <i>+</i></button>
-                            <div class="faq-answer-wrap">
-                                <div>
-                                    <p>Yes. Multi-branch functionality with central head-office reporting, outlet-level pricing, and unified management is available in applicable Enterprise plans.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="faq-row">
-                            <button type="button">Can I manage inventory? <i>+</i></button>
-                            <div class="faq-answer-wrap">
-                                <div>
-                                    <p>Yes. Real-time ingredient tracking, low-stock notifications, and recipe consumption are available in selected Premium and Enterprise plans.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="faq-row">
-                            <button type="button">Can I change my plan later? <i>+</i></button>
-                            <div class="faq-answer-wrap">
-                                <div>
-                                    <p>Yes. Businesses can upgrade, downgrade, or switch billing frequency at any time directly through the account dashboard or with support assistance.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          {{-- CTA Buttons & Note --}}
+          <div class="enterprise-cta-row">
+            <a href="{{ route('contact.us') }}" class="btn-contact-sales">
+              <span>Contact Sales</span>
+              <span>&rarr;</span>
+            </a>
+            <a href="mailto:genimenuglobal@gmail.com" class="btn-email-us">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" style="width: 15px; height: 15px;" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+              <span>Email Us: genimenuglobal@gmail.com</span>
+            </a>
+          </div>
+          <p class="enterprise-contact-note">Connect with our team to discuss your requirements.</p>
         </div>
-    </section>
 
-    {{-- 22: FINAL CTA --}}
-    <section class="cta-sec">
-        <div class="cta-box">
-            <h2>Choose the Plan That Fits Your Business.</h2>
-            <p>Start with the essentials, unlock more capabilities as your business grows, and scale to advanced multi-branch operations when you need them.</p>
-            <div class="cta-flow">
-                STANDARD <span>→</span> PREMIUM <span>→</span> ENTERPRISE
+        <div class="enterprise-divider"></div>
+
+        {{-- Enterprise Capabilities (4 Cards) --}}
+        <div style="margin-bottom: 22px;">
+          <h3 class="enterprise-subhead">Enterprise Capabilities</h3>
+          <div class="enterprise-caps-grid">
+
+            <div class="enterprise-cap-card">
+              <div class="enterprise-cap-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                  <line x1="9" y1="22" x2="9" y2="22.01"></line>
+                  <line x1="15" y1="22" x2="15" y2="22.01"></line>
+                  <line x1="9" y1="6" x2="9" y2="6.01"></line>
+                  <line x1="15" y1="6" x2="15" y2="6.01"></line>
+                  <line x1="9" y1="10" x2="9" y2="10.01"></line>
+                  <line x1="15" y1="10" x2="15" y2="10.01"></line>
+                  <line x1="9" y1="14" x2="9" y2="14.01"></line>
+                  <line x1="15" y1="14" x2="15" y2="14.01"></line>
+                </svg>
+              </div>
+              <div>
+                <h4 class="enterprise-cap-title">Multi-Location Operations</h4>
+                <p class="enterprise-cap-desc">Manage multiple business locations through one connected platform.</p>
+              </div>
             </div>
-            <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:32px;">
-                <a href="{{ route('restaurant_signup') }}" class="btn p">Get Started &rarr;</a>
-                <a href="{{ route('restaurant_signup') }}" class="btn o">Book a Demo &rarr;</a>
+
+            <div class="enterprise-cap-card">
+              <div class="enterprise-cap-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="enterprise-cap-title">Customised Workflows</h4>
+                <p class="enterprise-cap-desc">Adapt platform functionality to match your operational processes.</p>
+              </div>
             </div>
+
+            <div class="enterprise-cap-card">
+              <div class="enterprise-cap-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4 class="enterprise-cap-title">Advanced Integrations</h4>
+                <p class="enterprise-cap-desc">Connect with third-party applications and existing business systems.</p>
+              </div>
+            </div>
+
+            <div class="enterprise-cap-card">
+              <div class="enterprise-cap-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="enterprise-cap-title">Dedicated Assistance</h4>
+                <p class="enterprise-cap-desc">Receive personalised guidance for setup, implementation and ongoing support.</p>
+              </div>
+            </div>
+
+          </div>
         </div>
-    </section>
+
+        <div class="enterprise-divider"></div>
+
+        {{-- Custom Solutions – What We Can Offer --}}
+        <div>
+          <h3 class="enterprise-subhead">Custom Solutions – What We Can Offer</h3>
+          <div class="enterprise-offerings-grid">
+            <div class="enterprise-offering-item">
+              <svg class="enterprise-offering-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Tailored platform configurations</span>
+            </div>
+            <div class="enterprise-offering-item">
+              <svg class="enterprise-offering-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Custom feature requirements</span>
+            </div>
+            <div class="enterprise-offering-item">
+              <svg class="enterprise-offering-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Third-party system integrations</span>
+            </div>
+            <div class="enterprise-offering-item">
+              <svg class="enterprise-offering-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Multi-location business support</span>
+            </div>
+            <div class="enterprise-offering-item">
+              <svg class="enterprise-offering-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Personalised onboarding</span>
+            </div>
+            <div class="enterprise-offering-item">
+              <svg class="enterprise-offering-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Dedicated technical assistance</span>
+            </div>
+          </div>
+
+          <div class="enterprise-bottom-action">
+            <a href="{{ route('enquiry') }}" class="btn-discuss-req">
+              <span>Discuss Your Requirements</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {{-- =========================================================================
+       4. PLAN COMPARISON TABLE
+       ========================================================================= --}}
+  <section class="comparison-section">
+    <div class="comparison-container">
+      
+      {{-- Section Header --}}
+      <div class="comparison-header-block">
+        <div>
+          <h2 class="comparison-title">Plan Comparison</h2>
+          <p class="comparison-subtitle">Compare features and choose the plan that fits your business.</p>
+        </div>
+        <button type="button" id="btn-toggle-all-cats" class="btn-toggle-all-cats" onclick="toggleAllComparisonGroups()">
+          Expand All +
+        </button>
+      </div>
+
+      {{-- Table --}}
+      <div class="comparison-mobile-hint">
+        <span>&larr; Swipe sideways to compare plans &rarr;</span>
+      </div>
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th class="col-feature">
+                <div class="th-header-pill th-pill-feature">FEATURES</div>
+                <div class="th-price-sub th-feature-sub">PLAN OVERVIEW</div>
+              </th>
+              <th class="col-standard">
+                <div class="th-header-pill th-pill-standard">STANDARD</div>
+                <div class="th-price-sub th-price-standard">$9.99 / MO</div>
+              </th>
+              <th class="col-pro">
+                <div class="th-header-pill th-pill-pro">PREMIUM</div>
+                <div class="th-price-sub th-price-premium">$24.99 / MO</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="comparison-category-row" data-group="group-menu-products" onclick="toggleComparisonGroup('group-menu-products', this)" role="button" tabindex="0">
+              <td colspan="3">
+                <div class="cat-header-inner">
+                  <span class="cat-toggle-btn" aria-label="Toggle Category">
+                    <svg class="cat-plus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19" class="cat-vert-line"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                  <span class="cat-title-text">Menu & Products</span>
+                  <span class="cat-count-pill">5 features</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="comparison-row group-menu-products" style="display: none;">
+              <td class="td-feature-name">Menu Management</td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-menu-products" style="display: none;">
+              <td class="td-feature-name">Menu Categories</td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-menu-products" style="display: none;">
+              <td class="td-feature-name">Product Management</td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-menu-products" style="display: none;">
+              <td class="td-feature-name">Product Availability</td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-menu-products" style="display: none;">
+              <td class="td-feature-name">Product Variations</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-category-row" data-group="group-orders-service" onclick="toggleComparisonGroup('group-orders-service', this)" role="button" tabindex="0">
+              <td colspan="3">
+                <div class="cat-header-inner">
+                  <span class="cat-toggle-btn" aria-label="Toggle Category">
+                    <svg class="cat-plus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19" class="cat-vert-line"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                  <span class="cat-title-text">Orders & Service</span>
+                  <span class="cat-count-pill">5 features</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="comparison-row group-orders-service" style="display: none;">
+              <td class="td-feature-name">Order Management</td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-orders-service" style="display: none;">
+              <td class="td-feature-name">KOT Management</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-orders-service" style="display: none;">
+              <td class="td-feature-name">Kitchen Management</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-orders-service" style="display: none;">
+              <td class="td-feature-name">Waiter Requests</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-orders-service" style="display: none;">
+              <td class="td-feature-name">Delivery Executive Management</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-category-row" data-group="group-tables-reservations" onclick="toggleComparisonGroup('group-tables-reservations', this)" role="button" tabindex="0">
+              <td colspan="3">
+                <div class="cat-header-inner">
+                  <span class="cat-toggle-btn" aria-label="Toggle Category">
+                    <svg class="cat-plus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19" class="cat-vert-line"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                  <span class="cat-title-text">Tables & Reservations</span>
+                  <span class="cat-count-pill">3 features</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="comparison-row group-tables-reservations" style="display: none;">
+              <td class="td-feature-name">Table Management</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-tables-reservations" style="display: none;">
+              <td class="td-feature-name">Reservation Management</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-tables-reservations" style="display: none;">
+              <td class="td-feature-name">Area Management</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-category-row" data-group="group-customers-staff" onclick="toggleComparisonGroup('group-customers-staff', this)" role="button" tabindex="0">
+              <td colspan="3">
+                <div class="cat-header-inner">
+                  <span class="cat-toggle-btn" aria-label="Toggle Category">
+                    <svg class="cat-plus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19" class="cat-vert-line"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                  <span class="cat-title-text">Customers & Staff</span>
+                  <span class="cat-count-pill">3 features</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="comparison-row group-customers-staff" style="display: none;">
+              <td class="td-feature-name">Customer Management</td>
+              <td class="td-center-val"><span class="tbl-badge-text">Basic</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-customers-staff" style="display: none;">
+              <td class="td-feature-name">Staff Management</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-customers-staff" style="display: none;">
+              <td class="td-feature-name">Customer History</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-category-row" data-group="group-billing-payments" onclick="toggleComparisonGroup('group-billing-payments', this)" role="button" tabindex="0">
+              <td colspan="3">
+                <div class="cat-header-inner">
+                  <span class="cat-toggle-btn" aria-label="Toggle Category">
+                    <svg class="cat-plus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19" class="cat-vert-line"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                  <span class="cat-title-text">Billing & Payments</span>
+                  <span class="cat-count-pill">5 features</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="comparison-row group-billing-payments" style="display: none;">
+              <td class="td-feature-name">POS</td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-billing-payments" style="display: none;">
+              <td class="td-feature-name">Billing</td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-billing-payments" style="display: none;">
+              <td class="td-feature-name">Payments</td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-billing-payments" style="display: none;">
+              <td class="td-feature-name">Payment Gateway</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><span class="tbl-badge-text tbl-badge-addon">Add-on</span></td>
+            </tr>
+            <tr class="comparison-row group-billing-payments" style="display: none;">
+              <td class="td-feature-name">Payment Reports</td>
+              <td class="td-center-val"><span class="tbl-badge-text">Basic</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-category-row" data-group="group-inventory" onclick="toggleComparisonGroup('group-inventory', this)" role="button" tabindex="0">
+              <td colspan="3">
+                <div class="cat-header-inner">
+                  <span class="cat-toggle-btn" aria-label="Toggle Category">
+                    <svg class="cat-plus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19" class="cat-vert-line"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                  <span class="cat-title-text">Inventory</span>
+                  <span class="cat-count-pill">4 features</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="comparison-row group-inventory" style="display: none;">
+              <td class="td-feature-name">Inventory Management</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-inventory" style="display: none;">
+              <td class="td-feature-name">Stock Management</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-inventory" style="display: none;">
+              <td class="td-feature-name">Stock Movement</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-inventory" style="display: none;">
+              <td class="td-feature-name">Multi-Location Inventory</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+            </tr>
+            <tr class="comparison-category-row" data-group="group-business-management" onclick="toggleComparisonGroup('group-business-management', this)" role="button" tabindex="0">
+              <td colspan="3">
+                <div class="cat-header-inner">
+                  <span class="cat-toggle-btn" aria-label="Toggle Category">
+                    <svg class="cat-plus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19" class="cat-vert-line"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                  <span class="cat-title-text">Business Management</span>
+                  <span class="cat-count-pill">5 features</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="comparison-row group-business-management" style="display: none;">
+              <td class="td-feature-name">Expense Management</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-business-management" style="display: none;">
+              <td class="td-feature-name">Reports</td>
+              <td class="td-center-val"><span class="tbl-badge-text">Basic</span></td>
+              <td class="td-center-val"><span class="tbl-badge-text">Advanced</span></td>
+            </tr>
+            <tr class="comparison-row group-business-management" style="display: none;">
+              <td class="td-feature-name">Export Reports</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><svg class="tbl-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+            </tr>
+            <tr class="comparison-row group-business-management" style="display: none;">
+              <td class="td-feature-name">Advanced Analytics</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+            </tr>
+            <tr class="comparison-row group-business-management" style="display: none;">
+              <td class="td-feature-name">Branch Management</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+            </tr>
+            <tr class="comparison-category-row" data-group="group-advanced" onclick="toggleComparisonGroup('group-advanced', this)" role="button" tabindex="0">
+              <td colspan="3">
+                <div class="cat-header-inner">
+                  <span class="cat-toggle-btn" aria-label="Toggle Category">
+                    <svg class="cat-plus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19" class="cat-vert-line"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                  <span class="cat-title-text">Advanced</span>
+                  <span class="cat-count-pill">5 features</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="comparison-row group-advanced" style="display: none;">
+              <td class="td-feature-name">Kiosk</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+            </tr>
+            <tr class="comparison-row group-advanced" style="display: none;">
+              <td class="td-feature-name">Multi-Branch</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+            </tr>
+            <tr class="comparison-row group-advanced" style="display: none;">
+              <td class="td-feature-name">Branch-Wise Reports</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+            </tr>
+            <tr class="comparison-row group-advanced" style="display: none;">
+              <td class="td-feature-name">Theme Settings</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+            </tr>
+            <tr class="comparison-row group-advanced" style="display: none;">
+              <td class="td-feature-name">Advanced Settings</td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+              <td class="td-center-val"><span class="tbl-dash">&mdash;</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  {{-- =========================================================================
+       5. FINAL CTA FULL-WIDTH SECTION
+       ========================================================================= --}}
+  <section class="final-cta-section">
+    <div class="final-cta-inner">
+      <div class="final-cta-eyebrow">
+        <span class="eyebrow-dash"></span>
+        <span>THE NEXT ERA OF DIGITAL DINING</span>
+        <span class="eyebrow-dash"></span>
+      </div>
+      <h2 class="final-cta-title">Elevate Your Restaurant. Empower Your Business.</h2>
+      <p class="final-cta-desc">Discover a more connected approach to restaurant management with Geni Menu. Bring your digital menu, customer interactions and everyday operations together through one intelligent platform built to support efficiency, enhance experiences and drive business growth.</p>
+      <div class="final-cta-btn-wrap">
+        <a href="{{ route('home') }}" class="final-cta-btn-primary">
+          <span>Explore Geni Menu</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a href="{{ route('enquiry') }}" class="final-cta-btn-secondary">
+          <span>Book a Personalised Demo</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
 </div>
 
 <script>
-document.addEventListener('alpine:init', () => {
-    Alpine.data('pricing', () => ({
-        billing: 'monthly',
-        ind: 'restaurant',
-        openGroups: {
-            menu: false,
-            orders: false,
-            tables: false,
-            customers: false,
-            billing: false,
-            inventory: false,
-            business: false,
-            advanced: false
-        },
-        toggleGroup(key) {
-            this.openGroups[key] = !this.openGroups[key];
-        },
-        get allOpen() {
-            return Object.values(this.openGroups).every(Boolean);
-        },
-        toggleAllGroups() {
-            const next = !this.allOpen;
-            Object.keys(this.openGroups).forEach(k => {
-                this.openGroups[k] = next;
-            });
-        },
-        formatPrice(val) {
-            return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val) + (this.billing === 'monthly' ? ' / mo' : ' / yr');
-        },
-        industries: {
-            'restaurant': {
-                name: 'Restaurants',
-                s: { monthly: 1499, yearly: 14999, feat: 'Core Setup, Orders, KOT, Payments, Basic Reports.' },
-                p: { monthly: 2499, yearly: 24999, feat: 'Everything in Standard + Kitchen, Tables, Reservations, Customers, Staff, Inventory.' },
-                e: { monthly: 3499, yearly: 34999, feat: 'Everything in Premium + Payment Gateway, Multi-Branch, Expenses, Advanced Reports, Kiosk, Theme.' }
-            },
-            'dine-in': {
-                name: 'Dine-in',
-                s: { monthly: 1399, yearly: 13999, feat: 'Menu, Tables, Orders, KOT, Payments, Reports.' },
-                p: { monthly: 2299, yearly: 22999, feat: 'Everything in Standard + Kitchen, Reservations, Customers, Staff, Inventory.' },
-                e: { monthly: 3299, yearly: 32999, feat: 'Everything in Premium + Multi-Branch, Gateway, Expenses, Kiosk, Export Reports.' }
-            },
-            'multi-cuisine': {
-                name: 'Multi-Cuisine',
-                s: { monthly: 1999, yearly: 19999, feat: 'Menu Categories, Orders, KOT, Payments, Reports.' },
-                p: { monthly: 2999, yearly: 29999, feat: 'Everything in Standard + Area, Tables, Kitchen, Customers, Inventory.' },
-                e: { monthly: 3999, yearly: 39999, feat: 'Everything in Premium + Multi-Branch, Gateway, Expenses, Kiosk, Advanced Analytics.' }
-            },
-            'qsr': {
-                name: 'QSR',
-                s: { monthly: 999, yearly: 9999, feat: 'POS Orders, Menu, Payments, Reports.' },
-                p: { monthly: 1499, yearly: 14999, feat: 'Everything in Standard + KOT, Kitchen, Customers, Inventory.' },
-                e: { monthly: 2499, yearly: 24999, feat: 'Everything in Premium + Online Payment Gateway, Kiosk, Multi-Branch.' }
-            },
-            'takeaway': {
-                name: 'Takeaway',
-                s: { monthly: 1299, yearly: 12999, feat: 'Orders, Menu, Payments, Reports.' },
-                p: { monthly: 1999, yearly: 19999, feat: 'Everything in Standard + Kitchen, KOT, Customers, Inventory.' },
-                e: { monthly: 2999, yearly: 29999, feat: 'Everything in Premium + Gateway, Delivery Executive, Multi-Branch.' }
-            },
-            'college': {
-                name: 'College Canteens',
-                s: { monthly: 999, yearly: 9999, feat: 'Menu, Orders, Payments, Reports.' },
-                p: { monthly: 1499, yearly: 14999, feat: 'Everything in Standard + Kitchen, KOT, Inventory.' },
-                e: { monthly: 2499, yearly: 24999, feat: 'Everything in Premium + Payment Gateway, Expenses, Branch Management.' }
-            },
-            'office': {
-                name: 'Office Canteens',
-                s: { monthly: 1499, yearly: 14999, feat: 'Menu, Orders, Payments, Reports.' },
-                p: { monthly: 2499, yearly: 24999, feat: 'Everything in Standard + Kitchen, Staff, Inventory.' },
-                e: { monthly: 3499, yearly: 34999, feat: 'Everything in Premium + Gateway, Expenses, Multi-Branch.' }
-            },
-            'sweet': {
-                name: 'Sweet Shops',
-                s: { monthly: 1299, yearly: 12999, feat: 'Menu, Orders, Payments, Reports.' },
-                p: { monthly: 1999, yearly: 19999, feat: 'Everything in Standard + Inventory, Customers, KOT.' },
-                e: { monthly: 2999, yearly: 29999, feat: 'Everything in Premium + Gateway, Expenses, Multi-Branch.' }
-            },
-            'bakery': {
-                name: 'Bakeries / Cake Shops',
-                s: { monthly: 1299, yearly: 12999, feat: 'Menu, Orders, Payments.' },
-                p: { monthly: 1999, yearly: 19999, feat: 'Everything in Standard + Inventory, Customers, Kitchen.' },
-                e: { monthly: 2999, yearly: 29999, feat: 'Everything in Premium + Gateway, Expenses, Multi-Branch.' }
-            },
-            'juice': {
-                name: 'Juice / Ice Cream / Chaat / Tea',
-                s: { monthly: 799, yearly: 7999, feat: 'POS Orders, Menu, Payments.' },
-                p: { monthly: 1299, yearly: 12999, feat: 'Everything in Standard + Inventory, Reports, Customers.' },
-                e: { monthly: 1999, yearly: 19999, feat: 'Everything in Premium + Gateway, Kiosk, Multi-Branch.' }
-            },
-            'bar': {
-                name: 'Bars & Breweries',
-                s: { monthly: 1999, yearly: 19999, feat: 'Menu, Orders, Payments, Reports.' },
-                p: { monthly: 2999, yearly: 29999, feat: 'Everything in Standard + Kitchen, Inventory, Staff.' },
-                e: { monthly: 3999, yearly: 39999, feat: 'Everything in Premium + Gateway, Expenses, Multi-Branch.' }
-            },
-            'pizza': {
-                name: 'Pizzerias & Others',
-                s: { monthly: 1499, yearly: 14999, feat: 'Menu, Orders, Payments.' },
-                p: { monthly: 2499, yearly: 24999, feat: 'Everything in Standard + Kitchen, KOT, Inventory.' },
-                e: { monthly: 3499, yearly: 34999, feat: 'Everything in Premium + Gateway, Multi-Branch, Analytics.' }
-            }
-        }
-    }));
-});
+function toggleComparisonGroup(groupId, rowElem) {
+  var rows = document.querySelectorAll('.' + groupId);
+  var isOpen = rowElem.classList.contains('is-open');
 
-// FAQ Accordion Toggle (International Tier-1 SaaS)
-document.addEventListener('DOMContentLoaded', function() {
-    var faqRows = document.querySelectorAll('.faq-row');
-    faqRows.forEach(function(row) {
-        var btn = row.querySelector('button');
-        if (btn) {
-            btn.addEventListener('click', function() {
-                var isOpen = row.classList.contains('open');
-                faqRows.forEach(function(r) { r.classList.remove('open'); });
-                if (!isOpen) {
-                    row.classList.add('open');
-                }
-            });
-        }
+  if (isOpen) {
+    rowElem.classList.remove('is-open');
+    rows.forEach(function(r) {
+      r.style.display = 'none';
     });
-});
+  } else {
+    rowElem.classList.add('is-open');
+    rows.forEach(function(r) {
+      r.style.display = 'table-row';
+    });
+  }
+  updateGlobalToggleBtnText();
+}
+
+function toggleAllComparisonGroups() {
+  var catRows = document.querySelectorAll('.comparison-category-row');
+  var allOpen = true;
+  catRows.forEach(function(cat) {
+    if (!cat.classList.contains('is-open')) {
+      allOpen = false;
+    }
+  });
+
+  catRows.forEach(function(cat) {
+    var gid = cat.getAttribute('data-group');
+    var rows = document.querySelectorAll('.' + gid);
+    if (allOpen) {
+      cat.classList.remove('is-open');
+      rows.forEach(function(r) { r.style.display = 'none'; });
+    } else {
+      cat.classList.add('is-open');
+      rows.forEach(function(r) { r.style.display = 'table-row'; });
+    }
+  });
+
+  updateGlobalToggleBtnText();
+}
+
+function updateGlobalToggleBtnText() {
+  var catRows = document.querySelectorAll('.comparison-category-row');
+  var toggleBtn = document.getElementById('btn-toggle-all-cats');
+  if (!toggleBtn) return;
+
+  var allOpen = true;
+  catRows.forEach(function(cat) {
+    if (!cat.classList.contains('is-open')) {
+      allOpen = false;
+    }
+  });
+
+  if (allOpen) {
+    toggleBtn.textContent = 'Collapse All −';
+  } else {
+    toggleBtn.textContent = 'Expand All +';
+  }
+}
+function setCurrency(curr) {
+  var inrBtn = document.getElementById('currency-inr');
+  var usdBtn = document.getElementById('currency-usd');
+  var pill = document.getElementById('pricing-billing-pill');
+  var starterPrices = document.querySelectorAll('.price-val-starter');
+  var growthPrices = document.querySelectorAll('.price-val-growth');
+  var thStandard = document.querySelectorAll('.th-price-standard');
+  var thPremium = document.querySelectorAll('.th-price-premium');
+
+  if (curr === 'INR') {
+    if (inrBtn) inrBtn.classList.add('active');
+    if (usdBtn) usdBtn.classList.remove('active');
+    if (pill) pill.innerHTML = '<span>Billed annually &bull; Prices in INR</span>';
+    starterPrices.forEach(function(el) { el.innerHTML = '&#8377;799'; });
+    growthPrices.forEach(function(el) { el.innerHTML = '&#8377;1,999'; });
+    thStandard.forEach(function(el) { el.innerHTML = '&#8377;799 /mo'; });
+    thPremium.forEach(function(el) { el.innerHTML = '&#8377;1,999 /mo'; });
+  } else {
+    if (usdBtn) usdBtn.classList.add('active');
+    if (inrBtn) inrBtn.classList.remove('active');
+    if (pill) pill.innerHTML = '<span>Billed annually &bull; Prices in USD</span>';
+    starterPrices.forEach(function(el) { el.textContent = '$9.99'; });
+    growthPrices.forEach(function(el) { el.textContent = '$24.99'; });
+    thStandard.forEach(function(el) { el.textContent = '$9.99 /mo'; });
+    thPremium.forEach(function(el) { el.textContent = '$24.99 /mo'; });
+  }
+}
 </script>
 
 @endsection

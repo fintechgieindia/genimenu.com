@@ -8,8 +8,8 @@ class Csubmissions extends Model
 {
     protected $table = 'submissions'; // <-- add this
     protected $fillable = [
-        'name', 'email', 'company', 'designation',
-        'phone', 'address', 'subject', 'message'
+        'name', 'email', 'company', 'website', 'designation',
+        'phone', 'address', 'country', 'requirements', 'subject', 'message', 'form_type'
     ];
 }
 
