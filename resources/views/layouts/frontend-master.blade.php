@@ -71,7 +71,7 @@
     <meta name="description"
         content="{{ $meta['description'] ?? 'Best Restaurant Billing Software for smooth operations, fast service, and exceptional dining experiences.' }}">
     <meta name="keywords"
-        content="{{ $meta['keywords'] ?? 'restaurant ERP software, restaurant billing software, POS for restaurants, inventory management for restaurants, staff scheduling software, restaurant accounting software, Geni Fast ERP, India restaurant ERP, cloud restaurant software, table reservation system, kitchen display system, multi-branch restaurant ERP, GST billing software, digital menu software, restaurant analytics, restaurant CRM, food delivery integration, mobile POS for restaurants, online ordering system, restaurant operations management' }}">
+        content="{{ $meta['keywords'] ?? 'restaurant ERP software, restaurant billing software, POS for restaurants, inventory management for restaurants, staff scheduling software, restaurant accounting software, Geni Menu ERP, India restaurant ERP, cloud restaurant software, table reservation system, kitchen display system, multi-branch restaurant ERP, GST billing software, digital menu software, restaurant analytics, restaurant CRM, food delivery integration, mobile POS for restaurants, online ordering system, restaurant operations management' }}">
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
     <link rel="canonical" href="{{ url()->current() }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -82,7 +82,7 @@
     <meta property="og:description"
         content="{{ $meta['description'] ?? 'Best Restaurant Billing Software for smooth operations, fast service, and exceptional dining experiences.' }}">
     <meta property="og:url" content="{{ url('/') }}">
-    <meta property="og:site_name" content="Geni Fast">
+    <meta property="og:site_name" content="Geni Menu">
     <meta property="og:updated_time" content="2025-01-25T12:00:00+05:30">
     <meta property="og:image" content="{{ asset('landing/geni-restaurant-logo.jpg') }}">
     <meta property="og:image:secure_url" content="{{ asset('landing/geni-restaurant-logo.jpg') }}">
@@ -103,7 +103,7 @@
     <meta name="twitter:title"
         content="{{ $meta['title'] ?? 'Geni Menu | All-in-one Restaurant Billing and Management Software' }}">
     <meta name="twitter:description"
-        content="{{ $meta['keywords'] ?? 'restaurant ERP software, restaurant billing software, POS for restaurants, inventory management for restaurants, staff scheduling software, restaurant accounting software, Geni Fast ERP, India restaurant ERP, cloud restaurant software, table reservation system, kitchen display system, multi-branch restaurant ERP, GST billing software, digital menu software, restaurant analytics, restaurant CRM, food delivery integration, mobile POS for restaurants, online ordering system, restaurant operations management' }}">
+        content="{{ $meta['keywords'] ?? 'restaurant ERP software, restaurant billing software, POS for restaurants, inventory management for restaurants, staff scheduling software, restaurant accounting software, Geni Menu ERP, India restaurant ERP, cloud restaurant software, table reservation system, kitchen display system, multi-branch restaurant ERP, GST billing software, digital menu software, restaurant analytics, restaurant CRM, food delivery integration, mobile POS for restaurants, online ordering system, restaurant operations management' }}">
     <meta name="twitter:image" content="{{ asset('landing/geni-restaurant-logo') }}">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
@@ -473,6 +473,8 @@
                     class="fnav-link {{ request()->routeIs('features') ? 'active' : '' }}">Features</a>
                 <a href="{{ route('solutions') }}"
                     class="fnav-link {{ request()->routeIs('solutions*') ? 'active' : '' }}">Solutions</a>
+                <a href="{{ route('hardware-integrations') }}"
+                    class="fnav-link {{ request()->routeIs('hardware-integrations') ? 'active' : '' }}">Hardware &amp; Integrations</a>
                 <a href="{{ route('pricing') }}"
                     class="fnav-link {{ request()->routeIs('pricing') ? 'active' : '' }}">Pricing</a>
                 <a href="{{ route('contact.us') }}"
@@ -499,14 +501,13 @@
             <!-- Follow Us -->
             <div class="footer-column col-4">
                 <h5>Follow Us</h5>
-                <p>Stay connected with WeGeni and get the latest updates on our services,
-                    industry trends, and exciting new projects.</p>
+                <p>Stay connected with Geni Menu and get the latest updates on our platform, features, and technology solutions.</p>
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/company/wegeniofficial" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                    <a href="https://www.facebook.com/wegeniofficial" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="https://www.instagram.com/wegeniofficial" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="https://x.com/wegeniofficial" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-                    <a href="https://wegeni.com/" aria-label="Website"><i class="bi bi-globe"></i></a>
+                    <a href="https://in.pinterest.com/genimenuglobal/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                    <a href="https://www.youtube.com/@GeniMenu" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                    <a href="https://www.instagram.com/genimenu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61596232917082" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://whatsapp.com/channel/0029VbDYVkO9Gv7XLC6szm2b" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
                 </div>
             </div>
 
@@ -714,26 +715,33 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: #876039;
-            color: #fff;
-            border: none;
-            padding: 14px 24px;
+            background: #27130D;
+            color: #FFF8F0;
+            border: 1px solid rgba(197, 139, 80, 0.35);
+            padding: 13px 24px;
             border-radius: 50px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 600;
+            font-family: 'Glacial Indifference', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 700;
             font-size: 15px;
-            box-shadow: 0 4px 15px rgba(135, 96, 57, 0.4);
+            letter-spacing: 0.02em;
+            box-shadow: 0 6px 22px rgba(20, 10, 6, 0.45);
             cursor: pointer;
             z-index: 999;
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .floating-demo-btn svg {
+            color: #F2C58D;
+            stroke: #F2C58D;
         }
         .floating-demo-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(135, 96, 57, 0.5);
-            background-color: #72502f;
+            box-shadow: 0 8px 28px rgba(20, 10, 6, 0.6);
+            background: #32180F;
+            border-color: #F2C58D;
+            color: #FFFFFF;
         }
 
         @media (max-width: 640px) {
@@ -743,7 +751,7 @@
                 padding: 10px 16px;
                 font-size: 13px;
                 border-radius: 40px;
-                box-shadow: 0 3px 12px rgba(135, 96, 57, 0.35);
+                box-shadow: 0 4px 14px rgba(20, 10, 6, 0.45);
                 gap: 6px;
             }
             .floating-demo-btn svg {

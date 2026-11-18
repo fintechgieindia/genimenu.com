@@ -26,12 +26,26 @@ body {
     color: #381A0D;
 }
 
+@media (max-width: 640px) {
+    .policy-page-wrapper {
+        padding-top: 85px !important;
+        padding-bottom: 45px !important;
+    }
+}
+
 .policy-card {
     background: #FFFFFF !important;
     border: 1px solid #E8DFD5 !important;
     border-radius: 16px !important;
     box-shadow: 0 6px 24px rgba(50, 24, 15, 0.05) !important;
     padding: 34px 28px;
+}
+
+@media (max-width: 640px) {
+    .policy-card {
+        padding: 22px 16px !important;
+        border-radius: 12px !important;
+    }
 }
 
 @media (min-width: 640px) {
@@ -125,7 +139,7 @@ body {
             <section class="mb-8">
                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
                     <p class="text-blue-800">
-                        At Geni Fast, a product of WeGeni IT Services and Consulting (OPC) Private Limited, we offer
+                        At Geni Menu, a product of WeGeni IT Services and Consulting (OPC) Private Limited, we offer
                         subscription-based access to our restaurant ERP and billing platform. Once a subscription is
                         activated or a payment is processed, it is considered final.
                     </p>
@@ -191,14 +205,13 @@ body {
                         <div class="flex items-center">
                             <i class="bi bi-envelope-fill text-success me-3"></i>
                             <span class="font-medium text-green-800">Email:</span>
-                            <a href="mailto:we@wegeni.com" style="color: #b39271;"
-                                class="ml-2 text-blue-600 underline">we@wegeni.com</a>
+                            <a href="mailto:genimenuglobal@gmail.com" style="color: #b39271;"
+                                class="ml-2 text-blue-600 underline">genimenuglobal@gmail.com</a>
                         </div>
                         <div class="flex items-center">
                             <i class="bi bi-telephone-fill text-success me-3"></i>
                             <span class="font-medium text-green-800">Phone:</span>
-                            <a href="tel:+919047755506" style="color: #b39271;" class="ml-2 text-blue-600 underline">+91
-                                90477555066</a>
+                            <a href="tel:+918667205661" style="color: #b39271;" class="ml-2 text-blue-600 underline">+91 86672 05661</a>
                         </div>
                     </div>
                 </div>
@@ -262,7 +275,7 @@ body {
                         Important Legal Disclaimer
                     </p>
                     <p class="text-red-700 text-sm">
-                        By purchasing or subscribing to Geni Fast, users explicitly acknowledge and accept that
+                        By purchasing or subscribing to Geni Menu, users explicitly acknowledge and accept that
                         cancellations and refunds are not permitted, and no disputes will be entertained for completed
                         transactions unless legally required under applicable Indian laws.
                     </p>
@@ -283,10 +296,10 @@ body {
 
                 <div class="mb-6">
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">Customer Support</h3>
-                    <p class="mb-2"><strong>Email:</strong> <a href="mailto:we@wegeni.com" class="text-blue-600 underline"
-                            style="color: #b39271;">we@wegeni.com</a></p>
-                    <p class="mb-4"><strong>Phone:</strong> <a href="tel:+919047755506" class="text-blue-600 underline"
-                            style="color: #b39271;">+91 90477555066</a></p>
+                    <p class="mb-2"><strong>Email:</strong> <a href="mailto:genimenuglobal@gmail.com" class="text-blue-600 underline"
+                            style="color: #b39271;">genimenuglobal@gmail.com</a></p>
+                    <p class="mb-4"><strong>Phone:</strong> <a href="tel:+918667205661" class="text-blue-600 underline"
+                            style="color: #b39271;">+91 86672 05661</a></p>
                 </div>
 
                 <div class="mb-6">
@@ -302,7 +315,7 @@ body {
             <footer class="border-t pt-6 mt-8 mb-3">
                 <div class="bg-orange-50 border border-orange-200 rounded-lg p-6">
                     <p class="text-orange-800 font-medium mb-2">
-                        By using Geni Fast services, you acknowledge that you have read, understood, and agreed to this
+                        By using Geni Menu services, you acknowledge that you have read, understood, and agreed to this
                         Cancellation and Refund Policy.
                     </p>
                     <p class="text-orange-600 text-sm">

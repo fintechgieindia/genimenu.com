@@ -1572,6 +1572,31 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   line-height: 1.25;
 }
 
+/* Hardware View More Button */
+.btn-hw-view-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%);
+  color: #27130D !important;
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 3px 12px rgba(242, 197, 141, 0.32);
+  transition: all 0.22s ease;
+  white-space: nowrap;
+}
+
+.btn-hw-view-more:hover {
+  background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%);
+  color: #27130D !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(242, 197, 141, 0.48);
+}
+
 /* Bottom Explore CTA Button */
 .geni-integrations-cta-wrap {
   text-align: center;
@@ -1612,6 +1637,12 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   .geni-int-hardware-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+  }
+  .geni-int-hardware-grid .geni-hardware-item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 200px;
+    margin: 0 auto;
+    width: 100%;
   }
   .geni-int-platforms-row {
     gap: 10px;
@@ -3399,53 +3430,57 @@ document.addEventListener('DOMContentLoaded', function () {
 
       <!-- 4. Restaurant Hardware Card -->
       <div class="geni-int-cat-card">
-        <div class="geni-int-cat-header">
+        <div class="geni-int-cat-header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
           <div class="geni-int-cat-info">
             <h3 class="geni-int-cat-title">Hardware</h3>
             <p class="geni-int-cat-sub">Power your restaurant with certified, plug-and-play equipment.</p>
           </div>
+          <a href="{{ route('hardware-integrations') }}" class="btn-hw-view-more" title="Explore Hardware & Integrations">
+            <span>View More</span>
+            <span style="font-size: 14px;">&rarr;</span>
+          </a>
         </div>
 
         <div class="geni-int-hardware-grid">
-          <!-- 1. Kitchen Displays (Original Real Image) -->
-          <div class="geni-hardware-item">
+          <!-- 1. Touchscreen POS -->
+          <a href="{{ route('hardware-integrations') }}" class="geni-hardware-item" style="text-decoration: none;" title="Explore Touchscreen POS">
             <div class="geni-hardware-img-wrap">
-              <img src="{{ asset('assets/images/home/hw_kitchen_display.png') }}" alt="Kitchen Displays" class="geni-hardware-real-img">
+              <img src="{{ asset('assets/images/home/touchscreenpos.png') }}" alt="Touchscreen POS" class="geni-hardware-real-img">
             </div>
-            <span class="geni-hardware-label">Kitchen Displays</span>
-          </div>
+            <span class="geni-hardware-label">Touchscreen POS</span>
+          </a>
 
-          <!-- 2. Receipt Printers (Original Real Image) -->
-          <div class="geni-hardware-item">
+          <!-- 2. Self-Service Kiosk -->
+          <a href="{{ route('hardware-integrations') }}" class="geni-hardware-item" style="text-decoration: none;" title="Explore Self-Service Kiosk">
             <div class="geni-hardware-img-wrap">
-              <img src="{{ asset('assets/images/home/hw_receipt_printer.png') }}" alt="Receipt Printers" class="geni-hardware-real-img">
+              <img src="{{ asset('assets/images/home/self service kiosk.png') }}" alt="Self-Service Kiosk" class="geni-hardware-real-img">
             </div>
-            <span class="geni-hardware-label">Receipt Printers</span>
-          </div>
+            <span class="geni-hardware-label">Self-Service Kiosk</span>
+          </a>
 
-          <!-- 3. Barcode Scanners (Original Real Image) -->
-          <div class="geni-hardware-item">
+          <!-- 3. Receipt Printer -->
+          <a href="{{ route('hardware-integrations') }}" class="geni-hardware-item" style="text-decoration: none;" title="Explore Receipt Printer">
             <div class="geni-hardware-img-wrap">
-              <img src="{{ asset('assets/images/home/hw_barcode_scanner.png') }}" alt="Barcode Scanners" class="geni-hardware-real-img">
+              <img src="{{ asset('assets/images/home/receipt printer.png') }}" alt="Receipt Printer" class="geni-hardware-real-img">
             </div>
-            <span class="geni-hardware-label">Barcode Scanners</span>
-          </div>
+            <span class="geni-hardware-label">Receipt Printer</span>
+          </a>
 
-          <!-- 4. Cash Drawers (Original Real Image) -->
-          <div class="geni-hardware-item">
+          <!-- 4. Cash Drawer -->
+          <a href="{{ route('hardware-integrations') }}" class="geni-hardware-item" style="text-decoration: none;" title="Explore Cash Drawer">
             <div class="geni-hardware-img-wrap">
-              <img src="{{ asset('assets/images/home/hw_cash_drawer.png') }}" alt="Cash Drawers" class="geni-hardware-real-img">
+              <img src="{{ asset('assets/images/home/cashdrawer.png') }}" alt="Cash Drawer" class="geni-hardware-real-img">
             </div>
-            <span class="geni-hardware-label">Cash Drawers</span>
-          </div>
+            <span class="geni-hardware-label">Cash Drawer</span>
+          </a>
 
-          <!-- 5. Customer Displays (Original Real Image) -->
-          <div class="geni-hardware-item">
+          <!-- 5. Customer Display -->
+          <a href="{{ route('hardware-integrations') }}" class="geni-hardware-item" style="text-decoration: none;" title="Explore Customer Display">
             <div class="geni-hardware-img-wrap">
-              <img src="{{ asset('assets/images/home/hw_customer_display.png') }}" alt="Customer Displays" class="geni-hardware-real-img">
+              <img src="{{ asset('assets/images/home/customerdisplay.png') }}" alt="Customer Display" class="geni-hardware-real-img">
             </div>
-            <span class="geni-hardware-label">Customer Displays</span>
-          </div>
+            <span class="geni-hardware-label">Customer Display</span>
+          </a>
         </div>
       </div>
     </div>
@@ -3772,7 +3807,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // INSTAGRAM CONFIGURATION & INDIVIDUAL CARD POST LINKS
   // ============================================================================
   // Main Profile Link (used for the "Follow Geni Menu" button)
-  $geni_instagram_url = 'https://www.instagram.com/your_geni_menu/';
+  $geni_instagram_url = 'https://www.instagram.com/genimenu/';
 
   // Individual Instagram links for each card.
   // Paste your custom Instagram post, reel, or story URL into the 'url' field below:

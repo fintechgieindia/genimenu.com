@@ -120,6 +120,9 @@ if (!function_exists('module_enabled') || !module_enabled('Subdomain')) {
     Route::redirect('/solutions/bars-and-breweries', '/solutions')->name('solutions.bars-and-breweries');
     Route::redirect('/solutions/pizzerias', '/solutions')->name('solutions.pizzerias');
     Route::get('/about', [HomeController::class, 'aboutUs'])->name('about.us');
+    Route::get('/hardware-and-integrations', [HomeController::class, 'hardwareIntegrations'])->name('hardware-integrations');
+    Route::redirect('/hardware', '/hardware-and-integrations')->name('hardware');
+    Route::redirect('/integrations', '/hardware-and-integrations')->name('integrations');
     Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
     Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact.us');
     Route::redirect('/contact', '/contact-us');

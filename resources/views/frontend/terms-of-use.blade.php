@@ -26,12 +26,26 @@ body {
     color: #381A0D;
 }
 
+@media (max-width: 640px) {
+    .policy-page-wrapper {
+        padding-top: 85px !important;
+        padding-bottom: 45px !important;
+    }
+}
+
 .policy-card {
     background: #FFFFFF !important;
     border: 1px solid #E8DFD5 !important;
     border-radius: 16px !important;
     box-shadow: 0 6px 24px rgba(50, 24, 15, 0.05) !important;
     padding: 34px 28px;
+}
+
+@media (max-width: 640px) {
+    .policy-card {
+        padding: 22px 16px !important;
+        border-radius: 12px !important;
+    }
 }
 
 @media (min-width: 640px) {
@@ -124,15 +138,15 @@ body {
             <section class="mb-8">
                 <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-6">
                     <p class="text-red-800 font-medium">
-                        Geni Fast, A SOFTWARE-AS-A-SERVICE (SAAS) FOR RESTAURANT MANAGEMENT, INCLUDING BILLING, POS, MENU,
+                        Geni Menu, A SOFTWARE-AS-A-SERVICE (SAAS) FOR RESTAURANT MANAGEMENT, INCLUDING BILLING, POS, MENU,
                         ORDER MANAGEMENT, AND SALES REPORTING, IS PROVIDED TO YOU OR THE ENTITY THAT YOU REPRESENT
                         (HEREINAFTER "YOU" OR "YOUR") BY WEGENI IT SERVICES AND CONSULTING (OPC) PRIVATE LIMITED
                         (HEREINAFTER "WEGENI", "WE", OR "US") SUBJECT TO THE FOLLOWING TERMS AND CONDITIONS (HEREINAFTER
                         "TERMS").
                     </p>
                     <p class="text-red-700 mt-4 font-semibold">
-                        USE OF Geni Fast CONSTITUTES ACCEPTANCE OF THESE TERMS. IF YOU DO NOT AGREE TO THE TERMS, YOU MUST
-                        NOT USE Geni Fast OR ANY OF ITS FEATURES.
+                        USE OF Geni Menu CONSTITUTES ACCEPTANCE OF THESE TERMS. IF YOU DO NOT AGREE TO THE TERMS, YOU MUST
+                        NOT USE Geni Menu OR ANY OF ITS FEATURES.
                     </p>
                 </div>
             </section>
@@ -140,7 +154,7 @@ body {
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">1. The Service</h2>
                 <p class="mb-4">
-                    Geni Fast is a cloud-based ERP and Point-of-Sale (PoS) solution for restaurants. The Service enables
+                    Geni Menu is a cloud-based ERP and Point-of-Sale (PoS) solution for restaurants. The Service enables
                     restaurants to manage:
                 </p>
                 <ul class="list-disc list-inside mb-4 space-y-2">
@@ -154,9 +168,9 @@ body {
                     <li>Customer Support Tools</li>
                 </ul>
                 <p class="mb-4">
-                    The Services may be accessed via our web platform at <a href="https://restaurant.wegeni.com"
+                    The Services may be accessed via our web platform at <a href="https://genimenu.com/"
                         class="text-blue-600 underline" style="color: #b39271;" target="_blank"
-                        rel="noopener">https://restaurant.wegeni.com</a>, or via any software, mobile, or API-based
+                        rel="noopener">https://genimenu.com/</a>, or via any software, mobile, or API-based
                     extensions we provide.
                 </p>
             </section>
@@ -164,7 +178,7 @@ body {
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">2. Access and Account</h2>
                 <p class="mb-4">
-                    You may access the Geni Fast platform by creating a secure account via your organization or as an
+                    You may access the Geni Menu platform by creating a secure account via your organization or as an
                     authorized user under a B2B plan. You are responsible for maintaining the confidentiality of your login
                     credentials and any activity under your account.
                 </p>
@@ -175,7 +189,7 @@ body {
 
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">3. Restrictions on Use</h2>
-                <p class="mb-4">By using Geni Fast, you agree not to:</p>
+                <p class="mb-4">By using Geni Menu, you agree not to:</p>
                 <ul class="list-disc list-inside mb-4 space-y-2">
                     <li>Use the platform for any unlawful or fraudulent purpose</li>
                     <li>Reproduce, resell, or exploit any portion of the platform without our written consent</li>
@@ -193,7 +207,7 @@ body {
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">4. Data Ownership and Intellectual Property</h2>
                 <p class="mb-4">
-                    All rights, title, and interest in the Geni Fast software, interfaces, visual elements, reports, and
+                    All rights, title, and interest in the Geni Menu software, interfaces, visual elements, reports, and
                     related technology belong exclusively to WeGeni IT Services and Consulting (OPC) Private Limited.
                 </p>
                 <p class="mb-4">
@@ -209,7 +223,7 @@ body {
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">5. Application Sharing and Usage</h2>
                 <p class="mb-4">
-                    Each Geni Fast subscription is valid for use by a single restaurant or outlet unless otherwise specified
+                    Each Geni Menu subscription is valid for use by a single restaurant or outlet unless otherwise specified
                     in your plan.
                 </p>
                 <p class="mb-4">You may not:</p>
@@ -253,7 +267,7 @@ body {
 
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">8. Phishing, Fraud & Abuse</h2>
-                <p class="mb-4">You may not use the Geni Fast platform for:</p>
+                <p class="mb-4">You may not use the Geni Menu platform for:</p>
                 <ul class="list-disc list-inside mb-4 space-y-2">
                     <li>Sending phishing links or malicious content</li>
                     <li>Collecting payment credentials or personal data without a legal basis</li>
@@ -290,7 +304,7 @@ body {
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">10. Custom Modules and Services</h2>
                 <p class="mb-4">
-                    The Geni Fast platform may offer custom features, integrations, or configurations based on your selected
+                    The Geni Menu platform may offer custom features, integrations, or configurations based on your selected
                     plan or as per a separate service-level agreement. These customizations may incur additional fees and
                     may be governed by specific terms mutually agreed upon between you and WeGeni.
                 </p>
@@ -300,8 +314,8 @@ body {
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">11. Modification of Terms</h2>
                 <p class="mb-4">
                     We reserve the right to update these Terms at any time. Any changes will be posted at <a
-                        href="https://restaurant.wegeni.com" class="text-blue-600 underline" target="_blank"
-                        style="color: #b39271;" rel="noopener">https://restaurant.wegeni.com</a>, and material changes may
+                        href="https://genimenu.com/" class="text-blue-600 underline" target="_blank"
+                        style="color: #b39271;" rel="noopener">https://genimenu.com/</a>, and material changes may
                     be communicated via email or app notifications.
                 </p>
                 <p class="mb-4">
@@ -358,17 +372,17 @@ body {
 
                 <div class="mb-6">
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">Customer Support</h3>
-                    <p class="mb-2"><strong>Email:</strong> <a href="mailto:we@wegeni.com" class="text-blue-600 underline"
-                            style="color: #b39271;">we@wegeni.com</a></p>
-                    <p class="mb-4"><strong>Phone:</strong> <a href="tel:+919047755506" class="text-blue-600 underline"
-                            style="color: #b39271;">+91 90477555066</a></p>
+                    <p class="mb-2"><strong>Email:</strong> <a href="mailto:support@genimenu.com" class="text-blue-600 underline"
+                            style="color: #b39271;">support@genimenu.com</a></p>
+                    <p class="mb-4"><strong>Phone:</strong> <a href="tel:+919047555066" class="text-blue-600 underline"
+                            style="color: #b39271;">+91 90475 55066</a></p>
                 </div>
             </section>
 
             <footer class="border-t pt-6 mt-8 mb-3">
                 <div class="bg-purple-50 border border-purple-200 rounded-lg p-6">
                     <p class="text-purple-800 font-medium mb-2">
-                        By accessing or using the Geni Fast platform, you confirm that you have read, understood, and agreed
+                        By accessing or using the Geni Menu platform, you confirm that you have read, understood, and agreed
                         to these Terms of Use.
                     </p>
                     <p class="text-purple-600 text-sm">

@@ -1088,6 +1088,9 @@
 }
 
 @media (max-width: 640px) {
+  .about-container {
+    padding: 0 16px;
+  }
   .about-hero-section {
     padding: 60px 0 65px;
   }

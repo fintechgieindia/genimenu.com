@@ -26,12 +26,26 @@ body {
     color: #381A0D;
 }
 
+@media (max-width: 640px) {
+    .policy-page-wrapper {
+        padding-top: 85px !important;
+        padding-bottom: 45px !important;
+    }
+}
+
 .policy-card {
     background: #FFFFFF !important;
     border: 1px solid #E8DFD5 !important;
     border-radius: 16px !important;
     box-shadow: 0 6px 24px rgba(50, 24, 15, 0.05) !important;
     padding: 34px 28px;
+}
+
+@media (max-width: 640px) {
+    .policy-card {
+        padding: 22px 16px !important;
+        border-radius: 12px !important;
+    }
 }
 
 @media (min-width: 640px) {
@@ -127,29 +141,29 @@ body {
                     We, WeGeni IT Services and Consulting (OPC) Private Limited ("We", "Us", "Our", "Company"), respect the
                     privacy of everyone who visits this website, uses the desktop application and/or uses our mobile
                     applications (the website, desktop application and the mobile application are collectively called, the
-                    "Geni Fast Platforms"). The Company has created the Geni Fast Platforms and licensed the use of the
-                    same, as part of its business operations. The services are rendered by the Company through the Geni Fast
+                    "Geni Menu Platforms"). The Company has created the Geni Menu Platforms and licensed the use of the
+                    same, as part of its business operations. The services are rendered by the Company through the Geni Menu
                     Platforms.
                 </p>
                 <p class="mb-4">
                     We are highly committed to the privacy of your data and information and in providing services to all the
-                    subscribers / users of the Geni Fast Platforms. As a result, we would like to inform you regarding the
+                    subscribers / users of the Geni Menu Platforms. As a result, we would like to inform you regarding the
                     way we would collect, process, store and use your personal data. We recommend you to read this privacy
                     policy (hereinafter referred to as "Policy") so that you understand our approach towards the use of your
                     personal data. This Policy shall form part of the Terms of Services and any other additional Terms of
-                    Use issued by the Company with respect to the use of the Services in the Geni Fast Platforms and is in
+                    Use issued by the Company with respect to the use of the Services in the Geni Menu Platforms and is in
                     compliance with applicable laws and regulations, including, but not limited to, the Information
                     Technology Act, 2000, and the Information Technology (Reasonable Security Practices and Procedures and
                     Sensitive Personal Data or Information) Rules, 2011.
                 </p>
                 <p class="mb-4">
                     By submitting your Personal Information (as defined hereinafter) to us and indicating your agreement
-                    with this Privacy Policy, you (or anyone who accesses and uses the Geni Fast Platforms shall be referred
+                    with this Privacy Policy, you (or anyone who accesses and uses the Geni Menu Platforms shall be referred
                     to as "You", "Your" or "User" as the context may require) will be treated as having given their
                     permission, wherever necessary and appropriate to our collection, use and disclosure of Personal
                     Information and accept this Policy along with any amendments or modifications as may be made from time
                     to time. If you do not wish to provide any Personal Information, you are not entitled to use any of the
-                    Geni Fast Platforms or avail any of the services provided in the Geni Fast Platforms ("Services"). This
+                    Geni Menu Platforms or avail any of the services provided in the Geni Menu Platforms ("Services"). This
                     Privacy Policy is subject to our general Terms of Services provided at the time of signing up ("Terms").
                 </p>
             </section>
@@ -166,8 +180,8 @@ body {
                 </p>
                 <p class="mb-4">
                     Any information that is collected from you during the process of registration and subscription of the
-                    Services available at the Geni Fast Platforms, further during the course of accessing and using the
-                    Services available at the Geni Fast Platforms, shall be referred to as Personal Information. Personal
+                    Services available at the Geni Menu Platforms, further during the course of accessing and using the
+                    Services available at the Geni Menu Platforms, shall be referred to as Personal Information. Personal
                     Information shall include, but not limited to:
                 </p>
                 <ul class="list-disc list-inside mb-4 space-y-2">
@@ -175,26 +189,25 @@ body {
                     <li>Email</li>
                     <li>Phone number</li>
                     <li>Address</li>
-                    <li>We also collect your billing information when you use our Services through our Geni Fast Platforms.
+                    <li>We also collect your billing information when you use our Services through our Geni Menu Platforms.
                     </li>
                     <li>During the process of completing any customer survey, any information or reviews or comments
                         mentioned by you.</li>
                     <li>Any sensitive personal data information as provided under the Information Technology (Reasonable
                         security practices and procedures and sensitive personal data or information) Rules, 2011 such as
                         passwords, financial data, data identifying the gender of the person, etc.</li>
-                    <li>We also collect information relating to your usage of the Geni Fast Platforms necessary for the
+                    <li>We also collect information relating to your usage of the Geni Menu Platforms necessary for the
                         purpose of providing you with the best possible service.</li>
                 </ul>
                 <p class="mb-4">
                     When you visit the app, we may collect certain non-personal information as well. We may collect
                     additional information including the type of device you use for accessing the Services, IP address of
-                    your device and any other information about the manner of usage of the Geni Fast Platforms and access to
-                    the Services. We are entitled to collect the information relating to pattern of your use of the Geni
-                    Fast Platforms.
+                    your device and any other information about the manner of usage of the Geni Menu Platforms and access to
+                    the Services. We are entitled to collect the information relating to pattern of your use of the Geni Menu Platforms.
                 </p>
                 <p class="mb-4">
                     We use temporary and permanent cookies and we obtain certain types of information when you access the
-                    app or advertisements and other content served on the Geni Fast Platforms to secure and enhance your
+                    app or advertisements and other content served on the Geni Menu Platforms to secure and enhance your
                     overall experience of using our Services. These information may include, but not limited to your web
                     request, Internet Protocol address, browser type, browser language, the date and time of your request
                     and one or more cookies that may uniquely identify your browser. We use cookies primarily for
@@ -202,12 +215,12 @@ body {
                     and tracking your usage trends.
                 </p>
                 <p class="mb-4">
-                    When you download or use our Geni Fast Platforms for accessing the Services through your mobile, we may
+                    When you download or use our Geni Menu Platforms for accessing the Services through your mobile, we may
                     receive information about your location and your mobile device, including a unique identifier number for
                     your device. We may use this information to provide you with Services if required. We use mobile
                     analytics software to allow us to better understand the functionality of our app on your phone. This
-                    information may include, but not limited to, how often you use the Geni Fast Platforms, the events that
-                    occur within the Geni Fast Platforms, aggregated usage, performance data, and where the Geni Fast
+                    information may include, but not limited to, how often you use the Geni Menu Platforms, the events that
+                    occur within the Geni Menu Platforms, aggregated usage, performance data, and where the Geni Menu
                     Platforms was downloaded from.
                 </p>
                 <p class="mb-4">
@@ -278,7 +291,7 @@ body {
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Transfer of Information to Third Parties</h2>
                 <p class="mb-4">
-                    Geni Fast integrates with APIs and services from third-party vendors. These vendors may process your
+                    Geni Menu integrates with APIs and services from third-party vendors. These vendors may process your
                     Personal Information. When using such services, you are also subject to their privacy policies.
                 </p>
                 <p class="mb-4">Types of third parties we may share data with include, but are not limited to:</p>
@@ -295,7 +308,7 @@ body {
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Payment Information and Razorpay Integration</h2>
                 <p class="mb-4">
-                    We use Razorpay to process all online payments. When you initiate a transaction through Geni Fast your
+                    We use Razorpay to process all online payments. When you initiate a transaction through Geni Menu your
                     payment details such as name, contact info, and billing address may be securely transmitted to Razorpay.
                     We do not store full credit/debit card information or CVV details on our servers.
                 </p>
@@ -320,12 +333,12 @@ body {
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Updating, Modifying, and Deleting Your Information
                 </h2>
                 <p class="mb-4">
-                    You can update, modify, or delete your Personal Information by accessing your account on the Geni Fast
+                    You can update, modify, or delete your Personal Information by accessing your account on the Geni Menu
                     Platforms.
                 </p>
                 <p class="mb-4">
-                    To delete your account, you can email us at <a href="mailto:we@wegeni.com"
-                        class="text-blue-600 underline" style="color: #b39271;">we@wegeni.com</a>.
+                    To delete your account, you can email us at <a href="mailto:support@genimenu.com"
+                        class="text-blue-600 underline" style="color: #b39271;">support@genimenu.com</a>.
                 </p>
                 <p class="mb-4">
                     Upon cancellation or termination of your account/subscription, we reserve the right to retain Personal
@@ -358,8 +371,8 @@ body {
                 </h2>
                 <p class="mb-4">
                     The Privacy Policy and End User License Agreement (EULA) are made available on our website's homepage
-                    for user reference <a href="https://restaurant.wegeni.com" class="text-blue-600 underline"
-                        target="_blank" rel="noopener" style="color: #b39271;">https://restaurant.wegeni.com</a>. We
+                    for user reference <a href="https://genimenu.com/" class="text-blue-600 underline"
+                        target="_blank" rel="noopener" style="color: #b39271;">https://genimenu.com/</a>. We
                     recommend reviewing these documents to stay informed about your rights and obligations when using our
                     services.
                 </p>
@@ -394,10 +407,10 @@ body {
                 </div>
                 <div class="mb-6">
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">Customer Support:</h3>
-                    <p class="mb-2"><strong>Email:</strong> <a href="mailto:we@wegeni.com" class="text-blue-600 underline"
-                            style="color: #b39271;">we@wegeni.com</a></p>
-                    <p class="mb-4"><strong>Phone:</strong> <a href="tel:+919047755506" class="text-blue-600 underline"
-                            style="color: #b39271;">+91 90477555066</a></p>
+                    <p class="mb-2"><strong>Email:</strong> <a href="mailto:support@genimenu.com" class="text-blue-600 underline"
+                            style="color: #b39271;">support@genimenu.com</a></p>
+                    <p class="mb-4"><strong>Phone:</strong> <a href="tel:+919047555066" class="text-blue-600 underline"
+                            style="color: #b39271;">+91 90475 55066</a></p>
                 </div>
                 <div class="mb-6">
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">Data Protection Officer:</h3>
@@ -408,7 +421,7 @@ body {
             <footer class="border-t pt-6 mt-8 mb-4">
                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
                     <p class="text-blue-800 font-medium mb-2">
-                        By using the Geni Fast Platforms and Services, you agree to this Privacy Policy.
+                        By using the Geni Menu Platforms and Services, you agree to this Privacy Policy.
                     </p>
                     <p class="text-blue-600 text-sm">
                         For questions or concerns about this policy, please contact us using the information provided above.

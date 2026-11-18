@@ -26,12 +26,26 @@ body {
     color: #381A0D;
 }
 
+@media (max-width: 640px) {
+    .policy-page-wrapper {
+        padding-top: 85px !important;
+        padding-bottom: 45px !important;
+    }
+}
+
 .policy-card {
     background: #FFFFFF !important;
     border: 1px solid #E8DFD5 !important;
     border-radius: 16px !important;
     box-shadow: 0 6px 24px rgba(50, 24, 15, 0.05) !important;
     padding: 34px 28px;
+}
+
+@media (max-width: 640px) {
+    .policy-card {
+        padding: 22px 16px !important;
+        border-radius: 12px !important;
+    }
 }
 
 @media (min-width: 640px) {
@@ -127,9 +141,9 @@ body {
                     <h3 class="text-lg font-semibold text-blue-900 mb-3">Entity Information</h3>
                     <div class="space-y-2 text-blue-800">
                         <p><strong>Entity:</strong> WeGeni IT Services and Consulting (OPC) Private Limited</p>
-                        <p><strong>Product:</strong> Geni Fast – Restaurant ERP, Billing & Management Software</p>
-                        <p><strong>Website:</strong> <a href="https://restaurant.wegeni.com" style="color: #b39271;"
-                                class="underline" target="_blank" rel="noopener">https://restaurant.wegeni.com</a></p>
+                        <p><strong>Product:</strong> Geni Menu – Restaurant ERP, Billing & Management Software</p>
+                        <p><strong>Website:</strong> <a href="https://genimenu.com/" style="color: #b39271;"
+                                class="underline" target="_blank" rel="noopener">https://genimenu.com/</a></p>
                     </div>
                 </div>
             </section>
@@ -138,7 +152,7 @@ body {
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Our Commitment to Compliance</h2>
                 <p class="mb-4">
                     At WeGeni IT Services and Consulting (OPC) Private Limited, we understand that restaurants rely on
-                    technology partners who respect data, security, and privacy. Our product, Geni Fast, is built with these
+                    technology partners who respect data, security, and privacy. Our product, Geni Menu, is built with these
                     principles at its core. While we are not currently certified under international compliance frameworks
                     such as SOC 2 or ISO/IEC 27001, we implement strong internal practices that reflect key pillars of these
                     standards.
@@ -151,7 +165,7 @@ body {
 
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Applicable Indian Regulations</h2>
-                <p class="mb-4">Geni Fast operates in full compliance with the following Indian legal standards:</p>
+                <p class="mb-4">Geni Menu operates in full compliance with the following Indian legal standards:</p>
 
                 <div class="space-y-4">
                     <div class="bg-green-50 border-l-4 border-green-400 p-4">
@@ -176,7 +190,7 @@ body {
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Security & Data Protection</h2>
                 <p class="mb-4">
-                    We have taken proactive steps to safeguard both business and customer data shared on the Geni Fast
+                    We have taken proactive steps to safeguard both business and customer data shared on the Geni Menu
                     platform:
                 </p>
 
@@ -227,7 +241,7 @@ body {
 
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Customer Data Privacy</h2>
-                <p class="mb-4">Geni Fast may collect limited business and operational data such as:</p>
+                <p class="mb-4">Geni Menu may collect limited business and operational data such as:</p>
 
                 <ul class="list-disc list-inside mb-4 space-y-2">
                     <li>Restaurant profile (name, contact info)</li>
@@ -251,7 +265,7 @@ body {
 
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Third-Party Compliance</h2>
-                <p class="mb-4">Geni Fast integrates with trusted third-party tools for:</p>
+                <p class="mb-4">Geni Menu integrates with trusted third-party tools for:</p>
 
                 <ul class="list-disc list-inside mb-4 space-y-2">
                     <li>Payment gateways (Razorpay)</li>
@@ -279,7 +293,7 @@ body {
 
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Limitations of Liability</h2>
-                <p class="mb-4">Geni Fast is not currently certified under:</p>
+                <p class="mb-4">Geni Menu is not currently certified under:</p>
 
                 <ul class="list-disc list-inside mb-4 space-y-2">
                     <li>SOC 2 (Service Organization Controls)</li>
@@ -313,7 +327,7 @@ body {
 
             <section class="mb-8">
                 <h2 class="text-2xl font-semibold text-gray-900 mb-4">Your Responsibilities</h2>
-                <p class="mb-4">As a restaurant/business owner using Geni Fast, you are responsible for:</p>
+                <p class="mb-4">As a restaurant/business owner using Geni Menu, you are responsible for:</p>
 
                 <ul class="list-disc list-inside mb-4 space-y-2">
                     <li>Ensuring that customer and staff data entered into the system complies with Indian privacy laws</li>
@@ -336,17 +350,17 @@ body {
 
                 <div class="mb-6">
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">Support Contact</h3>
-                    <p class="mb-2"><strong>Email:</strong> <a href="mailto:we@wegeni.com" class="text-blue-600 underline"
-                            style="color: #b39271;">we@wegeni.com</a></p>
-                    <p class="mb-4"><strong>Phone:</strong> <a href="tel:+919047755506" class="text-blue-600 underline"
-                            style="color: #b39271;">+91 90477555066</a></p>
+                    <p class="mb-2"><strong>Email:</strong> <a href="mailto:support@genimenu.com" class="text-blue-600 underline"
+                            style="color: #b39271;">support@genimenu.com</a></p>
+                    <p class="mb-4"><strong>Phone:</strong> <a href="tel:+919047555066" class="text-blue-600 underline"
+                            style="color: #b39271;">+91 90475 55066</a></p>
                 </div>
             </section>
 
             <footer class="border-t pt-6 mt-8 mb-3">
                 <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-6">
                     <p class="text-indigo-800 font-medium mb-2">
-                        By continuing to use Geni Fast, you confirm your understanding of and agreement to our compliance
+                        By continuing to use Geni Menu, you confirm your understanding of and agreement to our compliance
                         approach and security practices.
                     </p>
                     <p class="text-indigo-600 text-sm">

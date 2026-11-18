@@ -26,12 +26,26 @@ body {
     color: #381A0D;
 }
 
+@media (max-width: 640px) {
+    .policy-page-wrapper {
+        padding-top: 85px !important;
+        padding-bottom: 45px !important;
+    }
+}
+
 .policy-card {
     background: #FFFFFF !important;
     border: 1px solid #E8DFD5 !important;
     border-radius: 16px !important;
     box-shadow: 0 6px 24px rgba(50, 24, 15, 0.05) !important;
     padding: 34px 28px;
+}
+
+@media (max-width: 640px) {
+    .policy-card {
+        padding: 22px 16px !important;
+        border-radius: 12px !important;
+    }
 }
 
 @media (min-width: 640px) {
@@ -124,7 +138,7 @@ body {
         <section class="mb-8">
             <h2 class="text-2xl font-semibold text-gray-900 mb-4">Introduction</h2>
             <p class="mb-4">
-                These Terms of Service (the "Terms") define your legal rights and responsibilities related to your access and use of <a href="https://restaurant.wegeni.com" class="text-blue-600 underline" style="color: #b39271;" target="_blank" rel="noopener">https://restaurant.wegeni.com</a> (the "Site") and any related desktop, mobile, or software applications (collectively, the "App") developed and operated by WeGeni IT Services and Consulting (OPC) Private Limited ("Geni Fast", "We", "Us", or "Our").
+                These Terms of Service (the "Terms") define your legal rights and responsibilities related to your access and use of <a href="https://genimenu.com/" class="text-blue-600 underline" style="color: #b39271;" target="_blank" rel="noopener">https://genimenu.com/</a> (the "Site") and any related desktop, mobile, or software applications (collectively, the "App") developed and operated by WeGeni IT Services and Consulting (OPC) Private Limited ("Geni Menu", "We", "Us", or "Our").
             </p>
             <p class="mb-4">
                 By downloading, installing, or using the App or Website, you agree to be bound by these Terms, our Privacy Policy, and, where applicable, any End User License Agreement (EULA). If you do not agree to these Terms, please do not use the App or Website.
@@ -135,10 +149,10 @@ body {
             <h2 class="text-2xl font-semibold text-gray-900 mb-4">Definitions</h2>
             <div class="mb-4">
                 <p class="mb-4">
-                    <strong>"Services"</strong> refers to the restaurant ERP modules provided by Geni Fast, including PoS (Billing), Order Ticketing, Table Management, Menu Management, Kitchen Display Systems (KOT), Payments (UPI/Card), Table Reservations, Sales Reports, QR Code Scanning, and other related features.
+                    <strong>"Services"</strong> refers to the restaurant ERP modules provided by Geni Menu, including PoS (Billing), Order Ticketing, Table Management, Menu Management, Kitchen Display Systems (KOT), Payments (UPI/Card), Table Reservations, Sales Reports, QR Code Scanning, and other related features.
                 </p>
                 <p class="mb-4">
-                    <strong>"Content"</strong> means proprietary content created and made available by Geni Fast in connection with the Services, including but not limited to software, designs, UI, analytics, dashboards, reports, icons, and visual elements.
+                    <strong>"Content"</strong> means proprietary content created and made available by Geni Menu in connection with the Services, including but not limited to software, designs, UI, analytics, dashboards, reports, icons, and visual elements.
                 </p>
                 <p class="mb-4">
                     <strong>"Your Content"</strong> or <strong>"User Content"</strong> means the data you upload or transmit through the Services, including restaurant menu items, customer data, billing data, QR setups, images, tables, order details, reviews, and configuration settings.
@@ -167,7 +181,7 @@ body {
         <section class="mb-8">
             <h2 class="text-2xl font-semibold text-gray-900 mb-4">Intellectual Property Rights and Content</h2>
             <p class="mb-4">
-                All content, trademarks, logos, software, and designs provided via the Geni Fast are the sole property of WeGeni IT Services and Consulting (OPC) Private Limited. No rights, title, or interest shall be transferred to you except as expressly permitted under these Terms.
+                All content, trademarks, logos, software, and designs provided via the Geni Menu are the sole property of WeGeni IT Services and Consulting (OPC) Private Limited. No rights, title, or interest shall be transferred to you except as expressly permitted under these Terms.
             </p>
             <p class="mb-4">You agree not to:</p>
             <ul class="list-disc list-inside mb-4 space-y-2">
@@ -197,7 +211,7 @@ body {
             <h2 class="text-2xl font-semibold text-gray-900 mb-4">Razorpay Usage</h2>
             <h3 class="text-lg font-semibold text-gray-900 mb-3">Free Trial and Fees / Billing & Payments</h3>
             <p class="mb-4">
-                Payments for subscriptions or other services offered via Geni Fast are processed securely through Razorpay. By making a payment, you agree to the terms and conditions of Razorpay's services, including their payment processing terms.
+                Payments for subscriptions or other services offered via Geni Menu are processed securely through Razorpay. By making a payment, you agree to the terms and conditions of Razorpay's services, including their payment processing terms.
             </p>
             <p class="mb-4">
                 You are responsible for ensuring that your payment information is accurate and up to date. Failed or unauthorized payments may result in temporary suspension or cancellation of your access.
@@ -207,7 +221,7 @@ body {
         <section class="mb-8">
             <h2 class="text-2xl font-semibold text-gray-900 mb-4">Privacy Policy</h2>
             <p class="mb-4">
-                We are committed to protecting your privacy. Your data will be collected, stored, and processed in accordance with the <a href="{{ route('privacy.policy') }}" class="text-blue-600 underline" style="color: #b39271;">Geni Fast Privacy Policy</a>. By using our Services, you agree to the terms outlined therein.
+                We are committed to protecting your privacy. Your data will be collected, stored, and processed in accordance with the <a href="{{ route('privacy.policy') }}" class="text-blue-600 underline" style="color: #b39271;">Geni Menu Privacy Policy</a>. By using our Services, you agree to the terms outlined therein.
             </p>
         </section>
 
@@ -265,7 +279,7 @@ body {
         <section class="mb-8">
             <h2 class="text-2xl font-semibold text-gray-900 mb-4">Changes to Terms</h2>
             <p class="mb-4">
-                We may update or modify these Terms from time to time. All changes will be posted on <a href="https://restaurant.wegeni.com" class="text-blue-600 underline" style="color: #b39271;" target="_blank" rel="noopener">https://restaurant.wegeni.com</a> and may also be communicated via email or in-app notifications.
+                We may update or modify these Terms from time to time. All changes will be posted on <a href="https://genimenu.com/" class="text-blue-600 underline" style="color: #b39271;" target="_blank" rel="noopener">https://genimenu.com/</a> and may also be communicated via email or in-app notifications.
             </p>
             <p class="mb-4">
                 Continued use of the App after any update constitutes acceptance of the new Terms.
@@ -292,15 +306,15 @@ body {
 
             <div class="mb-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-2">Customer Support</h3>
-                <p class="mb-2"><strong>Email:</strong> <a href="mailto:we@wegeni.com" class="text-blue-600 underline" style="color: #b39271;">we@wegeni.com</a></p>
-                <p class="mb-4"><strong>Phone:</strong> <a href="tel:+919047755506" class="text-blue-600 underline" style="color: #b39271;">+91 90477555066</a></p>
+                <p class="mb-2"><strong>Email:</strong> <a href="mailto:support@genimenu.com" class="text-blue-600 underline" style="color: #b39271;">support@genimenu.com</a></p>
+                <p class="mb-4"><strong>Phone:</strong> <a href="tel:+919047555066" class="text-blue-600 underline" style="color: #b39271;">+91 90475 55066</a></p>
             </div>
         </section>
 
         <footer class="border-t pt-6 mt-8 mb-3">
             <div class="bg-green-50 border border-green-200 rounded-lg p-6">
                 <p class="text-green-800 font-medium mb-2">
-                    By using the Geni Fast App or Services, you agree to be bound by these Terms and Conditions.
+                    By using the Geni Menu App or Services, you agree to be bound by these Terms and Conditions.
                 </p>
                 <p class="text-green-600 text-sm">
                     For questions or concerns about these terms, please contact us using the information provided above.
