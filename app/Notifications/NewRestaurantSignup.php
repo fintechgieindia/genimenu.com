@@ -35,14 +35,32 @@ class NewRestaurantSignup extends BaseNotification
     public function toMail(object $notifiable): MailMessage
     {
         $build = parent::build($notifiable);
-        $siteName = global_setting()->name;
-
+        $siteName = global_setting()->name ?? 'Geni Menu';
         $recipientName = !empty($notifiable->name) ? $notifiable->name : 'Admin';
+
+        $owner = $this->forRestaurant->users?->first() ?? $this->forRestaurant->user;
+        $branch = $this->forRestaurant->branches?->first();
+        $countryName = $this->forRestaurant->country?->countries_name ?? 'India';
+        $adminDashboardUrl = route('superadmin.restaurants.index');
+
+        $data = [
+            'siteName' => $siteName,
+            'recipientName' => $recipientName,
+            'restaurant' => $this->forRestaurant,
+            'restaurantName' => $this->forRestaurant->name,
+            'branchName' => $branch?->name ?? 'Main Branch',
+            'ownerName' => $owner?->name ?? $this->forRestaurant->name,
+            'ownerEmail' => $owner?->email ?? $this->forRestaurant->email,
+            'ownerPhone' => ($this->forRestaurant->phone_code ? '+' . ltrim($this->forRestaurant->phone_code, '+') . ' ' : '') . $this->forRestaurant->phone_number,
+            'address' => $this->forRestaurant->address ?? 'N/A',
+            'country' => $countryName,
+            'registeredAt' => $this->forRestaurant->created_at ? $this->forRestaurant->created_at->format('d M Y, h:i A') : now()->format('d M Y, h:i A'),
+            'adminDashboardUrl' => $adminDashboardUrl,
+        ];
+
         return $build
             ->subject(__('email.newRestaurantSignup.subject', ['site_name' => $siteName]))
-            ->greeting(__('app.hello') . ' ' . $recipientName . ',')
-            ->line(__('email.newRestaurantSignup.line1', ['site_name' => $siteName]))
-            ->line(__('email.newRestaurantSignup.line2', ['restaurant_name' => $this->forRestaurant->name]));
+            ->view('emails.admin-new-restaurant', $data);
     }
 
     /**

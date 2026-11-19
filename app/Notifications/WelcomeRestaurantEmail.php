@@ -43,23 +43,28 @@ class WelcomeRestaurantEmail extends BaseNotification
         if (module_enabled('Subdomain')) {
             $loginUrl = 'https://' . $this->restaurantDetails->sub_domain;
         } else {
-            $loginUrl = url('/');
+            $loginUrl = url('/login');
         }
 
-        $siteName = global_setting()->name;
+        $siteName = global_setting()->name ?? 'Geni Menu';
+        $branchName = $notifiable->branch?->name 
+            ?? $this->restaurantDetails->branches?->first()?->name 
+            ?? 'Main Branch';
+
+        $data = [
+            'siteName' => $siteName,
+            'restaurant' => $this->restaurantDetails,
+            'restaurantName' => $this->restaurantDetails->name,
+            'userName' => !empty($notifiable->name) ? $notifiable->name : 'Restaurant Partner',
+            'userEmail' => $notifiable->email,
+            'password' => $this->password,
+            'branchName' => $branchName,
+            'loginUrl' => $loginUrl,
+        ];
+
         return $build
             ->subject(__('email.welcomeRestaurant.subject', ['site_name' => $siteName]))
-            ->greeting(__('email.welcomeRestaurant.greeting', ['name' => $notifiable->name]))
-            ->line(__('email.welcomeRestaurant.line1', ['site_name' => $siteName]))
-            ->line(__('email.welcomeRestaurant.line8', ['email' => $notifiable->email]))
-            ->line(__('email.welcomeRestaurant.line9', ['password' => $this->password]))
-            ->line(__('email.welcomeRestaurant.line10', ['login_url' => $loginUrl]))
-            ->line(__('email.welcomeRestaurant.line2'))
-            ->line(__('email.welcomeRestaurant.line3'))
-            ->line(__('email.welcomeRestaurant.line4'))
-            ->line(__('email.welcomeRestaurant.line5'))
-            ->line(__('email.welcomeRestaurant.line6',  ['site_name' => $siteName]))
-            ->line(__('email.welcomeRestaurant.line7', ['site_name' => $siteName]));
+            ->view('emails.welcome-restaurant', $data);
     }
 
     /**
