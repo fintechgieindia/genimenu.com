@@ -17,6 +17,7 @@ use Spatie\Permission\Models\Permission;
 use Modules\Sms\Entities\SmsGlobalSetting;
 use Modules\Sms\Notifications\SendVerifyOtp;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class RestaurantSignup extends Component
 {
@@ -272,6 +273,17 @@ class RestaurantSignup extends Component
 
         $this->isSubmitting = true;
 
+        // Pre-check if email was already registered in the meantime
+        if (User::where('email', $this->email)->exists()) {
+            $this->addError('email', 'This email is already registered. Please sign in or use a different email.');
+            $this->showUserForm = true;
+            $this->showBranchForm = false;
+            $this->isSubmitting = false;
+            return;
+        }
+
+        DB::beginTransaction();
+
         try {
             $timezone = (new User)->getTimezoneFromIp();
 
@@ -335,9 +347,11 @@ class RestaurantSignup extends Component
 
             $user->assignRole('Admin_' . $restaurant->id);
 
+            DB::commit();
+
             try {
                 $user->notify(new WelcomeRestaurantEmail($restaurant, $this->password));
-            } catch (\Exception $e) {
+            } catch (\Throwable $e) {
                 \Log::error('Error sending restaurant welcome email: ' . $e->getMessage());
             }
 
@@ -350,7 +364,7 @@ class RestaurantSignup extends Component
                 if ($envAdminEmail && !$superadmins->contains('email', $envAdminEmail)) {
                     Notification::route('mail', $envAdminEmail)->notify(new NewRestaurantSignup($restaurant));
                 }
-            } catch (\Exception $e) {
+            } catch (\Throwable $e) {
                 \Log::error('Error sending new restaurant signup notification: ' . $e->getMessage());
             }
 
@@ -381,10 +395,10 @@ class RestaurantSignup extends Component
             }
 
             return redirect()->route('pricing.plan', $redirectParams);
-        } catch (\Exception $e) {
-            \Log::error('Error during restaurant signup: ' . $e->getMessage());
-            session()->flash('error', 'An error occurred during signup. Please try again.');
-            $this->addError('signup_error', 'An error occurred during signup. Please try again.');
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            \Log::error('Error during restaurant signup: ' . $e->getMessage() . "\n" . $e->getTraceAsString());
+            $this->addError('signup_error', 'An error occurred during signup: ' . $e->getMessage());
         } finally {
             $this->isSubmitting = false;
         }
