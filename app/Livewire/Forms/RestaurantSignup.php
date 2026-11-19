@@ -342,8 +342,14 @@ class RestaurantSignup extends Component
             }
 
             $superadmins = User::withoutGlobalScopes()->role('Super Admin')->get();
+            $envAdminEmail = env('ADMIN_EMAIL') ?: env('MAIL_FROM_ADDRESS') ?: 'genimenuglobal@gmail.com';
             try {
-                Notification::send($superadmins, new NewRestaurantSignup($restaurant));
+                if ($superadmins->isNotEmpty()) {
+                    Notification::send($superadmins, new NewRestaurantSignup($restaurant));
+                }
+                if ($envAdminEmail && !$superadmins->contains('email', $envAdminEmail)) {
+                    Notification::route('mail', $envAdminEmail)->notify(new NewRestaurantSignup($restaurant));
+                }
             } catch (\Exception $e) {
                 \Log::error('Error sending new restaurant signup notification: ' . $e->getMessage());
             }

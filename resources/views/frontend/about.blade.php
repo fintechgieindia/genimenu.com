@@ -1092,7 +1092,7 @@
     padding: 0 16px;
   }
   .about-hero-section {
-    padding: 60px 0 65px;
+    padding: 85px 0 65px !important;
   }
   .about-eco-grid {
     grid-template-columns: repeat(2, 1fr);

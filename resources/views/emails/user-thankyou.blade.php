@@ -1,7 +1,7 @@
 <p>Hi {{ $name }},</p>
 
 <p>
-    Thank you for contacting <strong>Geni Fast</strong>.
+    Thank you for contacting <strong>Geni Menu</strong>.
     We’ve received your enquiry and our team will review it and get back to you shortly.
 </p>
 
@@ -25,7 +25,7 @@
 </p>
 
 <p>
-    Thank you once again for choosing <strong>Geni Fast</strong>.
+    Thank you once again for choosing <strong>Geni Menu</strong>.
     We look forward to serving you!
 </p>
 
@@ -34,11 +34,11 @@
 </p>
 
 <p>
-    📧 Email: business@wegeni.com <br>
+    📧 Email: genimenuglobal@gmail.com <br>
     📞 Phone: +91 90475 55066
 </p>
 
 <p>
     Best regards, <br>
-    <strong>Geni Fast Support Team</strong>
+    <strong>Geni Menu Support Team</strong>
 </p>

@@ -449,19 +449,20 @@ p, li, .hw-hero-desc, .hw-sec-desc, .hw-card-desc,
   background-color: var(--hw-warm-ivory);
 }
 
-.hw-cards-grid-row1 {
+.hw-cards-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 22px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(20, 1fr);
+  gap: 24px 22px;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-.hw-cards-grid-row2 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-  max-width: 1040px;
-  margin: 0 auto;
+.hw-cards-grid .hw-product-card {
+  grid-column: span 4;
+}
+
+.hw-cards-grid .hw-product-card:nth-child(6) {
+  grid-column-start: 3;
 }
 
 .hw-product-card {
@@ -1052,11 +1053,13 @@ p, li, .hw-hero-desc, .hw-sec-desc, .hw-card-desc,
    RESPONSIVE DESIGN (TABLETS & MOBILE)
    ========================================================================== */
 @media (max-width: 1100px) {
-  .hw-cards-grid-row1 {
-    grid-template-columns: repeat(3, 1fr);
+  .hw-cards-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+    max-width: 100% !important;
   }
-  .hw-cards-grid-row2 {
-    grid-template-columns: repeat(2, 1fr);
+  .hw-cards-grid .hw-product-card {
+    grid-column: auto !important;
   }
   .hw-integ-panels-grid {
     grid-template-columns: 1fr;
@@ -1143,10 +1146,16 @@ p, li, .hw-hero-desc, .hw-sec-desc, .hw-card-desc,
     grid-template-columns: 1fr;
     gap: 16px;
   }
-  .hw-cards-grid-row1,
-  .hw-cards-grid-row2 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+  .hw-cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .hw-cards-grid .hw-product-card {
+    grid-column: auto !important;
+  }
+  .hw-cards-grid .hw-product-card:nth-child(9) {
+    grid-column: 1 / -1 !important;
   }
   .hw-product-card {
     padding: 16px 10px 14px 10px;
@@ -1217,9 +1226,11 @@ p, li, .hw-hero-desc, .hw-sec-desc, .hw-card-desc,
 }
 
 @media (max-width: 380px) {
-  .hw-cards-grid-row1,
-  .hw-cards-grid-row2 {
-    grid-template-columns: 1fr;
+  .hw-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hw-cards-grid .hw-product-card:nth-child(9) {
+    grid-column: auto !important;
   }
 }
 </style>
@@ -1344,8 +1355,8 @@ p, li, .hw-hero-desc, .hw-sec-desc, .hw-card-desc,
                 </p>
             </div>
 
-            {{-- Row 1: 5 Product Cards on Desktop --}}
-            <div class="hw-cards-grid-row1">
+            {{-- Hardware Solutions Grid --}}
+            <div class="hw-cards-grid">
                 {{-- Card 1: Laptop --}}
                 <div class="hw-product-card">
                     <div class="hw-card-img-wrap">
@@ -1400,10 +1411,7 @@ p, li, .hw-hero-desc, .hw-sec-desc, .hw-card-desc,
                         Accept supported card and contactless payments through a dedicated payment terminal.
                     </p>
                 </div>
-            </div>
 
-            {{-- Row 2: 4 Product Cards on Desktop --}}
-            <div class="hw-cards-grid-row2">
                 {{-- Card 6: Receipt Printer --}}
                 <div class="hw-product-card">
                     <div class="hw-card-img-wrap">
@@ -1447,8 +1455,8 @@ p, li, .hw-hero-desc, .hw-sec-desc, .hw-card-desc,
                         Show order numbers, billing information and order status to customers.
                     </p>
                 </div>
-            </div>
-        </div>
+            </div> {{-- End .hw-cards-grid --}}
+        </div> {{-- End .hw-container --}}
     </section>
 
     {{-- ====================================================================

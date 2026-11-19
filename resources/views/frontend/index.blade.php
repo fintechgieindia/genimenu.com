@@ -42,7 +42,10 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+}
 
 body {
   font-family: 'Glacial Indifference', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
@@ -53,7 +56,7 @@ body {
   font-weight: 400;
   margin: 0;
   padding: 0;
-  overflow-x: clip;
+  overflow-x: hidden !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -799,15 +802,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
     justify-content: center;
   }
   .geni-why-spacer {
-    display: block;
-    width: 100%;
-    min-height: 280px;
-    background-image: url('{{ asset("assets/images/home/genimenu.png") }}') !important;
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: cover;
-    border-radius: 14px;
-    box-shadow: 0 8px 24px rgba(50, 24, 15, 0.10);
+    display: none !important;
   }
 }
 
@@ -2128,8 +2123,8 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 @media (max-width: 1199px) and (min-width: 992px) {
   .geni-hero { padding: 95px 0 55px !important; }
   .geni-hero-title { font-size: 40px; }
-  .geni-features-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .geni-final-cta-card { grid-template-columns: 190px 1fr auto; padding-right: 28px; }
+  .geni-bento-hero-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .geni-bento-sub-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
 }
 
 @media (max-width: 991px) and (min-width: 769px) {
@@ -2144,7 +2139,8 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   .geni-why-container { grid-template-columns: 1fr; gap: 36px; text-align: center; }
   .geni-why-content { align-items: center; text-align: center; }
   .geni-why-desc { margin-left: auto; margin-right: auto; }
-  .geni-features-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .geni-bento-hero-grid { grid-template-columns: 1fr; gap: 16px; }
+  .geni-bento-sub-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .geni-integrations-desc { margin: 0 auto; }
   .geni-reviews-container { grid-template-columns: 1fr; text-align: center; }
   .geni-reviews-left { text-align: center; }
@@ -2152,11 +2148,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   .geni-faq-container { grid-template-columns: 1fr; }
   .geni-faq-left { text-align: center; }
   .geni-faq-subtitle { margin: 0 auto; }
-  .geni-final-cta-card { grid-template-columns: 1fr; padding: 0 24px 30px; text-align: center; }
-  .geni-final-cta-photo { height: 160px; width: 100%; border-radius: 14px 14px 0 0; }
-  .geni-final-cta-content { padding: 20px 0 14px; text-align: center; }
-  .geni-final-cta-desc { margin: 0 auto; }
-  .geni-final-cta-btn-wrap { margin: 0 auto; }
+  .geni-final-cta-btn-wrap { justify-content: center; }
 }
 
 @media (max-width: 768px) {
@@ -2167,7 +2159,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   .geni-hero-desc { font-size: 14px; margin-bottom: 20px; }
   .geni-hero-ctas { flex-direction: column; width: 100%; gap: 10px; margin-bottom: 20px; }
   .btn-primary-gold, .btn-ghost-gold { width: 100%; justify-content: center; padding: 11px 18px; }
-  .geni-hero-right { order: 2; margin: 6px 0 10px; }
+  .geni-hero-right { display: none !important; }
   .geni-hero-features-wrap { order: 3; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 100%; padding-top: 16px; }
   .geni-hero-feat-sep { display: none; }
 
@@ -2180,34 +2172,71 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   .geni-trust-cta-wrap { margin-top: 24px; }
   .btn-trust-solutions { width: 100%; justify-content: center; }
 
-  .geni-why-section { padding: 50px 0; }
+  .geni-why-section { padding: 50px 0; background-image: none !important; }
+  .geni-why-spacer { display: none !important; }
   .geni-why-container { grid-template-columns: 1fr; gap: 30px; padding: 0 16px; }
   .geni-why-title { font-size: 24px; }
+  .geni-why-highlight-wrap { white-space: normal; }
 
-  .geni-features-section { padding: 55px 0; }
+  .geni-features-section { padding: 50px 0; }
   .geni-features-container { padding: 0 16px; }
-  .geni-features-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .geni-features-header { margin-bottom: 28px; }
+  .geni-features-title { font-size: 24px; }
+  .geni-bento-hero-grid { grid-template-columns: 1fr !important; gap: 16px !important; margin-bottom: 16px !important; }
+  .geni-bento-sub-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .geni-bento-card { padding: 22px 16px !important; border-radius: 16px !important; }
+  .geni-bento-mini-card { padding: 20px 16px !important; border-radius: 14px !important; }
+  .floating-dish-card { display: none !important; }
+  .kds-screen-frame { transform: none !important; }
   .geni-features-cta-wrap { margin-top: 28px; }
   .btn-features-explore { width: 100%; justify-content: center; }
 
   .geni-integrations-section { padding: 50px 0; }
   .geni-integrations-container { padding: 0 16px; }
+  .geni-int-cat-card { padding: 22px 16px !important; border-radius: 16px !important; }
+  .geni-int-cat-header { margin-bottom: 16px !important; padding-bottom: 12px !important; }
 
   .geni-reviews-section { padding: 55px 0; }
   .geni-reviews-container { grid-template-columns: 1fr; gap: 28px; padding: 0 16px; }
   .geni-reviews-grid { grid-template-columns: 1fr; gap: 14px; }
+  .geni-reviews-left { text-align: center; }
+  .geni-reviews-arrows { justify-content: center; margin-bottom: 16px; }
 
   .geni-faq-section { padding: 50px 0; }
   .geni-faq-container { grid-template-columns: 1fr; gap: 28px; padding: 0 16px; }
+  .geni-faq-left { position: static !important; text-align: center; }
+  .geni-faq-subtitle { margin: 0 auto 20px auto; }
+  .geni-faq-cta-btn { margin: 0 auto; }
   .geni-faq-accordion-grid { grid-template-columns: 1fr; gap: 10px; }
 
-  .geni-final-cta-section { padding: 0 0 50px 0; }
-  .geni-final-cta-wrap { padding: 0 16px; }
-  .geni-final-cta-card { grid-template-columns: 1fr; padding: 0 18px 26px; text-align: center; }
-  .geni-final-cta-photo { height: 140px; width: 100%; border-radius: 12px 12px 0 0; }
-  .geni-final-cta-content { padding: 18px 0 12px; text-align: center; }
-  .geni-final-cta-btn-wrap { width: 100%; }
-  .geni-final-cta-btn-wrap .btn-primary-gold { width: 100%; justify-content: center; }
+  .geni-final-cta-section { padding: 50px 0 !important; }
+  .geni-final-cta-container { padding: 0 16px !important; }
+  .geni-final-cta-title { font-size: 24px !important; }
+  .geni-final-cta-desc { font-size: 13.5px !important; margin: 0 auto 18px auto !important; }
+  .geni-final-cta-btn-wrap {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+  .geni-final-cta-btn-wrap a {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .geni-hero { padding: 75px 0 35px !important; }
+  .geni-hero-title { font-size: 26px !important; }
+  .geni-hero-features-wrap { grid-template-columns: 1fr; gap: 8px; }
+  .geni-trust-grid { grid-template-columns: 1fr; gap: 8px; }
+  .geni-how-section { padding: 44px 0 48px !important; }
+  .geni-how-container { padding: 0 14px !important; }
+  .geni-how-title { font-size: 23px !important; }
+  .geni-social-section { padding: 44px 0 48px !important; }
+  .geni-social-container { padding: 0 14px !important; }
+  .geni-social-title { font-size: 23px !important; }
 }
 /* ==========================================================================
    5B. HOW IT WORKS (3-Step Section matching Integrations Cream Theme)

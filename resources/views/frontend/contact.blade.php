@@ -965,7 +965,7 @@ body {
 
 @media (max-width: 768px) {
   .contact-hero-sec {
-    padding: 120px 16px 55px;
+    padding: 90px 16px 45px;
   }
   .contact-hero-title {
     font-size: 26px;
@@ -977,7 +977,7 @@ body {
     padding: 44px 0 36px;
   }
   .contact-container {
-    padding: 0 14px;
+    padding: 0 16px;
   }
   .c-get-in-touch-heading {
     font-size: 18px;

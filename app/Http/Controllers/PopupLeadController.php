@@ -73,6 +73,7 @@ class PopupLeadController extends Controller
             'business_name'   => $businessName,
             'city'            => $country,
             'country'         => $country,
+            'form_name'       => 'Popup Form',
             'created_at'      => now(),
         ];
 
@@ -86,9 +87,10 @@ class PopupLeadController extends Controller
         dispatch(function () use ($popupData) {
             try {
                 // Admin Mail
-                Mail::send('emails.popup-admin', $popupData, function ($m) {
-                    $m->to(['genimenuglobal@gmail.com', 'business@wegeni.com'])
-                        ->subject('New Popup Submission From Geni Menu');
+                $adminEmail = env('ADMIN_EMAIL') ?: env('MAIL_FROM_ADDRESS') ?: 'genimenuglobal@gmail.com';
+                Mail::send('emails.popup-admin', $popupData, function ($m) use ($adminEmail) {
+                    $m->to($adminEmail)
+                        ->subject('New Popup Form Submission - Geni Menu');
                 });
             } catch (\Throwable $e) {
                 \Log::error('Popup lead admin mail error: ' . $e->getMessage());

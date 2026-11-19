@@ -59,18 +59,18 @@ class CustomConfigProvider extends ServiceProvider
             $password = $setting->mail_password;
 
 
-            Config::set('mail.default', $driver);
-            Config::set('mail.mailers.smtp.host', $setting->smtp_host);
-            Config::set('mail.mailers.smtp.port', $setting->smtp_port);
-            Config::set('mail.mailers.smtp.username', $setting->mail_username);
-            Config::set('mail.mailers.smtp.password', $password);
-            Config::set('mail.mailers.smtp.encryption', $setting->smtp_encryption);
+            Config::set('mail.default', env('MAIL_MAILER') ?: $driver);
+            Config::set('mail.mailers.smtp.host', env('MAIL_HOST') ?: $setting->smtp_host);
+            Config::set('mail.mailers.smtp.port', env('MAIL_PORT') ?: $setting->smtp_port);
+            Config::set('mail.mailers.smtp.username', env('MAIL_USERNAME') ?: $setting->mail_username);
+            Config::set('mail.mailers.smtp.password', env('MAIL_PASSWORD') ?: $password);
+            Config::set('mail.mailers.smtp.encryption', env('MAIL_ENCRYPTION') ?: $setting->smtp_encryption);
 
             Config::set('queue.default', ($setting->enable_queue == 'yes' ? 'database' : 'sync'));
         }
 
-        Config::set('mail.from.name', $setting->mail_from_name);
-        Config::set('mail.from.address', $setting->mail_from_email);
+        Config::set('mail.from.name', env('MAIL_FROM_NAME') ?: $setting->mail_from_name);
+        Config::set('mail.from.address', env('MAIL_FROM_ADDRESS') ?: $setting->mail_from_email);
 
         Config::set('app.name', $globalSetting->name);
 

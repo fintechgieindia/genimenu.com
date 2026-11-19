@@ -482,89 +482,165 @@
     background: var(--geni-nav-champagne);
   }
 
-  /* --- Mobile Drawer Panel --- */
+  /* --- Mobile Drawer Panel (Robust standalone fixed overlay) --- */
+  .mobile-panel,
   .geni-pos-nav .mobile-panel {
     display: none;
-    position: fixed;
-    top: 72px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(39, 19, 13, 0.98);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-top: 1px solid rgba(197, 139, 80, 0.25);
-    padding: 24px;
-    overflow-y: auto;
-    z-index: 9998;
-    flex-direction: column;
-    justify-content: space-between;
+    position: fixed !important;
+    top: 64px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: calc(100vh - 64px) !important;
+    height: calc(100dvh - 64px) !important;
+    background: #27130D !important;
+    border-top: 1px solid rgba(197, 139, 80, 0.25) !important;
+    padding: 20px 20px 48px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    z-index: 99998 !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+    box-sizing: border-box !important;
   }
 
+  .mobile-panel.is-open,
   .geni-pos-nav .mobile-panel.is-open {
-    display: flex;
+    display: flex !important;
   }
 
+  .mobile-panel *,
+  .geni-pos-nav .mobile-panel * {
+    box-sizing: border-box;
+  }
+
+  .mobile-panel .mobile-list,
   .geni-pos-nav .mobile-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
   }
 
+  .mobile-panel .mobile-direct-link,
   .geni-pos-nav .mobile-direct-link {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 14px;
-    color: var(--geni-nav-warm-white);
-    font-size: 14.5px;
+    padding: 13px 16px;
+    color: var(--geni-nav-warm-white, #FFF8F0);
+    font-size: 15px;
     font-weight: 600;
     text-decoration: none;
     border-radius: 8px;
     border-bottom: 1px solid rgba(197, 139, 80, 0.12);
+    background: rgba(74, 41, 27, 0.25);
     transition: background 0.18s ease, color 0.18s ease;
   }
 
+  .mobile-panel .mobile-direct-link:hover,
   .geni-pos-nav .mobile-direct-link:hover {
     background: rgba(197, 139, 80, 0.15);
-    color: var(--geni-nav-champagne);
+    color: var(--geni-nav-champagne, #F2C58D);
   }
 
+  .mobile-panel .mobile-actions,
   .geni-pos-nav .mobile-actions {
-    margin-top: 24px;
-    padding-top: 20px;
+    margin-top: 10px;
+    padding-top: 18px;
     border-top: 1px solid rgba(197, 139, 80, 0.25);
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
 
-  .geni-pos-nav .mobile-lang-box {
-    margin-bottom: 8px;
+  /* Mobile Drawer Action Buttons (Prominent Luxury Gold) */
+  .mobile-panel .btn-signup-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;
+    color: #27130D !important;
+    font-family: 'Glacial Indifference', system-ui, sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.3px !important;
+    text-decoration: none !important;
+    padding: 14px 24px !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 6px 20px rgba(242, 197, 141, 0.45) !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
   }
 
+  .mobile-panel .btn-signup-pill:hover,
+  .mobile-panel .btn-signup-pill:active {
+    background: linear-gradient(135deg, #FFF8F0 0%, #F2C58D 100%) !important;
+    color: #1F0D07 !important;
+    box-shadow: 0 8px 26px rgba(242, 197, 141, 0.6) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .mobile-panel .btn-signin {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 13px 20px !important;
+    font-family: 'Glacial Indifference', system-ui, sans-serif !important;
+    font-size: 14.5px !important;
+    font-weight: 600 !important;
+    color: #FFF8F0 !important;
+    background: rgba(74, 41, 27, 0.45) !important;
+    border: 1.5px solid rgba(242, 197, 141, 0.5) !important;
+    border-radius: 9999px !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-panel .btn-signin:hover,
+  .mobile-panel .btn-signin:active {
+    background: rgba(197, 139, 80, 0.2) !important;
+    border-color: #F2C58D !important;
+    color: #FFFFFF !important;
+  }
+
+  .mobile-panel .mobile-lang-box,
+  .geni-pos-nav .mobile-lang-box {
+    margin-bottom: 6px;
+  }
+
+  .mobile-panel .mobile-lang-label,
   .geni-pos-nav .mobile-lang-label {
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 12px;
     font-weight: 700;
-    color: var(--geni-nav-champagne);
+    color: var(--geni-nav-champagne, #F2C58D);
     letter-spacing: 0.5px;
     text-transform: uppercase;
     margin-bottom: 6px;
   }
 
+  .mobile-panel .mobile-lang-select,
   .geni-pos-nav .mobile-lang-select {
     width: 100%;
     padding: 10px 14px;
     background: #32180F;
     border: 1px solid rgba(197, 139, 80, 0.35);
     border-radius: 8px;
-    color: var(--geni-nav-warm-white);
+    color: var(--geni-nav-warm-white, #FFF8F0);
     font-size: 14px;
     font-family: inherit;
     outline: none;
@@ -573,37 +649,51 @@
   /* Responsive Breakpoints */
   @media (max-width: 991px) {
     .geni-pos-nav .nav-center-menu {
-      display: none;
+      display: none !important;
     }
     .geni-pos-nav .nav-burger-btn {
-      display: flex;
+      display: flex !important;
     }
     .geni-pos-nav .brand-tagline {
-      display: none;
+      display: none !important;
     }
     .geni-pos-nav .brand-divider {
-      display: none;
+      display: none !important;
     }
-  }
-
-  @media (max-width: 600px) {
+    .geni-pos-nav .btn-signup-pill {
+      display: none !important;
+    }
     .geni-pos-nav .nav-wrap {
       padding: 0 16px;
       height: 64px;
+      gap: 10px;
+    }
+    .geni-pos-nav .nav-cta-group {
+      gap: 8px;
     }
     .geni-pos-nav .brand-logo-img {
       height: 32px !important;
     }
-    .geni-pos-nav .btn-signup-pill {
-      padding: 8px 16px;
+    .geni-pos-nav .btn-signin {
+      padding: 6px 13px;
       font-size: 12.5px;
+    }
+    .mobile-panel,
+    .geni-pos-nav .mobile-panel {
+      top: 64px !important;
+    }
+  }
+
+  @media (max-width: 440px) {
+    .geni-pos-nav .nav-wrap {
+      padding: 0 12px;
+      gap: 8px;
     }
     .geni-pos-nav .btn-signin {
-      padding: 7px 14px;
-      font-size: 12.5px;
+      display: none !important;
     }
-    .geni-pos-nav .mobile-panel {
-      top: 64px;
+    .geni-pos-nav .brand-logo-img {
+      height: 28px !important;
     }
   }
 </style>
@@ -845,119 +935,120 @@
     </div>
 
   </div>
-
-  <!-- Mobile Drawer Menu (Preserves all items & actions) -->
-  <div class="mobile-panel" id="geniMobilePanel">
-    <ul class="mobile-list">
-      <li class="mobile-list-item">
-        <a href="{{ route('home') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
-          <span>Home</span>
-          <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
-        </a>
-      </li>
-
-      <li class="mobile-list-item">
-        <a href="{{ route('features') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
-          <span>Features</span>
-          <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
-        </a>
-      </li>
-
-      <li class="mobile-list-item">
-        <a href="{{ route('solutions') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
-          <span>Solutions</span>
-          <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
-        </a>
-      </li>
-
-      <li class="mobile-list-item">
-        <a href="{{ route('hardware-integrations') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
-          <span>Hardware &amp; Integrations</span>
-          <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
-        </a>
-      </li>
-
-      <li class="mobile-list-item">
-        <a href="{{ route('pricing') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
-          <span>Pricing</span>
-          <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
-        </a>
-      </li>
-
-      <li class="mobile-list-item">
-        <a href="{{ route('about.us') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
-          <span>About Us</span>
-          <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
-        </a>
-      </li>
-
-      <li class="mobile-list-item">
-        <a href="{{ route('contact.us') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
-          <span>Contact</span>
-          <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
-        </a>
-      </li>
-    </ul>
-
-    <div class="mobile-actions">
-      <!-- Mobile Language Switcher -->
-      <div class="mobile-lang-box notranslate">
-        <label for="mobileLangSelect" class="mobile-lang-label">
-          <svg class="lang-globe-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-          </svg>
-          <span>Choose Language</span>
-        </label>
-        <select id="mobileLangSelect" class="mobile-lang-select" onchange="selectAppLanguage(this.value)">
-          <optgroup label="International Languages">
-            <option value="en">🇺🇸 English (Global)</option>
-            <option value="es">🇪🇸 Español (Spanish)</option>
-            <option value="fr">🇫🇷 Français (French)</option>
-            <option value="de">🇩🇪 Deutsch (German)</option>
-            <option value="ar">🇦🇪 العربية (Arabic)</option>
-            <option value="pt">🇵🇹 Português (Portuguese)</option>
-            <option value="ru">🇷🇺 Русский (Russian)</option>
-            <option value="zh-CN">🇨🇳 简体中文 (Chinese)</option>
-            <option value="ja">🇯🇵 日本語 (Japanese)</option>
-            <option value="ko">🇰🇷 한국어 (Korean)</option>
-            <option value="it">🇮🇹 Italiano (Italian)</option>
-            <option value="nl">🇳🇱 Nederlands (Dutch)</option>
-            <option value="tr">🇹🇷 Türkçe (Turkish)</option>
-            <option value="id">🇮🇩 Bahasa Indonesia (Indonesian)</option>
-            <option value="vi">🇻🇳 Tiếng Việt (Vietnamese)</option>
-            <option value="th">🇹🇭 ไทย (Thai)</option>
-            <option value="pl">🇵🇱 Polski (Polish)</option>
-            <option value="sv">🇸🇪 Svenska (Swedish)</option>
-          </optgroup>
-          <optgroup label="Regional Languages">
-            <option value="ta">🇮🇳 தமிழ் (Tamil)</option>
-            <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
-            <option value="ml">🇮🇳 മലയാളം (Malayalam)</option>
-            <option value="te">🇮🇳 తెలుగు (Telugu)</option>
-            <option value="kn">🇮🇳 ಕನ್ನಡ (Kannada)</option>
-          </optgroup>
-        </select>
-      </div>
-
-      <a href="{{ route('restaurant_signup') }}"
-         onclick="closeGeniMobile();"
-         class="btn-signup-pill" style="width:100%;text-align:center;justify-content:center;padding:12px 20px;font-size:14px;border-radius:9999px;">
-        <span>Start Free Trial</span>
-        <span style="font-size: 15px; margin-left: 4px;">&rarr;</span>
-      </a>
-
-      <a href="{{ route('login') }}" class="btn-signin" style="display:block;text-align:center;padding:11px;font-weight:600;color:#FFF8F0;border:1.5px solid rgba(242,197,141,0.45);border-radius:9999px;">
-        @if (user())
-          @lang('menu.dashboard')
-        @else
-          Login
-        @endif
-      </a>
-    </div>
-  </div>
 </header>
+
+<!-- Mobile Drawer Menu (Placed outside header so position:fixed spans the full viewport cleanly) -->
+<div class="mobile-panel" id="geniMobilePanel">
+  <ul class="mobile-list">
+    <li class="mobile-list-item">
+      <a href="{{ route('home') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
+        <span>Home</span>
+        <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
+      </a>
+    </li>
+
+    <li class="mobile-list-item">
+      <a href="{{ route('features') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
+        <span>Features</span>
+        <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
+      </a>
+    </li>
+
+    <li class="mobile-list-item">
+      <a href="{{ route('solutions') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
+        <span>Solutions</span>
+        <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
+      </a>
+    </li>
+
+    <li class="mobile-list-item">
+      <a href="{{ route('hardware-integrations') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
+        <span>Hardware &amp; Integrations</span>
+        <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
+      </a>
+    </li>
+
+    <li class="mobile-list-item">
+      <a href="{{ route('pricing') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
+        <span>Pricing</span>
+        <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
+      </a>
+    </li>
+
+    <li class="mobile-list-item">
+      <a href="{{ route('about.us') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
+        <span>About Us</span>
+        <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
+      </a>
+    </li>
+
+    <li class="mobile-list-item">
+      <a href="{{ route('contact.us') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
+        <span>Contact</span>
+        <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="mobile-actions">
+    <!-- Mobile Language Switcher -->
+    <div class="mobile-lang-box notranslate">
+      <label for="mobileLangSelect" class="mobile-lang-label">
+        <svg class="lang-globe-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span>Choose Language</span>
+      </label>
+      <select id="mobileLangSelect" class="mobile-lang-select" onchange="selectAppLanguage(this.value)">
+        <optgroup label="International Languages">
+          <option value="en">🇺🇸 English (Global)</option>
+          <option value="es">🇪🇸 Español (Spanish)</option>
+          <option value="fr">🇫🇷 Français (French)</option>
+          <option value="de">🇩🇪 Deutsch (German)</option>
+          <option value="ar">🇦🇪 العربية (Arabic)</option>
+          <option value="pt">🇵🇹 Português (Portuguese)</option>
+          <option value="ru">🇷🇺 Русский (Russian)</option>
+          <option value="zh-CN">🇨🇳 简体中文 (Chinese)</option>
+          <option value="ja">🇯🇵 日本語 (Japanese)</option>
+          <option value="ko">🇰🇷 한국어 (Korean)</option>
+          <option value="it">🇮🇹 Italiano (Italian)</option>
+          <option value="nl">🇳🇱 Nederlands (Dutch)</option>
+          <option value="tr">🇹🇷 Türkçe (Turkish)</option>
+          <option value="id">🇮🇩 Bahasa Indonesia (Indonesian)</option>
+          <option value="vi">🇻🇳 Tiếng Việt (Vietnamese)</option>
+          <option value="th">🇹🇭 ไทย (Thai)</option>
+          <option value="pl">🇵🇱 Polski (Polish)</option>
+          <option value="sv">🇸🇪 Svenska (Swedish)</option>
+        </optgroup>
+        <optgroup label="Regional Languages">
+          <option value="ta">🇮🇳 தமிழ் (Tamil)</option>
+          <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+          <option value="ml">🇮🇳 മലയാളം (Malayalam)</option>
+          <option value="te">🇮🇳 తెలుగు (Telugu)</option>
+          <option value="kn">🇮🇳 ಕನ್ನಡ (Kannada)</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <a href="{{ route('restaurant_signup') }}"
+       onclick="closeGeniMobile();"
+       class="btn-signup-pill"
+       style="display:flex;width:100%;text-align:center;justify-content:center;align-items:center;padding:14px 20px;font-size:15px;font-weight:700;border-radius:9999px;background:linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;color:#27130D !important;box-shadow:0 6px 20px rgba(242, 197, 141, 0.45);border:none;text-decoration:none;">
+      <span>Start Free Trial</span>
+      <span style="font-size: 16px; margin-left: 6px;">&rarr;</span>
+    </a>
+
+    <a href="{{ route('login') }}" class="btn-signin" style="display:flex;width:100%;text-align:center;justify-content:center;align-items:center;padding:13px 20px;font-size:14.5px;font-weight:600;color:#FFF8F0 !important;background:rgba(74, 41, 27, 0.45);border:1.5px solid rgba(242,197,141,0.5);border-radius:9999px;text-decoration:none;">
+      @if (user())
+        @lang('menu.dashboard')
+      @else
+        Login
+      @endif
+    </a>
+  </div>
+</div>
 
 <script>
   // Geni Multi-lingual Frontend Engine

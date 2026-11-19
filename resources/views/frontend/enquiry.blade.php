@@ -1216,7 +1216,16 @@ select optgroup {
             </div>
 
             <div class="eq-dropdown-list">
-              @php $oldReqs = old('requirements', []); @endphp
+              @php
+                $rawOldReqs = old('requirements', []);
+                if (is_array($rawOldReqs)) {
+                    $oldReqs = $rawOldReqs;
+                } elseif (is_string($rawOldReqs) && strlen(trim($rawOldReqs)) > 0) {
+                    $oldReqs = array_map('trim', explode(',', $rawOldReqs));
+                } else {
+                    $oldReqs = [];
+                }
+              @endphp
               @php
                 $reqOptions = [
                   'Digital Menu',

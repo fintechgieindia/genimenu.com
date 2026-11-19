@@ -52,7 +52,6 @@ class ContactController extends Controller
                 $reqString = implode(', ', $reqFiltered);
             }
         }
-        $request->merge(['requirements' => $reqString]);
 
         // Append multi-selected requirements into message for email visibility
         if ($reqString) {
@@ -136,7 +135,7 @@ class ContactController extends Controller
                 'regex:/^[\+\d\s\-]{7,30}$/',
             ],
             'address' => 'nullable|string|max:500',
-            'requirements' => 'nullable|string|max:1000',
+            'requirements' => 'nullable',
             'subject' => 'required|string|max:255',
             'message' => 'required|string|min:10|max:3000',
         ], [
@@ -156,6 +155,8 @@ class ContactController extends Controller
             'message.min' => 'Please write at least 10 characters in your message.',
         ]);
 
+        $validated['requirements'] = $reqString;
+
         try {
             // Save to database
             Csubmissions::create($validated);
@@ -169,18 +170,24 @@ class ContactController extends Controller
         $data = $validated;
         $data['user_message'] = $validated['message'];
 
-        dispatch(function () use ($data, $validated) {
+        $rawFormType = strtolower($validated['form_type'] ?? $request->input('form_type', 'contact'));
+        $formName = ($rawFormType === 'enquiry') ? 'Enquiry Form' : 'Contact Form';
+        $data['form_name'] = $formName;
+
+        dispatch(function () use ($data, $validated, $formName) {
             try {
                 \Log::info('Mail sending started after response');
 
-                Mail::send('emails.admin-contact', $data, function ($message) {
-                    $message->to('business@wegeni.com')
-                        ->subject('New Contact Submission - Geni Fast');
+                $adminEmail = env('ADMIN_EMAIL') ?: env('MAIL_FROM_ADDRESS') ?: 'genimenuglobal@gmail.com';
+
+                Mail::send('emails.admin-contact', $data, function ($message) use ($adminEmail, $formName) {
+                    $message->to($adminEmail)
+                        ->subject("New {$formName} Submission - Geni Menu");
                 });
 
                 Mail::send('emails.user-thankyou', $data, function ($message) use ($validated) {
                     $message->to($validated['email'])
-                        ->subject('Thank You for Contacting Geni Fast');
+                        ->subject('Thank You for Contacting Geni Menu');
                 });
             } catch (\Throwable $mailEx) {
                 \Log::error('Mail Error: ' . $mailEx->getMessage());

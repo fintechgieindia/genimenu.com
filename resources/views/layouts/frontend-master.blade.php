@@ -242,6 +242,11 @@
             margin-bottom: 8px;
         }
 
+        .footer-desc {
+            text-align: justify;
+            padding-right: 30px;
+        }
+
         /* Links: Glacial Indifference Regular */
         .footer a {
             font-family: 'Glacial Indifference', sans-serif !important;
@@ -322,10 +327,16 @@
 
         /* Responsive layout */
         @media (max-width: 768px) {
+            .footer {
+                padding: 38px 20px 84px 20px !important;
+                text-align: center;
+            }
             .footer-container {
                 display: flex;
                 flex-direction: column;
-                gap: 30px;
+                align-items: center;
+                text-align: center;
+                gap: 32px;
             }
             .footer-column.col-4,
             .footer-column.col-2,
@@ -333,6 +344,56 @@
             .footer-column.col-5 {
                 flex: 0 0 100%;
                 max-width: 100%;
+                width: 100%;
+                text-align: center;
+            }
+            .footer-logo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 12px;
+            }
+            .footer-logo img {
+                margin: 0 auto;
+            }
+            .footer-desc {
+                text-align: center !important;
+                padding-right: 0 !important;
+                max-width: 420px;
+                margin: 0 auto 8px auto;
+            }
+            .footer h5 {
+                text-align: center !important;
+                margin-bottom: 14px;
+            }
+            .footer a {
+                text-align: center !important;
+                margin-bottom: 9px;
+            }
+            .footer a:hover {
+                transform: none !important;
+            }
+            .footer-column.col-4 p {
+                text-align: center !important;
+                max-width: 420px;
+                margin: 0 auto 14px auto;
+            }
+            .footer-column.col-4 .social-icons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+            }
+            .footer-bottom {
+                padding-top: 20px;
+                padding-bottom: 10px;
+                text-align: center;
+                width: 100%;
+            }
+            .footer-bottom span {
+                display: block;
+                text-align: center;
+                line-height: 1.6;
             }
         }
 
@@ -389,14 +450,16 @@
         html {
             top: 0px !important;
             position: static !important;
-            overflow-x: clip !important;
+            overflow-x: hidden !important;
             overflow-y: auto !important;
+            max-width: 100vw;
         }
 
         body {
             top: 0px !important;
             position: static !important;
-            overflow-x: clip !important;
+            overflow-x: hidden !important;
+            max-width: 100vw;
         }
 
         #main-content, main {
@@ -458,7 +521,7 @@
                 <div class="footer-logo">
                     <img src="{{ asset('assets/images/geni-menu-logo-light.png') }}" alt="Geni Menu Logo" style="height: 40px; width: auto; object-fit: contain;">
                 </div>
-                <p style="text-align: justify; padding-right: 30px;">
+                <p class="footer-desc">
                     Powering smarter operations through connected digital solutions for menus, orders, billing and business management.
                 </p>
             </div>

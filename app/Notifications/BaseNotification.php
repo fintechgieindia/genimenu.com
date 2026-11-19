@@ -44,9 +44,9 @@ class BaseNotification extends Notification implements ShouldQueue
         // Initialize a mail message instance
         $build = (new MailMessage);
 
-        // Set default reply name and email to SMTP settings
-        $replyName = $companyName = $smtpSetting->mail_from_name;
-        $replyEmail = $smtpFromEmail = $smtpSetting->mail_from_email;
+        // Set default reply name and email to SMTP settings or config from .env
+        $replyName = $companyName = config('mail.from.name') ?: ($smtpSetting->mail_from_name ?? 'Geni Menu');
+        $replyEmail = $smtpFromEmail = config('mail.from.address') ?: ($smtpSetting->mail_from_email ?? 'genimenuglobal@gmail.com');
 
         // Set the application logo URL from the global settings
         Config::set('app.logo', $globalSetting->logoUrl);

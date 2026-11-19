@@ -1024,6 +1024,27 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
   color: var(--geni-caramel);
 }
 
+.sol-modal-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.sol-modal-actions .sol-btn-primary {
+  flex: 1;
+  min-width: 220px;
+  text-align: center;
+  justify-content: center;
+}
+
+.sol-modal-actions .sol-btn-secondary {
+  text-align: center;
+  justify-content: center;
+}
+
 /* ==========================================================================
    RESPONSIVE STYLING (TABLETS & MOBILE)
    ========================================================================== */
@@ -1055,29 +1076,63 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
 }
 
 @media (max-width: 768px) {
+  .sol-hero-sec {
+    padding: 56px 0 48px;
+  }
+  .sol-hero-visual-wrap {
+    padding: 0;
+    margin-top: 16px;
+  }
+  .sol-mockup-frame {
+    padding: 8px;
+  }
 }
 
 @media (max-width: 640px) {
   .sol-hero-sec {
-    padding: 48px 0 56px;
+    padding: 44px 0 46px;
   }
   .sol-hero-title {
-    font-size: 28px;
+    font-size: 26px;
+    line-height: 1.22;
   }
   .sol-hero-desc {
-    font-size: 15px;
+    font-size: 14.5px;
+    margin-bottom: 22px;
   }
   .sol-floating-pill {
     display: none;
   }
+  .sol-filter-sec {
+    padding: 24px 0 20px;
+  }
   .sol-filter-bar {
     flex-direction: column;
     align-items: stretch;
+    gap: 14px;
+    width: 100%;
   }
   .sol-filter-tabs {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 8px;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 4px 4px 10px 4px !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  .sol-filter-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+  .sol-tab-pill {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    padding: 8px 16px !important;
+    font-size: 11px !important;
   }
   .sol-container {
     padding: 0 16px;
@@ -1114,6 +1169,34 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
   }
   .sol-cta-desc {
     font-size: 15px;
+  }
+  .sol-modal-box {
+    padding: 24px 18px 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .sol-modal-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 12px !important;
+    margin-top: 20px !important;
+  }
+  .sol-modal-actions .sol-btn-primary {
+    width: 100% !important;
+    flex: none !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+  .sol-modal-actions .sol-btn-secondary {
+    display: inline-flex !important;
+    margin: 0 auto !important;
+    align-self: center !important;
+    text-align: center !important;
+    justify-content: center !important;
+    min-width: 140px !important;
   }
 }
 </style>
@@ -1744,8 +1827,8 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
             <ul class="sol-modal-bullets" id="modalBullets">
                 {{-- Injected dynamically --}}
             </ul>
-            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                <a href="{{ route('enquiry') }}" class="sol-btn sol-btn-primary" style="flex: 1; text-align: center;">
+            <div class="sol-modal-actions">
+                <a href="{{ route('enquiry') }}" class="sol-btn sol-btn-primary">
                     Book a Free Demo for This Solution &rarr;
                 </a>
                 <button type="button" class="sol-btn sol-btn-secondary" onclick="closeSolutionModal()">
@@ -1762,7 +1845,12 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
 // Filter by Business Category
 function filterSolutions(category, btn) {
     document.querySelectorAll('.sol-tab-pill').forEach(el => el.classList.remove('is-active'));
-    if (btn) btn.classList.add('is-active');
+    if (btn) {
+        btn.classList.add('is-active');
+        if (typeof btn.scrollIntoView === 'function') {
+            btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+    }
 
     const searchVal = document.getElementById('solutionSearchInput').value.toLowerCase().trim();
     applyFilterAndSearch(category, searchVal);

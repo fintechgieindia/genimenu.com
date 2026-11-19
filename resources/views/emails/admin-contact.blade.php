@@ -1,24 +1,25 @@
-<p>Hello Geni Fast Team,</p>
+<p>Hello Geni Menu Team,</p>
 
 <p>
-    You have received a new inquiry through the Contact Us form on the website.
+    You have received a new inquiry through the <strong>{{ $form_name ?? 'Contact Form' }}</strong> on the website.
 </p>
 
 <p>
-    Below are the submission details:
+    <strong>Submission Details:</strong>
 </p>
 
 <p>
+    <strong>Form:</strong> {{ $form_name ?? 'Contact Form' }} <br>
     <strong>Name:</strong> {{ $name }} <br>
     <strong>Email:</strong> {{ $email }} <br>
     <strong>Phone:</strong> {{ $phone }} <br>
 
     @if(!empty($address))
-        <strong>Country:</strong> {{ $address }} <br>
+        <strong>Country / Location:</strong> {{ $address }} <br>
     @endif
 
     @if(!empty($company))
-        <strong>Company:</strong> {{ $company }} <br>
+        <strong>Business / Company:</strong> {{ $company }} <br>
     @endif
 
     @if(!empty($designation))
@@ -43,5 +44,5 @@
 
 <p>
     Thank you,<br>
-    <strong>Geni Fast</strong>
+    <strong>Geni Menu</strong>
 </p>

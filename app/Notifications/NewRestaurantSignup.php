@@ -37,9 +37,10 @@ class NewRestaurantSignup extends BaseNotification
         $build = parent::build($notifiable);
         $siteName = global_setting()->name;
 
+        $recipientName = !empty($notifiable->name) ? $notifiable->name : 'Admin';
         return $build
             ->subject(__('email.newRestaurantSignup.subject', ['site_name' => $siteName]))
-            ->greeting(__('app.hello') . ' ' . $notifiable->name . ',')
+            ->greeting(__('app.hello') . ' ' . $recipientName . ',')
             ->line(__('email.newRestaurantSignup.line1', ['site_name' => $siteName]))
             ->line(__('email.newRestaurantSignup.line2', ['restaurant_name' => $this->forRestaurant->name]));
     }
