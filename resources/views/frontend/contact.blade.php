@@ -1,8 +1,8 @@
 @php
     $meta = [
-        'title' => 'Contact Geni Menu | Restaurant Management Software Support & Sales',
-        'description' => 'Contact Geni Menu to discuss your restaurant software requirements, request a product demo, or get support for your existing setup.',
-        'keywords' => 'contact Geni Menu, restaurant software demo, restaurant POS sales, Geni Menu support, restaurant billing software contact',
+        'title' => 'Contact Us | Geni Menu — Software for Restaurants, Hotels & Canteens',
+        'description' => 'Get in touch with Geni Menu for restaurant, hotel, canteen, and food business POS billing software, digital QR menu demo, and sales support.',
+        'keywords' => 'restaurants, hotels, menu, canteen, food, software, restaurant billing software near me, restaurant management system in Tamil Nadu, contact geni menu, restaurant software demo, hotel pos sales, canteen billing support, food software support',
     ];
 @endphp
 @extends('layouts.frontend-master')

@@ -1,8 +1,8 @@
 @php
     $meta = $meta ?? [
-        'title' => 'Hardware & Integrations | Geni Menu Technology Setup',
-        'description' => 'A complete, connected technology setup for your food business: POS terminals, self-service kiosks, printers, cash drawers, and seamless delivery & payment integrations.',
-        'keywords' => 'restaurant hardware, POS hardware, self service kiosk, touchscreen POS, receipt printer, KOT printer, cash drawer, food delivery integration, Swiggy Zomato integration, payment gateway integration, Geni Menu hardware'
+        'title' => 'Hardware & Integrations | Swiggy Zomato POS, UPI QR & Kiosks | Geni Menu',
+        'description' => 'Connect hardware & apps: Swiggy Zomato integrated POS, UPI QR billing, WhatsApp billing, self-ordering kiosks, touchscreen POS, thermal receipt & KOT printers.',
+        'keywords' => 'restaurants, hotels, menu, canteen, food, software, Swiggy Zomato integrated POS, restaurant POS with UPI QR billing, WhatsApp billing software for restaurants, QR code digital menu ordering India, food truck billing machine and software, self-ordering kiosk software for restaurants, touchscreen POS, receipt printer, KOT printer, cash drawer, Geni Menu hardware'
     ];
 @endphp
 

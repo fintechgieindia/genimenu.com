@@ -1,8 +1,8 @@
 @php
     $meta = [
-        'title' => 'Transparent Pricing. Powerful Possibilities. | Geni Menu',
-        'description' => 'Choose a plan that aligns with your business needs. Get the right tools, features and flexibility to deliver a better dining experience.',
-        'keywords' => 'Geni Menu pricing, restaurant digital menu cost, QR menu pricing, restaurant menu software, digital menu plans'
+        'title' => 'Pricing Plans | Restaurant, Hotel, Canteen & Food POS Software | Geni Menu',
+        'description' => 'Affordable pricing plans for restaurants, hotels, canteens, cafes, and food businesses. Silver & Platinum plans with GST billing, KOT workflows, QR menu, and multi-unit cloud POS.',
+        'keywords' => 'restaurants, hotels, menu, canteen, food, software, restaurant billing software with GST, GST billing software for cafe, offline restaurant POS software India, restaurant POS with UPI QR billing, cloud restaurant POS system, hospitality POS software, iPad POS for restaurants, quick service restaurant QSR POS, multi-unit restaurant enterprise software, restaurant software pricing, hotel billing software price, canteen software plans, digital menu cost, geni menu pricing',
     ];
 @endphp
 

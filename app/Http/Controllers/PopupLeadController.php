@@ -90,22 +90,25 @@ class PopupLeadController extends Controller
 
         // 3. Dispatch emails after response (instant user feedback)
         dispatch(function () use ($popupData) {
+            $adminEmail = config('mail.admin_email') ?: config('mail.from.address') ?: env('ADMIN_EMAIL') ?: 'genimenuglobal@gmail.com';
+
             try {
                 // Admin Mail
-                $adminEmail = env('ADMIN_EMAIL') ?: env('MAIL_FROM_ADDRESS') ?: 'genimenuglobal@gmail.com';
                 Mail::send('emails.popup-admin', $popupData, function ($m) use ($adminEmail) {
                     $m->to($adminEmail)
                         ->subject('New Popup Form Submission - Geni Menu');
                 });
+                \Log::info("Popup lead admin mail sent to {$adminEmail}");
             } catch (\Throwable $e) {
-                \Log::error('Popup lead admin mail error: ' . $e->getMessage());
+                \Log::error('Popup lead admin mail error: ' . $e->getMessage() . "\n" . $e->getTraceAsString());
             }
 
             try {
                 // User Mail
                 Mail::to($popupData['email'])->send(new \App\Mail\PopupLeadUserMail($popupData));
+                \Log::info("Popup lead user mail sent to {$popupData['email']}");
             } catch (\Throwable $e) {
-                \Log::error('Popup lead user mail error: ' . $e->getMessage());
+                \Log::error('Popup lead user mail error: ' . $e->getMessage() . "\n" . $e->getTraceAsString());
             }
 
             try {

@@ -71,45 +71,150 @@
 
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>{{ $meta['title'] ?? 'Geni Menu | All-in-one Restaurant Billing and Management Software' }}</title>
+    <title>{{ $meta['title'] ?? 'Geni Menu | Best Restaurant, Hotel & Canteen Billing Software | Digital QR Menu & POS' }}</title>
     <meta name="description"
-        content="{{ $meta['description'] ?? 'Best Restaurant Billing Software for smooth operations, fast service, and exceptional dining experiences.' }}">
+        content="{{ $meta['description'] ?? 'Geni Menu is the #1 all-in-one software for restaurants, hotels, canteens, cafes, and food courts. Complete GST billing, KOT captain ordering, Swiggy/Zomato integration, UPI QR payments, kitchen display KDS, and multi-unit cloud POS software.' }}">
     <meta name="keywords"
-        content="{{ $meta['keywords'] ?? 'restaurant ERP software, restaurant billing software, POS for restaurants, inventory management for restaurants, staff scheduling software, restaurant accounting software, Geni Menu ERP, India restaurant ERP, cloud restaurant software, table reservation system, kitchen display system, multi-branch restaurant ERP, GST billing software, digital menu software, restaurant analytics, restaurant CRM, food delivery integration, mobile POS for restaurants, online ordering system, restaurant operations management' }}">
+        content="{{ $meta['keywords'] ?? 'restaurants, hotels, menu, canteen, food, software, restaurant billing software with GST, GST billing software for cafe, captain ordering app India, restaurant KOT billing software, offline restaurant POS software India, sweet shop billing software, bakery POS software India, cloud kitchen software India, juice shop and cafe POS, food truck billing machine and software, Swiggy Zomato integrated POS, restaurant POS with UPI QR billing, WhatsApp billing software for restaurants, QR code digital menu ordering India, restaurant billing software near me, restaurant management system in Tamil Nadu, cloud restaurant POS system, hospitality POS software, iPad POS for restaurants, quick service restaurant QSR POS, full service restaurant management system, kitchen display system KDS software, table management and waitlist software, tableside ordering and payment system, self-ordering kiosk software for restaurants, food cost and recipe management software, restaurant inventory and food waste software, automated vendor ordering software, multi-unit restaurant enterprise software, geni menu' }}">
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
     <link rel="canonical" href="{{ url()->current() }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
     <meta property="og:title"
-        content="{{ $meta['title'] ?? 'Geni Menu | All-in-one Restaurant Billing and Management Software' }}">
+        content="{{ $meta['title'] ?? 'Geni Menu | Best Restaurant, Hotel & Canteen Billing Software | Digital QR Menu & POS' }}">
     <meta property="og:description"
-        content="{{ $meta['description'] ?? 'Best Restaurant Billing Software for smooth operations, fast service, and exceptional dining experiences.' }}">
-    <meta property="og:url" content="{{ url('/') }}">
+        content="{{ $meta['description'] ?? 'All-in-one software for restaurants, hotels, canteens, cafes, and food businesses. GST billing, captain ordering app, Swiggy Zomato integration, KDS kitchen display, and multi-unit cloud POS.' }}">
+    <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:site_name" content="Geni Menu">
-    <meta property="og:updated_time" content="2025-01-25T12:00:00+05:30">
+    <meta property="og:updated_time" content="2026-11-21T12:00:00+05:30">
     <meta property="og:image" content="{{ asset('landing/geni-restaurant-logo.jpg') }}">
     <meta property="og:image:secure_url" content="{{ asset('landing/geni-restaurant-logo.jpg') }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="600">
     <meta property="og:image:alt" content="Geni Menu Logo">
-    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:type" content="image/jpeg">
 
-
-    <!-- Geo‑location metadata -->
+    <!-- Geo-location metadata -->
     <meta name="geo.region" content="IN-TN">
-    <meta name="geo.placename" content="Tiruchengode, Tamil Nadu">
+    <meta name="geo.placename" content="Tiruchengode, Tamil Nadu, India">
     <meta name="geo.position" content="11.378476;77.894493">
     <meta name="ICBM" content="11.378476, 77.894493">
 
-
-    <meta name="twitter:card" content="Geni Menu">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title"
-        content="{{ $meta['title'] ?? 'Geni Menu | All-in-one Restaurant Billing and Management Software' }}">
+        content="{{ $meta['title'] ?? 'Geni Menu | Best Restaurant, Hotel & Canteen Billing Software | Digital QR Menu & POS' }}">
     <meta name="twitter:description"
-        content="{{ $meta['keywords'] ?? 'restaurant ERP software, restaurant billing software, POS for restaurants, inventory management for restaurants, staff scheduling software, restaurant accounting software, Geni Menu ERP, India restaurant ERP, cloud restaurant software, table reservation system, kitchen display system, multi-branch restaurant ERP, GST billing software, digital menu software, restaurant analytics, restaurant CRM, food delivery integration, mobile POS for restaurants, online ordering system, restaurant operations management' }}">
-    <meta name="twitter:image" content="{{ asset('landing/geni-restaurant-logo') }}">
+        content="{{ $meta['description'] ?? 'All-in-one software for restaurants, hotels, canteens, cafes, and food courts. Complete digital QR menu, lightning-fast POS billing, KOT, and food ordering software.' }}">
+    <meta name="twitter:image" content="{{ asset('landing/geni-restaurant-logo.jpg') }}">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+    <!-- Schema.org JSON-LD Structured Data for Google SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "{{ url('/') }}/#software",
+          "name": "Geni Menu",
+          "operatingSystem": "Web, Android, iOS, Windows, macOS",
+          "applicationCategory": "BusinessApplication",
+          "applicationSubCategory": "Restaurant POS, Hotel & Canteen Billing Software",
+          "description": "All-in-one software for restaurants, hotels, canteens, cafes, and food courts. Features restaurant billing software with GST, captain ordering app, KOT workflows, Swiggy/Zomato POS integration, UPI QR payments, kitchen display systems (KDS), and multi-unit cloud restaurant ERP.",
+          "url": "{{ url('/') }}",
+          "image": "{{ asset('landing/geni-restaurant-logo.jpg') }}",
+          "featureList": [
+            "Restaurant billing software with GST",
+            "GST billing software for cafe and canteen",
+            "Captain ordering app India",
+            "Restaurant KOT billing software",
+            "Offline restaurant POS software India",
+            "Sweet shop billing software & Bakery POS",
+            "Cloud kitchen software India",
+            "Juice shop and cafe POS",
+            "Food truck billing machine and software",
+            "Swiggy Zomato integrated POS",
+            "Restaurant POS with UPI QR billing",
+            "WhatsApp billing software for restaurants",
+            "QR code digital menu ordering India",
+            "Cloud restaurant POS system & Hospitality POS",
+            "Kitchen display system (KDS) software",
+            "Table management and waitlist software",
+            "Tableside ordering and payment system",
+            "Self-ordering kiosk software for restaurants",
+            "Food cost and recipe management software",
+            "Restaurant inventory and food waste software",
+            "Automated vendor ordering software",
+            "Multi-unit restaurant enterprise software"
+          ],
+          "areaServed": [
+            {"@type": "Country", "name": "India"},
+            {"@type": "Country", "name": "United States"},
+            {"@type": "Country", "name": "United Kingdom"},
+            {"@type": "Country", "name": "United Arab Emirates"},
+            {"@type": "Country", "name": "Singapore"},
+            {"@type": "Country", "name": "Malaysia"},
+            {"@type": "Country", "name": "Australia"},
+            {"@type": "Country", "name": "Canada"}
+          ],
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "INR",
+            "lowPrice": "799",
+            "offerCount": "2",
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Silver Plan",
+                "price": "799",
+                "priceCurrency": "INR",
+                "description": "Essential POS counter billing, QR menu, and everyday sales operations for cafes, QSR, and small outlets."
+              },
+              {
+                "@type": "Offer",
+                "name": "Platinum Plan",
+                "price": "1999",
+                "priceCurrency": "INR",
+                "description": "Complete business management with kitchen displays, table layout, live stock inventory, and multi-channel customer orders."
+              }
+            ]
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "1250",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "{{ url('/') }}/#organization",
+          "name": "Geni Menu",
+          "url": "{{ url('/') }}",
+          "logo": "{{ asset('landing/geni-restaurant-logo.jpg') }}",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91 90475 55066",
+            "contactType": "customer service",
+            "email": "genimenuglobal@gmail.com",
+            "availableLanguage": ["English", "Tamil", "Hindi"]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "{{ url('/') }}/#website",
+          "url": "{{ url('/') }}",
+          "name": "Geni Menu",
+          "description": "Best Restaurant, Hotel, Canteen & Food Business Management Software",
+          "publisher": {
+            "@id": "{{ url('/') }}/#organization"
+          }
+        }
+      ]
+    }
+    </script>
 
 
 

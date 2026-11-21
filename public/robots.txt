@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Disallow: /admin
+Disallow: /super-admin
+Disallow: /livewire/
+Allow: /
+
+Sitemap: https://genimenu.com/sitemap.xml

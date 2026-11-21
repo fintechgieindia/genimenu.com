@@ -622,9 +622,9 @@ class HomeController extends Controller
     public function enquiry()
     {
         $meta = [
-            'title' => 'Enquiry | Geni Menu — Restaurant Management Software',
-            'description' => 'Submit your enquiry to the Geni Menu team. Tell us about your restaurant business and we will help you find the right solution.',
-            'keywords' => 'Geni Menu enquiry, restaurant software enquiry, restaurant management enquiry, Geni Menu contact, restaurant POS enquiry',
+            'title' => 'Enquiry & Free Demo | Geni Menu — Software for Restaurants, Hotels & Canteens',
+            'description' => 'Book a free demo of Geni Menu: restaurant billing software with GST, KOT captain ordering, Swiggy Zomato integration, and cloud POS software.',
+            'keywords' => 'restaurants, hotels, menu, canteen, food, software, restaurant billing software near me, restaurant management system in Tamil Nadu, restaurant software enquiry, hotel billing enquiry, canteen software demo, digital menu demo, food pos enquiry, Geni Menu contact',
         ];
         return view('frontend.enquiry', compact('meta'));
     }
@@ -632,9 +632,9 @@ class HomeController extends Controller
     public function contact()
     {
         $meta = [
-            'title' => 'Contact Us | Geni Menu',
-            'description' => 'Get in touch with Geni Menu ERP team for sales, support, or partnership inquiries. We help restaurants in India manage their business efficiently.',
-            'keywords' => 'contact Geni Menu ERP, restaurant software support India, ERP sales inquiry, POS software India contact, restaurant ERP helpline, restaurant technology support, Geni ERP email, Geni ERP phone number, India restaurant software company contact'
+            'title' => 'Contact Us | Geni Menu — Software for Restaurants, Hotels & Canteens',
+            'description' => 'Get in touch with Geni Menu for restaurant, hotel, canteen, and food business POS billing software, digital QR menu demo, and sales support.',
+            'keywords' => 'restaurants, hotels, menu, canteen, food, software, restaurant billing software near me, restaurant management system in Tamil Nadu, contact geni menu, restaurant software demo, hotel pos sales, canteen billing support, food software support',
         ];
         return view('frontend.contact', compact('meta'));
     }

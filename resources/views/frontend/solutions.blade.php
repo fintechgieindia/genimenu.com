@@ -1,8 +1,8 @@
 @php
     $meta = [
-        'title' => 'Geni Menu Solutions | Restaurant & Food Business Management Platform',
-        'description' => 'Explore tailored Geni Menu solutions for family restaurants, dine-in, fine dining, QSR, takeaway, bakeries, cafes, canteens, sweet shops, pizzerias, bars, cloud kitchens, and multi-branch chains.',
-        'keywords' => 'restaurant solutions, food business management software, QSR software, bakery POS, canteen management system, fine dining software, sweet shop POS, multi-branch restaurant ERP, Geni Menu solutions',
+        'title' => 'Software Solutions for Restaurants, Hotels, Canteens & Food Businesses | Geni Menu',
+        'description' => 'Explore tailored Geni Menu software solutions for restaurants, hotels, sweet shops, bakeries, cloud kitchens, juice shops, canteens, and food trucks. Fast GST billing & QR code ordering.',
+        'keywords' => 'restaurants, hotels, menu, canteen, food, software, sweet shop billing software, bakery POS software India, cloud kitchen software India, juice shop and cafe POS, food truck billing machine and software, quick service restaurant QSR POS, full service restaurant management system, college canteen software, office canteen billing, restaurant solutions, hotel billing software, canteen management system, geni menu',
     ];
 @endphp
 

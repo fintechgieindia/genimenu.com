@@ -1,8 +1,8 @@
 @php
     $meta = [
-        'title' => 'Geni Menu — Digital Menu Platform for Modern Hospitality',
-        'description' => 'Create beautiful digital menus, simplify menu management and deliver a seamless dining experience with Geni Menu intelligent platform.',
-        'keywords' => 'digital menu, QR code menu, restaurant menu software, contactless dining, digital dining experience, restaurant POS, menu management, Geni Menu',
+        'title' => 'Geni Menu | Best Restaurant, Hotel & Canteen Billing Software | Digital QR Menu & POS',
+        'description' => 'All-in-one restaurant billing software with GST, captain ordering app, KOT management, Swiggy Zomato integrated POS, UPI QR payments, kitchen display KDS, and multi-unit cloud POS software.',
+        'keywords' => 'restaurants, hotels, menu, canteen, food, software, restaurant billing software with GST, GST billing software for cafe, captain ordering app India, restaurant KOT billing software, offline restaurant POS software India, sweet shop billing software, bakery POS software India, cloud kitchen software India, juice shop and cafe POS, food truck billing machine and software, Swiggy Zomato integrated POS, restaurant POS with UPI QR billing, WhatsApp billing software for restaurants, QR code digital menu ordering India, restaurant billing software near me, restaurant management system in Tamil Nadu, cloud restaurant POS system, hospitality POS software, iPad POS for restaurants, quick service restaurant QSR POS, full service restaurant management system, kitchen display system KDS software, table management and waitlist software, tableside ordering and payment system, self-ordering kiosk software for restaurants, food cost and recipe management software, restaurant inventory and food waste software, automated vendor ordering software, multi-unit restaurant enterprise software, geni menu',
     ];
 @endphp
 
@@ -2764,7 +2764,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 
       <!-- Description: 14.5px with 400 weight -->
       <p class="geni-hero-desc">
-        Bring every dish to life with beautifully crafted digital menus. Showcase your signature creations, highlight irresistible flavours and give guests a delightful way to discover everything your kitchen has to offer.
+        Smart POS billing and digital QR menu software designed for restaurants, hotels, canteens, cafes, and food courts. Showcase signature dishes, speed up counter ordering, and give guests an unforgettable food dining experience.
       </p>
 
       <!-- CTA Buttons: 13.5px with 600 weight -->

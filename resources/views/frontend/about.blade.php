@@ -1,8 +1,8 @@
 @php
     $meta = [
-        'title' => 'About Us — Geni Menu | Digital Dining & Restaurant Platform',
-        'description' => 'Learn how Geni Menu brings digital menus, ordering, and food business management together into one connected ecosystem for modern hospitality.',
-        'keywords' => 'about Geni Menu, digital menu platform, restaurant management software, digital dining experience, restaurant POS, QR code ordering, WeGeni',
+        'title' => 'About Us | Geni Menu — Restaurant, Hotel & Food Business Software Ecosystem',
+        'description' => 'Learn how Geni Menu empowers restaurants, hotels, canteens, cafes, and food courts with all-in-one digital menus, POS billing, and smart kitchen operations software.',
+        'keywords' => 'restaurants, hotels, menu, canteen, food, software, about geni menu, restaurant management system, digital menu platform, hotel pos software, cafeteria billing',
     ];
 @endphp
 

@@ -1,8 +1,8 @@
 @php
     $meta = [
-        'title' => 'Get a Free Demo & Pricing | Geni Menu — Restaurant Management Software',
-        'description' => 'Discover how Geni Menu can make your food business smarter and more efficient. Submit your enquiry to get a free demo and pricing.',
-        'keywords' => 'Geni Menu demo, restaurant software demo, Geni Menu pricing, restaurant management enquiry, Geni Menu contact, restaurant POS demo',
+        'title' => 'Enquiry & Free Demo | Geni Menu — Software for Restaurants, Hotels & Canteens',
+        'description' => 'Book a free demo of Geni Menu: restaurant billing software with GST, KOT captain ordering, Swiggy Zomato integration, and cloud POS software.',
+        'keywords' => 'restaurants, hotels, menu, canteen, food, software, restaurant billing software near me, restaurant management system in Tamil Nadu, restaurant software enquiry, hotel billing enquiry, canteen software demo, digital menu demo, food pos enquiry, Geni Menu contact',
     ];
 @endphp
 @extends('layouts.frontend-master')

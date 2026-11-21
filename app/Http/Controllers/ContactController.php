@@ -157,9 +157,9 @@ class ContactController extends Controller
 
         dispatch(function () use ($data, $validated, $formName) {
             try {
-                \Log::info('Mail sending started after response');
+                \Log::info("Mail sending started after response for {$formName}");
 
-                $adminEmail = env('ADMIN_EMAIL') ?: env('MAIL_FROM_ADDRESS') ?: 'genimenuglobal@gmail.com';
+                $adminEmail = config('mail.admin_email') ?: config('mail.from.address') ?: env('ADMIN_EMAIL') ?: 'genimenuglobal@gmail.com';
 
                 Mail::send('emails.admin-contact', $data, function ($message) use ($adminEmail, $formName) {
                     $message->to($adminEmail)
@@ -170,8 +170,10 @@ class ContactController extends Controller
                     $message->to($validated['email'])
                         ->subject('Thank You for Contacting Geni Menu');
                 });
+
+                \Log::info("Mail successfully sent for {$formName} to {$adminEmail} and {$validated['email']}");
             } catch (\Throwable $mailEx) {
-                \Log::error('Mail Error: ' . $mailEx->getMessage());
+                \Log::error("Mail Error in {$formName}: " . $mailEx->getMessage() . "\n" . $mailEx->getTraceAsString());
             }
         })->afterResponse();
 
