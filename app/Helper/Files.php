@@ -251,16 +251,21 @@ class Files
         $uploadedFile->storeAs('temp', $newName, 'local');
 
         // Check if image can be resized
-        $fileExt = File::extension($uploadedFile->getClientOriginalName());
+        $fileExt = strtolower(File::extension($uploadedFile->getClientOriginalName()));
+        $targetExt = strtolower(File::extension($newName));
+
         if ($width && $height && !in_array($fileExt, ['svg', 'webp', 'ico'])) {
-
-
-            Image::make($tempPath)
+            $image = Image::make($tempPath)
                 ->resize($width, $height, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
-                })
-                ->save();
+                });
+
+            if ($targetExt === 'ico') {
+                File::put($tempPath, (string) $image->encode('png'));
+            } else {
+                $image->save();
+            }
         }
 
         // Store processed file

@@ -281,41 +281,33 @@
     padding: 0;
   }
 
-  /* Centered Brand Logo */
+  /* Centered Brand Logo (Dark Chocolate Capsule matching Footer/Navbar) */
   .login-brand-logo {
-    display: flex;
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    background: #27130D;
+    padding: 8px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(197, 139, 80, 0.35);
+    box-shadow: 0 4px 14px rgba(39, 19, 13, 0.12);
     text-decoration: none;
-    margin: 0 auto 20px auto;
-    width: fit-content;
+    margin: 0 auto !important;
+    width: fit-content !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .login-brand-logo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(39, 19, 13, 0.18);
   }
 
   .login-brand-logo img {
-    height: 42px;
+    height: 38px;
     width: auto;
     object-fit: contain;
+    display: block;
     flex-shrink: 0;
-  }
-
-  .login-brand-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.15;
-  }
-
-  .login-brand-name {
-    font-family: 'Cinzel', serif !important;
-    font-size: 20px !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    color: #32180F !important;
-    letter-spacing: 0.5px;
-  }
-
-  .login-brand-name span {
-    color: #B45309;
   }
 
   /* Centered Heading Area */
@@ -728,15 +720,14 @@
   <div class="login-form-panel">
     <div class="login-panel-inner">
 
-      {{-- Logo (Centered) --}}
-      <a href="{{ url('/') }}" class="login-brand-logo" title="Geni Menu">
-        <img src="https://menu.wegeni.com/user-uploads/logo/22afe8e48716500b5a2730bca0ede64a.png"
-             onerror="this.src='{{ asset('assets/images/geni-menu-logo-light.png') }}'"
-             alt="Geni Menu Logo">
-        <span class="login-brand-text">
-          <span class="login-brand-name">Geni <span>Menu</span></span>
-        </span>
-      </a>
+      {{-- Logo (Centered Capsule) --}}
+      <div style="display: flex !important; justify-content: center !important; align-items: center !important; width: 100% !important; margin: 0 auto 20px auto !important; text-align: center !important;">
+        <a href="{{ url('/') }}" class="login-brand-logo" title="{{ global_setting()->name ?? 'Geni Menu' }}">
+          <img src="{{ global_setting()->logoUrl }}"
+               onerror="this.src='{{ asset('assets/images/geni-menu-logo-light.png') }}'"
+               alt="{{ global_setting()->name ?? 'Geni Menu' }} Logo">
+        </a>
+      </div>
 
       {{-- Heading Area (Centered) --}}
       <div class="login-heading-area">

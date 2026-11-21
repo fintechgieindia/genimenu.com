@@ -17,8 +17,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/geni-favicon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('assets/images/geni-favicon.png') }}">
+    @if (!File::exists(public_path('user-uploads/favicons/super-admin/favicon-32x32.png')) && !File::exists(public_path('user-uploads/favicons/super-admin/favicon.ico')))
+        <link rel="icon" type="image/png" href="{{ asset('assets/images/geni-favicon.png') }}">
+        <link rel="apple-touch-icon" href="{{ asset('assets/images/geni-favicon.png') }}">
+    @endif
 
     @if (File::exists(public_path('user-uploads/favicons/super-admin/apple-touch-icon.png')))
         <link rel="apple-touch-icon" sizes="180x180"
@@ -57,8 +59,10 @@
     <title>{{ global_setting()->name }}</title> --}}
 
 
-    <link rel="icon" type="image/png" href="{{ asset('assets/images/geni-favicon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('assets/images/geni-favicon.png') }}">
+    @if (!File::exists(public_path('user-uploads/favicons/super-admin/favicon-32x32.png')) && !File::exists(public_path('user-uploads/favicons/super-admin/favicon.ico')))
+        <link rel="icon" type="image/png" href="{{ asset('assets/images/geni-favicon.png') }}">
+        <link rel="apple-touch-icon" href="{{ asset('assets/images/geni-favicon.png') }}">
+    @endif
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -214,11 +218,22 @@
         }
 
         /* Logo styling */
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            background: #27130D;
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(197, 139, 80, 0.35);
+            margin-bottom: 14px;
+            box-shadow: 0 4px 14px rgba(39, 19, 13, 0.12);
+        }
+
         .footer-logo img {
-            height: 40px;
+            height: 34px;
             width: auto;
             object-fit: contain;
-            margin-bottom: 12px;
+            display: block;
         }
 
         /* Headings: Cinzel Regular, Uppercase */
@@ -348,10 +363,8 @@
                 text-align: center;
             }
             .footer-logo {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-bottom: 12px;
+                display: inline-flex;
+                margin: 0 auto 14px auto;
             }
             .footer-logo img {
                 margin: 0 auto;
@@ -519,7 +532,10 @@
             <!-- Logo & Description -->
             <div class="footer-column col-5">
                 <div class="footer-logo">
-                    <img src="{{ asset('assets/images/geni-menu-logo-light.png') }}" alt="Geni Menu Logo" style="height: 40px; width: auto; object-fit: contain;">
+                    <img src="{{ global_setting()->logoUrl }}"
+                         onerror="this.onerror=null;this.src='{{ asset('assets/images/geni-menu-logo-light.png') }}';"
+                         alt="{{ global_setting()->name ?? 'Geni Menu' }} Logo"
+                         style="height: 40px; width: auto; object-fit: contain;">
                 </div>
                 <p class="footer-desc">
                     Powering smarter operations through connected digital solutions for menus, orders, billing and business management.

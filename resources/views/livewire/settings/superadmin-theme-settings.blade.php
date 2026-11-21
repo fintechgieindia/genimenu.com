@@ -57,7 +57,7 @@
                     {{-- Upload Controls --}}
                     <div class="flex-grow space-y-3">
                         <input type="file" id="photo" class="hidden"
-                            accept="image/png, image/gif, image/jpeg, image/webp, image/svg+xml" wire:model.live="photo"
+                            accept=".png,.jpg,.jpeg,.webp,.svg,.gif,.ico,image/png,image/gif,image/jpeg,image/webp,image/svg+xml" wire:model.live="photo"
                             x-ref="photo"
                             x-on:change="
                                     photoName = $refs.photo.files[0].name;
@@ -163,7 +163,7 @@
                         </p>
 
                         <input type="file" id="{{ $name }}" class="hidden"
-                            accept="image/png, image/gif, image/jpeg, image/webp, image/svg+xml, image/x-icon"
+                            accept=".png,.jpg,.jpeg,.webp,.svg,.ico,.gif,image/png,image/gif,image/jpeg,image/webp,image/svg+xml,image/x-icon,image/vnd.microsoft.icon"
                             wire:model="{{ $name }}" x-ref="{{ $name }}"
                             x-on:change="
                                 const reader = new FileReader();

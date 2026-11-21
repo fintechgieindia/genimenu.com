@@ -14,8 +14,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
-{{-- Google reCAPTCHA v2 Script --}}
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <style>
 /* ==========================================================================
@@ -506,27 +504,6 @@ body {
 
 .fm-grp.has-success .c-succ-msg {
   display: flex;
-}
-
-/* reCAPTCHA Box */
-.fm-recaptcha-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 8px 0 12px;
-}
-
-.fm-recaptcha-wrap .g-recaptcha {
-  display: inline-block;
-  min-height: 78px;
-}
-
-@media (max-width: 480px) {
-  .fm-recaptcha-wrap .g-recaptcha {
-    transform: scale(0.88);
-    transform-origin: center center;
-  }
 }
 
 /* Submit Button */
@@ -1308,21 +1285,6 @@ body {
                             </span>
                         </div>
 
-                        {{-- Google reCAPTCHA v2 ("I'm not a robot") --}}
-                        <div class="fm-grp fm-recaptcha-wrap" id="grpRecaptcha">
-                            <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key', '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI') }}" data-callback="onContactRecaptchaSuccess"></div>
-                            <span class="c-err-msg" id="errRecaptcha" style="display: none; justify-content: center; margin-top: 6px;">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                                <span id="errRecaptchaTxt">Please verify that you are not a robot.</span>
-                            </span>
-                            @error('g-recaptcha-response')
-                                <span class="c-err-msg" style="display: flex; justify-content: center; margin-top: 6px;">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                                    <span>{{ $message }}</span>
-                                </span>
-                            @enderror
-                        </div>
-
                         {{-- Submit Button --}}
                         <button type="submit" class="fm-submit-btn" id="c_submit_btn">
                             Send Message &rarr;
@@ -1642,25 +1604,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // reCAPTCHA validation
-    window.onContactRecaptchaSuccess = function() {
-        var err = document.getElementById('errRecaptcha');
-        if (err) err.style.display = 'none';
-    };
-
-    function validateRecaptcha(showRequired) {
-        var err = document.getElementById('errRecaptcha');
-        var response = (typeof grecaptcha !== 'undefined') ? grecaptcha.getResponse() : '';
-        if (!response) {
-            if (showRequired && err) {
-                err.style.display = 'flex';
-            }
-            return false;
-        }
-        if (err) err.style.display = 'none';
-        return true;
-    }
-
     // Submit handler
     if (form && btn) {
         form.addEventListener('submit', function (e) {
@@ -1670,9 +1613,8 @@ document.addEventListener('DOMContentLoaded', function() {
             var isPhoneValid     = validatePhone(true);
             var isSubjectValid   = validateSubject(true);
             var isMessageValid   = validateMessage(true);
-            var isRecaptchaValid = validateRecaptcha(true);
 
-            var allValid = isNameValid && isEmailValid && isCountryValid && isPhoneValid && isSubjectValid && isMessageValid && isRecaptchaValid;
+            var allValid = isNameValid && isEmailValid && isCountryValid && isPhoneValid && isSubjectValid && isMessageValid;
 
             if (!allValid) {
                 e.preventDefault();

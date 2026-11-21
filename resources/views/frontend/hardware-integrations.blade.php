@@ -462,7 +462,7 @@ p, li, .hw-hero-desc, .hw-sec-desc, .hw-card-desc,
 }
 
 .hw-cards-grid .hw-product-card:nth-child(6) {
-  grid-column-start: 3;
+  grid-column: 3 / span 4;
 }
 
 .hw-product-card {
@@ -1061,6 +1061,9 @@ p, li, .hw-hero-desc, .hw-sec-desc, .hw-card-desc,
   .hw-cards-grid .hw-product-card {
     grid-column: auto !important;
   }
+  .hw-cards-grid .hw-product-card:nth-child(6) {
+    grid-column: auto !important;
+  }
   .hw-integ-panels-grid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -1152,6 +1155,9 @@ p, li, .hw-hero-desc, .hw-sec-desc, .hw-card-desc,
     gap: 12px !important;
   }
   .hw-cards-grid .hw-product-card {
+    grid-column: auto !important;
+  }
+  .hw-cards-grid .hw-product-card:nth-child(6) {
     grid-column: auto !important;
   }
   .hw-cards-grid .hw-product-card:nth-child(9) {

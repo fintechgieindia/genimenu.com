@@ -440,6 +440,88 @@
     color: var(--geni-nav-champagne) !important;
   }
 
+  /* --- Brochure Button (Desktop) --- */
+  .geni-pos-nav .btn-nav-brochure {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    color: #F2C58D !important;
+    background: rgba(197, 139, 80, 0.12);
+    border: 1px solid rgba(197, 139, 80, 0.35);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    cursor: pointer;
+    text-decoration: none !important;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+
+  .geni-pos-nav .btn-nav-brochure:hover {
+    background: rgba(197, 139, 80, 0.25);
+    border-color: rgba(242, 197, 141, 0.7);
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  }
+
+  .geni-pos-nav .brochure-nav-svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    flex-shrink: 0;
+  }
+
+  /* Mobile Brochure Styles */
+  .mobile-brochure-wrap {
+    background: rgba(74, 41, 27, 0.35);
+    border: 1px solid rgba(197, 139, 80, 0.3);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin: 8px 0;
+  }
+
+  .mobile-brochure-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .mobile-brochure-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .mobile-b-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-b-preview {
+    background: rgba(197, 139, 80, 0.2);
+    border: 1px solid rgba(197, 139, 80, 0.4);
+    color: #FFF8F0;
+  }
+
+  .mobile-b-download {
+    background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%);
+    color: #27130D;
+    font-weight: 700;
+  }
+
   /* --- Hamburger Menu Button (Mobile/Tablet) --- */
   .geni-pos-nav .nav-burger-btn {
     display: none;
@@ -702,13 +784,13 @@
   <div class="nav-wrap">
 
     <!-- Left side: Brand Logo + Tagline -->
-    <a href="{{ route('home') }}" class="nav-brand" title="Geni Menu - Home">
+    <a href="{{ route('home') }}" class="nav-brand" title="{{ global_setting()->name ?? 'Geni Menu' }} - Home">
       <img id="geniNavLogo"
-           src="{{ asset('assets/images/geni-menu-logo-light.png') }}"
-           data-dark="{{ asset('assets/images/geni-menu-logo-light.png') }}"
-           data-light="{{ asset('assets/images/geni-menu-logo-light.png') }}"
+           src="{{ global_setting()->logoUrl }}"
+           data-dark="{{ global_setting()->logoUrl }}"
+           data-light="{{ global_setting()->logoUrl }}"
            onerror="this.onerror=null;this.src='{{ asset('assets/images/geni-menu-logo-light.png') }}';"
-           alt="Geni Menu" class="brand-logo-img">
+           alt="{{ global_setting()->name ?? 'Geni Menu' }}" class="brand-logo-img">
       <div class="brand-divider" aria-hidden="true"></div>
       <div class="brand-tagline">
         <span>Digital</span>
@@ -756,6 +838,24 @@
       <!-- 5. Contact -->
       <li class="nav-menu-item">
         <a href="{{ route('contact.us') }}" class="nav-menu-link {{ request()->routeIs('contact.us') ? 'nav-active' : '' }}">Contact</a>
+      </li>
+
+      <!-- 6. Brochure -->
+      <li class="nav-menu-item">
+        <a href="{{ asset('assets/Geni%20Menu%20.pdf') }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn-nav-brochure"
+           title="Geni Menu Brochure (Preview &amp; Download)">
+          <svg class="brochure-nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="12" y1="18" x2="12" y2="12"></line>
+            <line x1="9" y1="15" x2="12" y2="18"></line>
+            <line x1="15" y1="15" x2="12" y2="18"></line>
+          </svg>
+          <span>Brochure</span>
+        </a>
       </li>
     </ul>
 
@@ -986,6 +1086,13 @@
       <a href="{{ route('contact.us') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
         <span>Contact</span>
         <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
+      </a>
+    </li>
+
+    <li class="mobile-list-item">
+      <a href="{{ asset('assets/Geni%20Menu%20.pdf') }}" target="_blank" rel="noopener noreferrer" class="mobile-direct-link" onclick="closeGeniMobile()">
+        <span>Brochure</span>
+        <span style="font-size: 14px; color: #F2C58D;">&nearr;</span>
       </a>
     </li>
   </ul>

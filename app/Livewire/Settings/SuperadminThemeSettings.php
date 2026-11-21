@@ -33,12 +33,13 @@ class SuperadminThemeSettings extends Component
     public function rules()
     {
         return [
-            'upload_fav_icon_android_chrome_192' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
-            'upload_fav_icon_android_chrome_512' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
-            'upload_fav_icon_apple_touch_icon' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
-            'upload_favicon_16' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
-            'upload_favicon_32' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
-            'favicon' => 'nullable|file|mimes:ico|max:2048',
+            'photo' => 'nullable|file|mimes:png,jpg,jpeg,webp,svg,gif,ico|max:10240',
+            'upload_fav_icon_android_chrome_192' => 'nullable|file|mimes:png,jpg,jpeg,webp,svg,ico|max:10240',
+            'upload_fav_icon_android_chrome_512' => 'nullable|file|mimes:png,jpg,jpeg,webp,svg,ico|max:10240',
+            'upload_fav_icon_apple_touch_icon' => 'nullable|file|mimes:png,jpg,jpeg,webp,svg,ico|max:10240',
+            'upload_favicon_16' => 'nullable|file|mimes:png,jpg,jpeg,webp,svg,ico|max:10240',
+            'upload_favicon_32' => 'nullable|file|mimes:png,jpg,jpeg,webp,svg,ico|max:10240',
+            'favicon' => 'nullable|file|mimes:ico,png,jpg,jpeg,webp,svg|max:10240',
             'themeColor' => 'required',
         ];
     }
@@ -75,7 +76,7 @@ class SuperadminThemeSettings extends Component
         $this->settings->is_pwa_install_alert_show = $this->pwaAlertShow;
 
         if ($this->photo) {
-            $this->settings->logo = Files::uploadLocalOrS3($this->photo, dir: 'logo', width: 150, height: 150);
+            $this->settings->logo = Files::uploadLocalOrS3($this->photo, dir: 'logo');
         }
 
         $faviconBasePath = $this->settings->getFaviconBasePath();
@@ -90,6 +91,7 @@ class SuperadminThemeSettings extends Component
         $this->settings->save();
 
         $this->reset([
+            'photo',
             'upload_fav_icon_android_chrome_192',
             'upload_fav_icon_android_chrome_512',
             'upload_fav_icon_apple_touch_icon',
@@ -101,7 +103,7 @@ class SuperadminThemeSettings extends Component
         cache()->forget('global_setting');
         session()->forget(['restaurant', 'timezone', 'currency', 'restaurantOrGlobalSetting']);
 
-        $this->redirect(route('superadmin.superadmin-settings.index') . '?tab=theme', navigate: true);
+        $this->redirect(route('superadmin.superadmin-settings.index') . '?tab=theme');
 
 
         $this->alert('success', __('messages.settingsUpdated'), [

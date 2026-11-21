@@ -122,7 +122,7 @@ class GlobalSetting extends BaseModel
      * Get URL for 16x16 favicon
      * Returns custom favicon if available, otherwise falls back to default
      */
-    public function uploadFavIcon16Url(): Attribute
+    public function uploadFavicon16Url(): Attribute
     {
         return Attribute::get(function (): string {
             // Use custom favicon if exists, otherwise use default
@@ -136,7 +136,7 @@ class GlobalSetting extends BaseModel
      * Get URL for 32x32 favicon
      * Returns custom favicon if available, otherwise falls back to default
      */
-    public function uploadFavIcon32Url(): Attribute
+    public function uploadFavicon32Url(): Attribute
     {
         return Attribute::get(function (): string {
             // Use custom favicon if exists, otherwise use default

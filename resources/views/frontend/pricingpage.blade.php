@@ -267,16 +267,41 @@ body {
   gap: 10px;
 }
 
+.country-selector-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 100;
+}
+
 .currency-badge-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background: #572A13;
   color: #FFFFFF;
-  padding: 8px 20px;
+  padding: 8px 22px;
   border-radius: 9999px;
+  border: 1px solid rgba(245, 185, 71, 0.35);
   box-shadow: 0 4px 14px rgba(87, 42, 19, 0.22);
   user-select: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.22s ease;
+  font-family: inherit;
+}
+
+.currency-badge-pill:hover,
+.currency-badge-pill:focus-visible {
+  background: #451D0C;
+  border-color: rgba(245, 185, 71, 0.65);
+  box-shadow: 0 6px 18px rgba(87, 42, 19, 0.32);
+  transform: translateY(-1px);
+}
+
+.curr-flag-icon {
+  font-size: 16px;
+  line-height: 1;
+  display: inline-block;
 }
 
 .currency-globe-icon {
@@ -301,18 +326,179 @@ body {
   margin-left: 2px;
 }
 
+.curr-chevron-icon {
+  width: 14px;
+  height: 14px;
+  stroke: #F5B947;
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-left: 2px;
+  transition: transform 0.22s ease;
+}
+
+.currency-badge-pill.is-open .curr-chevron-icon {
+  transform: rotate(180deg);
+}
+
+/* Country Dropdown Menu */
+.country-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  max-width: 92vw;
+  background: #27130D;
+  border: 1px solid rgba(245, 185, 71, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 0, 0, 0.2);
+  z-index: 1050;
+  padding: 10px;
+  text-align: left;
+  backdrop-filter: blur(8px);
+}
+
+.country-search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(245, 185, 71, 0.25);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+}
+
+.country-search-icon {
+  width: 14px;
+  height: 14px;
+  stroke: rgba(255, 255, 255, 0.6);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.country-search-box input {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 13px;
+  width: 100%;
+  outline: none;
+}
+
+.country-search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.country-options-list {
+  max-height: 280px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245, 185, 71, 0.4) transparent;
+}
+
+.country-options-list::-webkit-scrollbar {
+  width: 6px;
+}
+.country-options-list::-webkit-scrollbar-thumb {
+  background: rgba(245, 185, 71, 0.35);
+  border-radius: 6px;
+}
+
+.country-option-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #FAF4ED;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 13.5px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.country-option-row:hover {
+  background: rgba(245, 185, 71, 0.15);
+  color: #FFFFFF;
+}
+
+.country-option-row.active {
+  background: rgba(245, 185, 71, 0.25);
+  color: #F5B947;
+  font-weight: 700;
+}
+
+.country-opt-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.country-opt-flag {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.country-opt-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.country-opt-currency {
+  font-weight: 700;
+  color: #F5B947;
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
 .pricing-billing-pill {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   background: #FAF2E8;
   border: 1px solid rgba(197, 139, 80, 0.38);
   color: #572A13;
   font-family: 'Glacial Indifference', sans-serif !important;
   font-size: 13px;
   font-weight: 700 !important;
-  padding: 5px 16px;
+  padding: 6px 18px;
   border-radius: 9999px;
   box-shadow: 0 2px 8px rgba(87, 42, 19, 0.04);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.save-discount-badge {
+  background: linear-gradient(135deg, #2E6930 0%, #1C4D1E 100%);
+  color: #A3F5A8;
+  border: 1px solid rgba(163, 245, 168, 0.35);
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 11px;
+  font-weight: 700 !important;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 2.5px 9px;
+  border-radius: 9999px;
+  line-height: 1.3;
+  box-shadow: 0 2px 6px rgba(46, 105, 48, 0.2);
+}
+
+.billing-pill-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 .pricing-cards-grid {
@@ -1661,26 +1847,42 @@ body {
 
       {{-- Regional Badge & Light Brown Annual Billing Pill --}}
       <div class="pricing-region-header">
-        <div class="currency-badge-pill">
-          <svg class="currency-globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="2" y1="12" x2="22" y2="12"></line>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path>
-          </svg>
-          <span class="curr-intl-label">International</span>
-          <span class="curr-code-label">$ USD</span>
+        <div class="country-selector-wrapper" id="country-selector-wrapper">
+          <button type="button" class="currency-badge-pill" id="country-select-btn" onclick="toggleCountryDropdown(event)" aria-haspopup="true" aria-expanded="false" title="Click to choose country and currency">
+            <span id="selected-country-flag" class="curr-flag-icon">🌐</span>
+            <span class="curr-intl-label" id="selected-country-name">International</span>
+            <span class="curr-code-label" id="selected-currency-label">$ USD</span>
+            <svg class="curr-chevron-icon" id="country-chevron" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+
+          {{-- Country Dropdown Menu --}}
+          <div class="country-dropdown-menu" id="country-dropdown-menu" style="display: none;">
+            <div class="country-search-box">
+              <svg viewBox="0 0 24 24" class="country-search-icon">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="country-search-input" placeholder="Search country or currency..." onkeyup="filterCountryList(this.value)" autocomplete="off">
+            </div>
+            <div class="country-options-list" id="country-options-list">
+              {{-- Populated dynamically via JavaScript --}}
+            </div>
+          </div>
         </div>
 
         <div class="pricing-billing-pill" id="pricing-billing-pill">
-          <span>Billed annually &bull; Prices in USD</span>
+          <span class="save-discount-badge">Save 20%</span>
+          <span class="billing-pill-text">Billed annually &bull; Software subscription only &bull; Prices in <strong id="billing-curr-code">USD</strong></span>
         </div>
       </div>
 
       <div class="pricing-cards-grid">
 
-        {{-- STARTER TIER (ESSENTIAL OPERATIONS) --}}
+        {{-- SILVER TIER (ESSENTIAL OPERATIONS) --}}
         <div class="pricing-card pricing-card-standard">
-          <div class="card-tier-badge">Starter Tier</div>
+          <div class="card-tier-badge">Silver</div>
 
           <div class="card-header-block">
             <h3 class="card-plan-title">Essential Operations</h3>
@@ -1718,7 +1920,7 @@ body {
           {{-- Price Block (in Dollars) --}}
           <div class="card-price-wrap">
             <span class="card-price-num price-val-starter">$9.99</span>
-            <span class="card-price-period">/ mo</span>
+            <span class="card-price-period">/ year</span>
           </div>
 
           {{-- CTA Button --}}
@@ -1793,7 +1995,7 @@ body {
           </ul>
         </div>
 
-        {{-- GROWTH & KITCHEN OPERATIONS (MOST POPULAR) --}}
+        {{-- PLATINUM TIER (MOST POPULAR) --}}
         <div class="pricing-card pricing-card-pro">
           {{-- Floating Golden Badge --}}
           <div class="pro-floating-badge">
@@ -1803,7 +2005,7 @@ body {
             <span>MOST POPULAR CHOICE</span>
           </div>
 
-          <div class="card-tier-badge card-tier-badge-gold">Growth & Kitchen Operations</div>
+          <div class="card-tier-badge card-tier-badge-gold">Platinum</div>
 
           <div class="card-header-block">
             <h3 class="card-plan-title">Complete Business Management</h3>
@@ -1842,7 +2044,7 @@ body {
           {{-- Price Block (in Dollars) --}}
           <div class="card-price-wrap">
             <span class="card-price-num price-val-growth">$24.99</span>
-            <span class="card-price-period">/ mo</span>
+            <span class="card-price-period">/ year</span>
           </div>
 
           {{-- CTA Button --}}
@@ -2114,12 +2316,12 @@ body {
                 <div class="th-price-sub th-feature-sub">PLAN OVERVIEW</div>
               </th>
               <th class="col-standard">
-                <div class="th-header-pill th-pill-standard">STANDARD</div>
-                <div class="th-price-sub th-price-standard">$9.99 / MO</div>
+                <div class="th-header-pill th-pill-standard">SILVER</div>
+                <div class="th-price-sub th-price-standard">$9.99 / YEAR</div>
               </th>
               <th class="col-pro">
-                <div class="th-header-pill th-pill-pro">PREMIUM</div>
-                <div class="th-price-sub th-price-premium">$24.99 / MO</div>
+                <div class="th-header-pill th-pill-pro">PLATINUM</div>
+                <div class="th-price-sub th-price-premium">$24.99 / YEAR</div>
               </th>
             </tr>
           </thead>
@@ -2506,33 +2708,198 @@ function updateGlobalToggleBtnText() {
     toggleBtn.textContent = 'Expand All +';
   }
 }
-function setCurrency(curr) {
-  var inrBtn = document.getElementById('currency-inr');
-  var usdBtn = document.getElementById('currency-usd');
-  var pill = document.getElementById('pricing-billing-pill');
-  var starterPrices = document.querySelectorAll('.price-val-starter');
-  var growthPrices = document.querySelectorAll('.price-val-growth');
-  var thStandard = document.querySelectorAll('.th-price-standard');
-  var thPremium = document.querySelectorAll('.th-price-premium');
+/* ==========================================================================
+   COUNTRY & CURRENCY SELECTOR LOGIC
+   ========================================================================== */
+var countriesData = {
+  'INTL': { code: 'USD', name: 'International', flag: '🌐', symbol: '$', starter: '$9.99', growth: '$24.99' },
+  'IN': { code: 'INR', name: 'India', flag: '🇮🇳', symbol: '₹', starter: '₹799', growth: '₹1,999' },
+  'US': { code: 'USD', name: 'United States', flag: '🇺🇸', symbol: '$', starter: '$9.99', growth: '$24.99' },
+  'AE': { code: 'AED', name: 'United Arab Emirates', flag: '🇦🇪', symbol: 'AED', starter: 'AED 39', growth: 'AED 99' },
+  'SA': { code: 'SAR', name: 'Saudi Arabia', flag: '🇸🇦', symbol: 'SAR', starter: 'SAR 39', growth: 'SAR 99' },
+  'GB': { code: 'GBP', name: 'United Kingdom', flag: '🇬🇧', symbol: '£', starter: '£7.99', growth: '£19.99' },
+  'EU': { code: 'EUR', name: 'European Union', flag: '🇪🇺', symbol: '€', starter: '€8.99', growth: '€22.99' },
+  'SG': { code: 'SGD', name: 'Singapore', flag: '🇸🇬', symbol: 'S$', starter: 'S$13.99', growth: 'S$34.99' },
+  'MY': { code: 'MYR', name: 'Malaysia', flag: '🇲🇾', symbol: 'RM', starter: 'RM 45', growth: 'RM 115' },
+  'CA': { code: 'CAD', name: 'Canada', flag: '🇨🇦', symbol: 'CA$', starter: 'CA$13.99', growth: 'CA$34.99' },
+  'AU': { code: 'AUD', name: 'Australia', flag: '🇦🇺', symbol: 'A$', starter: 'A$14.99', growth: 'A$37.99' },
+  'QA': { code: 'QAR', name: 'Qatar', flag: '🇶🇦', symbol: 'QAR', starter: 'QAR 39', growth: 'QAR 99' },
+  'KW': { code: 'KWD', name: 'Kuwait', flag: '🇰🇼', symbol: 'KWD', starter: 'KWD 3.5', growth: 'KWD 8.5' },
+  'OM': { code: 'OMR', name: 'Oman', flag: '🇴🇲', symbol: 'OMR', starter: 'OMR 4', growth: 'OMR 10' },
+  'BH': { code: 'BHD', name: 'Bahrain', flag: '🇧🇭', symbol: 'BHD', starter: 'BHD 4', growth: 'BHD 10' },
+  'NZ': { code: 'NZD', name: 'New Zealand', flag: '🇳🇿', symbol: 'NZ$', starter: 'NZ$16.99', growth: 'NZ$41.99' },
+  'ZA': { code: 'ZAR', name: 'South Africa', flag: '🇿🇦', symbol: 'R', starter: 'R 189', growth: 'R 469' },
+  'PH': { code: 'PHP', name: 'Philippines', flag: '🇵🇭', symbol: '₱', starter: '₱560', growth: '₱1,399' },
+  'ID': { code: 'IDR', name: 'Indonesia', flag: '🇮🇩', symbol: 'Rp', starter: 'Rp 159,000', growth: 'Rp 399,000' },
+  'TH': { code: 'THB', name: 'Thailand', flag: '🇹🇭', symbol: '฿', starter: '฿350', growth: '฿890' },
+  'VN': { code: 'VND', name: 'Vietnam', flag: '🇻🇳', symbol: '₫', starter: '₫249,000', growth: '₫629,000' },
+  'LK': { code: 'LKR', name: 'Sri Lanka', flag: '🇱🇰', symbol: 'Rs', starter: 'Rs 2,990', growth: 'Rs 7,490' },
+  'BD': { code: 'BDT', name: 'Bangladesh', flag: '🇧🇩', symbol: '৳', starter: '৳1,190', growth: '৳2,990' },
+  'NP': { code: 'NPR', name: 'Nepal', flag: '🇳🇵', symbol: 'Rs', starter: 'Rs 1,290', growth: 'Rs 3,290' },
+  'PK': { code: 'PKR', name: 'Pakistan', flag: '🇵🇰', symbol: 'Rs', starter: 'Rs 2,790', growth: 'Rs 6,990' },
+  'NG': { code: 'NGN', name: 'Nigeria', flag: '🇳🇬', symbol: '₦', starter: '₦14,900', growth: '₦37,500' },
+  'KE': { code: 'KES', name: 'Kenya', flag: '🇰🇪', symbol: 'KSh', starter: 'KSh 1,290', growth: 'KSh 3,250' },
+  'JP': { code: 'JPY', name: 'Japan', flag: '🇯🇵', symbol: '¥', starter: '¥1,490', growth: '¥3,790' },
+  'KR': { code: 'KRW', name: 'South Korea', flag: '🇰🇷', symbol: '₩', starter: '₩13,500', growth: '₩33,900' },
+  'BR': { code: 'BRL', name: 'Brazil', flag: '🇧🇷', symbol: 'R$', starter: 'R$ 55', growth: 'R$ 139' },
+  'MX': { code: 'MXN', name: 'Mexico', flag: '🇲🇽', symbol: 'Mex$', starter: 'Mex$ 199', growth: 'Mex$ 499' },
+  'CH': { code: 'CHF', name: 'Switzerland', flag: '🇨🇭', symbol: 'CHF', starter: 'CHF 8.99', growth: 'CHF 22.99' },
+  'TR': { code: 'TRY', name: 'Turkey', flag: '🇹🇷', symbol: '₺', starter: '₺349', growth: '₺879' }
+};
 
-  if (curr === 'INR') {
-    if (inrBtn) inrBtn.classList.add('active');
-    if (usdBtn) usdBtn.classList.remove('active');
-    if (pill) pill.innerHTML = '<span>Billed annually &bull; Prices in INR</span>';
-    starterPrices.forEach(function(el) { el.innerHTML = '&#8377;799'; });
-    growthPrices.forEach(function(el) { el.innerHTML = '&#8377;1,999'; });
-    thStandard.forEach(function(el) { el.innerHTML = '&#8377;799 /mo'; });
-    thPremium.forEach(function(el) { el.innerHTML = '&#8377;1,999 /mo'; });
+var currentSelectedCountry = 'INTL';
+
+function renderCountryOptions() {
+  var list = document.getElementById('country-options-list');
+  if (!list) return;
+  var html = '';
+  for (var key in countriesData) {
+    var c = countriesData[key];
+    var activeClass = key === currentSelectedCountry ? ' active' : '';
+    html += '<div class="country-option-row' + activeClass + '" data-code="' + key + '" onclick="selectCountry(\'' + key + '\')">' +
+              '<div class="country-opt-left">' +
+                '<span class="country-opt-flag">' + c.flag + '</span>' +
+                '<span class="country-opt-name">' + c.name + '</span>' +
+              '</div>' +
+              '<span class="country-opt-currency">' + c.symbol + ' ' + c.code + '</span>' +
+            '</div>';
+  }
+  list.innerHTML = html;
+}
+
+function filterCountryList(query) {
+  var term = (query || '').toLowerCase().trim();
+  var rows = document.querySelectorAll('.country-option-row');
+  rows.forEach(function(row) {
+    var text = row.textContent.toLowerCase();
+    if (!term || text.indexOf(term) > -1) {
+      row.style.display = 'flex';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+}
+
+function toggleCountryDropdown(e) {
+  if (e) e.stopPropagation();
+  var dropdown = document.getElementById('country-dropdown-menu');
+  var btn = document.getElementById('country-select-btn');
+  if (!dropdown) return;
+
+  var isOpen = dropdown.style.display === 'block';
+  if (isOpen) {
+    closeCountryDropdown();
   } else {
-    if (usdBtn) usdBtn.classList.add('active');
-    if (inrBtn) inrBtn.classList.remove('active');
-    if (pill) pill.innerHTML = '<span>Billed annually &bull; Prices in USD</span>';
-    starterPrices.forEach(function(el) { el.textContent = '$9.99'; });
-    growthPrices.forEach(function(el) { el.textContent = '$24.99'; });
-    thStandard.forEach(function(el) { el.textContent = '$9.99 /mo'; });
-    thPremium.forEach(function(el) { el.textContent = '$24.99 /mo'; });
+    dropdown.style.display = 'block';
+    if (btn) btn.classList.add('is-open');
+    var searchInput = document.getElementById('country-search-input');
+    if (searchInput) {
+      searchInput.value = '';
+      filterCountryList('');
+      setTimeout(function() { searchInput.focus(); }, 60);
+    }
   }
 }
+
+function closeCountryDropdown() {
+  var dropdown = document.getElementById('country-dropdown-menu');
+  var btn = document.getElementById('country-select-btn');
+  if (dropdown) dropdown.style.display = 'none';
+  if (btn) btn.classList.remove('is-open');
+}
+
+document.addEventListener('click', function(e) {
+  var wrapper = document.getElementById('country-selector-wrapper');
+  if (wrapper && !wrapper.contains(e.target)) {
+    closeCountryDropdown();
+  }
+});
+
+function selectCountry(countryKey) {
+  var data = countriesData[countryKey];
+  if (!data) return;
+
+  currentSelectedCountry = countryKey;
+
+  // 1. Update button labels
+  var flagEl = document.getElementById('selected-country-flag');
+  var nameEl = document.getElementById('selected-country-name');
+  var currEl = document.getElementById('selected-currency-label');
+  if (flagEl) flagEl.textContent = data.flag;
+  if (nameEl) nameEl.textContent = data.name;
+  if (currEl) currEl.textContent = data.symbol + ' ' + data.code;
+
+  // 2. Update billing pill
+  var pill = document.getElementById('pricing-billing-pill');
+  if (pill) {
+    pill.innerHTML = '<span class="save-discount-badge">Save 20%</span>' +
+                     '<span class="billing-pill-text">Billed annually &bull; Software subscription only &bull; Prices in <strong>' + data.code + '</strong></span>';
+  }
+
+  // 3. Update Starter price
+  var starterPrices = document.querySelectorAll('.price-val-starter');
+  starterPrices.forEach(function(el) {
+    el.textContent = data.starter;
+  });
+
+  // 4. Update Growth price
+  var growthPrices = document.querySelectorAll('.price-val-growth');
+  growthPrices.forEach(function(el) {
+    el.textContent = data.growth;
+  });
+
+  // 5. Update comparison table headers
+  var thStandard = document.querySelectorAll('.th-price-standard');
+  thStandard.forEach(function(el) {
+    el.textContent = data.starter + ' / YEAR';
+  });
+
+  var thPremium = document.querySelectorAll('.th-price-premium');
+  thPremium.forEach(function(el) {
+    el.textContent = data.growth + ' / YEAR';
+  });
+
+  // 6. Highlight active item in list
+  var rows = document.querySelectorAll('.country-option-row');
+  rows.forEach(function(r) {
+    if (r.getAttribute('data-code') === countryKey) {
+      r.classList.add('active');
+    } else {
+      r.classList.remove('active');
+    }
+  });
+
+  // 7. Close dropdown
+  closeCountryDropdown();
+
+  // 8. Persist choice
+  try {
+    localStorage.setItem('geni_menu_pricing_country', countryKey);
+  } catch(e) {}
+}
+
+// Backward compatibility helper
+function setCurrency(curr) {
+  if (curr === 'INR') {
+    selectCountry('IN');
+  } else {
+    selectCountry('INTL');
+  }
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', function() {
+  renderCountryOptions();
+  var saved = null;
+  try {
+    saved = localStorage.getItem('geni_menu_pricing_country');
+  } catch(e) {}
+  if (saved && countriesData[saved]) {
+    selectCountry(saved);
+  } else {
+    selectCountry('INTL');
+  }
+});
 </script>
 
 @endsection

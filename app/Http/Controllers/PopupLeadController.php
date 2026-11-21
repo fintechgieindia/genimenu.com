@@ -49,7 +49,7 @@ class PopupLeadController extends Controller
 
         // 1. Store into submissions (Csubmissions) so Superadmin Messages displays it under "Popup Leads"
         try {
-            Csubmissions::create([
+            $subData = [
                 'name'        => $fullName,
                 'email'       => $email,
                 'company'     => $businessName,
@@ -59,7 +59,12 @@ class PopupLeadController extends Controller
                 'subject'     => 'Personalised Demo Request',
                 'message'     => 'Requested a Personalised Demo from the website popup modal.',
                 'form_type'   => 'popup',
-            ]);
+            ];
+            $existingCols = \Illuminate\Support\Facades\Schema::getColumnListing('submissions');
+            if (!empty($existingCols)) {
+                $subData = array_intersect_key($subData, array_flip($existingCols));
+            }
+            Csubmissions::create($subData);
         } catch (\Throwable $subEx) {
             \Log::error('Csubmissions popup store error: ' . $subEx->getMessage());
         }

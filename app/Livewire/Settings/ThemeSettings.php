@@ -30,13 +30,13 @@ class ThemeSettings extends Component
     public function rules()
     {
         return [
-            'photo' => 'nullable|image|max:1024',
-            'upload_fav_icon_android_chrome_192' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
-            'upload_fav_icon_android_chrome_512' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
-            'upload_fav_icon_apple_touch_icon' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
-            'upload_favicon_16' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
-            'upload_favicon_32' => 'nullable|image|mimes:png,jpg,jpeg,webp,svg|max:2048',
-            'favicon' => 'nullable|file|mimes:ico|max:2048',
+            'photo' => 'nullable|file|mimes:png,jpg,jpeg,webp,svg,gif,ico|max:10240',
+            'upload_fav_icon_android_chrome_192' => 'nullable|file|mimes:png,jpg,jpeg,webp,svg,ico|max:10240',
+            'upload_fav_icon_android_chrome_512' => 'nullable|file|mimes:png,jpg,jpeg,webp,svg,ico|max:10240',
+            'upload_fav_icon_apple_touch_icon' => 'nullable|file|mimes:png,jpg,jpeg,webp,svg,ico|max:10240',
+            'upload_favicon_16' => 'nullable|file|mimes:png,jpg,jpeg,webp,svg,ico|max:10240',
+            'upload_favicon_32' => 'nullable|file|mimes:png,jpg,jpeg,webp,svg,ico|max:10240',
+            'favicon' => 'nullable|file|mimes:ico,png,jpg,jpeg,webp,svg|max:10240',
             'themeColor' => 'required',
         ];
     }
@@ -65,39 +65,11 @@ class ThemeSettings extends Component
     {
         // Clear any existing errors for this field
         $this->resetErrorBag('photo');
-
-        if ($this->photo) {
-            // Validate image dimensions
-            $imageInfo = @getimagesize($this->photo->getRealPath());
-            if ($imageInfo) {
-                $width = $imageInfo[0];
-                $height = $imageInfo[1];
-
-                // Only show error if dimensions are smaller than recommended (97 × 96)
-                // Images larger than recommended size are acceptable and will not show an error
-                if ($width < 97 || $height < 96) {
-                    $this->addError('photo', __('modules.settings.imageDimensionsTooSmall', [
-                        'width' => 97,
-                        'height' => 96,
-                        'currentWidth' => $width,
-                        'currentHeight' => $height
-                    ]));
-                }
-            }
-        }
     }
 
     public function submitForm()
     {
         $this->validate();
-
-        // Validate logo dimensions if it's an image
-        $this->validateLogo();
-
-        // Check if there are validation errors
-        if ($this->getErrorBag()->has('photo')) {
-            return;
-        }
 
         $this->themeColorRgb = $this->hex2rgba($this->themeColor);
 
@@ -108,7 +80,7 @@ class ThemeSettings extends Component
 
 
         if ($this->photo) {
-            $this->settings->logo = Files::uploadLocalOrS3($this->photo, dir: 'logo', width: 150, height: 150);
+            $this->settings->logo = Files::uploadLocalOrS3($this->photo, dir: 'logo');
         }
 
         $faviconBasePath = $this->settings->getFaviconBasePath();

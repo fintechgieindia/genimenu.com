@@ -83,31 +83,6 @@ class ContactController extends Controller
             ]);
         }
 
-        // Validate Google reCAPTCHA v2 if present in request
-        $recaptchaSecret = config('services.recaptcha.secret_key');
-        if ($recaptchaSecret && $request->has('g-recaptcha-response')) {
-            $recaptchaToken = $request->input('g-recaptcha-response');
-            if (empty($recaptchaToken)) {
-                return back()->withInput()->withErrors(['g-recaptcha-response' => 'Please verify that you are not a robot.']);
-            }
-
-            // In production (non-test key), verify with Google endpoint
-            if ($recaptchaSecret !== '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe') {
-                try {
-                    $verifyRes = \Illuminate\Support\Facades\Http::asForm()->timeout(5)->post('https://www.google.com/recaptcha/api/siteverify', [
-                        'secret'   => $recaptchaSecret,
-                        'response' => $recaptchaToken,
-                        'remoteip' => $request->ip(),
-                    ]);
-                    if (!$verifyRes->json('success')) {
-                        return back()->withInput()->withErrors(['g-recaptcha-response' => 'reCAPTCHA verification failed. Please try again.']);
-                    }
-                } catch (\Throwable $e) {
-                    \Illuminate\Support\Facades\Log::warning('reCAPTCHA siteverify warning: ' . $e->getMessage());
-                }
-            }
-        }
-
         $validated = $request->validate([
             'form_type' => 'nullable|string|in:contact,enquiry',
             'name' => [
@@ -158,8 +133,14 @@ class ContactController extends Controller
         $validated['requirements'] = $reqString;
 
         try {
-            // Save to database
-            Csubmissions::create($validated);
+            // Filter data according to columns that actually exist in the database table
+            // This guarantees live submissions never fail even if migrations are pending on production
+            $existingColumns = \Illuminate\Support\Facades\Schema::getColumnListing('submissions');
+            $dataToSave = !empty($existingColumns)
+                ? array_intersect_key($validated, array_flip($existingColumns))
+                : $validated;
+
+            Csubmissions::create($dataToSave);
         } catch (\Exception $e) {
             \Log::error('Contact form DB error: ' . $e->getMessage());
             return back()->withInput()->with('error', 'Unable to submit your enquiry right now. Please try again.');
