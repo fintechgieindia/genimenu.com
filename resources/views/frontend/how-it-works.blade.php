@@ -522,9 +522,11 @@
 
   /* Responsive */
   @media (max-width: 991px) {
-    .hiw-hero { grid-template-columns: 1fr; text-align: center; padding: 110px 20px 50px; gap: 40px; }
-    .hiw-hero-content p { margin: 0 auto 30px; font-size: 16px; }
-    .hiw-hero-btns { justify-content: center; }
+    .hiw-hero { grid-template-columns: 1fr; text-align: left !important; padding: 110px 20px 50px; gap: 40px; }
+    .hiw-hero-content { text-align: left !important; }
+    .hiw-hero-content h1 { text-align: left !important; }
+    .hiw-hero-content p { margin: 0 0 30px !important; font-size: 16px; text-align: left !important; }
+    .hiw-hero-btns { justify-content: flex-start !important; }
     .hiw-hero-visual { max-width: 500px; height: 380px; margin: 0 auto; }
     .hiw-step { grid-template-columns: 1fr; gap: 24px; text-align: left; }
     .hiw-step-features { justify-content: flex-start; }

@@ -1137,6 +1137,23 @@ $meta = [
 /* ============================================================
    RESPONSIVE TWEAKS
 ============================================================ */
+@media (max-width: 768px) {
+    .tm-hero__inner {
+        text-align: left !important;
+        padding: 0 16px;
+    }
+    .tm-hero__h1, .tm-hero__sub {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .tm-hero__ctas {
+        justify-content: flex-start !important;
+    }
+    .tm-hero__badges {
+        justify-content: flex-start !important;
+    }
+}
 @media (max-width: 640px) {
     .tm-value__strip { border-radius: 16px; }
     .tm-showcase__inner { gap: 30px; }

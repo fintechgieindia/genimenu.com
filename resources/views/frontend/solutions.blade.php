@@ -291,24 +291,24 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
 }
 
 .sol-hero-content {
-  max-width: 580px;
+  max-width: 660px;
 }
 
 .sol-hero-title {
   font-family: 'Cinzel', serif !important;
-  font-size: clamp(34px, 4.2vw, 48px);
+  font-size: clamp(30px, 3.6vw, 44px);
   font-weight: 400 !important;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: #FFFFFF;
   text-transform: uppercase !important;
-  line-height: 1.22;
+  line-height: 1.25;
   margin: 0 0 20px 0;
 }
 
 .sol-hero-title span.highlight {
   color: var(--geni-champagne) !important;
   font-weight: 600 !important;
-  display: inline-block;
+  display: inline;
 }
 
 .sol-hero-desc {
@@ -1061,14 +1061,19 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
   .sol-hero-grid {
     grid-template-columns: 1fr;
     gap: 40px;
-    text-align: center;
+    text-align: left !important;
   }
   .sol-hero-content {
     max-width: 100%;
+    text-align: left !important;
+  }
+  .sol-hero-title,
+  .sol-hero-desc {
+    text-align: left !important;
   }
   .sol-hero-actions,
   .sol-hero-pills {
-    justify-content: center;
+    justify-content: flex-start !important;
   }
   .sol-filter-sec {
     position: static;
@@ -1093,8 +1098,8 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
     padding: 44px 0 46px;
   }
   .sol-hero-title {
-    font-size: 26px;
-    line-height: 1.22;
+    font-size: clamp(21px, 5.6vw, 25px);
+    line-height: 1.25;
   }
   .sol-hero-desc {
     font-size: 14.5px;
@@ -1285,7 +1290,7 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
                 {{-- Left Text Column --}}
                 <div class="sol-hero-content">
                     <h1 class="sol-hero-title">
-                        Built Around the Way Your <span class="highlight">Food Business Works.</span>
+                        Built Around the Way <br><span class="highlight">Your Food Business Works.</span>
                     </h1>
 
                     <p class="sol-hero-desc">

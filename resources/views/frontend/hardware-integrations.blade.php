@@ -1081,14 +1081,19 @@ p, li, .hw-hero-desc, .hw-sec-desc, .hw-card-desc,
   .hw-hero-grid {
     grid-template-columns: 1fr;
     gap: 40px;
-    text-align: center;
+    text-align: left !important;
   }
   .hw-hero-content {
     max-width: 100%;
+    text-align: left !important;
+  }
+  .hw-hero-title,
+  .hw-hero-desc {
+    text-align: left !important;
   }
   .hw-hero-highlights,
   .hw-hero-actions {
-    justify-content: center;
+    justify-content: flex-start !important;
   }
   .hw-benefits-grid {
     grid-template-columns: repeat(2, 1fr);

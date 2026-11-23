@@ -2176,10 +2176,10 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 
 @media (max-width: 991px) and (min-width: 769px) {
   .geni-hero { padding: 90px 0 50px !important; }
-  .geni-hero-container { grid-template-columns: 1fr; gap: 34px; text-align: center; }
-  .geni-hero-left { align-items: center; text-align: center; max-width: 620px; margin: 0 auto; }
-  .geni-hero-desc { margin-left: auto; margin-right: auto; }
-  .geni-hero-ctas { justify-content: center; }
+  .geni-hero-container { grid-template-columns: 1fr; gap: 34px; text-align: left !important; }
+  .geni-hero-left { align-items: flex-start !important; text-align: left !important; max-width: 620px; margin: 0 !important; }
+  .geni-hero-desc { margin-left: 0 !important; margin-right: auto; text-align: left !important; }
+  .geni-hero-ctas { justify-content: flex-start !important; }
   .geni-hero-features-wrap { margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .geni-hero-feat-sep { display: none; }
   .geni-trust-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
@@ -2200,11 +2200,12 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 
 @media (max-width: 768px) {
   .geni-hero { padding: 80px 0 45px !important; min-height: auto; }
-  .geni-hero-container { display: flex; flex-direction: column; gap: 24px; padding: 0 16px; }
-  .geni-hero-left { width: 100%; max-width: 100%; align-items: flex-start; text-align: left; }
-  .geni-hero-title { font-size: clamp(23px, 6vw, 28px); line-height: 1.22; margin-bottom: 14px; }
-  .geni-hero-desc { font-size: 14px; margin-bottom: 20px; }
-  .geni-hero-ctas { display: flex !important; flex-direction: row !important; width: 100% !important; gap: 8px !important; margin-bottom: 20px !important; }
+  .geni-hero-container { display: flex; flex-direction: column; gap: 24px; padding: 0 16px; text-align: left !important; }
+  .geni-hero-left { width: 100%; max-width: 100%; align-items: flex-start !important; text-align: left !important; margin: 0 !important; }
+  .geni-hero-eyebrow { justify-content: flex-start !important; text-align: left !important; }
+  .geni-hero-title { font-size: clamp(23px, 6vw, 28px); line-height: 1.22; margin-bottom: 14px; text-align: left !important; }
+  .geni-hero-desc { font-size: 14px; margin-bottom: 20px; text-align: left !important; margin-left: 0 !important; margin-right: 0 !important; }
+  .geni-hero-ctas { display: flex !important; flex-direction: row !important; width: 100% !important; gap: 8px !important; margin-bottom: 20px !important; justify-content: flex-start !important; }
   .btn-primary-gold, .btn-ghost-gold { flex: 1 1 0 !important; width: auto !important; min-width: 0 !important; justify-content: center !important; padding: 11px 6px !important; font-size: 12px !important; white-space: nowrap !important; text-align: center !important; letter-spacing: 0 !important; }
   .geni-hero-right { display: none !important; }
   .geni-hero-features-wrap { order: 3; display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 10px 8px !important; width: 100% !important; max-width: 100%; padding-top: 14px; }

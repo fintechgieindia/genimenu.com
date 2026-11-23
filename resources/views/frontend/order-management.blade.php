@@ -1169,10 +1169,10 @@ h1, h2, h3, h4, h5 {
 /* ─── RESPONSIVE ──────────────────────────────────────────────── */
 @media (max-width: 1024px) {
     .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-    .hero-copy { text-align: center; }
-    .hero-copy p { max-width: 100%; margin-left: auto; margin-right: auto; }
-    .hero-ctas { justify-content: center; }
-    .hero-badges { justify-content: center; }
+    .hero-copy { text-align: left !important; }
+    .hero-copy p { max-width: 100%; margin-left: 0 !important; margin-right: 0 !important; text-align: left !important; }
+    .hero-ctas { justify-content: flex-start !important; }
+    .hero-badges { justify-content: flex-start !important; }
     .showcase-wrapper { grid-template-columns: 1fr; gap: 40px; }
     .value-strip-grid { grid-template-columns: repeat(2, 1fr); }
     .value-item:nth-child(2) { border-right: none; }

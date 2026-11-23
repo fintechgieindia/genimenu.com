@@ -264,6 +264,11 @@
             --line-solid: #E3E8EE;
         }
 
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
         body {
             font-family: var(--font-body);
             color: var(--ink);

@@ -1024,17 +1024,25 @@
     min-height: auto;
   }
   .about-hero-container {
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start !important;
+    text-align: left !important;
   }
   .about-hero-left {
     max-width: 100%;
-    margin: 0 auto;
-    text-align: center;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+  .about-eyebrow {
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+  .about-hero-title {
+    text-align: left !important;
   }
   .about-hero-desc {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
   }
 
   .about-who-grid {

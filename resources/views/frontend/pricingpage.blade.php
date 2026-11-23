@@ -265,6 +265,10 @@ body {
   text-align: center;
   margin-bottom: 26px;
   gap: 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
 }
 
 .country-selector-wrapper {
@@ -477,6 +481,8 @@ body {
   box-shadow: 0 2px 8px rgba(87, 42, 19, 0.04);
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Billing Cycle Switch (Monthly / Yearly) */
@@ -554,6 +560,25 @@ body {
   .billing-cycle-discount {
     font-size: 10px;
     padding: 2px 6px;
+  }
+  .pricing-billing-pill {
+    padding: 6px 14px !important;
+    font-size: 11px !important;
+    border-radius: 14px !important;
+    gap: 6px !important;
+    width: auto !important;
+    max-width: calc(100% - 16px) !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    line-height: 1.4 !important;
+    box-sizing: border-box !important;
+  }
+  .billing-pill-text {
+    display: inline !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    word-break: normal !important;
   }
 }
 
@@ -1642,18 +1667,25 @@ body {
   }
   .pricing-hero-container {
     flex-direction: column;
-    text-align: center;
+    text-align: left !important;
+    align-items: flex-start !important;
     min-height: auto;
   }
   .pricing-hero-content {
     max-width: 100%;
+    text-align: left !important;
+  }
+  .pricing-hero-title {
+    text-align: left !important;
   }
   .pricing-hero-desc {
-    margin-left: auto;
-    margin-right: auto;
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .pricing-hero-highlights {
-    justify-content: center;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
   }
   .pricing-hero-visual {
     min-height: auto;
@@ -1814,14 +1846,15 @@ body {
   }
   .pricing-hero-highlights {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
     gap: 14px;
   }
   .pricing-hero-highlight-item {
     width: 100%;
-    max-width: 270px;
-    justify-content: flex-start;
-    text-align: left;
+    max-width: 100% !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
   }
   .pricing-plans-section {
     padding: 32px 12px 24px;

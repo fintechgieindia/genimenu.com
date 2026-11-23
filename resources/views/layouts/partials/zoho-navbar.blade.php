@@ -1063,13 +1063,6 @@
     </li>
 
     <li class="mobile-list-item">
-      <a href="{{ route('hardware-integrations') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
-        <span>Hardware &amp; Integrations</span>
-        <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
-      </a>
-    </li>
-
-    <li class="mobile-list-item">
       <a href="{{ route('pricing') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
         <span>Pricing</span>
         <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
