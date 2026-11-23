@@ -1,8 +1,10 @@
 @php
     $meta = [
-        'title' => 'Pricing Plans | Restaurant, Hotel, Canteen & Food POS Software | Geni Menu',
-        'description' => 'Affordable pricing plans for restaurants, hotels, canteens, cafes, and food businesses. Silver & Platinum plans with GST billing, KOT workflows, QR menu, and multi-unit cloud POS.',
+        'title' => 'Geni Menu Pricing | Restaurant Software Plans',
+        'description' => 'Explore Geni Menu pricing plans and find the right restaurant management solution for your business. Get the tools you need to manage menus, orders and billing.',
         'keywords' => 'restaurants, hotels, menu, canteen, food, software, restaurant billing software with GST, GST billing software for cafe, offline restaurant POS software India, restaurant POS with UPI QR billing, cloud restaurant POS system, hospitality POS software, iPad POS for restaurants, quick service restaurant QSR POS, multi-unit restaurant enterprise software, restaurant software pricing, hotel billing software price, canteen software plans, digital menu cost, geni menu pricing',
+        'og_title' => 'Geni Menu Pricing | Restaurant Software Plans',
+        'og_description' => 'Explore Geni Menu pricing plans and find the right restaurant management solution for your business. Get the tools you need to manage menus, orders and billing.',
     ];
 @endphp
 
@@ -485,6 +487,10 @@ body {
   box-sizing: border-box;
 }
 
+.pill-text-curr {
+  white-space: nowrap !important;
+}
+
 /* Billing Cycle Switch (Monthly / Yearly) */
 .billing-toggle-container {
   display: flex;
@@ -564,7 +570,7 @@ body {
   .pricing-billing-pill {
     padding: 6px 14px !important;
     font-size: 11px !important;
-    border-radius: 14px !important;
+    border-radius: 9999px !important;
     gap: 6px !important;
     width: auto !important;
     max-width: calc(100% - 16px) !important;
@@ -572,6 +578,10 @@ body {
     text-align: center !important;
     line-height: 1.4 !important;
     box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
   }
   .billing-pill-text {
     display: inline !important;
@@ -579,6 +589,10 @@ body {
     line-height: 1.4 !important;
     text-align: center !important;
     word-break: normal !important;
+  }
+  .pill-text-curr {
+    white-space: nowrap !important;
+    display: inline-block !important;
   }
 }
 
@@ -1266,12 +1280,13 @@ body {
   text-transform: uppercase !important;
   margin-bottom: 5px;
   line-height: 1.25;
+  box-sizing: border-box;
 }
 
 .th-pill-feature {
   background: rgba(87, 42, 19, 0.10);
   color: #32180F;
-  border: 1px solid rgba(87, 42, 19, 0.18);
+  border: 1.5px solid rgba(87, 42, 19, 0.18);
 }
 
 .th-pill-standard {
@@ -1284,7 +1299,7 @@ body {
 .th-pill-pro {
   background: linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%);
   color: #32180F;
-  border: none;
+  border: 1.5px solid transparent;
   box-shadow: 0 3px 12px rgba(242, 197, 141, 0.32);
 }
 
@@ -1735,19 +1750,38 @@ body {
     gap: 8px;
   }
   .enterprise-cta-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
   }
   .btn-contact-sales,
   .btn-email-us,
   .btn-discuss-req {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
+    width: 100% !important;
+    max-width: 380px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
   }
   .btn-email-us {
-    word-break: break-all;
+    font-size: 13px !important;
+    padding: 10px 16px !important;
+    word-break: normal !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+  .btn-email-us svg {
+    flex-shrink: 0 !important;
+    width: 15px !important;
+    height: 15px !important;
+  }
+  .btn-email-us span {
+    white-space: nowrap !important;
   }
   .enterprise-bottom-action {
     justify-content: center;
@@ -1764,39 +1798,90 @@ body {
     align-self: flex-start;
   }
   .comparison-mobile-hint {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: var(--gm-text-muted);
-    margin-bottom: 12px;
-    font-weight: 600;
+    display: none !important;
   }
   .comparison-table-wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     border-radius: 14px;
+    width: 100%;
   }
   .comparison-table {
-    min-width: 560px;
+    width: 100% !important;
+    min-width: 100% !important;
+    table-layout: fixed !important;
   }
-  .comparison-table th.col-feature,
-  .comparison-table td.col-feature {
-    position: sticky;
-    left: 0;
-    z-index: 2;
-    background: #FAF2E8;
-    box-shadow: 2px 0 6px rgba(50, 24, 15, 0.05);
+  .comparison-table th {
+    padding: 12px 6px 10px !important;
+    vertical-align: middle !important;
   }
   .comparison-table th.col-feature {
-    background: #F2E5D5;
+    width: 38% !important;
+    padding: 12px 8px 10px !important;
+    background: #F0E3D3 !important;
   }
-  .comparison-category-row td {
-    position: sticky;
-    left: 0;
+  .comparison-table th.col-standard {
+    width: 31% !important;
+    padding: 12px 4px 10px !important;
+    text-align: center !important;
+    background: #FAF2E8 !important;
   }
-  .comparison-row:hover td.col-feature {
-    background: #F3E7D7;
+  .comparison-table th.col-pro {
+    width: 31% !important;
+    padding: 12px 4px 10px !important;
+    text-align: center !important;
+    background: #32180F !important;
+  }
+  .th-header-pill {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.04em !important;
+    margin-bottom: 4px !important;
+    min-height: 26px !important;
+    box-sizing: border-box !important;
+  }
+  .th-pill-standard {
+    border: 1.5px solid rgba(197, 139, 80, 0.45) !important;
+  }
+  .th-pill-pro {
+    border: 1.5px solid transparent !important;
+  }
+  .th-price-sub {
+    font-size: 10px !important;
+    letter-spacing: 0.02em !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+  }
+  .comparison-table td {
+    padding: 9px 6px !important;
+    font-size: 12px !important;
+  }
+  .comparison-table td.td-feature-name {
+    font-size: 11.5px !important;
+    padding: 9px 8px !important;
+    line-height: 1.3 !important;
+  }
+  .comparison-table td.td-center-val {
+    padding: 9px 4px !important;
+    text-align: center !important;
+  }
+  .tbl-check-icon {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .tbl-dash {
+    font-size: 14px !important;
+  }
+  .cat-header-inner {
+    padding: 2px 0 !important;
+    gap: 8px !important;
+  }
+  .cat-title-text {
+    font-size: 12px !important;
+  }
+  .cat-count-pill {
+    font-size: 9.5px !important;
+    padding: 2px 6px !important;
   }
   .final-cta-btn-wrap {
     display: flex !important;
@@ -1911,6 +1996,15 @@ body {
   .final-cta-btn-secondary {
     padding: 9px 4px !important;
     font-size: 10.5px !important;
+  }
+  .btn-email-us {
+    font-size: 11.5px !important;
+    padding: 9px 10px !important;
+    gap: 6px !important;
+  }
+  .btn-email-us svg {
+    width: 13px !important;
+    height: 13px !important;
   }
 }
 </style>
@@ -2028,7 +2122,10 @@ body {
 
         <div class="pricing-billing-pill" id="pricing-billing-pill">
           <span class="save-discount-badge">Save up to 15%</span>
-          <span class="billing-pill-text">Billed annually &bull; Software subscription only &bull; Prices in <strong id="billing-curr-code">USD</strong></span>
+          <span class="billing-pill-text">
+            <span class="pill-text-core">Billed annually &bull; Software subscription only</span>
+            <span class="pill-text-curr">&bull;&nbsp;Prices&nbsp;in&nbsp;<strong id="billing-curr-code">USD</strong></span>
+          </span>
         </div>
       </div>
 
@@ -3151,9 +3248,15 @@ function updatePricingDisplay() {
   if (pill) {
     if (isYearly) {
       pill.innerHTML = '<span class="save-discount-badge">Save up to 15%</span>' +
-                       '<span class="billing-pill-text">Billed annually &bull; Software subscription only &bull; Prices in <strong>' + data.code + '</strong></span>';
+                       '<span class="billing-pill-text">' +
+                       '<span class="pill-text-core">Billed annually &bull; Software subscription only</span> ' +
+                       '<span class="pill-text-curr">&bull;&nbsp;Prices&nbsp;in&nbsp;<strong>' + data.code + '</strong></span>' +
+                       '</span>';
     } else {
-      pill.innerHTML = '<span class="billing-pill-text">Billed monthly &bull; Software subscription only &bull; Prices in <strong>' + data.code + '</strong></span>';
+      pill.innerHTML = '<span class="billing-pill-text">' +
+                       '<span class="pill-text-core">Billed monthly &bull; Software subscription only</span> ' +
+                       '<span class="pill-text-curr">&bull;&nbsp;Prices&nbsp;in&nbsp;<strong>' + data.code + '</strong></span>' +
+                       '</span>';
     }
   }
 

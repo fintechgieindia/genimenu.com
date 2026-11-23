@@ -1,8 +1,10 @@
 @php
     $meta = [
-        'title' => 'Features | Geni Menu — Kitchen KDS, POS, Inventory & Table Management',
-        'description' => 'Explore Geni Menu features: kitchen display system (KDS), table management, waitlist, tableside ordering, recipe management, food cost tracking, and automated vendor ordering.',
+        'title' => 'Geni Menu Features | Restaurant Management Software',
+        'description' => 'Explore Geni Menu features including digital menus, QR ordering, POS billing, kitchen order management and tools designed to simplify restaurant operations.',
         'keywords' => 'restaurants, hotels, menu, canteen, food, software, kitchen display system KDS software, table management and waitlist software, tableside ordering and payment system, self-ordering kiosk software for restaurants, food cost and recipe management software, restaurant inventory and food waste software, automated vendor ordering software, multi-unit restaurant enterprise software, restaurant KOT billing software, captain ordering app India, geni menu features',
+        'og_title' => 'Geni Menu Features | Restaurant Management Software',
+        'og_description' => 'Explore Geni Menu features including digital menus, QR ordering, POS billing, kitchen order management and tools designed to simplify restaurant operations.',
     ];
 @endphp
 

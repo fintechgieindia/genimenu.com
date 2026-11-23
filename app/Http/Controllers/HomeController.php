@@ -202,8 +202,8 @@ class HomeController extends Controller
     public function solutions()
     {
         $meta = [
-            'title' => 'Geni Menu Solutions | Restaurant & Food Business Management Platform',
-            'description' => 'Explore tailored Geni Menu solutions for family restaurants, dine-in, fine dining, QSR, takeaway, bakeries, cafes, canteens, sweet shops, pizzerias, bars, and multi-branch chains.',
+            'title' => 'Restaurant Management Solutions | Geni Menu',
+            'description' => 'Discover restaurant management solutions with Geni Menu. Manage digital menus, customer orders, billing and kitchen operations through one integrated platform.',
             'keywords' => 'restaurant solutions, food business management software, QSR software, bakery POS, canteen management system, fine dining software, sweet shop POS, multi-branch restaurant ERP, Geni Menu solutions'
         ];
         return view('frontend.solutions', compact('meta'));
@@ -211,8 +211,8 @@ class HomeController extends Controller
     public function features()
     {
         $meta = [
-            'title' => 'Features | Geni Menu',
-            'description' => 'Discover powerful features of Geni Menu ERP including POS billing, inventory control, staff management, reports, kitchen display, CRM, and delivery integrations.',
+            'title' => 'Geni Menu Features | Restaurant Management Software',
+            'description' => 'Explore Geni Menu features including digital menus, QR ordering, POS billing, kitchen order management and tools designed to simplify restaurant operations.',
             'keywords' => 'restaurant ERP features, POS billing features, inventory management software, restaurant CRM, kitchen display system, multi-branch ERP, GST compliant restaurant software, restaurant analytics features, mobile POS features, online ordering integration'
         ];
         return view('frontend.features', compact('meta'));
@@ -427,8 +427,8 @@ class HomeController extends Controller
     public function aboutUs()
     {
         $meta = [
-            'title' => 'About Us | Geni Menu',
-            'description' => 'Learn more about Geni Menu ERP, our mission, and how we help restaurants in India simplify operations, boost sales, and deliver exceptional customer experiences.',
+            'title' => 'About Geni Menu | Smarter Restaurant Management',
+            'description' => 'Learn about Geni Menu, a restaurant technology platform designed to simplify daily operations, improve service efficiency and create better dining experiences.',
             'keywords' => 'about Geni Menu ERP, restaurant software company India, restaurant technology provider, restaurant management software, Geni ERP mission, restaurant POS solutions, restaurant ERP provider, India food industry software, restaurant automation solutions'
         ];
         return view('frontend.about', compact('meta'));
@@ -610,13 +610,19 @@ class HomeController extends Controller
                 ];
             });
 
+        $meta = [
+            'title' => 'Geni Menu Pricing | Restaurant Software Plans',
+            'description' => 'Explore Geni Menu pricing plans and find the right restaurant management solution for your business. Get the tools you need to manage menus, orders and billing.',
+        ];
+
         // Pass data to view
         return view('frontend.pricingpage', compact(
             'packages',
             'AllModulesWithFeature',
             'categories',
             'selectedCategory',
-            'billingCycle'
+            'billingCycle',
+            'meta'
         ));
     }
     public function enquiry()
@@ -632,8 +638,8 @@ class HomeController extends Controller
     public function contact()
     {
         $meta = [
-            'title' => 'Contact Us | Geni Menu — Software for Restaurants, Hotels & Canteens',
-            'description' => 'Get in touch with Geni Menu for restaurant, hotel, canteen, and food business POS billing software, digital QR menu demo, and sales support.',
+            'title' => 'Contact Geni Menu | Restaurant Software Enquiries',
+            'description' => 'Get in touch with Geni Menu for product enquiries, software demonstrations, pricing information and support for your restaurant management needs.',
             'keywords' => 'restaurants, hotels, menu, canteen, food, software, restaurant billing software near me, restaurant management system in Tamil Nadu, contact geni menu, restaurant software demo, hotel pos sales, canteen billing support, food software support',
         ];
         return view('frontend.contact', compact('meta'));

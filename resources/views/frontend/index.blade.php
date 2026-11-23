@@ -1,8 +1,14 @@
 @php
     $meta = [
-        'title' => 'Geni Menu | Best Restaurant, Hotel & Canteen Billing Software | Digital QR Menu & POS',
-        'description' => 'All-in-one restaurant billing software with GST, captain ordering app, KOT management, Swiggy Zomato integrated POS, UPI QR payments, kitchen display KDS, and multi-unit cloud POS software.',
+        'title' => 'Geni Menu | Digital Menu & Restaurant Management Platform',
+        'description' => 'Simplify restaurant operations with Geni Menu, an integrated platform for digital menus, QR ordering, POS billing and kitchen order management. Enhance guest experiences, streamline daily operations and manage your restaurant more efficiently.',
         'keywords' => 'restaurants, hotels, menu, canteen, food, software, restaurant billing software with GST, GST billing software for cafe, captain ordering app India, restaurant KOT billing software, offline restaurant POS software India, sweet shop billing software, bakery POS software India, cloud kitchen software India, juice shop and cafe POS, food truck billing machine and software, Swiggy Zomato integrated POS, restaurant POS with UPI QR billing, WhatsApp billing software for restaurants, QR code digital menu ordering India, restaurant billing software near me, restaurant management system in Tamil Nadu, cloud restaurant POS system, hospitality POS software, iPad POS for restaurants, quick service restaurant QSR POS, full service restaurant management system, kitchen display system KDS software, table management and waitlist software, tableside ordering and payment system, self-ordering kiosk software for restaurants, food cost and recipe management software, restaurant inventory and food waste software, automated vendor ordering software, multi-unit restaurant enterprise software, geni menu',
+        'og_title' => 'Geni Menu | Digital Menu & Restaurant Management Platform',
+        'og_description' => 'Simplify restaurant operations with Geni Menu, an integrated platform for digital menus, QR ordering, POS billing and kitchen order management. Enhance guest experiences, streamline daily operations and manage your restaurant more efficiently.',
+        'og_image' => 'landing/geni-restaurant-logo.jpg',
+        'og_image_width' => '1200',
+        'og_image_height' => '630',
+        'og_image_alt' => 'Geni Menu - One Platform. Smarter Restaurant Management.',
     ];
 @endphp
 

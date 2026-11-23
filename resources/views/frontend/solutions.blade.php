@@ -1,8 +1,10 @@
 @php
     $meta = [
-        'title' => 'Software Solutions for Restaurants, Hotels, Canteens & Food Businesses | Geni Menu',
-        'description' => 'Explore tailored Geni Menu software solutions for restaurants, hotels, sweet shops, bakeries, cloud kitchens, juice shops, canteens, and food trucks. Fast GST billing & QR code ordering.',
+        'title' => 'Restaurant Management Solutions | Geni Menu',
+        'description' => 'Discover restaurant management solutions with Geni Menu. Manage digital menus, customer orders, billing and kitchen operations through one integrated platform.',
         'keywords' => 'restaurants, hotels, menu, canteen, food, software, sweet shop billing software, bakery POS software India, cloud kitchen software India, juice shop and cafe POS, food truck billing machine and software, quick service restaurant QSR POS, full service restaurant management system, college canteen software, office canteen billing, restaurant solutions, hotel billing software, canteen management system, geni menu',
+        'og_title' => 'Restaurant Management Solutions | Geni Menu',
+        'og_description' => 'Discover restaurant management solutions with Geni Menu. Manage digital menus, customer orders, billing and kitchen operations through one integrated platform.',
     ];
 @endphp
 
@@ -1090,6 +1092,41 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
   }
   .sol-mockup-frame {
     padding: 8px;
+  }
+  /* Hero Points - Exactly 2 Points Per Row */
+  .sol-hero-pills {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .sol-hero-pill-tag {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    padding: 6.5px 8px !important;
+    font-size: 11px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    border-radius: 9999px !important;
+  }
+  .sol-hero-pill-tag svg {
+    width: 12px !important;
+    height: 12px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+@media (max-width: 370px) {
+  .sol-hero-pill-tag {
+    font-size: 10px !important;
+    padding: 5px 6px !important;
+    gap: 4px !important;
   }
 }
 

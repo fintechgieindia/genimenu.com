@@ -1,8 +1,10 @@
 @php
     $meta = [
-        'title' => 'About Us | Geni Menu — Restaurant, Hotel & Food Business Software Ecosystem',
-        'description' => 'Learn how Geni Menu empowers restaurants, hotels, canteens, cafes, and food courts with all-in-one digital menus, POS billing, and smart kitchen operations software.',
+        'title' => 'About Geni Menu | Smarter Restaurant Management',
+        'description' => 'Learn about Geni Menu, a restaurant technology platform designed to simplify daily operations, improve service efficiency and create better dining experiences.',
         'keywords' => 'restaurants, hotels, menu, canteen, food, software, about geni menu, restaurant management system, digital menu platform, hotel pos software, cafeteria billing',
+        'og_title' => 'About Geni Menu | Smarter Restaurant Management',
+        'og_description' => 'Learn about Geni Menu, a restaurant technology platform designed to simplify daily operations, improve service efficiency and create better dining experiences.',
     ];
 @endphp
 
