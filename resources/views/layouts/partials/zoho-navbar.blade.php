@@ -199,8 +199,8 @@
 
   /* Language Switcher */
   .geni-pos-nav .nav-lang-dropdown {
+    display: none !important;
     position: relative;
-    display: inline-flex;
     align-items: center;
   }
 
@@ -699,6 +699,7 @@
 
   .mobile-panel .mobile-lang-box,
   .geni-pos-nav .mobile-lang-box {
+    display: none !important;
     margin-bottom: 6px;
   }
 
@@ -862,8 +863,8 @@
     <!-- Right Side: Language Switcher + Sign Up + Login -->
     <div class="nav-cta-group">
 
-      <!-- Language Switcher near Sign In -->
-      <div class="nav-lang-dropdown notranslate" id="geniLangDropdown">
+      <!-- Language Switcher near Sign In (Hidden) -->
+      <div class="nav-lang-dropdown notranslate" id="geniLangDropdown" style="display: none !important;">
         <button type="button" class="btn-lang-toggle" id="btnLangToggle" aria-label="Select Language" aria-expanded="false" title="Change Language">
           <svg class="lang-globe-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
@@ -1012,13 +1013,13 @@
       </div>
 
       <!-- Preserved CTA Button: Start Free Trial -->
-      <a href="{{ route('restaurant_signup') }}" class="btn-signup-pill">
+      <a href="{{ route('restaurant_signup') }}" target="_blank" rel="noopener noreferrer" class="btn-signup-pill">
         <span>Start Free Trial</span>
         <span style="font-size: 15px;">&rarr;</span>
       </a>
 
       <!-- Preserved Auth Button: Login / Dashboard -->
-      <a href="{{ route('login') }}" class="btn-signin">
+      <a href="{{ route('login') }}" target="_blank" rel="noopener noreferrer" class="btn-signin">
         @if (user())
           @lang('menu.dashboard')
         @else
@@ -1098,8 +1099,8 @@
   </ul>
 
   <div class="mobile-actions">
-    <!-- Mobile Language Switcher -->
-    <div class="mobile-lang-box notranslate">
+    <!-- Mobile Language Switcher (Hidden) -->
+    <div class="mobile-lang-box notranslate" style="display: none !important;">
       <label for="mobileLangSelect" class="mobile-lang-label">
         <svg class="lang-globe-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"></circle>
@@ -1140,6 +1141,7 @@
     </div>
 
     <a href="{{ route('restaurant_signup') }}"
+       target="_blank" rel="noopener noreferrer"
        onclick="closeGeniMobile();"
        class="btn-signup-pill"
        style="display:flex;width:100%;text-align:center;justify-content:center;align-items:center;padding:14px 20px;font-size:15px;font-weight:700;border-radius:9999px;background:linear-gradient(135deg, #F2C58D 0%, #E8BA80 100%) !important;color:#27130D !important;box-shadow:0 6px 20px rgba(242, 197, 141, 0.45);border:none;text-decoration:none;">
@@ -1147,7 +1149,7 @@
       <span style="font-size: 16px; margin-left: 6px;">&rarr;</span>
     </a>
 
-    <a href="{{ route('login') }}" class="btn-signin" style="display:flex;width:100%;text-align:center;justify-content:center;align-items:center;padding:13px 20px;font-size:14.5px;font-weight:600;color:#FFF8F0 !important;background:rgba(74, 41, 27, 0.45);border:1.5px solid rgba(242,197,141,0.5);border-radius:9999px;text-decoration:none;">
+    <a href="{{ route('login') }}" target="_blank" rel="noopener noreferrer" onclick="closeGeniMobile();" class="btn-signin" style="display:flex;width:100%;text-align:center;justify-content:center;align-items:center;padding:13px 20px;font-size:14.5px;font-weight:600;color:#FFF8F0 !important;background:rgba(74, 41, 27, 0.45);border:1.5px solid rgba(242,197,141,0.5);border-radius:9999px;text-decoration:none;">
       @if (user())
         @lang('menu.dashboard')
       @else

@@ -423,18 +423,18 @@
 
 .about-checklist-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   font-family: 'Glacial Indifference', sans-serif !important;
   font-weight: 400 !important;
-  font-size: 14.5px;
+  font-size: 15px;
   color: var(--about-chocolate);
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .about-checklist-item strong {
   font-family: 'Cinzel', serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.03em;
   color: #27130D;
@@ -479,12 +479,14 @@
   background: #FFFFFF;
   border: 1px solid rgba(197, 139, 80, 0.20);
   border-radius: 12px;
-  padding: 16px 12px 14px;
+  padding: 22px 14px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  gap: 6px;
+  gap: 10px;
+  min-height: 112px;
   transition: all 0.22s ease;
   cursor: default;
 }
@@ -497,8 +499,8 @@
 }
 
 .about-eco-icon-wrap {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: rgba(197, 139, 80, 0.12);
   display: flex;
@@ -510,8 +512,8 @@
 }
 
 .about-eco-icon-wrap svg {
-  width: 19px;
-  height: 19px;
+  width: 20px;
+  height: 20px;
 }
 
 .about-eco-item:hover .about-eco-icon-wrap {
@@ -522,11 +524,11 @@
 
 .about-eco-label {
   font-family: 'Cinzel', serif !important;
-  font-size: 12.5px;
-  font-weight: 400 !important;
+  font-size: 13px;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.03em;
-  line-height: 1.25;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
   color: var(--about-chocolate);
   margin: 0;
 }
@@ -615,11 +617,11 @@
 .about-approach-num-title {
   font-family: 'Cinzel', serif !important;
   font-size: 15px;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.03em;
   color: var(--about-chocolate);
-  margin: 0 0 6px 0;
+  margin: 0;
 }
 
 .about-approach-desc {
@@ -687,7 +689,7 @@
 
 .about-adv-item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
 }
 
@@ -701,7 +703,7 @@
   justify-content: center;
   color: #27130D;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 0;
   box-shadow: 0 2px 6px rgba(245, 185, 71, 0.3);
 }
 
@@ -714,11 +716,11 @@
 .about-adv-title {
   font-family: 'Cinzel', serif !important;
   font-size: 13.5px;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.03em;
   color: #FFF4E5;
-  margin: 0 0 2px 0;
+  margin: 0;
 }
 
 .about-adv-desc {
@@ -802,11 +804,11 @@
 
 .about-step-title {
   font-family: 'Cinzel', serif !important;
-  font-size: 12.5px;
-  font-weight: 400 !important;
+  font-size: 13px;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.03em;
-  line-height: 1.28;
+  line-height: 1.35;
   color: var(--about-chocolate);
   margin: 0;
 }
@@ -1094,15 +1096,69 @@
   .about-hero-section {
     padding: 85px 0 65px !important;
   }
+  .about-ecosystem-card {
+    padding: 24px 14px !important;
+  }
   .about-eco-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .about-eco-item:last-child {
+    grid-column: 1 / -1;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    min-height: 64px !important;
+    padding: 14px 18px !important;
+  }
+  .about-eco-item:last-child .about-eco-icon-wrap {
+    margin-bottom: 0 !important;
+  }
+  .about-approach-panel {
+    padding: 28px 14px 24px !important;
+    border-radius: 16px !important;
+  }
+  .about-approach-header {
+    margin-bottom: 22px !important;
   }
   .about-approach-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .about-approach-col {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(197, 139, 80, 0.22) !important;
+    border-radius: 12px !important;
+    padding: 18px 8px 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    min-height: 110px !important;
+    gap: 8px !important;
+    box-shadow: 0 4px 14px rgba(50, 24, 15, 0.04) !important;
   }
   .about-approach-col::after {
     display: none !important;
+  }
+  .about-approach-icon-wrap {
+    width: 40px !important;
+    height: 40px !important;
+    margin-bottom: 0 !important;
+    background: rgba(197, 139, 80, 0.12) !important;
+  }
+  .about-approach-icon-wrap svg {
+    width: 19px !important;
+    height: 19px !important;
+  }
+  .about-approach-num-title {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    margin: 0 !important;
+    font-weight: 500 !important;
+    color: var(--about-chocolate) !important;
   }
   .about-advantage-2col {
     grid-template-columns: 1fr;
@@ -1124,13 +1180,92 @@
     grid-template-columns: 1fr;
   }
   .about-final-cta-actions {
-    flex-direction: column;
-    width: 100%;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
   }
   .about-final-cta-actions .btn-primary-gold,
   .about-final-cta-actions .btn-secondary-outline-gold {
-    width: 100%;
-    justify-content: center;
+    flex: 1 1 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 12px 6px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    justify-content: center !important;
+    letter-spacing: 0.01em !important;
+  }
+  .about-final-cta-actions .btn-primary-gold .arrow,
+  .about-final-cta-actions .btn-secondary-outline-gold .arrow {
+    margin-left: 4px !important;
+    font-size: 13px !important;
+  }
+  .about-final-cta-actions .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-ecosystem-card {
+    padding: 20px 10px !important;
+  }
+  .about-eco-grid {
+    gap: 8px !important;
+  }
+  .about-eco-item {
+    padding: 16px 8px 14px !important;
+    min-height: 98px !important;
+    gap: 8px !important;
+  }
+  .about-eco-icon-wrap {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .about-eco-icon-wrap svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  .about-eco-label {
+    font-size: 11.5px !important;
+  }
+  .about-eco-item:last-child {
+    min-height: 56px !important;
+    padding: 12px 14px !important;
+    gap: 10px !important;
+  }
+  .about-approach-panel {
+    padding: 22px 10px 18px !important;
+  }
+  .about-approach-grid {
+    gap: 8px !important;
+  }
+  .about-approach-col {
+    padding: 14px 6px 12px !important;
+    min-height: 98px !important;
+    gap: 6px !important;
+  }
+  .about-approach-icon-wrap {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .about-approach-icon-wrap svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+  .about-approach-num-title {
+    font-size: 11px !important;
+  }
+  .about-final-cta-actions {
+    gap: 6px !important;
+  }
+  .about-final-cta-actions .btn-primary-gold,
+  .about-final-cta-actions .btn-secondary-outline-gold {
+    padding: 10px 4px !important;
+    font-size: 11px !important;
   }
 }
 </style>
@@ -1256,7 +1391,7 @@
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </div>
-              <span><strong>Less Manual Work:</strong> Reduce repetitive processes through digital workflows.</span>
+              <span><strong>Less Manual Work</strong></span>
             </li>
 
             <li class="about-checklist-item">
@@ -1265,7 +1400,7 @@
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </div>
-              <span><strong>Centralised Management:</strong> Bring essential operations together.</span>
+              <span><strong>Centralised Management</strong></span>
             </li>
 
             <li class="about-checklist-item">
@@ -1274,7 +1409,7 @@
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </div>
-              <span><strong>Faster Coordination:</strong> Improve communication between ordering and kitchen operations.</span>
+              <span><strong>Faster Coordination</strong></span>
             </li>
 
             <li class="about-checklist-item">
@@ -1283,7 +1418,7 @@
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </div>
-              <span><strong>Greater Visibility:</strong> Access meaningful information across business activities.</span>
+              <span><strong>Greater Visibility</strong></span>
             </li>
 
             <li class="about-checklist-item">
@@ -1292,7 +1427,7 @@
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </div>
-              <span><strong>Smarter Decisions:</strong> Use operational insights to identify opportunities for improvement.</span>
+              <span><strong>Smarter Decisions</strong></span>
             </li>
           </ul>
         </div>
@@ -1324,7 +1459,6 @@
                 </svg>
               </div>
               <h5 class="about-eco-label">Digital Menu Management</h5>
-              <p class="about-eco-desc">Build engaging digital menus, organise categories, showcase food items and manage pricing with greater flexibility.</p>
             </div>
 
             <!-- 02. QR Code Ordering -->
@@ -1341,7 +1475,6 @@
                 </svg>
               </div>
               <h5 class="about-eco-label">QR Code Ordering</h5>
-              <p class="about-eco-desc">Connect customers directly to digital menus and provide a convenient, technology-enabled ordering experience.</p>
             </div>
 
             <!-- 03. POS & Billing -->
@@ -1354,7 +1487,6 @@
                 </svg>
               </div>
               <h5 class="about-eco-label">POS &amp; Billing</h5>
-              <p class="about-eco-desc">Manage transactions, sales and billing activities through an integrated point-of-sale experience.</p>
             </div>
 
             <!-- 04. Kitchen Order Management -->
@@ -1366,7 +1498,6 @@
                 </svg>
               </div>
               <h5 class="about-eco-label">Kitchen Order Management</h5>
-              <p class="about-eco-desc">Coordinate incoming orders and kitchen workflows to support accurate preparation and efficient service.</p>
             </div>
 
             <!-- 05. Inventory Management -->
@@ -1379,7 +1510,6 @@
                 </svg>
               </div>
               <h5 class="about-eco-label">Inventory Management</h5>
-              <p class="about-eco-desc">Monitor stock levels, track inventory movement and maintain better control over ingredients and supplies.</p>
             </div>
 
             <!-- 06. Table Management -->
@@ -1395,7 +1525,6 @@
                 </svg>
               </div>
               <h5 class="about-eco-label">Table Management</h5>
-              <p class="about-eco-desc">Organise table allocation, monitor availability and improve dining floor coordination.</p>
             </div>
 
             <!-- 07. Reservation Management -->
@@ -1410,7 +1539,6 @@
                 </svg>
               </div>
               <h5 class="about-eco-label">Reservation Management</h5>
-              <p class="about-eco-desc">Manage table bookings and reservation activities through a structured digital workflow.</p>
             </div>
 
             <!-- 08. Delivery Management -->
@@ -1424,7 +1552,6 @@
                 </svg>
               </div>
               <h5 class="about-eco-label">Delivery Management</h5>
-              <p class="about-eco-desc">Organise delivery orders and coordinate fulfilment activities from order placement to completion.</p>
             </div>
 
             <!-- 09. Business Analytics -->
@@ -1438,7 +1565,6 @@
                 </svg>
               </div>
               <h5 class="about-eco-label">Business Analytics</h5>
-              <p class="about-eco-desc">Transform operational data into meaningful insights that support informed business decisions.</p>
             </div>
           </div>
         </div>
@@ -1481,7 +1607,6 @@
               </svg>
             </div>
             <h4 class="about-approach-num-title">01. Simplicity by Design</h4>
-            <p class="about-approach-desc">We focus on intuitive experiences that make technology easier to understand, access and use.</p>
           </div>
 
           <!-- 02. Connected Intelligence -->
@@ -1496,7 +1621,6 @@
               </svg>
             </div>
             <h4 class="about-approach-num-title">02. Connected Intelligence</h4>
-            <p class="about-approach-desc">We bring essential business functions together to create more coordinated operational workflows.</p>
           </div>
 
           <!-- 03. Experience-Led Innovation -->
@@ -1510,7 +1634,6 @@
               </svg>
             </div>
             <h4 class="about-approach-num-title">03. Experience-Led Innovation</h4>
-            <p class="about-approach-desc">We design digital experiences that consider both the people managing operations and the customers interacting with them.</p>
           </div>
 
           <!-- 04. Continuous Evolution -->
@@ -1523,7 +1646,6 @@
               </svg>
             </div>
             <h4 class="about-approach-num-title">04. Continuous Evolution</h4>
-            <p class="about-approach-desc">We continuously refine our solutions to adapt to changing expectations, emerging technologies and evolving business requirements.</p>
           </div>
 
         </div>
@@ -1563,10 +1685,7 @@
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <div>
-                <h5 class="about-adv-title">Unified Platform</h5>
-                <p class="about-adv-desc">Access multiple business capabilities through one connected environment.</p>
-              </div>
+              <h5 class="about-adv-title">Unified Platform</h5>
             </div>
 
             <!-- 2. Operational Efficiency -->
@@ -1576,10 +1695,7 @@
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <div>
-                <h5 class="about-adv-title">Operational Efficiency</h5>
-                <p class="about-adv-desc">Organise everyday workflows and reduce unnecessary manual effort.</p>
-              </div>
+              <h5 class="about-adv-title">Operational Efficiency</h5>
             </div>
 
             <!-- 3. Flexible Management -->
@@ -1589,10 +1705,7 @@
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <div>
-                <h5 class="about-adv-title">Flexible Management</h5>
-                <p class="about-adv-desc">Adapt menus, pricing and operational settings as business requirements change.</p>
-              </div>
+              <h5 class="about-adv-title">Flexible Management</h5>
             </div>
 
             <!-- 4. Connected Operations -->
@@ -1602,10 +1715,7 @@
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <div>
-                <h5 class="about-adv-title">Connected Operations</h5>
-                <p class="about-adv-desc">Bring ordering, billing, kitchen and management activities closer together.</p>
-              </div>
+              <h5 class="about-adv-title">Connected Operations</h5>
             </div>
 
             <!-- 5. Actionable Intelligence -->
@@ -1615,10 +1725,7 @@
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <div>
-                <h5 class="about-adv-title">Actionable Intelligence</h5>
-                <p class="about-adv-desc">Gain useful visibility into business activities and operational performance.</p>
-              </div>
+              <h5 class="about-adv-title">Actionable Intelligence</h5>
             </div>
 
             <!-- 6. Growth-Ready Technology -->
@@ -1628,10 +1735,7 @@
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <div>
-                <h5 class="about-adv-title">Growth-Ready Technology</h5>
-                <p class="about-adv-desc">Build on a flexible digital foundation that can support evolving business needs.</p>
-              </div>
+              <h5 class="about-adv-title">Growth-Ready Technology</h5>
             </div>
           </div>
         </div>
@@ -1659,7 +1763,6 @@
               <div class="about-step-node">
                 <div class="about-step-badge">01</div>
                 <h6 class="about-step-title">Build Your Digital Presence</h6>
-                <p class="about-step-desc">Create a structured digital menu with items, descriptions, images and pricing.</p>
               </div>
 
               <span class="about-step-arrow">&rarr;</span>
@@ -1668,7 +1771,6 @@
               <div class="about-step-node">
                 <div class="about-step-badge">02</div>
                 <h6 class="about-step-title">Connect Your Customers</h6>
-                <p class="about-step-desc">Make your menu accessible through QR codes and digital sharing.</p>
               </div>
 
               <span class="about-step-arrow">&rarr;</span>
@@ -1677,7 +1779,6 @@
               <div class="about-step-node">
                 <div class="about-step-badge">03</div>
                 <h6 class="about-step-title">Capture &amp; Manage Orders</h6>
-                <p class="about-step-desc">Organise incoming orders through a centralised ordering workflow.</p>
               </div>
 
               <span class="about-step-arrow">&rarr;</span>
@@ -1686,7 +1787,6 @@
               <div class="about-step-node">
                 <div class="about-step-badge">04</div>
                 <h6 class="about-step-title">Coordinate Operations</h6>
-                <p class="about-step-desc">Connect billing, kitchen activities, tables and inventory management.</p>
               </div>
 
               <span class="about-step-arrow">&rarr;</span>
@@ -1695,7 +1795,6 @@
               <div class="about-step-node">
                 <div class="about-step-badge">05</div>
                 <h6 class="about-step-title">Understand &amp; Improve</h6>
-                <p class="about-step-desc">Review business performance and monitor operational activities.</p>
               </div>
             </div>
           </div>
@@ -1836,12 +1935,12 @@
       <!-- Action Buttons -->
       <div class="about-final-cta-actions">
         <a href="{{ route('restaurant_signup') }}" class="btn-primary-gold">
-          <span>Get Started Today</span>
+          <span>Get Started <span class="hide-on-mobile">Today</span></span>
           <span class="arrow">&rarr;</span>
         </a>
 
         <a href="{{ route('enquiry') }}" class="btn-secondary-outline-gold">
-          <span>Book a Personalised Demo</span>
+          <span>Book <span class="hide-on-mobile">Personalised </span>Demo</span>
           <span class="arrow">&rarr;</span>
         </a>
       </div>

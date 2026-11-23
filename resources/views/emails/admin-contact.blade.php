@@ -29,6 +29,10 @@
     @if(!empty($subject))
         <strong>Subject:</strong> {{ $subject }} <br>
     @endif
+
+    @if(!empty($other_subject))
+        <strong>Specified Business Type:</strong> {{ $other_subject }} <br>
+    @endif
 </p>
 <p>
     <strong>Message:</strong><br>

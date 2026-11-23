@@ -1137,16 +1137,46 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
   .sol-container {
     padding: 0 16px;
   }
-  .sol-hero-actions,
-  .sol-cta-actions {
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
+  .sol-hide-mobile {
+    display: none !important;
   }
-  .sol-hero-actions .sol-btn,
-  .sol-cta-actions .sol-btn {
-    width: 100%;
-    justify-content: center;
+  /* Hero & CTA Actions - Single Line Side-by-Side */
+  .sol-hero-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .sol-hero-actions .sol-btn {
+    flex: 1 1 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 11px 8px !important;
+    font-size: 12.5px !important;
+    white-space: nowrap !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  .sol-cta-btns {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .sol-cta-btns .sol-btn {
+    flex: 1 1 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 11px 8px !important;
+    font-size: 12.5px !important;
+    white-space: nowrap !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
   }
   .sol-search-box {
     min-width: 100%;
@@ -1175,28 +1205,71 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
     max-height: 90vh;
     overflow-y: auto;
   }
+  /* Solution Modal Actions - Single Line Side-by-Side */
   .sol-modal-actions {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
     align-items: center !important;
     justify-content: center !important;
     width: 100% !important;
-    gap: 12px !important;
+    gap: 8px !important;
     margin-top: 20px !important;
   }
   .sol-modal-actions .sol-btn-primary {
-    width: 100% !important;
-    flex: none !important;
+    flex: 1 1 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 11px 8px !important;
+    font-size: 12px !important;
     text-align: center !important;
     justify-content: center !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
   }
   .sol-modal-actions .sol-btn-secondary {
-    display: inline-flex !important;
-    margin: 0 auto !important;
-    align-self: center !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 70px !important;
+    padding: 11px 16px !important;
+    font-size: 12px !important;
+    margin: 0 !important;
+    align-self: auto !important;
     text-align: center !important;
     justify-content: center !important;
-    min-width: 140px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .sol-hero-actions {
+    gap: 6px !important;
+  }
+  .sol-hero-actions .sol-btn {
+    padding: 10px 4px !important;
+    font-size: 11px !important;
+  }
+  .sol-cta-btns {
+    gap: 6px !important;
+  }
+  .sol-cta-btns .sol-btn {
+    padding: 10px 4px !important;
+    font-size: 11px !important;
+  }
+  .sol-modal-actions {
+    gap: 6px !important;
+  }
+  .sol-modal-actions .sol-btn-primary {
+    padding: 10px 6px !important;
+    font-size: 10.5px !important;
+  }
+  .sol-modal-actions .sol-btn-secondary {
+    padding: 10px 10px !important;
+    font-size: 10.5px !important;
+    min-width: 56px !important;
+  }
+  .sol-modal-box {
+    padding: 20px 14px 16px !important;
   }
 }
 </style>
@@ -1804,8 +1877,8 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
                     Manage your food business smarter with one connected platform.
                 </p>
                 <div class="sol-cta-btns">
-                    <a href="{{ route('hardware-integrations') }}" class="sol-btn sol-cta-btn-gold">
-                        Explore Hardware &rarr;
+                    <a href="{{ route('pricing') }}" class="sol-btn sol-cta-btn-gold">
+                        Explore Pricing &rarr;
                     </a>
                     <a href="{{ route('enquiry') }}" class="sol-btn sol-cta-btn-light">
                         Book a Demo &rarr;
@@ -1829,7 +1902,7 @@ p, li, .sol-hero-desc, .sol-sec-desc, .sol-card-desc,
             </ul>
             <div class="sol-modal-actions">
                 <a href="{{ route('enquiry') }}" class="sol-btn sol-btn-primary">
-                    Book a Free Demo for This Solution &rarr;
+                    Book a Free Demo <span class="sol-hide-mobile">for This Solution</span> &rarr;
                 </a>
                 <button type="button" class="sol-btn sol-btn-secondary" onclick="closeSolutionModal()">
                     Close

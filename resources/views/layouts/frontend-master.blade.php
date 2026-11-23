@@ -289,7 +289,7 @@
         /* Footer styles */
         .footer {
             background-color: #FAF2E8 !important;
-            padding: 38px 20px 18px;
+            padding: 34px 20px 14px;
             border-top: 1px solid rgba(197, 139, 80, 0.28) !important;
             font-family: 'Glacial Indifference', -apple-system, BlinkMacSystemFont, sans-serif !important;
         }
@@ -348,23 +348,25 @@
             font-weight: 700 !important;
             text-transform: uppercase !important;
             letter-spacing: 0.06em !important;
-            margin-bottom: 12px;
-            font-size: 15px !important;
+            margin-bottom: 10px;
+            font-size: 13.5px !important;
         }
 
         /* Body Text: Glacial Indifference Regular */
         .footer p {
             font-family: 'Glacial Indifference', sans-serif !important;
             color: #5A4234 !important;
-            font-size: 13.5px !important;
+            font-size: 12.5px !important;
             font-weight: 400 !important;
-            line-height: 1.55;
-            margin-bottom: 8px;
+            line-height: 1.5;
+            margin-bottom: 7px;
         }
 
         .footer-desc {
             text-align: justify;
             padding-right: 30px;
+            font-size: 12.5px !important;
+            line-height: 1.5 !important;
         }
 
         /* Links: Glacial Indifference Regular */
@@ -374,9 +376,9 @@
             color: #5A4234 !important;
             font-weight: 400 !important;
             display: block;
-            margin-bottom: 7px;
+            margin-bottom: 6px;
             transition: all 0.22s ease;
-            font-size: 13.5px !important;
+            font-size: 12.5px !important;
             line-height: 1.35;
         }
 
@@ -393,21 +395,21 @@
         /* Social icons */
         .social-icons {
             display: flex;
-            gap: 10px;
-            margin-top: 10px;
+            gap: 8px;
+            margin-top: 8px;
         }
 
         .social-icons a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             background-color: #FFFDF9;
             border: 1.5px solid rgba(197, 139, 80, 0.45);
             border-radius: 50%;
             color: #32180F !important;
-            font-size: 15px;
+            font-size: 13.5px;
             transition: all 0.25s ease;
             margin-bottom: 0;
         }
@@ -420,6 +422,50 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 14px rgba(50, 24, 15, 0.18);
         }
+
+        /* Office Address & Contact Info */
+        .footer-company-name {
+            color: #32180F !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            margin-bottom: 3px !important;
+            letter-spacing: 0.01em;
+        }
+        .footer-office-address {
+            color: #5A4234 !important;
+            font-size: 11.5px !important;
+            line-height: 1.45 !important;
+            margin-bottom: 6px !important;
+        }
+        .footer-contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #5A4234 !important;
+            font-size: 12px !important;
+            margin-bottom: 4px;
+        }
+        .footer-contact-item i {
+            color: #C58B50;
+            font-size: 12.5px;
+        }
+        .footer-contact-item a {
+            color: #32180F !important;
+            font-weight: 700 !important;
+            display: inline !important;
+            margin-bottom: 0 !important;
+            font-size: 12px !important;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .footer-contact-item a:hover {
+            color: #C58B50 !important;
+            text-decoration: underline;
+        }
+        .footer-contact-item a:hover {
+            color: #C58B50 !important;
+            text-decoration: underline;
+        }
         
         .footer-bottom {
             max-width: 1240px;
@@ -431,7 +477,7 @@
         }
         .footer-bottom span {
             color: #6E6157 !important;
-            font-size: 13px !important;
+            font-size: 12px !important;
             font-family: 'Glacial Indifference', sans-serif !important;
         }
         .footer-bottom a {
@@ -448,70 +494,156 @@
         /* Responsive layout */
         @media (max-width: 768px) {
             .footer {
-                padding: 38px 20px 84px 20px !important;
+                padding: 26px 16px 14px !important;
                 text-align: center;
             }
             .footer-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 32px;
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: wrap !important;
+                justify-content: space-between !important;
+                gap: 20px 0 !important;
+                max-width: 100% !important;
             }
-            .footer-column.col-4,
-            .footer-column.col-2,
-            .footer-column.col-3,
             .footer-column.col-5 {
-                flex: 0 0 100%;
-                max-width: 100%;
-                width: 100%;
-                text-align: center;
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                text-align: center !important;
+                margin-bottom: 4px;
             }
             .footer-logo {
-                display: inline-flex;
-                margin: 0 auto 14px auto;
+                display: inline-flex !important;
+                margin: 0 auto 10px auto !important;
+                padding: 6px 14px !important;
             }
             .footer-logo img {
+                height: 30px !important;
                 margin: 0 auto;
             }
             .footer-desc {
                 text-align: center !important;
-                padding-right: 0 !important;
-                max-width: 420px;
-                margin: 0 auto 8px auto;
+                padding: 0 10px !important;
+                max-width: 360px !important;
+                margin: 0 auto !important;
+                font-size: 11.5px !important;
+                line-height: 1.45 !important;
             }
-            .footer h5 {
-                text-align: center !important;
-                margin-bottom: 14px;
+
+            /* 2 Columns: Useful Links (Left) & Policies (Right) side-by-side */
+            .footer-column.col-2 {
+                flex: 0 0 50% !important;
+                max-width: 50% !important;
+                width: 50% !important;
+                text-align: left !important;
+                padding-left: 8px !important;
+                padding-right: 8px !important;
+                box-sizing: border-box !important;
             }
-            .footer a {
-                text-align: center !important;
-                margin-bottom: 9px;
+            .footer-column.col-3 {
+                flex: 0 0 50% !important;
+                max-width: 50% !important;
+                width: 50% !important;
+                text-align: left !important;
+                padding-left: 18px !important;
+                padding-right: 8px !important;
+                box-sizing: border-box !important;
+                border-left: 1px solid rgba(197, 139, 80, 0.22) !important;
+            }
+            .footer-column.col-2 h5,
+            .footer-column.col-3 h5 {
+                text-align: left !important;
+                font-size: 12px !important;
+                margin-bottom: 10px !important;
+                letter-spacing: 0.05em !important;
+            }
+            .footer-column.col-2 a,
+            .footer-column.col-3 a {
+                text-align: left !important;
+                font-size: 11.5px !important;
+                margin-bottom: 6px !important;
+                display: block !important;
             }
             .footer a:hover {
                 transform: none !important;
             }
-            .footer-column.col-4 p {
+
+            /* Column 4: Office Address & Follow Us */
+            .footer-column.col-4 {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                width: 100% !important;
                 text-align: center !important;
-                max-width: 420px;
-                margin: 0 auto 14px auto;
+                margin-top: 6px !important;
             }
-            .footer-column.col-4 .social-icons {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 12px;
+            .footer-column.col-4 h5 {
+                text-align: center !important;
+                font-size: 12.5px !important;
+                margin-bottom: 8px !important;
+            }
+            .footer-office-block {
+                background: #FAF0E4 !important;
+                border: 1px solid rgba(197, 139, 80, 0.25) !important;
+                border-radius: 12px !important;
+                padding: 14px 14px 12px !important;
+                max-width: 400px !important;
+                margin: 0 auto 12px auto !important;
+                box-shadow: 0 2px 8px rgba(50, 24, 15, 0.04) !important;
+            }
+            .footer-company-name {
+                font-size: 11.5px !important;
+                margin-bottom: 3px !important;
+            }
+            .footer-office-address {
+                font-size: 11px !important;
+                line-height: 1.4 !important;
+                margin-bottom: 8px !important;
+            }
+            .footer-contact-item {
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                background: #FFFFFF !important;
+                border: 1px solid rgba(197, 139, 80, 0.24) !important;
+                border-radius: 20px !important;
+                padding: 5px 14px !important;
+                font-size: 11.5px !important;
+                margin: 0 auto !important;
+            }
+            .footer-contact-item a {
+                font-size: 11.5px !important;
+                display: inline !important;
+                margin-bottom: 0 !important;
+            }
+            .footer-follow-wrap {
+                margin-top: 14px !important;
+            }
+            .footer-follow-wrap h5 {
+                margin-top: 0 !important;
+                margin-bottom: 8px !important;
+            }
+            .social-icons {
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 10px !important;
+            }
+            .social-icons a {
+                width: 32px !important;
+                height: 32px !important;
+                font-size: 13.5px !important;
             }
             .footer-bottom {
-                padding-top: 20px;
-                padding-bottom: 10px;
-                text-align: center;
-                width: 100%;
+                padding-top: 14px !important;
+                padding-bottom: 2px !important;
+                text-align: center !important;
+                width: 100% !important;
             }
             .footer-bottom span {
-                display: block;
-                text-align: center;
-                line-height: 1.6;
+                display: block !important;
+                text-align: center !important;
+                font-size: 11px !important;
+                line-height: 1.5 !important;
             }
         }
 
@@ -657,8 +789,6 @@
                     class="fnav-link {{ request()->routeIs('features') ? 'active' : '' }}">Features</a>
                 <a href="{{ route('solutions') }}"
                     class="fnav-link {{ request()->routeIs('solutions*') ? 'active' : '' }}">Solutions</a>
-                <a href="{{ route('hardware-integrations') }}"
-                    class="fnav-link {{ request()->routeIs('hardware-integrations') ? 'active' : '' }}">Hardware &amp; Integrations</a>
                 <a href="{{ route('pricing') }}"
                     class="fnav-link {{ request()->routeIs('pricing') ? 'active' : '' }}">Pricing</a>
                 <a href="{{ route('contact.us') }}"
@@ -682,16 +812,31 @@
                     & Refund Policy</a>
             </div>
 
-            <!-- Follow Us -->
+            <!-- Office Address, Contact & Follow Us -->
             <div class="footer-column col-4">
-                <h5>Follow Us</h5>
-                <p>Stay connected with Geni Menu and get the latest updates on our platform, features, and technology solutions.</p>
-                <div class="social-icons">
-                    <a href="https://in.pinterest.com/genimenuglobal/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
-                    <a href="https://www.youtube.com/@GeniMenu" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-                    <a href="https://www.instagram.com/genimenu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61596232917082" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="https://whatsapp.com/channel/0029VbDYVkO9Gv7XLC6szm2b" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                <h5>Office Address</h5>
+                <div class="footer-office-block">
+                    <p class="footer-company-name">WeGeni - IT Services &amp; Consulting Pvt. Ltd</p>
+                    <p class="footer-office-address">
+                        13/9, 2nd Floor, HDFC Bank Upstairs,<br>
+                        West Car Street, Tiruchengode,<br>
+                        Namakkal, Tamil Nadu - 637211, India
+                    </p>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-telephone-fill" aria-hidden="true"></i>
+                        <span>Contact: <a href="tel:+918667205661">+91 86672 05661</a></span>
+                    </div>
+                </div>
+
+                <div class="footer-follow-wrap">
+                    <h5 style="margin-top: 18px; margin-bottom: 10px;">Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="https://in.pinterest.com/genimenuglobal/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                        <a href="https://www.youtube.com/@GeniMenu" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="https://www.instagram.com/genimenu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61596232917082" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://whatsapp.com/channel/0029VbDYVkO9Gv7XLC6szm2b" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    </div>
                 </div>
             </div>
 
@@ -748,12 +893,12 @@
 
     @php
         $popupCountriesList = \App\Models\Country::orderBy('countries_name')->get();
-        $popupPriorityCodes = ['IN', 'AE', 'US', 'GB', 'SG', 'MY', 'SA', 'QA', 'CA', 'AU'];
+        $popupPriorityCodes = ['US', 'IN', 'AE', 'GB', 'SG', 'MY', 'SA', 'QA', 'CA', 'AU'];
         $popupPriorityCountries = $popupCountriesList->whereIn('countries_code', $popupPriorityCodes)->sortBy(function($c) use ($popupPriorityCodes) {
             return array_search($c->countries_code, $popupPriorityCodes);
         });
-        $popupDefaultCountry = 'India';
-        $popupDefaultPhoneCode = '+91';
+        $popupDefaultCountry = 'United States';
+        $popupDefaultPhoneCode = '+1';
     @endphp
 
     <!-- Popup Lead Modal -->
@@ -768,9 +913,9 @@
                 <div class="popup-left-content">
                     <div class="popup-left-top">
                         <span class="popup-connect-badge">LET'S CONNECT</span>
-                        <h3 class="popup-connect-title">Experience Smarter Business Management.</h3>
+                        <h3 class="popup-connect-title">Transform Your Restaurant Experience.</h3>
                         <p class="popup-connect-desc">
-                            Discover how Geni Menu brings your essential business operations together through one intelligent digital platform.
+                            Discover how Geni Menu helps restaurants simplify ordering, streamline daily activities, and deliver a better dining experience through one smart digital platform.
                         </p>
                     </div>
 
@@ -829,7 +974,7 @@
                             <option value="">Select your country</option>
                             <optgroup label="Popular Countries">
                                 @foreach ($popupPriorityCountries as $c)
-                                    <option value="{{ $c->countries_name }}" data-phonecode="+{{ $c->phonecode }}" {{ ($popupDefaultCountry == $c->countries_name) ? 'selected' : '' }}>
+                                    <option value="{{ $c->countries_name }}" data-code="{{ $c->countries_code }}" data-phonecode="+{{ $c->phonecode }}" {{ ($popupDefaultCountry == $c->countries_name) ? 'selected' : '' }}>
                                         {{ $c->countries_name }}
                                     </option>
                                 @endforeach
@@ -837,7 +982,7 @@
                             <optgroup label="All Countries">
                                 @foreach ($popupCountriesList as $c)
                                     @if (!in_array($c->countries_code, $popupPriorityCodes))
-                                        <option value="{{ $c->countries_name }}" data-phonecode="+{{ $c->phonecode }}" {{ ($popupDefaultCountry == $c->countries_name) ? 'selected' : '' }}>
+                                        <option value="{{ $c->countries_name }}" data-code="{{ $c->countries_code }}" data-phonecode="+{{ $c->phonecode }}" {{ ($popupDefaultCountry == $c->countries_name) ? 'selected' : '' }}>
                                             {{ $c->countries_name }}
                                         </option>
                                     @endif
@@ -852,7 +997,7 @@
                             <select name="phone_code" id="popup_phone_code" class="popup-phone-code-select" aria-label="Country Code">
                                 <optgroup label="Popular">
                                     @foreach ($popupPriorityCountries as $c)
-                                        <option value="+{{ $c->phonecode }}" {{ ($popupDefaultPhoneCode == '+'.$c->phonecode && $c->countries_code == 'IN') ? 'selected' : '' }}>
+                                        <option value="+{{ $c->phonecode }}" data-code="{{ $c->countries_code }}" data-country="{{ $c->countries_name }}" {{ ($popupDefaultPhoneCode == '+'.$c->phonecode && ($c->countries_code == 'US' || ($popupDefaultCountry == $c->countries_name))) ? 'selected' : '' }}>
                                             +{{ $c->phonecode }} ({{ $c->countries_code }})
                                         </option>
                                     @endforeach
@@ -860,14 +1005,14 @@
                                 <optgroup label="All Countries">
                                     @foreach ($popupCountriesList as $c)
                                         @if (!in_array($c->countries_code, $popupPriorityCodes))
-                                            <option value="+{{ $c->phonecode }}">
+                                            <option value="+{{ $c->phonecode }}" data-code="{{ $c->countries_code }}" data-country="{{ $c->countries_name }}">
                                                 +{{ $c->phonecode }} ({{ $c->countries_code }})
                                             </option>
                                         @endif
                                     @endforeach
                                 </optgroup>
                             </select>
-                            <input type="tel" id="popup_phone_number" name="phone_number" placeholder="86672 05661" autocomplete="tel-national">
+                            <input type="tel" id="popup_phone_number" name="phone_number" placeholder="(555) 000-0000" autocomplete="tel-national">
                             <input type="hidden" id="popup_phone" name="phone">
                         </div>
                         <span class="popup-error-msg" id="err_popup_phone"></span>
@@ -1130,29 +1275,33 @@
             }
         }
 
-        /* Close Button */
+        /* Close Button ('X' cross mark) */
         .popup-close-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.06);
-            border: none;
-            font-size: 18px;
-            color: #555;
+            top: 12px;
+            right: 12px;
+            background: #FAF0E4;
+            border: 1px solid rgba(197, 139, 80, 0.35);
+            font-size: 20px;
+            color: #32180F;
             cursor: pointer;
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s, color 0.2s;
-            z-index: 10;
+            transition: all 0.22s ease;
+            z-index: 20;
             line-height: 1;
+            padding: 0;
+            box-shadow: 0 2px 6px rgba(50, 24, 15, 0.08);
         }
         .popup-close-btn:hover {
-            color: #111;
-            background: rgba(0,0,0,0.12);
+            color: #FFFFFF;
+            background: #27130D;
+            border-color: #27130D;
+            transform: scale(1.08);
         }
 
         /* Header */
@@ -1355,53 +1504,103 @@
             const btnText = document.getElementById("popupBtnText");
             const btnSpinner = document.getElementById("popupBtnSpinner");
 
-            // Auto show on load (once per session)
-            if(modal && !sessionStorage.getItem('geniPopupShown')) {
+            // Auto show popup on page load
+            if (modal) {
                 setTimeout(() => {
                     modal.classList.add("active");
-                    sessionStorage.setItem('geniPopupShown', 'true');
-                }, 1500); // 1.5 second delay
+                }, 1200);
             }
 
-            // Open modal on button click
-            if(btn) {
+            // Open modal on floating button click
+            if (btn) {
                 btn.addEventListener("click", () => {
                     openPopup();
                 });
             }
 
-            // Close modal on close button click
-            if(closeBtn) {
-                closeBtn.addEventListener("click", () => {
+            // Close modal ONLY when the 'X' cross mark button is clicked
+            if (closeBtn) {
+                closeBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
                     closePopup();
                 });
             }
 
-            // Close modal on outside click
-            if(modal) {
-                window.addEventListener("click", (e) => {
-                    if(e.target === modal) {
-                        closePopup();
-                    }
-                });
-            }
-
-            // Auto match country code on country select
+            // Bidirectional match between country and phone code
             const countrySelect = document.getElementById("popup_country");
             const phoneCodeSelect = document.getElementById("popup_phone_code");
+            const popupPhoneNumInput = document.getElementById("popup_phone_number");
+
+            function updatePopupPlaceholder() {
+                if (!phoneCodeSelect || !popupPhoneNumInput) return;
+                const opt = phoneCodeSelect.options[phoneCodeSelect.selectedIndex];
+                const code = opt ? opt.getAttribute("data-code") : '';
+                if (code === 'US' || code === 'CA') {
+                    popupPhoneNumInput.placeholder = '(555) 000-0000';
+                } else if (code === 'IN') {
+                    popupPhoneNumInput.placeholder = '98765 43210';
+                } else if (code === 'GB') {
+                    popupPhoneNumInput.placeholder = '7911 123456';
+                } else if (code === 'AE') {
+                    popupPhoneNumInput.placeholder = '50 123 4567';
+                } else {
+                    popupPhoneNumInput.placeholder = '12345 67890';
+                }
+            }
+
             if (countrySelect && phoneCodeSelect) {
                 countrySelect.addEventListener("change", function() {
                     const opt = this.options[this.selectedIndex];
-                    const code = opt ? opt.getAttribute("data-phonecode") : null;
-                    if (code) {
+                    const cCode = opt ? opt.getAttribute("data-code") : null;
+                    const pCode = opt ? opt.getAttribute("data-phonecode") : null;
+                    let matched = false;
+                    if (cCode) {
                         for (let i = 0; i < phoneCodeSelect.options.length; i++) {
-                            if (phoneCodeSelect.options[i].value === code) {
+                            if (phoneCodeSelect.options[i].getAttribute("data-code") === cCode) {
+                                phoneCodeSelect.selectedIndex = i;
+                                matched = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!matched && pCode) {
+                        for (let i = 0; i < phoneCodeSelect.options.length; i++) {
+                            if (phoneCodeSelect.options[i].value === pCode) {
                                 phoneCodeSelect.selectedIndex = i;
                                 break;
                             }
                         }
                     }
+                    updatePopupPlaceholder();
                 });
+
+                phoneCodeSelect.addEventListener("change", function() {
+                    const opt = this.options[this.selectedIndex];
+                    const cCode = opt ? opt.getAttribute("data-code") : null;
+                    const cName = opt ? opt.getAttribute("data-country") : null;
+                    let found = false;
+                    if (cCode) {
+                        for (let j = 0; j < countrySelect.options.length; j++) {
+                            if (countrySelect.options[j].getAttribute("data-code") === cCode) {
+                                countrySelect.selectedIndex = j;
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!found && cName) {
+                        for (let j = 0; j < countrySelect.options.length; j++) {
+                            if (countrySelect.options[j].value === cName) {
+                                countrySelect.selectedIndex = j;
+                                break;
+                            }
+                        }
+                    }
+                    updatePopupPlaceholder();
+                });
+
+                updatePopupPlaceholder();
             }
 
             // Helper to set field error

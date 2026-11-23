@@ -1156,12 +1156,12 @@ body {
 
                     @php
                         $allCountriesList = \App\Models\Country::orderBy('countries_name')->get();
-                        $priorityCodes = ['IN', 'AE', 'US', 'GB', 'SG', 'MY', 'SA', 'QA', 'CA', 'AU'];
+                        $priorityCodes = ['US', 'IN', 'AE', 'GB', 'SG', 'MY', 'SA', 'QA', 'CA', 'AU'];
                         $priorityCountries = $allCountriesList->whereIn('countries_code', $priorityCodes)->sortBy(function($c) use ($priorityCodes) {
                             return array_search($c->countries_code, $priorityCodes);
                         });
-                        $selectedCountry = old('country', old('address', 'India'));
-                        $selectedPhoneCode = old('phone_code', '+91');
+                        $selectedCountry = old('country', old('address', 'United States'));
+                        $selectedPhoneCode = old('phone_code', '+1');
                     @endphp
 
                     <form action="{{ route('contact.submit') }}" method="POST" id="mainContactForm" novalidate>
@@ -1229,7 +1229,7 @@ body {
                                         <select id="c_phone_code" name="phone_code" class="c-phone-code-select" aria-label="Country Code">
                                             <optgroup label="Popular">
                                                 @foreach ($priorityCountries as $c)
-                                                    <option value="+{{ $c->phonecode }}" data-code="{{ $c->countries_code }}" data-country="{{ $c->countries_name }}" {{ ($selectedPhoneCode == '+'.$c->phonecode && ($selectedCountry == $c->countries_name || ($c->countries_code == 'IN' && $selectedCountry == 'India'))) ? 'selected' : '' }}>
+                                                    <option value="+{{ $c->phonecode }}" data-code="{{ $c->countries_code }}" data-country="{{ $c->countries_name }}" {{ ($selectedPhoneCode == '+'.$c->phonecode && ($selectedCountry == $c->countries_name || ($c->countries_code == 'US' && ($selectedCountry == 'United States' || $selectedCountry == 'USA')) || ($c->countries_code == 'IN' && $selectedCountry == 'India'))) ? 'selected' : '' }}>
                                                         +{{ $c->phonecode }} ({{ $c->countries_code }})
                                                     </option>
                                                 @endforeach
@@ -1246,7 +1246,7 @@ body {
                                         </select>
                                         <span class="c-phone-code-arrow" aria-hidden="true"></span>
                                     </div>
-                                    <input type="tel" id="c_phone_num" name="phone_number" value="{{ old('phone_number', old('phone')) }}" placeholder="98765 43210" required autocomplete="tel-national">
+                                    <input type="tel" id="c_phone_num" name="phone_number" value="{{ old('phone_number', old('phone')) }}" placeholder="(555) 000-0000" required autocomplete="tel-national">
                                     <input type="hidden" id="c_phone" name="phone" value="{{ old('phone') }}">
                                 </div>
                                 <span class="c-err-msg">
@@ -1380,24 +1380,83 @@ document.addEventListener('DOMContentLoaded', function() {
         phoneHidden.value = num ? (code + ' ' + num) : '';
     }
 
+    function updatePlaceholder() {
+        if (!phoneCodeSel || !phoneNumInput) return;
+        var opt = phoneCodeSel.options[phoneCodeSel.selectedIndex];
+        var code = opt ? opt.getAttribute('data-code') : '';
+        if (code === 'US' || code === 'CA') {
+            phoneNumInput.placeholder = '(555) 000-0000';
+        } else if (code === 'IN') {
+            phoneNumInput.placeholder = '98765 43210';
+        } else if (code === 'GB') {
+            phoneNumInput.placeholder = '7911 123456';
+        } else if (code === 'AE') {
+            phoneNumInput.placeholder = '50 123 4567';
+        } else {
+            phoneNumInput.placeholder = '12345 67890';
+        }
+    }
+
     if (countrySel && phoneCodeSel) {
         countrySel.addEventListener('change', function () {
             var opt = countrySel.options[countrySel.selectedIndex];
             if (!opt) return;
             var cCode = opt.getAttribute('data-code');
             var pCode = opt.getAttribute('data-phonecode');
+            
+            var matched = false;
+            // 1. Try exact 2-letter country code match (e.g. US, IN)
             for (var i = 0; i < phoneCodeSel.options.length; i++) {
                 var pOpt = phoneCodeSel.options[i];
-                if (pOpt.getAttribute('data-code') === cCode || pOpt.value === pCode) {
+                if (pOpt.getAttribute('data-code') === cCode) {
                     phoneCodeSel.selectedIndex = i;
+                    matched = true;
                     break;
                 }
             }
+            // 2. Fallback to matching phone code prefix (+1, +91)
+            if (!matched && pCode) {
+                for (var i = 0; i < phoneCodeSel.options.length; i++) {
+                    if (phoneCodeSel.options[i].value === pCode) {
+                        phoneCodeSel.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            updatePlaceholder();
             syncPhone();
             validateCountry(false);
         });
 
         phoneCodeSel.addEventListener('change', function () {
+            var pOpt = phoneCodeSel.options[phoneCodeSel.selectedIndex];
+            if (pOpt && countrySel) {
+                var pCountryCode = pOpt.getAttribute('data-code');
+                var pCountryName = pOpt.getAttribute('data-country');
+                
+                var found = false;
+                // Match country by ISO code
+                if (pCountryCode) {
+                    for (var j = 0; j < countrySel.options.length; j++) {
+                        if (countrySel.options[j].getAttribute('data-code') === pCountryCode) {
+                            countrySel.selectedIndex = j;
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+                // Fallback: match by country name
+                if (!found && pCountryName) {
+                    for (var j = 0; j < countrySel.options.length; j++) {
+                        if (countrySel.options[j].value === pCountryName) {
+                            countrySel.selectedIndex = j;
+                            break;
+                        }
+                    }
+                }
+                validateCountry(false);
+            }
+            updatePlaceholder();
             syncPhone();
         });
     }
@@ -1412,6 +1471,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    updatePlaceholder();
     syncPhone();
 
     // 1. Name Validation

@@ -69,6 +69,24 @@ class ContactController extends Controller
             $request->merge(['message' => $fullMsg]);
         }
 
+        // Handle Other Business Type / Subject
+        if ($request->filled('other_subject')) {
+            $otherSubject = trim($request->input('other_subject'));
+            if ($otherSubject !== '') {
+                // If subject is Other, format subject to include the specified value
+                if ($request->input('subject') === 'Other' || !$request->filled('subject')) {
+                    $request->merge([
+                        'subject' => 'Other: ' . $otherSubject,
+                        'other_subject' => $otherSubject
+                    ]);
+                } else {
+                    $request->merge([
+                        'other_subject' => $otherSubject
+                    ]);
+                }
+            }
+        }
+
         // Determine form type (contact vs enquiry)
         $formType = $request->input('form_type');
         if (!$formType) {
@@ -112,6 +130,7 @@ class ContactController extends Controller
             'address' => 'nullable|string|max:500',
             'requirements' => 'nullable',
             'subject' => 'required|string|max:255',
+            'other_subject' => 'nullable|string|max:255',
             'message' => 'required|string|min:10|max:3000',
         ], [
             'name.required' => 'Please enter your full name.',

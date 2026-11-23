@@ -1012,12 +1012,12 @@ select optgroup {
 
     @php
       $allCountriesList = \App\Models\Country::orderBy('countries_name')->get();
-      $priorityCodes = ['IN', 'AE', 'US', 'GB', 'SG', 'MY', 'SA', 'QA', 'CA', 'AU'];
+      $priorityCodes = ['US', 'IN', 'AE', 'GB', 'SG', 'MY', 'SA', 'QA', 'CA', 'AU'];
       $priorityCountries = $allCountriesList->whereIn('countries_code', $priorityCodes)->sortBy(function($c) use ($priorityCodes) {
           return array_search($c->countries_code, $priorityCodes);
       });
-      $selectedCountry = old('country', old('address', 'India'));
-      $selectedPhoneCode = old('phone_code', '+91');
+      $selectedCountry = old('country', old('address', 'United States'));
+      $selectedPhoneCode = old('phone_code', '+1');
     @endphp
 
     <form action="{{ route('contact.submit') }}" method="POST" id="eq-form" novalidate>
@@ -1093,7 +1093,7 @@ select optgroup {
               <select id="eq_phone_code" name="phone_code" class="phone-code-select" aria-label="Country Code">
                 <optgroup label="Popular">
                   @foreach ($priorityCountries as $c)
-                    <option value="+{{ $c->phonecode }}" data-code="{{ $c->countries_code }}" data-country="{{ $c->countries_name }}" {{ ($selectedPhoneCode == '+'.$c->phonecode && ($selectedCountry == $c->countries_name || ($c->countries_code == 'IN' && $selectedCountry == 'India'))) ? 'selected' : '' }}>
+                    <option value="+{{ $c->phonecode }}" data-code="{{ $c->countries_code }}" data-country="{{ $c->countries_name }}" {{ ($selectedPhoneCode == '+'.$c->phonecode && ($selectedCountry == $c->countries_name || ($c->countries_code == 'US' && ($selectedCountry == 'United States' || $selectedCountry == 'USA')) || ($c->countries_code == 'IN' && $selectedCountry == 'India'))) ? 'selected' : '' }}>
                       +{{ $c->phonecode }} ({{ $c->countries_code }})
                     </option>
                   @endforeach
@@ -1110,7 +1110,7 @@ select optgroup {
               </select>
               <span class="phone-code-arrow" aria-hidden="true"></span>
             </div>
-            <input type="tel" id="eq_phone_num" name="phone_number" value="{{ old('phone_number', old('phone')) }}" placeholder="98765 43210" required autocomplete="tel-national">
+            <input type="tel" id="eq_phone_num" name="phone_number" value="{{ old('phone_number', old('phone')) }}" placeholder="(555) 000-0000" required autocomplete="tel-national">
             <input type="hidden" id="eq_phone" name="phone" value="{{ old('phone') }}">
           </div>
           <span class="fg-err-msg" id="err_phone">
@@ -1163,78 +1163,21 @@ select optgroup {
         </div>
       </div>
 
+      {{-- Conditional "Other Business Type" Field (shown when Business Type == 'Other') --}}
+      <div class="fg" id="fg_other_subject" style="display: {{ old('subject') == 'Other' || old('other_subject') ? 'block' : 'none' }};">
+        <label for="eq_other_subject">Specify Business Type <span class="req">*</span></label>
+        <input type="text" id="eq_other_subject" name="other_subject" value="{{ old('other_subject') }}" placeholder="Enter your business type (e.g. Food Truck, Catering, Cloud Kitchen, etc.)" autocomplete="off">
+        <span class="fg-err-msg" id="err_other_subject">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          <span class="err-txt">Please specify your business type.</span>
+        </span>
+      </div>
+
       {{-- Website URL (Optional) --}}
       <div class="fg" id="fg_website">
         <label for="eq_website">Website URL <span class="opt">(optional)</span></label>
         <input type="url" id="eq_website" name="website" value="{{ old('website') }}" placeholder="https://yourrestaurant.com" autocomplete="url">
       </div>
-
-      {{-- Interested In (Multi-Select Checkbox Dropdown) --}}
-      <div class="fg eq-multiselect-wrap" id="eqMultiSelect">
-        <label for="eq_req_btn" class="chk-title">
-          <span>Interested In</span>
-          <span style="font-weight:400;font-size:12px;color:var(--slate-lt);">(Select all that apply)</span>
-        </label>
-
-        <div class="eq-dropdown-box">
-          <button type="button" class="eq-dropdown-trigger" id="eq_req_btn" aria-haspopup="listbox" aria-expanded="false">
-            <span class="eq-trigger-left">
-              <span class="eq-trigger-badge" id="eqTriggerBadge" style="display:none;">0</span>
-              <span class="eq-trigger-text" id="eqTriggerText">Select what you are interested in...</span>
-            </span>
-            <svg class="eq-dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </button>
-
-          <div class="eq-dropdown-menu" id="eqDropdownMenu" role="listbox">
-            <div class="eq-dropdown-header">
-              <span class="eq-dd-count" id="eqDdCount">0 selected</span>
-              <button type="button" class="eq-dd-clear-btn" id="eqDdClearBtn">Clear</button>
-            </div>
-
-            <div class="eq-dropdown-list">
-              @php
-                $rawOldReqs = old('requirements', []);
-                if (is_array($rawOldReqs)) {
-                    $oldReqs = $rawOldReqs;
-                } elseif (is_string($rawOldReqs) && strlen(trim($rawOldReqs)) > 0) {
-                    $oldReqs = array_map('trim', explode(',', $rawOldReqs));
-                } else {
-                    $oldReqs = [];
-                }
-              @endphp
-              @php
-                $reqOptions = [
-                  'Digital Menu',
-                  'POS & Billing',
-                  'Order Management',
-                  'Kitchen / KOT',
-                  'Table Management',
-                  'Inventory',
-                  'Reports',
-                  'Multi-Branch Management',
-                  'Complete Restaurant Management'
-                ];
-              @endphp
-
-              @foreach ($reqOptions as $r)
-                <label class="eq-dd-item {{ in_array($r, $oldReqs) ? 'is-selected' : '' }}">
-                  <input type="checkbox" name="requirements[]" value="{{ $r }}" {{ in_array($r, $oldReqs) ? 'checked' : '' }}>
-                  <span class="eq-dd-custom-chk" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </span>
-                  <span class="eq-dd-label-text">{{ $r }}</span>
-                </label>
-              @endforeach
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr class="eq-divider">
 
       <div class="fg" id="fg_message">
         <label for="eq_message">Message <span class="req">*</span></label>
@@ -1344,91 +1287,6 @@ select optgroup {
 
 <script>
 (function () {
-  // Multi-select dropdown logic
-  var wrap = document.getElementById('eqMultiSelect');
-  var triggerBtn = document.getElementById('eq_req_btn');
-  var triggerText = document.getElementById('eqTriggerText');
-  var triggerBadge = document.getElementById('eqTriggerBadge');
-  var ddCount = document.getElementById('eqDdCount');
-  var clearBtn = document.getElementById('eqDdClearBtn');
-
-  function updateMultiSelectUI() {
-    if (!wrap) return;
-    var checkedBoxes = wrap.querySelectorAll('.eq-dd-item input[type="checkbox"]:checked');
-    var count = checkedBoxes.length;
-    var values = [];
-    checkedBoxes.forEach(function (chk) {
-      values.push(chk.value);
-    });
-
-    if (count === 0) {
-      triggerText.textContent = 'Select what you are interested in...';
-      triggerText.classList.remove('has-selection');
-      triggerBadge.style.display = 'none';
-      if (ddCount) ddCount.textContent = '0 selected';
-    } else if (count === 1) {
-      triggerText.textContent = values[0];
-      triggerText.classList.add('has-selection');
-      triggerBadge.textContent = '1';
-      triggerBadge.style.display = 'inline-block';
-      if (ddCount) ddCount.textContent = '1 selected';
-    } else {
-      triggerText.textContent = values[0] + ', ' + values[1] + (count > 2 ? ' (+' + (count - 2) + ' more)' : '');
-      triggerText.classList.add('has-selection');
-      triggerBadge.textContent = count;
-      triggerBadge.style.display = 'inline-block';
-      if (ddCount) ddCount.textContent = count + ' selected';
-    }
-  }
-
-  if (wrap && triggerBtn) {
-    // Toggle dropdown
-    triggerBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      var isOpen = wrap.classList.toggle('is-open');
-      triggerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-
-    // Close when clicking outside
-    document.addEventListener('click', function (e) {
-      if (!wrap.contains(e.target)) {
-        wrap.classList.remove('is-open');
-        triggerBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Handle checkbox change
-    wrap.querySelectorAll('.eq-dd-item input[type="checkbox"]').forEach(function (chk) {
-      chk.addEventListener('change', function () {
-        var item = chk.closest('.eq-dd-item');
-        if (item) {
-          item.classList.toggle('is-selected', chk.checked);
-        }
-        updateMultiSelectUI();
-      });
-    });
-
-    // Clear all selections
-    if (clearBtn) {
-      clearBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        wrap.querySelectorAll('.eq-dd-item').forEach(function (item) {
-          var chk = item.querySelector('input[type="checkbox"]');
-          if (chk) {
-            chk.checked = false;
-            item.classList.remove('is-selected');
-          }
-        });
-        updateMultiSelectUI();
-      });
-    }
-
-    // Initialize UI on page load
-    updateMultiSelectUI();
-  }
-
   // Country & Mobile Phone Sync
   var countrySel    = document.getElementById('eq_country');
   var phoneCodeSel  = document.getElementById('eq_phone_code');
@@ -1442,6 +1300,23 @@ select optgroup {
     phoneHidden.value = num ? (code ? (code + ' ' + num) : num) : '';
   }
 
+  function updatePlaceholder() {
+    if (!phoneCodeSel || !phoneNumInput) return;
+    var opt = phoneCodeSel.options[phoneCodeSel.selectedIndex];
+    var code = opt ? opt.getAttribute('data-code') : '';
+    if (code === 'US' || code === 'CA') {
+      phoneNumInput.placeholder = '(555) 000-0000';
+    } else if (code === 'IN') {
+      phoneNumInput.placeholder = '98765 43210';
+    } else if (code === 'GB') {
+      phoneNumInput.placeholder = '7911 123456';
+    } else if (code === 'AE') {
+      phoneNumInput.placeholder = '50 123 4567';
+    } else {
+      phoneNumInput.placeholder = '12345 67890';
+    }
+  }
+
   if (countrySel && phoneCodeSel) {
     countrySel.addEventListener('change', function () {
       var opt = countrySel.options[countrySel.selectedIndex];
@@ -1449,18 +1324,53 @@ select optgroup {
       var cCode = opt.getAttribute('data-code');
       var pCode = opt.getAttribute('data-phonecode');
 
-      // Sync the phone code dropdown
+      var matched = false;
       for (var i = 0; i < phoneCodeSel.options.length; i++) {
         var pOpt = phoneCodeSel.options[i];
-        if (pOpt.getAttribute('data-code') === cCode || pOpt.value === pCode) {
+        if (pOpt.getAttribute('data-code') === cCode) {
           phoneCodeSel.selectedIndex = i;
+          matched = true;
           break;
         }
       }
+      if (!matched && pCode) {
+        for (var i = 0; i < phoneCodeSel.options.length; i++) {
+          if (phoneCodeSel.options[i].value === pCode) {
+            phoneCodeSel.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      updatePlaceholder();
       syncPhone();
     });
 
     phoneCodeSel.addEventListener('change', function () {
+      var pOpt = phoneCodeSel.options[phoneCodeSel.selectedIndex];
+      if (pOpt && countrySel) {
+        var pCountryCode = pOpt.getAttribute('data-code');
+        var pCountryName = pOpt.getAttribute('data-country');
+        
+        var found = false;
+        if (pCountryCode) {
+          for (var j = 0; j < countrySel.options.length; j++) {
+            if (countrySel.options[j].getAttribute('data-code') === pCountryCode) {
+              countrySel.selectedIndex = j;
+              found = true;
+              break;
+            }
+          }
+        }
+        if (!found && pCountryName) {
+          for (var j = 0; j < countrySel.options.length; j++) {
+            if (countrySel.options[j].value === pCountryName) {
+              countrySel.selectedIndex = j;
+              break;
+            }
+          }
+        }
+      }
+      updatePlaceholder();
       syncPhone();
     });
   }
@@ -1469,7 +1379,7 @@ select optgroup {
     phoneNumInput.addEventListener('input', syncPhone);
   }
 
-  // Initial sync
+  updatePlaceholder();
   syncPhone();
 
   // Dynamic Inline Field Validation & Error Display for ALL fields
@@ -1499,6 +1409,10 @@ select optgroup {
   var subjectSel    = document.getElementById('eq_subject');
   var fgSubject     = document.getElementById('fg_subject');
   var errSubjectTxt = fgSubject ? fgSubject.querySelector('.err-txt') : null;
+
+  var otherSubjectInput  = document.getElementById('eq_other_subject');
+  var fgOtherSubject     = document.getElementById('fg_other_subject');
+  var errOtherSubjectTxt = fgOtherSubject ? fgOtherSubject.querySelector('.err-txt') : null;
 
   var messageInput  = document.getElementById('eq_message');
   var fgMessage     = document.getElementById('fg_message');
@@ -1697,6 +1611,42 @@ select optgroup {
     return true;
   }
 
+  // 6b. Specify Business Type ("Other") Validation & Toggle
+  function toggleOtherSubject() {
+    if (!subjectSel || !fgOtherSubject) return;
+    if (subjectSel.value === 'Other') {
+      fgOtherSubject.style.display = 'block';
+    } else {
+      fgOtherSubject.style.display = 'none';
+      if (otherSubjectInput) otherSubjectInput.value = '';
+      fgOtherSubject.classList.remove('has-error');
+    }
+  }
+
+  function validateOtherSubject(showRequired) {
+    if (!subjectSel || subjectSel.value !== 'Other' || !otherSubjectInput || !fgOtherSubject) return true;
+    var val = otherSubjectInput.value.trim();
+
+    if (!val) {
+      if (showRequired) {
+        if (errOtherSubjectTxt) errOtherSubjectTxt.textContent = 'Please specify your business type.';
+        fgOtherSubject.classList.add('has-error');
+        return false;
+      }
+      fgOtherSubject.classList.remove('has-error');
+      return true;
+    }
+
+    if (val.length < 2) {
+      if (errOtherSubjectTxt) errOtherSubjectTxt.textContent = 'Business type must be at least 2 characters.';
+      fgOtherSubject.classList.add('has-error');
+      return false;
+    }
+
+    fgOtherSubject.classList.remove('has-error');
+    return true;
+  }
+
   // 7. Message Validation
   function validateMessage(showRequired) {
     if (!messageInput || !fgMessage) return true;
@@ -1781,8 +1731,29 @@ select optgroup {
   }
 
   if (subjectSel) {
-    subjectSel.addEventListener('change', function () { validateSubject(false); });
+    subjectSel.addEventListener('change', function () {
+      validateSubject(false);
+      toggleOtherSubject();
+      if (subjectSel.value === 'Other' && otherSubjectInput) {
+        setTimeout(function () { otherSubjectInput.focus(); }, 60);
+      }
+    });
   }
+
+  if (otherSubjectInput) {
+    otherSubjectInput.addEventListener('input', function () {
+      if (fgOtherSubject && fgOtherSubject.classList.contains('has-error')) {
+        validateOtherSubject(false);
+      }
+    });
+    otherSubjectInput.addEventListener('blur', function () {
+      if (otherSubjectInput.value.trim()) {
+        validateOtherSubject(false);
+      }
+    });
+  }
+
+  toggleOtherSubject();
 
   if (messageInput) {
     messageInput.addEventListener('input', function () {
@@ -1794,15 +1765,16 @@ select optgroup {
   // Form Submit Handler
   if (form && btn) {
     form.addEventListener('submit', function (e) {
-      var isNameValid      = validateName(true);
-      var isCompanyValid   = validateCompany(true);
-      var isEmailValid     = validateEmail(true);
-      var isCountryValid   = validateCountry(true);
-      var isPhoneValid     = validatePhone(true);
-      var isSubjectValid   = validateSubject(true);
-      var isMessageValid   = validateMessage(true);
+      var isNameValid         = validateName(true);
+      var isCompanyValid      = validateCompany(true);
+      var isEmailValid        = validateEmail(true);
+      var isCountryValid      = validateCountry(true);
+      var isPhoneValid        = validatePhone(true);
+      var isSubjectValid      = validateSubject(true);
+      var isOtherSubjectValid = validateOtherSubject(true);
+      var isMessageValid      = validateMessage(true);
 
-      var allValid = isNameValid && isCompanyValid && isEmailValid && isCountryValid && isPhoneValid && isSubjectValid && isMessageValid;
+      var allValid = isNameValid && isCompanyValid && isEmailValid && isCountryValid && isPhoneValid && isSubjectValid && isOtherSubjectValid && isMessageValid;
 
       if (!allValid) {
         e.preventDefault();
@@ -1820,6 +1792,8 @@ select optgroup {
           phoneNumInput.focus();
         } else if (!isSubjectValid) {
           subjectSel.focus();
+        } else if (!isOtherSubjectValid) {
+          otherSubjectInput.focus();
         } else if (!isMessageValid) {
           messageInput.focus();
         }

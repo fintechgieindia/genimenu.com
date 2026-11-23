@@ -2080,7 +2080,7 @@ $meta = [
                 Join restaurants across India that have replaced guesswork with real-time floor intelligence. Setup takes 20 minutes.
             </p>
             <div class="tm-cta__btns">
-                <a href="{{ route('restaurant_signup') }}" class="btn-primary--light">
+                <a href="{{ route('restaurant_signup') }}" target="_blank" rel="noopener noreferrer" class="btn-primary--light">
                     Start Free Trial &rarr;
                 </a>
                 <a href="#demo" class="btn-outline--light">

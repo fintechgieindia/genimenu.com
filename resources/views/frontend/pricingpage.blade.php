@@ -479,6 +479,84 @@ body {
   justify-content: center;
 }
 
+/* Billing Cycle Switch (Monthly / Yearly) */
+.billing-toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 0 2px;
+}
+
+.billing-cycle-switch {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(87, 42, 19, 0.08);
+  border: 1.5px solid rgba(87, 42, 19, 0.18);
+  border-radius: 9999px;
+  padding: 4px;
+  gap: 4px;
+  box-shadow: inset 0 2px 4px rgba(87, 42, 19, 0.06);
+}
+
+.billing-cycle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 22px;
+  border-radius: 9999px;
+  font-family: 'Glacial Indifference', sans-serif !important;
+  font-size: 14px;
+  font-weight: 700;
+  color: #572A13;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  user-select: none;
+}
+
+.billing-cycle-btn:hover:not(.active) {
+  color: #27130D;
+  background: rgba(87, 42, 19, 0.07);
+}
+
+.billing-cycle-btn.active {
+  background: #32180F;
+  color: #FFF8F0;
+  box-shadow: 0 4px 14px rgba(50, 24, 15, 0.28);
+}
+
+.billing-cycle-discount {
+  background: linear-gradient(135deg, #2E6930 0%, #1C4D1E 100%);
+  color: #A3F5A8;
+  border: 1px solid rgba(163, 245, 168, 0.35);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  padding: 2.5px 8px;
+  border-radius: 9999px;
+  line-height: 1.2;
+}
+
+.billing-cycle-btn.active .billing-cycle-discount {
+  background: #2E6930;
+  color: #C8FFCE;
+}
+
+@media (max-width: 640px) {
+  .billing-cycle-btn {
+    padding: 7px 15px;
+    font-size: 13px;
+    gap: 4px;
+  }
+  .billing-cycle-discount {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+}
+
 .save-discount-badge {
   background: linear-gradient(135deg, #2E6930 0%, #1C4D1E 100%);
   color: #A3F5A8;
@@ -1689,18 +1767,40 @@ body {
     background: #F3E7D7;
   }
   .final-cta-btn-wrap {
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 10px !important;
   }
   .final-cta-btn-primary,
   .final-cta-btn-secondary {
-    width: 100%;
-    justify-content: center;
+    flex: 1 1 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 11px 8px !important;
+    font-size: 12.5px !important;
+    white-space: nowrap !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    letter-spacing: 0.01em !important;
   }
 }
 
 @media (max-width: 576px) {
+  .final-cta-btn-wrap {
+    gap: 6px !important;
+  }
+  .final-cta-btn-primary,
+  .final-cta-btn-secondary {
+    padding: 10px 5px !important;
+    font-size: 11.5px !important;
+  }
+  .final-cta-btn-wrap .hide-on-mobile {
+    display: none !important;
+  }
   .pricing-hero-section {
     padding: 30px 14px 24px;
   }
@@ -1770,6 +1870,14 @@ body {
   }
   .final-cta-desc {
     font-size: 13px;
+  }
+}
+
+@media (max-width: 380px) {
+  .final-cta-btn-primary,
+  .final-cta-btn-secondary {
+    padding: 9px 4px !important;
+    font-size: 10.5px !important;
   }
 }
 </style>
@@ -1872,8 +1980,21 @@ body {
           </div>
         </div>
 
+        {{-- Monthly / Yearly Billing Cycle Toggle --}}
+        <div class="billing-toggle-container">
+          <div class="billing-cycle-switch" role="tablist" aria-label="Billing cycle selector">
+            <button type="button" class="billing-cycle-btn" id="btn-billing-monthly" onclick="setBillingCycle('monthly')" role="tab" aria-selected="false">
+              Monthly
+            </button>
+            <button type="button" class="billing-cycle-btn active" id="btn-billing-yearly" onclick="setBillingCycle('yearly')" role="tab" aria-selected="true">
+              Yearly
+              <span class="billing-cycle-discount">Save 15%</span>
+            </button>
+          </div>
+        </div>
+
         <div class="pricing-billing-pill" id="pricing-billing-pill">
-          <span class="save-discount-badge">Save 20%</span>
+          <span class="save-discount-badge">Save up to 15%</span>
           <span class="billing-pill-text">Billed annually &bull; Software subscription only &bull; Prices in <strong id="billing-curr-code">USD</strong></span>
         </div>
       </div>
@@ -1919,12 +2040,12 @@ body {
 
           {{-- Price Block (in Dollars) --}}
           <div class="card-price-wrap">
-            <span class="card-price-num price-val-starter">$9.99</span>
+            <span class="card-price-num price-val-starter">$239</span>
             <span class="card-price-period">/ year</span>
           </div>
 
           {{-- CTA Button --}}
-          <a href="{{ route('restaurant_signup', ['plan' => 'standard']) }}" class="card-cta-btn btn-choose-standard">
+          <a href="{{ route('restaurant_signup', ['plan' => 'standard']) }}" target="_blank" rel="noopener noreferrer" class="card-cta-btn btn-choose-standard">
             <span>Get Started Free</span>
             <span class="btn-arrow">&rarr;</span>
           </a>
@@ -1995,7 +2116,7 @@ body {
           </ul>
         </div>
 
-        {{-- PLATINUM TIER (MOST POPULAR) --}}
+        {{-- PLATINUM TIER (COMPLETE OPERATIONS) --}}
         <div class="pricing-card pricing-card-pro">
           {{-- Floating Golden Badge --}}
           <div class="pro-floating-badge">
@@ -2008,7 +2129,7 @@ body {
           <div class="card-tier-badge card-tier-badge-gold">Platinum</div>
 
           <div class="card-header-block">
-            <h3 class="card-plan-title">Complete Business Management</h3>
+            <h3 class="card-plan-title">Complete Operations</h3>
             <p class="card-plan-desc">End-to-end automation connecting kitchen displays, table layout, live stock inventory, and customer orders.</p>
           </div>
 
@@ -2043,12 +2164,12 @@ body {
 
           {{-- Price Block (in Dollars) --}}
           <div class="card-price-wrap">
-            <span class="card-price-num price-val-growth">$24.99</span>
+            <span class="card-price-num price-val-growth">$449</span>
             <span class="card-price-period">/ year</span>
           </div>
 
           {{-- CTA Button --}}
-          <a href="{{ route('restaurant_signup', ['plan' => 'premium']) }}" class="card-cta-btn btn-choose-pro">
+          <a href="{{ route('restaurant_signup', ['plan' => 'premium']) }}" target="_blank" rel="noopener noreferrer" class="card-cta-btn btn-choose-pro">
             <span>Start Premium Free</span>
             <span class="btn-arrow">&rarr;</span>
           </a>
@@ -2317,11 +2438,11 @@ body {
               </th>
               <th class="col-standard">
                 <div class="th-header-pill th-pill-standard">SILVER</div>
-                <div class="th-price-sub th-price-standard">$9.99 / YEAR</div>
+                <div class="th-price-sub th-price-standard">$239 / YEAR</div>
               </th>
               <th class="col-pro">
                 <div class="th-header-pill th-pill-pro">PLATINUM</div>
-                <div class="th-price-sub th-price-premium">$24.99 / YEAR</div>
+                <div class="th-price-sub th-price-premium">$449 / YEAR</div>
               </th>
             </tr>
           </thead>
@@ -2634,11 +2755,11 @@ body {
       <p class="final-cta-desc">Discover a more connected approach to restaurant management with Geni Menu. Bring your digital menu, customer interactions and everyday operations together through one intelligent platform built to support efficiency, enhance experiences and drive business growth.</p>
       <div class="final-cta-btn-wrap">
         <a href="{{ route('home') }}" class="final-cta-btn-primary">
-          <span>Explore Geni Menu</span>
+          <span>Explore <span class="hide-on-mobile">Geni </span>Menu</span>
           <span class="arrow">&rarr;</span>
         </a>
         <a href="{{ route('enquiry') }}" class="final-cta-btn-secondary">
-          <span>Book a Personalised Demo</span>
+          <span>Book <span class="hide-on-mobile">Personalised </span>Demo</span>
           <span class="arrow">&rarr;</span>
         </a>
       </div>
@@ -2712,42 +2833,181 @@ function updateGlobalToggleBtnText() {
    COUNTRY & CURRENCY SELECTOR LOGIC
    ========================================================================== */
 var countriesData = {
-  'INTL': { code: 'USD', name: 'International', flag: '🌐', symbol: '$', starter: '$9.99', growth: '$24.99' },
-  'IN': { code: 'INR', name: 'India', flag: '🇮🇳', symbol: '₹', starter: '₹799', growth: '₹1,999' },
-  'US': { code: 'USD', name: 'United States', flag: '🇺🇸', symbol: '$', starter: '$9.99', growth: '$24.99' },
-  'AE': { code: 'AED', name: 'United Arab Emirates', flag: '🇦🇪', symbol: 'AED', starter: 'AED 39', growth: 'AED 99' },
-  'SA': { code: 'SAR', name: 'Saudi Arabia', flag: '🇸🇦', symbol: 'SAR', starter: 'SAR 39', growth: 'SAR 99' },
-  'GB': { code: 'GBP', name: 'United Kingdom', flag: '🇬🇧', symbol: '£', starter: '£7.99', growth: '£19.99' },
-  'EU': { code: 'EUR', name: 'European Union', flag: '🇪🇺', symbol: '€', starter: '€8.99', growth: '€22.99' },
-  'SG': { code: 'SGD', name: 'Singapore', flag: '🇸🇬', symbol: 'S$', starter: 'S$13.99', growth: 'S$34.99' },
-  'MY': { code: 'MYR', name: 'Malaysia', flag: '🇲🇾', symbol: 'RM', starter: 'RM 45', growth: 'RM 115' },
-  'CA': { code: 'CAD', name: 'Canada', flag: '🇨🇦', symbol: 'CA$', starter: 'CA$13.99', growth: 'CA$34.99' },
-  'AU': { code: 'AUD', name: 'Australia', flag: '🇦🇺', symbol: 'A$', starter: 'A$14.99', growth: 'A$37.99' },
-  'QA': { code: 'QAR', name: 'Qatar', flag: '🇶🇦', symbol: 'QAR', starter: 'QAR 39', growth: 'QAR 99' },
-  'KW': { code: 'KWD', name: 'Kuwait', flag: '🇰🇼', symbol: 'KWD', starter: 'KWD 3.5', growth: 'KWD 8.5' },
-  'OM': { code: 'OMR', name: 'Oman', flag: '🇴🇲', symbol: 'OMR', starter: 'OMR 4', growth: 'OMR 10' },
-  'BH': { code: 'BHD', name: 'Bahrain', flag: '🇧🇭', symbol: 'BHD', starter: 'BHD 4', growth: 'BHD 10' },
-  'NZ': { code: 'NZD', name: 'New Zealand', flag: '🇳🇿', symbol: 'NZ$', starter: 'NZ$16.99', growth: 'NZ$41.99' },
-  'ZA': { code: 'ZAR', name: 'South Africa', flag: '🇿🇦', symbol: 'R', starter: 'R 189', growth: 'R 469' },
-  'PH': { code: 'PHP', name: 'Philippines', flag: '🇵🇭', symbol: '₱', starter: '₱560', growth: '₱1,399' },
-  'ID': { code: 'IDR', name: 'Indonesia', flag: '🇮🇩', symbol: 'Rp', starter: 'Rp 159,000', growth: 'Rp 399,000' },
-  'TH': { code: 'THB', name: 'Thailand', flag: '🇹🇭', symbol: '฿', starter: '฿350', growth: '฿890' },
-  'VN': { code: 'VND', name: 'Vietnam', flag: '🇻🇳', symbol: '₫', starter: '₫249,000', growth: '₫629,000' },
-  'LK': { code: 'LKR', name: 'Sri Lanka', flag: '🇱🇰', symbol: 'Rs', starter: 'Rs 2,990', growth: 'Rs 7,490' },
-  'BD': { code: 'BDT', name: 'Bangladesh', flag: '🇧🇩', symbol: '৳', starter: '৳1,190', growth: '৳2,990' },
-  'NP': { code: 'NPR', name: 'Nepal', flag: '🇳🇵', symbol: 'Rs', starter: 'Rs 1,290', growth: 'Rs 3,290' },
-  'PK': { code: 'PKR', name: 'Pakistan', flag: '🇵🇰', symbol: 'Rs', starter: 'Rs 2,790', growth: 'Rs 6,990' },
-  'NG': { code: 'NGN', name: 'Nigeria', flag: '🇳🇬', symbol: '₦', starter: '₦14,900', growth: '₦37,500' },
-  'KE': { code: 'KES', name: 'Kenya', flag: '🇰🇪', symbol: 'KSh', starter: 'KSh 1,290', growth: 'KSh 3,250' },
-  'JP': { code: 'JPY', name: 'Japan', flag: '🇯🇵', symbol: '¥', starter: '¥1,490', growth: '¥3,790' },
-  'KR': { code: 'KRW', name: 'South Korea', flag: '🇰🇷', symbol: '₩', starter: '₩13,500', growth: '₩33,900' },
-  'BR': { code: 'BRL', name: 'Brazil', flag: '🇧🇷', symbol: 'R$', starter: 'R$ 55', growth: 'R$ 139' },
-  'MX': { code: 'MXN', name: 'Mexico', flag: '🇲🇽', symbol: 'Mex$', starter: 'Mex$ 199', growth: 'Mex$ 499' },
-  'CH': { code: 'CHF', name: 'Switzerland', flag: '🇨🇭', symbol: 'CHF', starter: 'CHF 8.99', growth: 'CHF 22.99' },
-  'TR': { code: 'TRY', name: 'Turkey', flag: '🇹🇷', symbol: '₺', starter: '₺349', growth: '₺879' }
+  'INTL': {
+    code: 'USD', name: 'International', flag: '🌐', symbol: '$',
+    monthly: { starter: '$20', growth: '$42' },
+    yearly:  { starter: '$239', growth: '$449' }
+  },
+  'US': {
+    code: 'USD', name: 'United States', flag: '🇺🇸', symbol: '$',
+    monthly: { starter: '$20', growth: '$42' },
+    yearly:  { starter: '$239', growth: '$449' }
+  },
+  'IN': {
+    code: 'INR', name: 'India', flag: '🇮🇳', symbol: '₹',
+    monthly: { starter: '₹799', growth: '₹1,999' },
+    yearly:  { starter: '₹7,990', growth: '₹19,990' }
+  },
+  'AE': {
+    code: 'AED', name: 'United Arab Emirates', flag: '🇦🇪', symbol: 'AED',
+    monthly: { starter: 'AED 79', growth: 'AED 169' },
+    yearly:  { starter: 'AED 899', growth: 'AED 1,699' }
+  },
+  'SA': {
+    code: 'SAR', name: 'Saudi Arabia', flag: '🇸🇦', symbol: 'SAR',
+    monthly: { starter: 'SAR 79', growth: 'SAR 169' },
+    yearly:  { starter: 'SAR 899', growth: 'SAR 1,699' }
+  },
+  'GB': {
+    code: 'GBP', name: 'United Kingdom', flag: '🇬🇧', symbol: '£',
+    monthly: { starter: '£16', growth: '£35' },
+    yearly:  { starter: '£189', growth: '£359' }
+  },
+  'EU': {
+    code: 'EUR', name: 'European Union', flag: '🇪🇺', symbol: '€',
+    monthly: { starter: '€19', growth: '€39' },
+    yearly:  { starter: '€219', growth: '€419' }
+  },
+  'SG': {
+    code: 'SGD', name: 'Singapore', flag: '🇸🇬', symbol: 'S$',
+    monthly: { starter: 'S$28', growth: 'S$59' },
+    yearly:  { starter: 'S$319', growth: 'S$599' }
+  },
+  'MY': {
+    code: 'MYR', name: 'Malaysia', flag: '🇲🇾', symbol: 'RM',
+    monthly: { starter: 'RM 95', growth: 'RM 199' },
+    yearly:  { starter: 'RM 1,090', growth: 'RM 2,190' }
+  },
+  'CA': {
+    code: 'CAD', name: 'Canada', flag: '🇨🇦', symbol: 'CA$',
+    monthly: { starter: 'CA$28', growth: 'CA$59' },
+    yearly:  { starter: 'CA$319', growth: 'CA$599' }
+  },
+  'AU': {
+    code: 'AUD', name: 'Australia', flag: '🇦🇺', symbol: 'A$',
+    monthly: { starter: 'A$30', growth: 'A$65' },
+    yearly:  { starter: 'A$349', growth: 'A$649' }
+  },
+  'QA': {
+    code: 'QAR', name: 'Qatar', flag: '🇶🇦', symbol: 'QAR',
+    monthly: { starter: 'QAR 79', growth: 'QAR 169' },
+    yearly:  { starter: 'QAR 899', growth: 'QAR 1,699' }
+  },
+  'KW': {
+    code: 'KWD', name: 'Kuwait', flag: '🇰🇼', symbol: 'KWD',
+    monthly: { starter: 'KWD 6.5', growth: 'KWD 13.5' },
+    yearly:  { starter: 'KWD 75', growth: 'KWD 149' }
+  },
+  'OM': {
+    code: 'OMR', name: 'Oman', flag: '🇴🇲', symbol: 'OMR',
+    monthly: { starter: 'OMR 8', growth: 'OMR 17' },
+    yearly:  { starter: 'OMR 89', growth: 'OMR 179' }
+  },
+  'BH': {
+    code: 'BHD', name: 'Bahrain', flag: '🇧🇭', symbol: 'BHD',
+    monthly: { starter: 'BHD 8', growth: 'BHD 17' },
+    yearly:  { starter: 'BHD 89', growth: 'BHD 179' }
+  },
+  'NZ': {
+    code: 'NZD', name: 'New Zealand', flag: '🇳🇿', symbol: 'NZ$',
+    monthly: { starter: 'NZ$34', growth: 'NZ$72' },
+    yearly:  { starter: 'NZ$389', growth: 'NZ$749' }
+  },
+  'ZA': {
+    code: 'ZAR', name: 'South Africa', flag: '🇿🇦', symbol: 'R',
+    monthly: { starter: 'R 380', growth: 'R 790' },
+    yearly:  { starter: 'R 4,290', growth: 'R 8,490' }
+  },
+  'PH': {
+    code: 'PHP', name: 'Philippines', flag: '🇵🇭', symbol: '₱',
+    monthly: { starter: '₱1,150', growth: '₱2,400' },
+    yearly:  { starter: '₱12,900', growth: '₱24,900' }
+  },
+  'ID': {
+    code: 'IDR', name: 'Indonesia', flag: '🇮🇩', symbol: 'Rp',
+    monthly: { starter: 'Rp 320,000', growth: 'Rp 680,000' },
+    yearly:  { starter: 'Rp 3,590,000', growth: 'Rp 6,990,000' }
+  },
+  'TH': {
+    code: 'THB', name: 'Thailand', flag: '🇹🇭', symbol: '฿',
+    monthly: { starter: '฿720', growth: '฿1,500' },
+    yearly:  { starter: '฿7,990', growth: '฿15,900' }
+  },
+  'VN': {
+    code: 'VND', name: 'Vietnam', flag: '🇻🇳', symbol: '₫',
+    monthly: { starter: '₫500,000', growth: '₫1,050,000' },
+    yearly:  { starter: '₫5,490,000', growth: '₫10,900,000' }
+  },
+  'LK': {
+    code: 'LKR', name: 'Sri Lanka', flag: '🇱🇰', symbol: 'Rs',
+    monthly: { starter: 'Rs 6,200', growth: 'Rs 12,900' },
+    yearly:  { starter: 'Rs 69,000', growth: 'Rs 139,000' }
+  },
+  'BD': {
+    code: 'BDT', name: 'Bangladesh', flag: '🇧🇩', symbol: '৳',
+    monthly: { starter: '৳2,400', growth: '৳5,000' },
+    yearly:  { starter: '৳26,900', growth: '৳52,900' }
+  },
+  'NP': {
+    code: 'NPR', name: 'Nepal', flag: '🇳🇵', symbol: 'Rs',
+    monthly: { starter: 'Rs 2,700', growth: 'Rs 5,600' },
+    yearly:  { starter: 'Rs 29,900', growth: 'Rs 59,000' }
+  },
+  'PK': {
+    code: 'PKR', name: 'Pakistan', flag: '🇵🇰', symbol: 'Rs',
+    monthly: { starter: 'Rs 5,800', growth: 'Rs 12,000' },
+    yearly:  { starter: 'Rs 64,900', growth: 'Rs 129,000' }
+  },
+  'NG': {
+    code: 'NGN', name: 'Nigeria', flag: '🇳🇬', symbol: '₦',
+    monthly: { starter: '₦32,000', growth: '₦68,000' },
+    yearly:  { starter: '₦359,000', growth: '₦699,000' }
+  },
+  'KE': {
+    code: 'KES', name: 'Kenya', flag: '🇰🇪', symbol: 'KSh',
+    monthly: { starter: 'KSh 2,600', growth: 'KSh 5,500' },
+    yearly:  { starter: 'KSh 29,000', growth: 'KSh 58,000' }
+  },
+  'JP': {
+    code: 'JPY', name: 'Japan', flag: '🇯🇵', symbol: '¥',
+    monthly: { starter: '¥3,100', growth: '¥6,500' },
+    yearly:  { starter: '¥34,900', growth: '¥69,000' }
+  },
+  'KR': {
+    code: 'KRW', name: 'South Korea', flag: '🇰🇷', symbol: '₩',
+    monthly: { starter: '₩28,000', growth: '₩59,000' },
+    yearly:  { starter: '₩310,000', growth: '₩599,000' }
+  },
+  'BR': {
+    code: 'BRL', name: 'Brazil', flag: '🇧🇷', symbol: 'R$',
+    monthly: { starter: 'R$ 115', growth: 'R$ 240' },
+    yearly:  { starter: 'R$ 1,290', growth: 'R$ 2,490' }
+  },
+  'MX': {
+    code: 'MXN', name: 'Mexico', flag: '🇲🇽', symbol: 'Mex$',
+    monthly: { starter: 'Mex$ 410', growth: 'Mex$ 860' },
+    yearly:  { starter: 'Mex$ 4,590', growth: 'Mex$ 8,990' }
+  },
+  'CH': {
+    code: 'CHF', name: 'Switzerland', flag: '🇨🇭', symbol: 'CHF',
+    monthly: { starter: 'CHF 18', growth: 'CHF 38' },
+    yearly:  { starter: 'CHF 209', growth: 'CHF 399' }
+  },
+  'TR': {
+    code: 'TRY', name: 'Turkey', flag: '🇹🇷', symbol: '₺',
+    monthly: { starter: '₺720', growth: '₺1,500' },
+    yearly:  { starter: '₺7,990', growth: '₺15,900' }
+  }
 };
 
+// Fallback compatibility helpers
+for (var k in countriesData) {
+  countriesData[k].starter = countriesData[k].yearly.starter;
+  countriesData[k].growth  = countriesData[k].yearly.growth;
+}
+
 var currentSelectedCountry = 'INTL';
+var currentBillingCycle = 'yearly'; // 'yearly' or 'monthly'
 
 function renderCountryOptions() {
   var list = document.getElementById('country-options-list');
@@ -2815,6 +3075,94 @@ document.addEventListener('click', function(e) {
   }
 });
 
+function setBillingCycle(cycle) {
+  if (cycle !== 'monthly' && cycle !== 'yearly') return;
+  currentBillingCycle = cycle;
+  updatePricingDisplay();
+  try {
+    localStorage.setItem('geni_menu_billing_cycle', cycle);
+  } catch(e) {}
+}
+
+function updatePricingDisplay() {
+  var data = countriesData[currentSelectedCountry];
+  if (!data) return;
+
+  var cycleData = data[currentBillingCycle] || data.yearly;
+  var starterPrice = cycleData.starter;
+  var growthPrice  = cycleData.growth;
+  var isYearly     = currentBillingCycle === 'yearly';
+  var periodText   = isYearly ? '/ year' : '/ month';
+  var tablePeriod  = isYearly ? '/ YEAR' : '/ MONTH';
+
+  // 1. Update Starter price
+  var starterPrices = document.querySelectorAll('.price-val-starter');
+  starterPrices.forEach(function(el) {
+    el.textContent = starterPrice;
+  });
+
+  // 2. Update Growth price
+  var growthPrices = document.querySelectorAll('.price-val-growth');
+  growthPrices.forEach(function(el) {
+    el.textContent = growthPrice;
+  });
+
+  // 3. Update Period text
+  var periodEls = document.querySelectorAll('.card-price-period');
+  periodEls.forEach(function(el) {
+    el.textContent = periodText;
+  });
+
+  // 4. Update Billing Pill
+  var pill = document.getElementById('pricing-billing-pill');
+  if (pill) {
+    if (isYearly) {
+      pill.innerHTML = '<span class="save-discount-badge">Save up to 15%</span>' +
+                       '<span class="billing-pill-text">Billed annually &bull; Software subscription only &bull; Prices in <strong>' + data.code + '</strong></span>';
+    } else {
+      pill.innerHTML = '<span class="billing-pill-text">Billed monthly &bull; Software subscription only &bull; Prices in <strong>' + data.code + '</strong></span>';
+    }
+  }
+
+  // 5. Update comparison table headers
+  var thStandard = document.querySelectorAll('.th-price-standard');
+  thStandard.forEach(function(el) {
+    el.textContent = starterPrice + ' ' + tablePeriod;
+  });
+
+  var thPremium = document.querySelectorAll('.th-price-premium');
+  thPremium.forEach(function(el) {
+    el.textContent = growthPrice + ' ' + tablePeriod;
+  });
+
+  // 6. Update Toggle buttons active state
+  var btnMonthly = document.getElementById('btn-billing-monthly');
+  var btnYearly  = document.getElementById('btn-billing-yearly');
+  if (btnMonthly && btnYearly) {
+    if (!isYearly) {
+      btnMonthly.classList.add('active');
+      btnMonthly.setAttribute('aria-selected', 'true');
+      btnYearly.classList.remove('active');
+      btnYearly.setAttribute('aria-selected', 'false');
+    } else {
+      btnYearly.classList.add('active');
+      btnYearly.setAttribute('aria-selected', 'true');
+      btnMonthly.classList.remove('active');
+      btnMonthly.setAttribute('aria-selected', 'false');
+    }
+  }
+
+  // 7. Update CTA links with billing cycle
+  var standardBtn = document.querySelector('.btn-choose-standard');
+  if (standardBtn) {
+    standardBtn.href = "{{ route('restaurant_signup') }}?plan=standard&billing=" + currentBillingCycle;
+  }
+  var proBtn = document.querySelector('.btn-choose-pro');
+  if (proBtn) {
+    proBtn.href = "{{ route('restaurant_signup') }}?plan=premium&billing=" + currentBillingCycle;
+  }
+}
+
 function selectCountry(countryKey) {
   var data = countriesData[countryKey];
   if (!data) return;
@@ -2829,37 +3177,10 @@ function selectCountry(countryKey) {
   if (nameEl) nameEl.textContent = data.name;
   if (currEl) currEl.textContent = data.symbol + ' ' + data.code;
 
-  // 2. Update billing pill
-  var pill = document.getElementById('pricing-billing-pill');
-  if (pill) {
-    pill.innerHTML = '<span class="save-discount-badge">Save 20%</span>' +
-                     '<span class="billing-pill-text">Billed annually &bull; Software subscription only &bull; Prices in <strong>' + data.code + '</strong></span>';
-  }
+  // 2. Update prices & billing display according to active cycle
+  updatePricingDisplay();
 
-  // 3. Update Starter price
-  var starterPrices = document.querySelectorAll('.price-val-starter');
-  starterPrices.forEach(function(el) {
-    el.textContent = data.starter;
-  });
-
-  // 4. Update Growth price
-  var growthPrices = document.querySelectorAll('.price-val-growth');
-  growthPrices.forEach(function(el) {
-    el.textContent = data.growth;
-  });
-
-  // 5. Update comparison table headers
-  var thStandard = document.querySelectorAll('.th-price-standard');
-  thStandard.forEach(function(el) {
-    el.textContent = data.starter + ' / YEAR';
-  });
-
-  var thPremium = document.querySelectorAll('.th-price-premium');
-  thPremium.forEach(function(el) {
-    el.textContent = data.growth + ' / YEAR';
-  });
-
-  // 6. Highlight active item in list
+  // 3. Highlight active item in list
   var rows = document.querySelectorAll('.country-option-row');
   rows.forEach(function(r) {
     if (r.getAttribute('data-code') === countryKey) {
@@ -2869,10 +3190,10 @@ function selectCountry(countryKey) {
     }
   });
 
-  // 7. Close dropdown
+  // 4. Close dropdown
   closeCountryDropdown();
 
-  // 8. Persist choice
+  // 5. Persist choice
   try {
     localStorage.setItem('geni_menu_pricing_country', countryKey);
   } catch(e) {}
@@ -2890,12 +3211,21 @@ function setCurrency(curr) {
 // Initialize on load
 document.addEventListener('DOMContentLoaded', function() {
   renderCountryOptions();
-  var saved = null;
+
+  // Restore saved billing cycle if any
   try {
-    saved = localStorage.getItem('geni_menu_pricing_country');
+    var savedCycle = localStorage.getItem('geni_menu_billing_cycle');
+    if (savedCycle === 'monthly' || savedCycle === 'yearly') {
+      currentBillingCycle = savedCycle;
+    }
   } catch(e) {}
-  if (saved && countriesData[saved]) {
-    selectCountry(saved);
+
+  var savedCountry = null;
+  try {
+    savedCountry = localStorage.getItem('geni_menu_pricing_country');
+  } catch(e) {}
+  if (savedCountry && countriesData[savedCountry]) {
+    selectCountry(savedCountry);
   } else {
     selectCountry('INTL');
   }

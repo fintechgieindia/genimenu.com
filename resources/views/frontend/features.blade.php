@@ -161,6 +161,16 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
   margin: 0 0 14px 0;
 }
 
+.section-title .title-accent {
+  color: var(--geni-caramel) !important;
+  font-weight: 600 !important;
+}
+
+.ft-business-section .section-title .title-accent {
+  color: var(--geni-champagne) !important;
+  font-weight: 600 !important;
+}
+
 .section-subtitle {
   font-family: 'Glacial Indifference', sans-serif !important;
   font-size: 15.5px;
@@ -518,25 +528,27 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
 
 .ft-inventory-layout {
   display: grid;
-  grid-template-columns: 1fr 0.9fr;
-  gap: 40px;
+  grid-template-columns: minmax(340px, 490px) 1fr;
+  gap: 48px;
   align-items: center;
 }
 
 .ft-inventory-cards {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+  max-width: 490px;
+  width: 100%;
 }
 
 .ft-inventory-card {
   background: var(--geni-cream-card);
   border: 1px solid var(--geni-border-light);
   border-radius: 16px;
-  padding: 24px 22px;
+  padding: 20px 22px;
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
+  align-items: center;
+  gap: 18px;
   transition: all 0.3s ease;
 }
 
@@ -624,25 +636,27 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
 
 .ft-business-layout {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 40px;
+  grid-template-columns: minmax(340px, 490px) 1fr;
+  gap: 48px;
   align-items: center;
 }
 
 .ft-business-cards {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+  max-width: 490px;
+  width: 100%;
 }
 
 .ft-dark-card {
   background: rgba(255, 248, 240, 0.05);
   border: 1px solid var(--geni-border-dark);
   border-radius: 16px;
-  padding: 26px 24px;
+  padding: 22px 22px;
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
+  align-items: center;
+  gap: 18px;
   transition: all 0.35s ease;
 }
 
@@ -754,38 +768,80 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
   text-transform: uppercase !important;
 }
 
-.ft-integration-logos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
+.ft-integration-panel:first-child .ft-integration-logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  width: 100%;
+}
+
+.ft-integration-panel:last-child .ft-integration-logos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  width: 100%;
 }
 
 .ft-logo-box {
-  width: 90px;
-  height: 90px;
+  width: 100%;
+  height: 86px;
   background: #FFFFFF;
   border: 1px solid var(--geni-border-light);
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
-  box-shadow: 0 4px 12px rgba(39, 19, 13, 0.04);
-  transition: all 0.3s ease;
+  padding: 10px 12px;
+  box-shadow: 0 3px 12px rgba(39, 19, 13, 0.04);
+  transition: all 0.25s ease;
+  box-sizing: border-box;
 }
 
 .ft-logo-box:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: var(--geni-caramel);
   box-shadow: 0 8px 20px rgba(197, 139, 80, 0.20);
 }
 
 .ft-logo-box img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 82px;
+  max-height: 48px;
+  width: auto;
+  height: auto;
   object-fit: contain;
+}
+
+.ft-logo-more {
+  background: rgba(197, 139, 80, 0.05) !important;
+  border-style: dashed !important;
+  border-color: rgba(197, 139, 80, 0.45) !important;
+}
+
+.ft-logo-more span {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  color: #C58B50;
+  font-size: 13.5px;
+  letter-spacing: 0.5px;
+}
+
+.ft-deliveroo-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+
+.ft-deliveroo-badge svg {
+  flex-shrink: 0;
+}
+
+.ft-deliveroo-badge span {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: #00CDBC;
+  font-size: 13px;
+  line-height: 1;
 }
 
 /* ==========================================================================
@@ -909,13 +965,82 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
   .ft-experience-grid,
   .ft-integrations-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
+
+  /* Integrations Section - Zero Horizontal Overflow */
+  .ft-integrations-section {
+    overflow: hidden !important;
+  }
+  .ft-integration-panel {
+    padding: 20px 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+  .ft-integration-panel:first-child .ft-integration-logos {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px 6px !important;
+    width: 100% !important;
+  }
+  .ft-integration-panel:last-child .ft-integration-logos {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 6px 4px !important;
+    width: 100% !important;
+  }
+  .ft-logo-box {
+    min-width: 0 !important;
+    width: 100% !important;
+    height: 64px !important;
+    padding: 5px 3px !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .ft-logo-box img {
+    max-height: 28px !important;
+    max-width: 85% !important;
+    object-fit: contain !important;
+  }
+  .ft-logo-more span {
+    font-size: 10px !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+  }
+  .ft-deliveroo-badge {
+    gap: 3px !important;
+  }
+  .ft-deliveroo-badge svg {
+    width: 13px !important;
+    height: 13px !important;
+  }
+  .ft-deliveroo-badge span {
+    font-size: 10px !important;
+  }
+
+  /* Hero Actions - Single Line Side-by-Side */
   .ft-hero-actions {
-    flex-direction: column;
-    width: 100%;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
   }
   .ft-hero-actions .btn-primary-gold,
-  .ft-hero-actions .btn-ghost-gold,
+  .ft-hero-actions .btn-ghost-gold {
+    flex: 1 1 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 11px 8px !important;
+    font-size: 12.5px !important;
+    white-space: nowrap !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    letter-spacing: 0.01em !important;
+  }
   .ft-cta-btn {
     width: 100%;
     justify-content: center;
@@ -934,6 +1059,46 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
   .ft-container,
   .ft-hero-container {
     padding: 0 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ft-hero-actions {
+    gap: 6px !important;
+  }
+  .ft-hero-actions .btn-primary-gold,
+  .ft-hero-actions .btn-ghost-gold {
+    padding: 10px 4px !important;
+    font-size: 11.5px !important;
+  }
+  .ft-integration-panel {
+    padding: 16px 8px !important;
+  }
+  .ft-panel-header {
+    margin-bottom: 16px !important;
+  }
+  .ft-panel-pill {
+    font-size: 10px !important;
+    padding: 4px 12px !important;
+  }
+  .ft-logo-box {
+    height: 56px !important;
+    padding: 4px 2px !important;
+    border-radius: 8px !important;
+  }
+  .ft-logo-box img {
+    max-height: 24px !important;
+    max-width: 82% !important;
+  }
+  .ft-logo-more span {
+    font-size: 9px !important;
+  }
+  .ft-deliveroo-badge svg {
+    width: 11px !important;
+    height: 11px !important;
+  }
+  .ft-deliveroo-badge span {
+    font-size: 9px !important;
   }
 }
 </style>
@@ -978,7 +1143,7 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
                     <span>CORE OPERATIONS</span>
                     <span class="dash"></span>
                 </div>
-                <h2 class="section-title">Powerful Tools to Manage Every Food Business Operation</h2>
+                <h2 class="section-title">Powerful Tools to Manage <span class="title-accent">Every Food Business Operation</span></h2>
                 <p class="section-subtitle">
                     Powerful tools to run your daily food business operations smoothly.
                 </p>
@@ -1065,7 +1230,7 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
                     <span>ORDER & CUSTOMER EXPERIENCE</span>
                     <span class="dash"></span>
                 </div>
-                <h2 class="section-title">Deliver a Seamless Customer Experience</h2>
+                <h2 class="section-title">Deliver a Seamless <span class="title-accent">Customer Experience</span></h2>
                 <p class="section-subtitle">
                     Give your customers a seamless and modern dining experience.
                 </p>
@@ -1191,7 +1356,7 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
                     <span>INVENTORY & SUPPLY CHAIN</span>
                     <span class="dash"></span>
                 </div>
-                <h2 class="section-title">Complete Control Over Your Inventory</h2>
+                <h2 class="section-title">Complete Control Over <span class="title-accent">Your Inventory</span></h2>
                 <p class="section-subtitle">
                     Maintain full control over your stock and procurement.
                 </p>
@@ -1255,7 +1420,7 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
                     <span style="color: var(--geni-champagne);">BUSINESS & MANAGEMENT</span>
                     <span class="dash"></span>
                 </div>
-                <h2 class="section-title">Manage Your Entire Business with Better Visibility</h2>
+                <h2 class="section-title">Manage Your Entire Business with <span class="title-accent">Better Visibility</span></h2>
                 <p class="section-subtitle">
                     Get complete visibility and control over your food business.
                 </p>
@@ -1267,10 +1432,10 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
                     {{-- 1. Sales & Analytics --}}
                     <div class="ft-dark-card">
                         <div class="ft-dark-card-icon">
-                            <i class="bi bi-graph-up-arrow"></i>
+                            <i class="bi bi-graph-up"></i>
                         </div>
                         <div class="ft-dark-card-info">
-                            <h4>Sales & Analytics</h4>
+                            <h4>Sales &amp; Analytics</h4>
                             <p>Monitor revenue, sales trends, popular products and business performance.</p>
                         </div>
                     </div>
@@ -1281,12 +1446,12 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
                             <i class="bi bi-people"></i>
                         </div>
                         <div class="ft-dark-card-info">
-                            <h4>Customer & Staff Management</h4>
+                            <h4>Customer &amp; Staff Management</h4>
                             <p>Manage customer profiles, staff accounts, roles and permissions.</p>
                         </div>
                     </div>
 
-                    {{-- 3. Expense Tracking --}}
+                    {{-- 3. Expense Tracking --}}                              
                     <div class="ft-dark-card">
                         <div class="ft-dark-card-icon">
                             <i class="bi bi-wallet2"></i>
@@ -1319,7 +1484,7 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
                     <span>SEAMLESS INTEGRATIONS</span>
                     <span class="dash"></span>
                 </div>
-                <h2 class="section-title">Connect with the Platforms Your Business Uses</h2>
+                <h2 class="section-title">Connect with the Platforms <span class="title-accent">Your Business Uses</span></h2>
                 <p class="section-subtitle">
                     Bring your food business operations together with powerful delivery and payment integrations.
                 </p>
@@ -1332,17 +1497,34 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
                         <span class="ft-panel-pill">FOOD DELIVERY INTEGRATIONS</span>
                     </div>
                     <div class="ft-integration-logos">
-                        {{-- Uber Eats --}}
-                        <div class="ft-logo-box" title="Uber Eats">
-                            <img src="{{ asset('assets/images/home/tile_ubereats.png') }}" alt="Uber Eats Delivery Integration">
+                        {{-- Swiggy --}}
+                        <div class="ft-logo-box" title="Swiggy">
+                            <img src="{{ asset('assets/images/home/tile_swiggy.png') }}" alt="Swiggy Delivery Integration">
                         </div>
                         {{-- Zomato --}}
                         <div class="ft-logo-box" title="Zomato">
                             <img src="{{ asset('assets/images/home/icon_zomato.png') }}" alt="Zomato Delivery Integration">
                         </div>
+                        {{-- Uber Eats --}}
+                        <div class="ft-logo-box" title="Uber Eats">
+                            <img src="{{ asset('assets/images/home/tile_ubereats.png') }}" alt="Uber Eats Delivery Integration">
+                        </div>
                         {{-- DoorDash --}}
                         <div class="ft-logo-box" title="DoorDash">
                             <img src="{{ asset('assets/images/home/tile_doordash.png') }}" alt="DoorDash Delivery Integration">
+                        </div>
+                        {{-- Deliveroo --}}
+                        <div class="ft-logo-box" title="Deliveroo">
+                            <div class="ft-deliveroo-badge">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#00CDBC">
+                                    <path d="M18.8 3.5c-.5-.4-1.2-.5-1.8-.2l-5.6 2.8-2.9-4.8c-.4-.7-1.1-1.1-1.9-1.1-.8 0-1.5.4-1.9 1.1L.7 9.8c-.5.8-.4 1.8.2 2.5l7.9 9.3c.5.6 1.3 1 2.1 1h7.6c1.4 0 2.5-1.1 2.5-2.5V5.1c0-.6-.3-1.2-.7-1.6zm-6.2 13c-.9 0-1.7-.8-1.7-1.7s.8-1.7 1.7-1.7 1.7.8 1.7 1.7-.8 1.7-1.7 1.7zm4.3 0c-.9 0-1.7-.8-1.7-1.7s.8-1.7 1.7-1.7 1.7.8 1.7 1.7-.8 1.7-1.7 1.7z"/>
+                                </svg>
+                                <span>deliveroo</span>
+                            </div>
+                        </div>
+                        {{-- & More --}}
+                        <div class="ft-logo-box ft-logo-more" title="And More Delivery Platforms">
+                            <span>&amp; MORE</span>
                         </div>
                     </div>
                 </div>
@@ -1353,32 +1535,40 @@ p, li, .section-subtitle, .ft-hero-description, .ft-card-desc,
                         <span class="ft-panel-pill">PAYMENT INTEGRATIONS</span>
                     </div>
                     <div class="ft-integration-logos">
+                        {{-- PhonePe --}}
+                        <div class="ft-logo-box" title="PhonePe">
+                            <img src="{{ asset('assets/images/home/tile_phonepe.png') }}" alt="PhonePe Payment Integration">
+                        </div>
                         {{-- Google Pay --}}
                         <div class="ft-logo-box" title="Google Pay">
                             <img src="{{ asset('assets/images/home/tile_gpay.png') }}" alt="Google Pay Integration">
-                        </div>
-                        {{-- UPI --}}
-                        <div class="ft-logo-box" title="UPI">
-                            <img src="{{ asset('assets/images/home/tile_upi.png') }}" alt="UPI Payment Integration">
                         </div>
                         {{-- Paytm --}}
                         <div class="ft-logo-box" title="Paytm">
                             <img src="{{ asset('assets/images/home/tile_paytm.png') }}" alt="Paytm Payment Integration">
                         </div>
+                        {{-- Razorpay --}}
+                        <div class="ft-logo-box" title="Razorpay">
+                            <img src="{{ asset('assets/images/home/tile_razorpay.png') }}" alt="Razorpay Integration">
+                        </div>
+                        {{-- UPI --}}
+                        <div class="ft-logo-box" title="UPI">
+                            <img src="{{ asset('assets/images/home/tile_upi.png') }}" alt="UPI Payment Integration">
+                        </div>
+                        {{-- Stripe --}}
+                        <div class="ft-logo-box" title="Stripe">
+                            <img src="{{ asset('assets/images/home/tile_stripe.png') }}" alt="Stripe Payment Integration">
+                        </div>
                         {{-- PayPal --}}
                         <div class="ft-logo-box" title="PayPal">
                             <img src="{{ asset('assets/images/home/tile_paypal.png') }}" alt="PayPal Payment Integration">
                         </div>
+                        {{-- & More --}}
+                        <div class="ft-logo-box ft-logo-more" title="And More Payment Gateways">
+                            <span>&amp; MORE</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            {{-- Explore Hardware & Integrations Action Button --}}
-            <div class="ft-integrations-action" style="text-align: center; margin-top: 48px;">
-                <a href="{{ route('hardware-integrations') }}" class="btn-primary-gold" style="padding: 13.5px 32px !important; font-size: 15px !important;">
-                    <span>Explore Hardware &amp; Integrations</span>
-                    <span style="font-size: 16px;">&rarr;</span>
-                </a>
             </div>
         </div>
     </section>

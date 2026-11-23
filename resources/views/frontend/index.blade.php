@@ -812,16 +812,32 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
     gap: 12px 10px;
   }
   .geni-why-cta-wrap {
-    width: 100%;
-    flex-direction: column;
-    gap: 10px;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    justify-content: center !important;
   }
   .btn-why-solutions,
   .btn-why-view-menu,
   .btn-why-demo-outline,
   .btn-why-demo {
-    width: 100%;
-    justify-content: center;
+    flex: 1 1 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 11px 8px !important;
+    font-size: 12.5px !important;
+    white-space: nowrap !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .btn-why-view-menu span,
+  .btn-why-demo-outline span {
+    font-size: 12px !important;
+  }
+  .btn-why-view-menu .arrow,
+  .btn-why-demo-outline .arrow {
+    display: none !important;
   }
   .geni-why-spacer {
     min-height: 220px;
@@ -1412,56 +1428,59 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   max-width: 620px;
 }
 
-/* 2x2 Category Cards Grid */
-.geni-integrations-category-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 26px;
-  margin-bottom: 0;
-}
-
-.geni-int-cat-card {
+/* Unified Integrations Board (Clean, Gap-Free Showcase) */
+.geni-integrations-board {
   background: #FFFFFF;
   border: 1px solid rgba(197, 139, 80, 0.22);
-  border-radius: 22px;
-  padding: 32px 32px 30px;
-  box-shadow: 0 6px 22px rgba(50, 24, 15, 0.04);
-  transition: all 0.28s ease;
+  border-radius: 24px;
+  padding: 34px 38px;
+  box-shadow: 0 8px 30px rgba(50, 24, 15, 0.05);
+}
+
+.geni-int-board-row {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 22px 0;
 }
 
-.geni-int-cat-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(197, 139, 80, 0.50);
-  box-shadow: 0 14px 34px rgba(50, 24, 15, 0.09);
+.geni-int-board-row:first-child {
+  padding-top: 4px;
 }
 
-.geni-int-cat-header {
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid rgba(197, 139, 80, 0.12);
+.geni-int-board-row:last-child {
+  padding-bottom: 4px;
 }
 
-.geni-int-cat-info {
-  display: flex;
-  flex-direction: column;
+.geni-int-board-header {
+  flex-shrink: 0;
+  width: 210px;
 }
 
-.geni-int-cat-title {
+.geni-int-board-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: rgba(197, 139, 80, 0.08);
+  border: 1px solid rgba(197, 139, 80, 0.28);
+  border-radius: 999px;
   font-family: 'Cinzel', serif;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 14.5px;
+  font-weight: 700;
   color: #27130D;
-  margin: 0 0 5px 0;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
-.geni-int-cat-sub {
-  font-family: 'Glacial Indifference', sans-serif;
-  font-size: 14px;
-  color: #7A6256;
-  margin: 0;
+.geni-int-board-tag svg {
+  stroke: #C58B50;
+  flex-shrink: 0;
+}
+
+.geni-int-board-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(197, 139, 80, 0.22) 15%, rgba(197, 139, 80, 0.22) 85%, transparent);
 }
 
 /* Logos Row: Spacious, Beautifully-Fit White Box Cards */
@@ -1469,22 +1488,21 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
-  margin-top: auto;
-  padding-top: 6px;
+  flex: 1;
 }
 
 .geni-int-box-card {
-  min-width: 104px;
-  height: 92px;
+  min-width: 106px;
+  height: 84px;
   background: #FFFFFF;
   border: 1.5px solid rgba(197, 139, 80, 0.22);
-  border-radius: 18px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 14px;
+  padding: 10px 14px;
   box-shadow: 0 3px 12px rgba(50, 24, 15, 0.03);
   transition: all 0.24s ease;
   flex-shrink: 0;
@@ -1498,8 +1516,8 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 }
 
 .geni-int-box-img {
-  max-height: 52px;
-  max-width: 86px;
+  max-height: 48px;
+  max-width: 82px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -1507,7 +1525,36 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 }
 
 .geni-int-box-card:hover .geni-int-box-img {
-  transform: scale(1.05);
+  transform: scale(1.06);
+}
+
+.geni-int-box-more {
+  background: rgba(197, 139, 80, 0.05) !important;
+  border-style: dashed !important;
+  border-color: rgba(197, 139, 80, 0.45) !important;
+}
+
+.geni-int-box-more span {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  color: #C58B50;
+  font-size: 13.5px;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 991px) {
+  .geni-integrations-board {
+    padding: 24px 20px;
+  }
+  .geni-int-board-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+  }
+  .geni-int-board-header {
+    width: auto;
+  }
 }
 
 /* Hardware Grid (5 devices with Real Cutout Images) */
@@ -2155,13 +2202,15 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   .geni-hero { padding: 80px 0 45px !important; min-height: auto; }
   .geni-hero-container { display: flex; flex-direction: column; gap: 24px; padding: 0 16px; }
   .geni-hero-left { width: 100%; max-width: 100%; align-items: flex-start; text-align: left; }
-  .geni-hero-title { font-size: 30px; line-height: 1.15; margin-bottom: 14px; }
+  .geni-hero-title { font-size: clamp(23px, 6vw, 28px); line-height: 1.22; margin-bottom: 14px; }
   .geni-hero-desc { font-size: 14px; margin-bottom: 20px; }
-  .geni-hero-ctas { flex-direction: column; width: 100%; gap: 10px; margin-bottom: 20px; }
-  .btn-primary-gold, .btn-ghost-gold { width: 100%; justify-content: center; padding: 11px 18px; }
+  .geni-hero-ctas { display: flex !important; flex-direction: row !important; width: 100% !important; gap: 8px !important; margin-bottom: 20px !important; }
+  .btn-primary-gold, .btn-ghost-gold { flex: 1 1 0 !important; width: auto !important; min-width: 0 !important; justify-content: center !important; padding: 11px 6px !important; font-size: 12px !important; white-space: nowrap !important; text-align: center !important; letter-spacing: 0 !important; }
   .geni-hero-right { display: none !important; }
-  .geni-hero-features-wrap { order: 3; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 100%; padding-top: 16px; }
-  .geni-hero-feat-sep { display: none; }
+  .geni-hero-features-wrap { order: 3; display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 10px 8px !important; width: 100% !important; max-width: 100%; padding-top: 14px; }
+  .geni-hero-feat-sep { display: none !important; }
+  .geni-hero-feature { display: flex !important; align-items: center !important; gap: 6px !important; min-width: 0 !important; }
+  .geni-hero-feature .feat-name { font-size: 11.5px !important; line-height: 1.25 !important; white-space: normal !important; }
 
   .geni-trust-strip { padding: 44px 0 48px; }
   .geni-trust-header { margin-bottom: 24px; }
@@ -2191,10 +2240,44 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
   .geni-features-cta-wrap { margin-top: 28px; }
   .btn-features-explore { width: 100%; justify-content: center; }
 
-  .geni-integrations-section { padding: 50px 0; }
-  .geni-integrations-container { padding: 0 16px; }
-  .geni-int-cat-card { padding: 22px 16px !important; border-radius: 16px !important; }
-  .geni-int-cat-header { margin-bottom: 16px !important; padding-bottom: 12px !important; }
+  .geni-integrations-section { padding: 45px 0 !important; }
+  .geni-integrations-container { padding: 0 10px !important; }
+  .geni-integrations-board { padding: 20px 10px !important; border-radius: 16px !important; }
+  .geni-int-board-row { padding: 14px 0 !important; gap: 12px !important; }
+  .geni-int-board-header { width: 100% !important; margin-bottom: 4px !important; }
+  .geni-int-board-tag { font-size: 13.5px !important; padding: 7px 14px !important; }
+  /* Food Delivery: 3 columns x 2 rows (6 tiles, edge-to-edge, zero gap) */
+  .geni-int-board-row:nth-child(1) .geni-int-platforms-row {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+  /* Payments: 4 columns x 2 rows (8 tiles, edge-to-edge, zero gap) */
+  .geni-int-board-row:nth-child(3) .geni-int-platforms-row {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 5px !important;
+    width: 100% !important;
+  }
+  /* Communication: 2 columns x 1 row (2 tiles, edge-to-edge, zero gap) */
+  .geni-int-board-row:nth-child(5) .geni-int-platforms-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+  .geni-int-box-card {
+    min-width: 0 !important;
+    width: 100% !important;
+    height: 68px !important;
+    padding: 6px 4px !important;
+    border-radius: 12px !important;
+  }
+  .geni-int-box-img {
+    max-height: 36px !important;
+    max-width: 90% !important;
+  }
 
   .geni-reviews-section { padding: 55px 0; }
   .geni-reviews-container { grid-template-columns: 1fr; gap: 28px; padding: 0 16px; }
@@ -2228,9 +2311,24 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 
 @media (max-width: 480px) {
   .geni-hero { padding: 75px 0 35px !important; }
-  .geni-hero-title { font-size: 26px !important; }
-  .geni-hero-features-wrap { grid-template-columns: 1fr; gap: 8px; }
-  .geni-trust-grid { grid-template-columns: 1fr; gap: 8px; }
+  .geni-hero-title { font-size: clamp(21px, 5.8vw, 24px) !important; line-height: 1.25 !important; }
+  .geni-hero-ctas { display: flex !important; flex-direction: row !important; gap: 6px !important; }
+  .btn-primary-gold, .btn-ghost-gold {
+    padding: 10px 4px !important;
+    font-size: 11px !important;
+  }
+  .btn-primary-gold span:last-child,
+  .btn-ghost-gold span:last-child {
+    display: none !important;
+  }
+  .geni-hero-features-wrap { grid-template-columns: repeat(2, 1fr) !important; gap: 8px 6px !important; }
+  .geni-hero-feature .feat-name { font-size: 10.5px !important; }
+  .geni-trust-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+  .geni-trust-cat { padding: 14px 6px 12px !important; }
+  .geni-trust-cat .cat-icon { width: 38px !important; height: 38px !important; font-size: 18px !important; }
+  .geni-trust-cat .cat-label { font-size: 11.5px !important; line-height: 1.3 !important; }
+  .geni-int-box-card { height: 62px !important; }
+  .geni-int-box-img { max-height: 30px !important; }
   .geni-how-section { padding: 44px 0 48px !important; }
   .geni-how-container { padding: 0 14px !important; }
   .geni-how-title { font-size: 23px !important; }
@@ -2769,7 +2867,7 @@ p, li, .geni-hero-desc, .geni-why-desc, .geni-integrations-desc,
 
       <!-- CTA Buttons: 13.5px with 600 weight -->
       <div class="geni-hero-ctas">
-        <a href="{{ route('restaurant_signup') }}" class="btn-primary-gold">
+        <a href="{{ route('restaurant_signup') }}" target="_blank" rel="noopener noreferrer" class="btn-primary-gold">
           <span>Start Your Free Trial</span>
           <span style="font-size: 15px;">&rarr;</span>
         </a>
@@ -3244,7 +3342,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <p class="geni-bento-mini-desc">No more waiting for menus. One quick scan, and your guests are ready to explore, order, and enjoy.</p>
       </div>
 
-      <!-- 4. Zomato/Swiggy Integration -->
+      <!-- 4. Food Delivery App Integration -->
       <div class="geni-bento-mini-card">
         <div class="geni-bento-icon-badge" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -3256,8 +3354,8 @@ document.addEventListener('DOMContentLoaded', function () {
             <path d="M2 5h13v12H2z"></path>
           </svg>
         </div>
-        <h4 class="geni-bento-mini-title">Zomato/Swiggy Integration</h4>
-        <p class="geni-bento-mini-desc">Manage Zomato and Swiggy orders directly from your POS. One screen for all your deliveries.</p>
+        <h4 class="geni-bento-mini-title">Food Delivery App Integration</h4>
+        <p class="geni-bento-mini-desc">Connect your POS with popular food delivery platforms and manage online orders from a single system.</p>
       </div>
 
       <!-- 5. Multi-Platform -->
@@ -3342,14 +3440,20 @@ document.addEventListener('DOMContentLoaded', function () {
       </p>
     </div>
 
-    <!-- Category Cards 2x2 Grid -->
-    <div class="geni-integrations-category-grid">
-      <!-- 1. Food Delivery Card -->
-      <div class="geni-int-cat-card">
-        <div class="geni-int-cat-header">
-          <div class="geni-int-cat-info">
-            <h3 class="geni-int-cat-title">Food Delivery</h3>
-            <p class="geni-int-cat-sub">Manage all your delivery orders in one unified system.</p>
+    <!-- Unified Integrations Board (Gap-Free Clean Showcase) -->
+    <div class="geni-integrations-board">
+      <!-- 1. Food Delivery Row -->
+      <div class="geni-int-board-row">
+        <div class="geni-int-board-header">
+          <div class="geni-int-board-tag">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
+              <path d="M15 18H9"></path>
+              <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
+              <circle cx="17" cy="18" r="2"></circle>
+              <circle cx="7" cy="18" r="2"></circle>
+            </svg>
+            <span>Food Delivery</span>
           </div>
         </div>
 
@@ -3390,15 +3494,25 @@ document.addEventListener('DOMContentLoaded', function () {
               <span style="font-family:'Inter',sans-serif;font-weight:700;color:#00CDBC;font-size:13px;">deliveroo</span>
             </div>
           </div>
+
+          <!-- & More -->
+          <div class="geni-int-box-card geni-int-box-more" title="And More">
+            <span>&amp; MORE</span>
+          </div>
         </div>
       </div>
 
-      <!-- 2. Payments Card -->
-      <div class="geni-int-cat-card">
-        <div class="geni-int-cat-header">
-          <div class="geni-int-cat-info">
-            <h3 class="geni-int-cat-title">Payments</h3>
-            <p class="geni-int-cat-sub">Offer flexible, instant, and secure payment options.</p>
+      <div class="geni-int-board-divider"></div>
+
+      <!-- 2. Payments Row -->
+      <div class="geni-int-board-row">
+        <div class="geni-int-board-header">
+          <div class="geni-int-board-tag">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+            <span>Payments</span>
           </div>
         </div>
 
@@ -3437,79 +3551,38 @@ document.addEventListener('DOMContentLoaded', function () {
           <div class="geni-int-box-card" title="PayPal">
             <span style="font-family:'Inter',sans-serif;font-weight:800;font-size:15.5px;font-style:italic;"><span style="color:#003087;">Pay</span><span style="color:#0079C1;">Pal</span></span>
           </div>
+
+          <!-- & More -->
+          <div class="geni-int-box-card geni-int-box-more" title="And More">
+            <span>&amp; MORE</span>
+          </div>
         </div>
       </div>
 
-      <!-- 3. Communication Card -->
-      <div class="geni-int-cat-card">
-        <div class="geni-int-cat-header">
-          <div class="geni-int-cat-info">
-            <h3 class="geni-int-cat-title">Communication</h3>
-            <p class="geni-int-cat-sub">Stay connected with your customers on channels they trust.</p>
+      <div class="geni-int-board-divider"></div>
+
+      <!-- 3. Communication Row -->
+      <div class="geni-int-board-row">
+        <div class="geni-int-board-header">
+          <div class="geni-int-board-tag">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+            <span>Communication</span>
           </div>
         </div>
 
         <div class="geni-int-platforms-row">
-          <!-- WhatsApp Business Box Card -->
-          <div class="geni-int-box-card" style="min-width: 110px; height: 96px;" title="WhatsApp Business">
-            <img src="{{ asset('assets/images/home/tile_whatsapp.png') }}" alt="WhatsApp Business" class="geni-int-box-img" style="max-height: 56px;">
+          <!-- WhatsApp Business -->
+          <div class="geni-int-box-card" style="padding: 10px 18px; gap: 9px;" title="WhatsApp Business">
+            <img src="{{ asset('assets/images/home/tile_whatsapp.png') }}" alt="WhatsApp Business" class="geni-int-box-img" style="max-height: 42px;">
+            <span style="font-family:'Glacial Indifference',sans-serif; font-weight:700; font-size:13.5px; color:#27130D; white-space:nowrap;">WhatsApp Business</span>
           </div>
-        </div>
-      </div>
 
-      <!-- 4. Restaurant Hardware Card -->
-      <div class="geni-int-cat-card">
-        <div class="geni-int-cat-header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
-          <div class="geni-int-cat-info">
-            <h3 class="geni-int-cat-title">Hardware</h3>
-            <p class="geni-int-cat-sub">Power your restaurant with certified, plug-and-play equipment.</p>
+          <!-- & More -->
+          <div class="geni-int-box-card geni-int-box-more" title="And More">
+            <span>&amp; MORE</span>
           </div>
-          <a href="{{ route('hardware-integrations') }}" class="btn-hw-view-more" title="Explore Hardware & Integrations">
-            <span>View More</span>
-            <span style="font-size: 14px;">&rarr;</span>
-          </a>
-        </div>
-
-        <div class="geni-int-hardware-grid">
-          <!-- 1. Touchscreen POS -->
-          <a href="{{ route('hardware-integrations') }}" class="geni-hardware-item" style="text-decoration: none;" title="Explore Touchscreen POS">
-            <div class="geni-hardware-img-wrap">
-              <img src="{{ asset('assets/images/home/touchscreenpos.png') }}" alt="Touchscreen POS" class="geni-hardware-real-img">
-            </div>
-            <span class="geni-hardware-label">Touchscreen POS</span>
-          </a>
-
-          <!-- 2. Self-Service Kiosk -->
-          <a href="{{ route('hardware-integrations') }}" class="geni-hardware-item" style="text-decoration: none;" title="Explore Self-Service Kiosk">
-            <div class="geni-hardware-img-wrap">
-              <img src="{{ asset('assets/images/home/self service kiosk.png') }}" alt="Self-Service Kiosk" class="geni-hardware-real-img">
-            </div>
-            <span class="geni-hardware-label">Self-Service Kiosk</span>
-          </a>
-
-          <!-- 3. Receipt Printer -->
-          <a href="{{ route('hardware-integrations') }}" class="geni-hardware-item" style="text-decoration: none;" title="Explore Receipt Printer">
-            <div class="geni-hardware-img-wrap">
-              <img src="{{ asset('assets/images/home/receipt printer.png') }}" alt="Receipt Printer" class="geni-hardware-real-img">
-            </div>
-            <span class="geni-hardware-label">Receipt Printer</span>
-          </a>
-
-          <!-- 4. Cash Drawer -->
-          <a href="{{ route('hardware-integrations') }}" class="geni-hardware-item" style="text-decoration: none;" title="Explore Cash Drawer">
-            <div class="geni-hardware-img-wrap">
-              <img src="{{ asset('assets/images/home/cashdrawer.png') }}" alt="Cash Drawer" class="geni-hardware-real-img">
-            </div>
-            <span class="geni-hardware-label">Cash Drawer</span>
-          </a>
-
-          <!-- 5. Customer Display -->
-          <a href="{{ route('hardware-integrations') }}" class="geni-hardware-item" style="text-decoration: none;" title="Explore Customer Display">
-            <div class="geni-hardware-img-wrap">
-              <img src="{{ asset('assets/images/home/customerdisplay.png') }}" alt="Customer Display" class="geni-hardware-real-img">
-            </div>
-            <span class="geni-hardware-label">Customer Display</span>
-          </a>
         </div>
       </div>
     </div>
@@ -4043,7 +4116,7 @@ document.addEventListener('DOMContentLoaded', function () {
       Create a stunning digital menu, connect with your guests and simplify the way your restaurant manages its offerings.
     </p>
     <div class="geni-final-cta-btn-wrap">
-      <a href="{{ route('restaurant_signup') }}" class="btn-primary-gold">
+      <a href="{{ route('restaurant_signup') }}" target="_blank" rel="noopener noreferrer" class="btn-primary-gold">
         <span>Start Your Free Trial</span>
         <span style="font-size: 15px; margin-left: 4px;">&rarr;</span>
       </a>
