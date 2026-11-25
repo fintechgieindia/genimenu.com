@@ -61,6 +61,33 @@ class ContactController extends Controller
             $request->merge(['message' => $fullMsg]);
         }
 
+        // Handle partner programme fields
+        if ($request->input('form_type') === 'partner' || $request->filled('preferred_model')) {
+            $partnerDetails = [];
+            $prefModel = $request->input('preferred_model');
+            if ($request->filled('other_preferred_model')) {
+                $otherModel = trim($request->input('other_preferred_model'));
+                if ($otherModel !== '') {
+                    $prefModel = ($prefModel === 'Other' || empty($prefModel)) ? ('Other: ' . $otherModel) : ($prefModel . ' (' . $otherModel . ')');
+                }
+            }
+            if ($prefModel) {
+                $partnerDetails[] = "Preferred Partnership Model: " . $prefModel;
+            }
+            if ($request->filled('customer_base')) {
+                $partnerDetails[] = "Current Customer Base: " . $request->customer_base;
+            }
+            if ($request->filled('years_in_business')) {
+                $partnerDetails[] = "Years in Business: " . $request->years_in_business;
+            }
+            if (!empty($partnerDetails)) {
+                $pText = implode("\n", $partnerDetails);
+                $origMsg = $request->input('message', '');
+                $fullMsg = $origMsg ? ($pText . "\n\n" . $origMsg) : $pText;
+                $request->merge(['message' => $fullMsg]);
+            }
+        }
+
         // If website is filled, prepend to message for email visibility
         if ($request->filled('website')) {
             $webText = "Website: " . $request->website;
@@ -70,8 +97,9 @@ class ContactController extends Controller
         }
 
         // Handle Other Business Type / Subject
-        if ($request->filled('other_subject')) {
-            $otherSubject = trim($request->input('other_subject'));
+        $otherSub = $request->input('other_subject') ?: $request->input('other_business_type');
+        if (!empty($otherSub)) {
+            $otherSubject = trim($otherSub);
             if ($otherSubject !== '') {
                 // If subject is Other, format subject to include the specified value
                 if ($request->input('subject') === 'Other' || !$request->filled('subject')) {
@@ -87,7 +115,7 @@ class ContactController extends Controller
             }
         }
 
-        // Determine form type (contact vs enquiry)
+        // Determine form type (contact vs enquiry vs partner)
         $formType = $request->input('form_type');
         if (!$formType) {
             $formType = ($request->filled('company') && $request->company !== 'Individual / General Enquiry') ? 'enquiry' : 'contact';
@@ -102,7 +130,7 @@ class ContactController extends Controller
         }
 
         $validated = $request->validate([
-            'form_type' => 'nullable|string|in:contact,enquiry',
+            'form_type' => 'nullable|string|in:contact,enquiry,partner',
             'name' => [
                 'required',
                 'string',
@@ -131,6 +159,9 @@ class ContactController extends Controller
             'requirements' => 'nullable',
             'subject' => 'required|string|max:255',
             'other_subject' => 'nullable|string|max:255',
+            'other_business_type' => 'nullable|string|max:255',
+            'preferred_model' => 'nullable|string|max:255',
+            'other_preferred_model' => 'nullable|string|max:255',
             'message' => 'required|string|min:10|max:3000',
         ], [
             'name.required' => 'Please enter your full name.',
@@ -171,7 +202,16 @@ class ContactController extends Controller
         $data['user_message'] = $validated['message'];
 
         $rawFormType = strtolower($validated['form_type'] ?? $request->input('form_type', 'contact'));
-        $formName = ($rawFormType === 'enquiry') ? 'Enquiry Form' : 'Contact Form';
+        if ($rawFormType === 'partner') {
+            $formName = 'Partner Programme Application';
+            $successMsg = 'Your partnership application has been successfully submitted. The Geni Menu team will review your business profile and contact you shortly.';
+        } elseif ($rawFormType === 'enquiry') {
+            $formName = 'Enquiry Form';
+            $successMsg = 'Your enquiry has been successfully submitted. The Geni Menu team will review your details and get back to you shortly.';
+        } else {
+            $formName = 'Contact Form';
+            $successMsg = 'Your message has been successfully submitted. The Geni Menu team will get back to you shortly.';
+        }
         $data['form_name'] = $formName;
 
         dispatch(function () use ($data, $validated, $formName) {
@@ -185,9 +225,12 @@ class ContactController extends Controller
                         ->subject("New {$formName} Submission - Geni Menu");
                 });
 
-                Mail::send('emails.user-thankyou', $data, function ($message) use ($validated) {
+                Mail::send('emails.user-thankyou', $data, function ($message) use ($validated, $formName) {
+                    $subject = ($formName === 'Partner Programme Application')
+                        ? 'Thank You for Applying to the Geni Menu Partner Programme'
+                        : 'Thank You for Contacting Geni Menu';
                     $message->to($validated['email'])
-                        ->subject('Thank You for Contacting Geni Menu');
+                        ->subject($subject);
                 });
 
                 \Log::info("Mail successfully sent for {$formName} to {$adminEmail} and {$validated['email']}");
@@ -196,10 +239,7 @@ class ContactController extends Controller
             }
         })->afterResponse();
 
-        return back()->with(
-            'success',
-            'Your enquiry has been successfully submitted. The Geni Menu team will review your details and get back to you shortly.'
-        );
+        return back()->with('success', $successMsg);
     }
 
     public function index()

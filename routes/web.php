@@ -124,6 +124,8 @@ if (!function_exists('module_enabled') || !module_enabled('Subdomain')) {
     Route::redirect('/hardware', '/hardware-and-integrations')->name('hardware');
     Route::redirect('/integrations', '/hardware-and-integrations')->name('integrations');
     Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
+    Route::get('/partners', [HomeController::class, 'partners'])->name('partners');
+    Route::redirect('/partner', '/partners');
     Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact.us');
     Route::redirect('/contact', '/contact-us');
     Route::get('/enquiry', [HomeController::class, 'enquiry'])->name('enquiry');

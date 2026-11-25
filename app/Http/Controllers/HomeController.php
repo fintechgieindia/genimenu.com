@@ -625,6 +625,21 @@ class HomeController extends Controller
             'meta'
         ));
     }
+
+    public function partners()
+    {
+        $meta = [
+            'title' => 'Geni Menu Partner Programme | Build Together. Grow Globally.',
+            'description' => 'Partner with Geni Menu to bring smarter restaurant technology to businesses worldwide. Expand your market with referral, reseller, distribution, technology, and strategic business partnerships.',
+            'keywords' => 'Geni Menu partner, restaurant software reseller, POS partnership program, hospitality distributor, restaurant technology partner, food business solutions reseller, global restaurant partner network',
+            'og_title' => 'Geni Menu Partner Programme | Build Together. Grow Globally.',
+            'og_description' => 'Partner with Geni Menu to bring smarter restaurant technology to businesses worldwide. Expand your market with a complete hospitality platform.',
+            'og_image' => 'assets/images/partners/hero-handshake.jpg',
+        ];
+
+        return view('frontend.partners', compact('meta'));
+    }
+
     public function enquiry()
     {
         $meta = [

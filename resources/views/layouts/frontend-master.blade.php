@@ -796,6 +796,8 @@
                     class="fnav-link {{ request()->routeIs('solutions*') ? 'active' : '' }}">Solutions</a>
                 <a href="{{ route('pricing') }}"
                     class="fnav-link {{ request()->routeIs('pricing') ? 'active' : '' }}">Pricing</a>
+                <a href="{{ route('partners') }}"
+                    class="fnav-link {{ request()->routeIs('partners*') ? 'active' : '' }}">Partners</a>
                 <a href="{{ route('contact.us') }}"
                     class="fnav-link {{ request()->routeIs('contact.us') ? 'active' : '' }}">Contact Us</a>
             </div>
