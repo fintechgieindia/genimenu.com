@@ -1245,6 +1245,15 @@
   gap: 8px;
 }
 
+.gp-form-submit-btn {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  gap: 8px;
+}
+
 /* FAQ Styles */
 .gp-faq-card {
   background: #FFFFFF;
@@ -1738,6 +1747,18 @@
   .gp-form-title {
     font-size: 21px;
   }
+  .gp-form-submit-btn {
+    width: 100% !important;
+    padding: 10px 8px !important;
+    font-size: clamp(9.5px, 2.8vw, 11px) !important;
+    letter-spacing: 0.02em !important;
+    white-space: nowrap !important;
+    gap: 6px !important;
+    box-sizing: border-box !important;
+  }
+  .gp-form-submit-btn span {
+    white-space: nowrap !important;
+  }
   .gp-form-subtitle {
     font-size: 12.5px;
     margin-bottom: 16px;
@@ -1797,6 +1818,12 @@
     padding: 10px 4px !important;
     font-size: 9.6px !important;
     letter-spacing: 0.015em !important;
+  }
+  .gp-form-submit-btn {
+    padding: 9px 4px !important;
+    font-size: 9.8px !important;
+    letter-spacing: 0.015em !important;
+    white-space: nowrap !important;
   }
 }
 </style>
@@ -2695,7 +2722,7 @@
                 <textarea name="message" class="gp-textarea" placeholder="Describe your company, target territory, current hospitality clients, and how you would like to collaborate with Geni Menu..." required>{{ old('message') }}</textarea>
               </div>
 
-              <button type="submit" class="gp-btn-primary" style="width: 100%; padding: 11px 22px; font-size: 12.5px;">
+              <button type="submit" class="gp-btn-primary gp-form-submit-btn">
                 <span>SUBMIT PARTNERSHIP APPLICATION</span>
                 <span>&rarr;</span>
               </button>
