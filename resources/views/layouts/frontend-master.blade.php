@@ -797,7 +797,7 @@
                 <a href="{{ route('pricing') }}"
                     class="fnav-link {{ request()->routeIs('pricing') ? 'active' : '' }}">Pricing</a>
                 <a href="{{ route('partners') }}"
-                    class="fnav-link {{ request()->routeIs('partners*') ? 'active' : '' }}">Partners</a>
+                    class="fnav-link {{ request()->routeIs('partners*') ? 'active' : '' }}" target="_blank" rel="noopener noreferrer">Partners</a>
                 <a href="{{ route('contact.us') }}"
                     class="fnav-link {{ request()->routeIs('contact.us') ? 'active' : '' }}">Contact Us</a>
             </div>
@@ -1511,12 +1511,22 @@
             const btnText = document.getElementById("popupBtnText");
             const btnSpinner = document.getElementById("popupBtnSpinner");
 
-            // Auto show popup on page load
-            if (modal) {
+            // Auto show popup on page load (disabled on partners, enquiry, and contact pages)
+            @php
+                $isPopupExcluded = request()->routeIs('partners', 'enquiry', 'contact.us', 'contact') 
+                    || request()->is('partners*', 'partner*', 'enquiry*', 'contact*', 'contact-us*') 
+                    || !empty($disableAutoPopup);
+            @endphp
+            @if(!$isPopupExcluded)
+            const isExcludedPath = window.location.pathname.indexOf('/partner') !== -1 
+                || window.location.pathname.indexOf('/enquiry') !== -1 
+                || window.location.pathname.indexOf('/contact') !== -1;
+            if (modal && !isExcludedPath) {
                 setTimeout(() => {
                     modal.classList.add("active");
                 }, 1200);
             }
+            @endif
 
             // Open modal on floating button click
             if (btn) {

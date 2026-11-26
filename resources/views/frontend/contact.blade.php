@@ -1,4 +1,5 @@
 @php
+    $disableAutoPopup = true;
     $meta = [
         'title' => 'Contact Geni Menu | Restaurant Software Enquiries',
         'description' => 'Get in touch with Geni Menu for product enquiries, software demonstrations, pricing information and support for your restaurant management needs.',
@@ -1693,6 +1694,12 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.disabled = true;
             btn.innerHTML = 'Sending...';
         });
+    }
+
+    // Prevent any lead popup modal auto-open on contact page
+    var leadModal = document.getElementById("popupLeadModal");
+    if (leadModal) {
+        leadModal.classList.remove("active");
     }
 });
 </script>

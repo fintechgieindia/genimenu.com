@@ -81,6 +81,20 @@
                         {{ $popupCount }}
                     </span>
                 </button>
+
+                {{-- Partner Applications Tab Button --}}
+                <button type="button"
+                        id="tab-btn-partner"
+                        onclick="switchTab('partner')"
+                        class="tab-btn inline-flex items-center px-3.5 py-2 text-xs font-semibold rounded-lg transition {{ $activeTab === 'partner' ? 'bg-skin-base text-white shadow' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700' }}">
+                    <svg class="w-3.5 h-3.5 me-1.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    Partner Applications
+                    <span id="partnerCountBadge" class="ms-2 px-1.5 py-0.5 text-[11px] font-bold rounded-full {{ $activeTab === 'partner' ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700 dark:bg-gray-600 dark:text-gray-200' }}">
+                        {{ $partnerCount }}
+                    </span>
+                </button>
             </div>
 
             {{-- Search Bar --}}
@@ -448,6 +462,125 @@
         @endif
     </div>
 
+    {{-- ======================== 4. PARTNER TAB PANE ======================== --}}
+    <div id="tab-pane-partner" class="{{ $activeTab === 'partner' ? '' : 'hidden' }}">
+        <div class="flex items-center justify-between mb-2 text-xs text-gray-500 dark:text-gray-400">
+            <div>
+                Showing <span class="font-semibold text-gray-900 dark:text-white" id="partnerDisplayCount">{{ $partnerMessages->total() }}</span> Partner Application submission(s)
+            </div>
+            <div class="text-[11px] text-gray-400">
+                Source: <span class="font-mono text-purple-600 font-semibold">/partners</span>
+            </div>
+        </div>
+
+        <div class="overflow-x-auto shadow ring-1 ring-black ring-opacity-5 rounded-lg">
+            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <thead class="bg-gray-50 dark:bg-gray-700">
+                    <tr>
+                        <th scope="col" class="py-2.5 px-3 text-xs font-semibold text-left text-gray-500 uppercase tracking-wider dark:text-gray-300">#</th>
+                        <th scope="col" class="py-2.5 px-3 text-xs font-semibold text-left text-gray-500 uppercase tracking-wider dark:text-gray-300">Partner Name</th>
+                        <th scope="col" class="py-2.5 px-3 text-xs font-semibold text-left text-gray-500 uppercase tracking-wider dark:text-gray-300">Company / Business</th>
+                        <th scope="col" class="py-2.5 px-3 text-xs font-semibold text-left text-gray-500 uppercase tracking-wider dark:text-gray-300">Business Email</th>
+                        <th scope="col" class="py-2.5 px-3 text-xs font-semibold text-left text-gray-500 uppercase tracking-wider dark:text-gray-300">Phone</th>
+                        <th scope="col" class="py-2.5 px-3 text-xs font-semibold text-left text-gray-500 uppercase tracking-wider dark:text-gray-300">Country</th>
+                        <th scope="col" class="py-2.5 px-3 text-xs font-semibold text-left text-gray-500 uppercase tracking-wider dark:text-gray-300">Business Type</th>
+                        <th scope="col" class="py-2.5 px-3 text-xs font-semibold text-left text-gray-500 uppercase tracking-wider dark:text-gray-300">Preferred Model</th>
+                        <th scope="col" class="py-2.5 px-2 text-xs font-semibold text-left text-gray-500 uppercase tracking-wider dark:text-gray-300">Customer Base</th>
+                        <th scope="col" class="py-2.5 px-2 text-xs font-semibold text-left text-gray-500 uppercase tracking-wider dark:text-gray-300">Experience</th>
+                        <th scope="col" class="py-2.5 px-3 text-xs font-semibold text-left text-gray-500 uppercase tracking-wider dark:text-gray-300">Date Received</th>
+                        <th scope="col" class="py-2.5 px-3 text-xs font-semibold text-right text-gray-500 uppercase tracking-wider dark:text-gray-300">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="partnerTableBody" class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                    @forelse ($partnerMessages as $item)
+                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
+                            <td class="py-2.5 px-3 text-xs font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ $item->id }}
+                            </td>
+                            <td class="py-2.5 px-3 text-xs font-semibold text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ $item->name }}
+                            </td>
+                            <td class="py-2.5 px-3 text-xs text-gray-700 whitespace-nowrap dark:text-gray-300">
+                                <span class="font-semibold text-gray-900 dark:text-white">{{ $item->company ?? '-' }}</span>
+                                @if ($item->website)
+                                    <a href="{{ Str::startsWith($item->website, 'http') ? $item->website : 'https://' . $item->website }}" target="_blank" class="block text-[11px] text-purple-600 hover:underline mt-0.5" title="{{ $item->website }}">
+                                        {{ Str::limit($item->website, 20) }} &#8599;
+                                    </a>
+                                @endif
+                            </td>
+                            <td class="py-2.5 px-3 text-xs text-gray-600 whitespace-nowrap dark:text-gray-300">
+                                <a href="mailto:{{ $item->email }}" class="text-blue-600 hover:underline dark:text-blue-400">
+                                    {{ $item->email }}
+                                </a>
+                            </td>
+                            <td class="py-2.5 px-3 text-xs text-gray-800 whitespace-nowrap dark:text-gray-200 font-medium">
+                                <a href="tel:{{ $item->phone }}" class="hover:underline">
+                                    {{ $item->phone }}
+                                </a>
+                            </td>
+                            <td class="py-2.5 px-3 text-xs text-gray-600 whitespace-nowrap dark:text-gray-300">
+                                {{ $item->country ?? $item->address ?? '-' }}
+                            </td>
+                            <td class="py-2.5 px-3 text-xs text-gray-600 whitespace-nowrap dark:text-gray-300">
+                                <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-purple-50 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300 border border-purple-200 dark:border-purple-800">
+                                    {{ $item->other_subject ? ($item->subject . ' (' . $item->other_subject . ')') : $item->subject }}
+                                </span>
+                            </td>
+                            <td class="py-2.5 px-3 text-xs text-gray-700 whitespace-nowrap dark:text-gray-300 font-medium">
+                                <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-50 text-amber-900 border border-amber-200">
+                                    {{ $item->preferred_model ?: '-' }}
+                                </span>
+                            </td>
+                            <td class="py-2.5 px-2 text-xs text-gray-700 whitespace-nowrap dark:text-gray-300 font-medium">
+                                {{ $item->customer_base ?: '-' }}
+                            </td>
+                            <td class="py-2.5 px-2 text-xs text-gray-700 whitespace-nowrap dark:text-gray-300 font-medium">
+                                {{ $item->years_in_business ?: '-' }}
+                            </td>
+                            <td class="py-2.5 px-3 text-xs text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                {{ $item->created_at ? $item->created_at->format('d M Y, h:i A') : '-' }}
+                            </td>
+                            <td class="py-2.5 px-3 text-xs text-right whitespace-nowrap">
+                                <div class="inline-flex items-center gap-1.5 justify-end">
+                                    <button type="button"
+                                            onclick='openMessageModal(@json($item))'
+                                            class="inline-flex items-center px-2 py-1 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50 focus:outline-none dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-600 shadow-sm"
+                                            title="View Details">
+                                        <svg class="w-3 h-3 me-1 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                        </svg>
+                                        View
+                                    </button>
+                                    <button type="button"
+                                            onclick="confirmDelete({{ $item->id }}, '{{ addslashes($item->name) }}')"
+                                            class="inline-flex items-center p-1 text-xs text-red-600 bg-white border border-red-200 rounded hover:bg-red-50 focus:outline-none dark:bg-gray-700 dark:text-red-400 dark:border-red-900/50"
+                                            title="Delete Message">
+                                        <svg class="w-3.5 h-3.5 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="12" class="py-10 text-center text-xs text-gray-500 dark:text-gray-400">
+                                <p class="font-medium text-gray-700 dark:text-gray-300">No partner applications found.</p>
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+
+        @if ($partnerMessages->hasPages())
+            <div class="mt-3">
+                {{ $partnerMessages->links() }}
+            </div>
+        @endif
+    </div>
+
 </div>
 
 {{-- ======================== COMPACT MESSAGE DETAIL MODAL ======================== --}}
@@ -522,6 +655,24 @@
                 </div>
             </div>
 
+            {{-- Partner specific fields --}}
+            <div id="modalPartnerRow" class="space-y-2" style="display: none;">
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="p-2 bg-purple-50/50 dark:bg-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800">
+                        <span class="block text-[10px] font-bold text-purple-700 dark:text-purple-300 uppercase tracking-wider">Preferred Model</span>
+                        <span id="modalPartnerModel" class="text-xs font-semibold text-gray-900 dark:text-white block truncate"></span>
+                    </div>
+                    <div class="p-2 bg-purple-50/50 dark:bg-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800">
+                        <span class="block text-[10px] font-bold text-purple-700 dark:text-purple-300 uppercase tracking-wider">Customer Base</span>
+                        <span id="modalPartnerCustomerBase" class="text-xs font-semibold text-gray-900 dark:text-white block truncate"></span>
+                    </div>
+                    <div class="p-2 bg-purple-50/50 dark:bg-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800">
+                        <span class="block text-[10px] font-bold text-purple-700 dark:text-purple-300 uppercase tracking-wider">Years in Business</span>
+                        <span id="modalPartnerYearsInBiz" class="text-xs font-semibold text-gray-900 dark:text-white block truncate"></span>
+                    </div>
+                </div>
+            </div>
+
             {{-- Subject / Business Type & Timestamp --}}
             <div class="grid grid-cols-2 gap-2">
                 <div class="p-2 bg-gray-50 dark:bg-gray-700/40 rounded-lg border border-gray-100 dark:border-gray-700">
@@ -587,14 +738,17 @@ function switchTab(tab) {
     var contactPane = document.getElementById('tab-pane-contact');
     var enquiryPane = document.getElementById('tab-pane-enquiry');
     var popupPane   = document.getElementById('tab-pane-popup');
+    var partnerPane = document.getElementById('tab-pane-partner');
 
     var contactBtn  = document.getElementById('tab-btn-contact');
     var enquiryBtn  = document.getElementById('tab-btn-enquiry');
     var popupBtn    = document.getElementById('tab-btn-popup');
+    var partnerBtn  = document.getElementById('tab-btn-partner');
 
     var contactBadge = document.getElementById('contactCountBadge');
     var enquiryBadge = document.getElementById('enquiryCountBadge');
     var popupBadge   = document.getElementById('popupCountBadge');
+    var partnerBadge = document.getElementById('partnerCountBadge');
 
     var searchFormType = document.getElementById('searchFormType');
     if (searchFormType) searchFormType.value = tab;
@@ -609,14 +763,17 @@ function switchTab(tab) {
     if (contactPane) contactPane.classList.add('hidden');
     if (enquiryPane) enquiryPane.classList.add('hidden');
     if (popupPane) popupPane.classList.add('hidden');
+    if (partnerPane) partnerPane.classList.add('hidden');
 
     if (contactBtn) contactBtn.className = inactiveBtnClass;
     if (enquiryBtn) enquiryBtn.className = inactiveBtnClass;
     if (popupBtn) popupBtn.className = inactiveBtnClass;
+    if (partnerBtn) partnerBtn.className = inactiveBtnClass;
 
     if (contactBadge) contactBadge.className = inactiveBadgeClass;
     if (enquiryBadge) enquiryBadge.className = inactiveBadgeClass;
     if (popupBadge) popupBadge.className = inactiveBadgeClass;
+    if (partnerBadge) partnerBadge.className = inactiveBadgeClass;
 
     if (tab === 'contact') {
         if (contactPane) contactPane.classList.remove('hidden');
@@ -630,6 +787,10 @@ function switchTab(tab) {
         if (popupPane) popupPane.classList.remove('hidden');
         if (popupBtn) popupBtn.className = activeBtnClass;
         if (popupBadge) popupBadge.className = activeBadgeClass;
+    } else if (tab === 'partner') {
+        if (partnerPane) partnerPane.classList.remove('hidden');
+        if (partnerBtn) partnerBtn.className = activeBtnClass;
+        if (partnerBadge) partnerBadge.className = activeBadgeClass;
     }
 
     // Update URL history without reloading page
@@ -666,23 +827,28 @@ function refreshMessages(isManual) {
         var cCount = document.getElementById('contactCountBadge');
         var eCount = document.getElementById('enquiryCountBadge');
         var pCount = document.getElementById('popupCountBadge');
+        var partCount = document.getElementById('partnerCountBadge');
         var cDisp = document.getElementById('contactDisplayCount');
         var eDisp = document.getElementById('enquiryDisplayCount');
         var pDisp = document.getElementById('popupDisplayCount');
+        var partDisp = document.getElementById('partnerDisplayCount');
 
         var prevCCount = cCount ? parseInt(cCount.textContent) : 0;
         var prevECount = eCount ? parseInt(eCount.textContent) : 0;
         var prevPCount = pCount ? parseInt(pCount.textContent) : 0;
+        var prevPartCount = partCount ? parseInt(partCount.textContent) : 0;
 
         if (cCount) cCount.textContent = data.contactCount;
         if (eCount) eCount.textContent = data.enquiryCount;
         if (pCount && data.popupCount !== undefined) pCount.textContent = data.popupCount;
+        if (partCount && data.partnerCount !== undefined) partCount.textContent = data.partnerCount;
         if (cDisp) cDisp.textContent = data.contactCount;
         if (eDisp) eDisp.textContent = data.enquiryCount;
         if (pDisp && data.popupCount !== undefined) pDisp.textContent = data.popupCount;
+        if (partDisp && data.partnerCount !== undefined) partDisp.textContent = data.partnerCount;
 
         // If new messages detected, flash the live badge
-        if (data.contactCount > prevCCount || data.enquiryCount > prevECount || (data.popupCount && data.popupCount > prevPCount)) {
+        if (data.contactCount > prevCCount || data.enquiryCount > prevECount || (data.popupCount && data.popupCount > prevPCount) || (data.partnerCount && data.partnerCount > prevPartCount)) {
             var liveBadge = document.getElementById('liveStatusBadge');
             if (liveBadge) {
                 liveBadge.className = 'inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-bold text-white bg-green-600 rounded-full shadow-md animate-bounce';
@@ -717,9 +883,11 @@ function openMessageModal(data) {
     if (!modal) return;
 
     var isPopup   = (data.form_type === 'popup');
+    var isPartner = (data.form_type === 'partner');
     var isEnquiry = (data.form_type === 'enquiry');
     var badge = document.getElementById('modalTypeBadge');
     var enquiryRow = document.getElementById('modalEnquiryRow');
+    var partnerRow = document.getElementById('modalPartnerRow');
     var nameLabel = document.getElementById('modalNameLabel');
     var messageLabel = document.getElementById('modalMessageLabel');
 
@@ -730,6 +898,7 @@ function openMessageModal(data) {
         nameLabel.textContent = 'Full Name';
         messageLabel.textContent = 'Message / Details';
         if (enquiryRow) enquiryRow.style.display = 'block';
+        if (partnerRow) partnerRow.style.display = 'none';
 
         document.getElementById('modalCompany').textContent = data.company || '-';
         document.getElementById('modalOutlets').textContent = '-';
@@ -742,6 +911,37 @@ function openMessageModal(data) {
         var reqContainer = document.getElementById('modalRequirementsContainer');
         reqContainer.innerHTML = '<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-emerald-50 text-emerald-900 border border-emerald-200">Personalised Demo Request</span>';
 
+    } else if (isPartner) {
+        badge.textContent = 'Partner Application (/partners)';
+        badge.className = 'px-2 py-0.5 text-[10px] font-bold rounded-full uppercase bg-purple-100 text-purple-800 dark:bg-purple-900/60 dark:text-purple-300';
+        document.getElementById('modalSubjectLabel').textContent = 'Business Type';
+        nameLabel.textContent = 'Partner Name';
+        messageLabel.textContent = 'Partnership Proposal & Details';
+        if (enquiryRow) enquiryRow.style.display = 'block';
+        if (partnerRow) {
+            partnerRow.style.display = 'block';
+            document.getElementById('modalPartnerModel').textContent = data.preferred_model || '-';
+            document.getElementById('modalPartnerCustomerBase').textContent = data.customer_base || '-';
+            document.getElementById('modalPartnerYearsInBiz').textContent = data.years_in_business || '-';
+        }
+
+        document.getElementById('modalCompany').textContent = data.company || '-';
+        document.getElementById('modalOutlets').textContent = '-';
+
+        var webLink = document.getElementById('modalWebsiteLink');
+        var webSpan = document.getElementById('modalWebsite');
+        if (data.website) {
+            webSpan.textContent = data.website;
+            webLink.href = data.website.startsWith('http') ? data.website : ('https://' + data.website);
+            webLink.style.display = 'inline';
+        } else {
+            webSpan.textContent = '-';
+            webLink.removeAttribute('href');
+        }
+
+        var reqContainer = document.getElementById('modalRequirementsContainer');
+        reqContainer.innerHTML = '<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-purple-50 text-purple-900 border border-purple-200">Model: ' + (data.preferred_model || 'Standard Partner') + '</span>';
+
     } else if (isEnquiry) {
         badge.textContent = 'Enquiry (/enquiry)';
         badge.className = 'px-2 py-0.5 text-[10px] font-bold rounded-full uppercase bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-300';
@@ -749,6 +949,7 @@ function openMessageModal(data) {
         nameLabel.textContent = 'Contact Person';
         messageLabel.textContent = 'Additional Notes & Requirements';
         if (enquiryRow) enquiryRow.style.display = 'block';
+        if (partnerRow) partnerRow.style.display = 'none';
 
         document.getElementById('modalCompany').textContent = data.company || '-';
         document.getElementById('modalOutlets').textContent = data.designation || '-';
@@ -798,6 +999,7 @@ function openMessageModal(data) {
         nameLabel.textContent = 'Full Name';
         messageLabel.textContent = 'Message';
         if (enquiryRow) enquiryRow.style.display = 'none';
+        if (partnerRow) partnerRow.style.display = 'none';
     }
 
     document.getElementById('modalName').textContent    = data.name || '-';
@@ -806,7 +1008,7 @@ function openMessageModal(data) {
     document.getElementById('modalPhone').textContent   = data.phone || '-';
     document.getElementById('modalPhoneLink').href      = 'tel:' + (data.phone || '');
     document.getElementById('modalCountry').textContent = data.country || data.address || '-';
-    document.getElementById('modalSubject').textContent = data.subject || '-';
+    document.getElementById('modalSubject').textContent = data.other_subject ? (data.subject + ' (' + data.other_subject + ')') : (data.subject || '-');
 
     var dateStr = '-';
     if (data.created_at) {

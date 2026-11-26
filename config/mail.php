@@ -114,4 +114,8 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'admin_email' => env('ADMIN_EMAIL', 'genimenuglobal@gmail.com'),
+
+    'partner_email' => env('PARTNER_NOTIFICATION_EMAIL', 'priyamayil04@gmail.com'),
+
 ];

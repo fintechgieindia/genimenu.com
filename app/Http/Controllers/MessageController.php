@@ -13,7 +13,7 @@ class MessageController extends Controller
     public function index(Request $request)
     {
         $activeTab = $request->get('type', 'contact');
-        if (!in_array($activeTab, ['contact', 'enquiry', 'popup'])) {
+        if (!in_array($activeTab, ['contact', 'enquiry', 'popup', 'partner'])) {
             $activeTab = 'contact';
         }
 
@@ -31,6 +31,9 @@ class MessageController extends Controller
         // Popup query
         $popupQuery = Csubmissions::where('form_type', 'popup');
 
+        // Partner query
+        $partnerQuery = Csubmissions::where('form_type', 'partner');
+
         if (!empty($search)) {
             $searchCallback = function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
@@ -38,6 +41,8 @@ class MessageController extends Controller
                   ->orWhere('phone', 'like', "%{$search}%")
                   ->orWhere('company', 'like', "%{$search}%")
                   ->orWhere('subject', 'like', "%{$search}%")
+                  ->orWhere('other_subject', 'like', "%{$search}%")
+                  ->orWhere('preferred_model', 'like', "%{$search}%")
                   ->orWhere('country', 'like', "%{$search}%")
                   ->orWhere('address', 'like', "%{$search}%")
                   ->orWhere('designation', 'like', "%{$search}%")
@@ -48,11 +53,13 @@ class MessageController extends Controller
             $contactQuery->where($searchCallback);
             $enquiryQuery->where($searchCallback);
             $popupQuery->where($searchCallback);
+            $partnerQuery->where($searchCallback);
         }
 
         $contactCount = (clone $contactQuery)->count();
         $enquiryCount = (clone $enquiryQuery)->count();
         $popupCount = (clone $popupQuery)->count();
+        $partnerCount = (clone $partnerQuery)->count();
 
         // Support fast silent AJAX polling / instant refresh
         if ($request->has('poll')) {
@@ -68,30 +75,39 @@ class MessageController extends Controller
                 $item->formatted_date = $item->created_at ? $item->created_at->format('d M Y, h:i A') : '-';
                 return $item;
             });
+            $latestPartner = (clone $partnerQuery)->latest()->take(25)->get()->map(function ($item) {
+                $item->formatted_date = $item->created_at ? $item->created_at->format('d M Y, h:i A') : '-';
+                return $item;
+            });
 
             return response()->json([
                 'success'        => true,
                 'contactCount'   => $contactCount,
                 'enquiryCount'   => $enquiryCount,
                 'popupCount'     => $popupCount,
+                'partnerCount'   => $partnerCount,
                 'contactMessages'=> $latestContact,
                 'enquiryMessages'=> $latestEnquiry,
                 'popupMessages'  => $latestPopup,
+                'partnerMessages'=> $latestPartner,
             ]);
         }
 
         $contactMessages = $contactQuery->latest()->paginate(15, ['*'], 'contact_page')->withQueryString();
         $enquiryMessages = $enquiryQuery->latest()->paginate(15, ['*'], 'enquiry_page')->withQueryString();
         $popupMessages   = $popupQuery->latest()->paginate(15, ['*'], 'popup_page')->withQueryString();
+        $partnerMessages = $partnerQuery->latest()->paginate(15, ['*'], 'partner_page')->withQueryString();
 
         return view('messages.index', compact(
             'contactMessages',
             'enquiryMessages',
             'popupMessages',
+            'partnerMessages',
             'activeTab',
             'contactCount',
             'enquiryCount',
             'popupCount',
+            'partnerCount',
             'search'
         ));
     }

@@ -1,4 +1,5 @@
 @php
+    $disableAutoPopup = true;
     $meta = [
         'title' => 'Enquiry & Free Demo | Geni Menu — Software for Restaurants, Hotels & Canteens',
         'description' => 'Book a free demo of Geni Menu: restaurant billing software with GST, KOT captain ordering, Swiggy Zomato integration, and cloud POS software.',
@@ -1805,6 +1806,12 @@ select optgroup {
       btn.disabled = true;
       btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;animation:eq-spin 1s linear infinite"><circle cx="12" cy="12" r="9" stroke-dasharray="56" stroke-dashoffset="18" opacity=".35"/><path d="M12 3a9 9 0 0 1 9 9"/></svg> Submitting...';
     });
+  }
+
+  // Prevent any lead popup modal auto-open on enquiry page
+  var leadModal = document.getElementById("popupLeadModal");
+  if (leadModal) {
+    leadModal.classList.remove("active");
   }
 })();
 </script>

@@ -1,4 +1,5 @@
 @php
+    $disableAutoPopup = true;
     $meta = [
         'title' => 'Geni Menu Partner Programme | Build Together. Grow Globally.',
         'description' => 'Partner with Geni Menu to bring smarter restaurant technology to businesses worldwide. Expand your market with referral, reseller, distribution, technology, and strategic business partnerships.',
@@ -687,8 +688,8 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 16px;
-  max-width: 1140px;
+  gap: 24px;
+  max-width: 960px;
   margin: 0 auto;
   position: relative;
 }
@@ -1845,20 +1846,20 @@
             GENI MENU PARTNER PROGRAMME
           </div>
           <h1 class="gp-heading-serif gp-hero-title">
-            BUILD TOGETHER.
-            <span>GROW GLOBALLY.</span>
+            GROW YOUR BUSINESS
+            <span>WITH US.</span>
           </h1>
           <p class="gp-desc">
-            Partner with Geni Menu to bring smarter restaurant technology to businesses worldwide. Expand your market with a complete hospitality platform that simplifies operations, enhances dining experiences and drives business growth.
+            Team up with Geni Menu in your area to reach more hotels and restaurants—with clear terms, steady income, and full team support.
           </p>
 
           <div class="gp-hero-actions">
             <a href="#partner-application" class="gp-btn-primary">
-              <span>BECOME A PARTNER</span>
+              <span>JOIN US NOW</span>
               <span>&rarr;</span>
             </a>
-            <a href="#partner-models" class="gp-btn-secondary">
-              <span>EXPLORE PARTNERSHIP</span>
+            <a href="#partner-onboarding" class="gp-btn-secondary">
+              <span>SEE HOW IT WORKS</span>
             </a>
           </div>
 
@@ -1970,9 +1971,9 @@
   </section>
 
   {{-- =========================================================================
-       SECTION 04 – PARTNERSHIP MODELS
+       SECTION 04 – PARTNERSHIP MODELS (HIDDEN AS REQUESTED)
        ========================================================================= --}}
-  <section class="gp-models-section" id="partner-models">
+  <section class="gp-models-section" id="partner-models" style="display: none !important;">
     <div class="gp-container">
       
       <div class="gp-models-header">
@@ -2126,152 +2127,9 @@
   </section>
 
   {{-- =========================================================================
-       SECTION 05 – PARTNER ADVANTAGES AND PRODUCT ECOSYSTEM
-       ========================================================================= --}}
-  <section class="gp-ecosystem-section">
-    <div class="gp-container">
-      <div class="gp-ecosystem-grid">
-        
-        {{-- Left: The Geni Menu Advantage (6 Cards) --}}
-        <div class="gp-eco-col-left">
-          <div class="gp-eyebrow gp-eyebrow-dark">
-            THE GENI MENU ADVANTAGE
-          </div>
-          <h2 class="gp-heading-serif gp-eco-title">
-            EVERYTHING YOU NEED<br>
-            TO BUILD AND GROW.
-          </h2>
-
-          <div class="gp-benefits-grid">
-            
-            <div class="gp-benefit-card">
-              <div class="gp-benefit-icon">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="20" x2="18" y2="10"></line>
-                  <line x1="12" y1="20" x2="12" y2="4"></line>
-                  <line x1="6" y1="20" x2="6" y2="14"></line>
-                </svg>
-              </div>
-              <h4 class="gp-benefit-name">Market Opportunities</h4>
-            </div>
-
-            <div class="gp-benefit-card">
-              <div class="gp-benefit-icon">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
-                  <line x1="12" y1="6" x2="12" y2="8"></line>
-                  <line x1="12" y1="16" x2="12" y2="18"></line>
-                </svg>
-              </div>
-              <h4 class="gp-benefit-name">Revenue Opportunities</h4>
-            </div>
-
-            <div class="gp-benefit-card">
-              <div class="gp-benefit-icon">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                </svg>
-              </div>
-              <h4 class="gp-benefit-name">Product Training</h4>
-            </div>
-
-            <div class="gp-benefit-card">
-              <div class="gp-benefit-icon">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                </svg>
-              </div>
-              <h4 class="gp-benefit-name">Marketing Resources</h4>
-            </div>
-
-            <div class="gp-benefit-card">
-              <div class="gp-benefit-icon">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-                  <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-                </svg>
-              </div>
-              <h4 class="gp-benefit-name">Partner Assistance</h4>
-            </div>
-
-            <div class="gp-benefit-card">
-              <div class="gp-benefit-icon">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                </svg>
-              </div>
-              <h4 class="gp-benefit-name">Scalable Growth</h4>
-            </div>
-
-          </div>
-        </div>
-
-        {{-- Right: One Connected Platform (Capabilities + Mockup) --}}
-        <div class="gp-eco-col-right">
-          <div class="gp-eyebrow gp-eyebrow-dark">
-            ONE CONNECTED PLATFORM
-          </div>
-          <h2 class="gp-heading-serif gp-eco-title">
-            ONE ECOSYSTEM. COMPLETE<br>
-            RESTAURANT SOLUTIONS.
-          </h2>
-
-          <div class="gp-capabilities-wrap">
-            <div class="gp-capability-item">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-              <span>Digital Menu Management</span>
-            </div>
-            <div class="gp-capability-item">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <span>Reservation Management</span>
-            </div>
-            <div class="gp-capability-item">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-              <span>QR Code Ordering</span>
-            </div>
-            <div class="gp-capability-item">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-              <span>Inventory Management</span>
-            </div>
-            <div class="gp-capability-item">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-              <span>POS &amp; Billing</span>
-            </div>
-            <div class="gp-capability-item">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-              <span>Delivery Management</span>
-            </div>
-            <div class="gp-capability-item">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
-              <span>Kitchen &amp; KOT Management</span>
-            </div>
-            <div class="gp-capability-item">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-              <span>Business Analytics</span>
-            </div>
-            <div class="gp-capability-item" style="grid-column: span 2;">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path></svg>
-              <span>Table Management &amp; Live Seating</span>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  {{-- =========================================================================
-       SECTION 06 – INDUSTRIES WE SERVE & PARTNER JOURNEY
-       ========================================================================= --}}
-  {{-- =========================================================================
        SECTION 06 – SIMPLE PARTNER ONBOARDING (5-STEP JOURNEY)
        ========================================================================= --}}
-  <section class="gp-onboarding-section">
+  <section class="gp-onboarding-section" id="partner-onboarding">
     <div class="gp-container">
       
       <div class="gp-onboarding-header">
@@ -2279,7 +2137,7 @@
           SIMPLE PARTNER ONBOARDING
         </div>
         <h2 class="gp-heading-serif gp-eco-title">
-          FROM APPLICATION TO BUSINESS GROWTH.
+          BECOME A PARTNER
         </h2>
       </div>
 
@@ -2287,13 +2145,11 @@
         
         {{-- Step 01 --}}
         <div class="gp-step-node">
-          <div class="gp-step-circle">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-          </div>
+          <div class="gp-step-circle">1</div>
           <div class="gp-step-content">
-            <h3 class="gp-step-title">Apply for<br>Partnership</h3>
+            <h3 class="gp-step-title">Join</h3>
             <p class="gp-step-desc">
-              Submit your company profile, target country or region, and preferred partnership model through the application form.
+              Fill out the short form with your basic details. Once our team reviews and approves it, we complete a simple agreement and get you started.
             </p>
           </div>
         </div>
@@ -2304,9 +2160,9 @@
         <div class="gp-step-node">
           <div class="gp-step-circle">2</div>
           <div class="gp-step-content">
-            <h3 class="gp-step-title">Connect with<br>Our Team</h3>
+            <h3 class="gp-step-title">Connect</h3>
             <p class="gp-step-desc">
-              Have an initial conversation with our team to discuss your business background, local market potential, and goals.
+              With clear terms in place, you are ready to connect with us. Simply introduce nearby hotels and restaurants to us and grow together.
             </p>
           </div>
         </div>
@@ -2315,41 +2171,11 @@
 
         {{-- Step 03 --}}
         <div class="gp-step-node">
-          <div class="gp-step-circle">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="m9 14 2 2 4-4"></path></svg>
-          </div>
+          <div class="gp-step-circle">3</div>
           <div class="gp-step-content">
-            <h3 class="gp-step-title">Partnership<br>Evaluation</h3>
+            <h3 class="gp-step-title">Earn</h3>
             <p class="gp-step-desc">
-              We review your application, territory fit, and alignment to determine the right collaboration structure.
-            </p>
-          </div>
-        </div>
-
-        <div class="gp-step-arrow">&rarr;</div>
-
-        {{-- Step 04 --}}
-        <div class="gp-step-node">
-          <div class="gp-step-circle">4</div>
-          <div class="gp-step-content">
-            <h3 class="gp-step-title">Onboarding &amp;<br>Training</h3>
-            <p class="gp-step-desc">
-              Get familiar with Geni Menu workflows, key features, and partner resources so you can introduce the platform with clarity.
-            </p>
-          </div>
-        </div>
-
-        <div class="gp-step-arrow">&rarr;</div>
-
-        {{-- Step 05 --}}
-        <div class="gp-step-node">
-          <div class="gp-step-circle">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
-          </div>
-          <div class="gp-step-content">
-            <h3 class="gp-step-title">Launch &amp;<br>Grow</h3>
-            <p class="gp-step-desc">
-              Begin pitching and onboarding hospitality businesses in your market with ongoing partner support.
+              Bring in more businesses to earn steady returns. Everything follows clear agreement terms, with no hidden charges and straightforward payouts.
             </p>
           </div>
         </div>
@@ -2360,9 +2186,9 @@
   </section>
 
   {{-- =========================================================================
-       SECTION 07 – GLOBAL PARTNERSHIP OPPORTUNITIES
+       SECTION 07 – GLOBAL PARTNERSHIP OPPORTUNITIES (HIDDEN AS REQUESTED)
        ========================================================================= --}}
-  <section class="gp-global-section">
+  <section class="gp-global-section" style="display: none !important;">
     <div class="gp-container">
       <div class="gp-global-grid">
         
@@ -2786,17 +2612,6 @@
                 </div>
               </div>
 
-              {{-- FAQ 5 --}}
-              <div class="gp-faq-item">
-                <button type="button" class="gp-faq-header" onclick="togglePartnerFaq(this)">
-                  <span>Are there revenue opportunities for partners?</span>
-                  <span class="gp-faq-icon-pill">+</span>
-                </button>
-                <div class="gp-faq-body">
-                  Yes, partners benefit from attractive recurring revenue margins on software subscriptions, onboarding incentives, multi-outlet bonuses, and additional revenue streams for value-added implementation and setup services.
-                </div>
-              </div>
-
               {{-- FAQ: How do partners earn with Geni Menu? --}}
               <div class="gp-faq-item">
                 <button type="button" class="gp-faq-header" onclick="togglePartnerFaq(this)">
@@ -2882,14 +2697,14 @@
           THE NEXT CHAPTER STARTS HERE
         </div>
         <h2 class="gp-heading-serif gp-final-title">
-          LET'S GROW THE FUTURE OF HOSPITALITY, TOGETHER.
+          BUILD MORE TOGETHER
         </h2>
         <p class="gp-final-desc">
-          Join the Geni Menu partner network and bring smarter, connected restaurant technology to businesses around the world.
+          Team up with Geni Menu to grow your local network and reach more businesses with easy onboarding and ongoing help.
         </p>
 
         <a href="#partner-application" class="gp-btn-primary">
-          <span>BECOME A GENI MENU PARTNER</span>
+          <span>JOIN US NOW</span>
           <span>&rarr;</span>
         </a>
 
@@ -3141,6 +2956,12 @@
         if (item) item.classList.add('gp-region-active');
       });
     });
+
+    // Prevent any lead popup modal auto-open on Partners page
+    var leadModal = document.getElementById("popupLeadModal");
+    if (leadModal) {
+      leadModal.classList.remove("active");
+    }
   });
 </script>
 

@@ -62,6 +62,13 @@ class ContactController extends Controller
         }
 
         // Handle partner programme fields
+        $origPartnerNotes = $request->input('message', '');
+        $partnerPhoneCode = $request->input('phone_code', '');
+        $partnerPhoneNumber = $request->input('phone_number', '');
+        $partnerCustomerBase = $request->input('customer_base', '');
+        $partnerYearsInBusiness = $request->input('years_in_business', '');
+        $prefModel = $request->input('preferred_model', '');
+
         if ($request->input('form_type') === 'partner' || $request->filled('preferred_model')) {
             $partnerDetails = [];
             $prefModel = $request->input('preferred_model');
@@ -162,6 +169,8 @@ class ContactController extends Controller
             'other_business_type' => 'nullable|string|max:255',
             'preferred_model' => 'nullable|string|max:255',
             'other_preferred_model' => 'nullable|string|max:255',
+            'customer_base' => 'nullable|string|max:255',
+            'years_in_business' => 'nullable|string|max:255',
             'message' => 'required|string|min:10|max:3000',
         ], [
             'name.required' => 'Please enter your full name.',
@@ -181,6 +190,9 @@ class ContactController extends Controller
         ]);
 
         $validated['requirements'] = $reqString;
+        $validated['preferred_model'] = $prefModel ?: ($validated['preferred_model'] ?? null);
+        $validated['customer_base'] = $partnerCustomerBase ?: ($validated['customer_base'] ?? null);
+        $validated['years_in_business'] = $partnerYearsInBusiness ?: ($validated['years_in_business'] ?? null);
 
         try {
             // Filter data according to columns that actually exist in the database table
@@ -196,44 +208,108 @@ class ContactController extends Controller
             return back()->withInput()->with('error', 'Unable to submit your enquiry right now. Please try again.');
         }
 
-        // Send email notifications asynchronously after response has been sent to the user's browser
-        // This makes the form submit instant (< 50ms) and saves data to DB immediately!
-        $data = $validated;
-        $data['user_message'] = $validated['message'];
-
         $rawFormType = strtolower($validated['form_type'] ?? $request->input('form_type', 'contact'));
         if ($rawFormType === 'partner') {
             $formName = 'Partner Programme Application';
             $successMsg = 'Your partnership application has been successfully submitted. The Geni Menu team will review your business profile and contact you shortly.';
         } elseif ($rawFormType === 'enquiry') {
-            $formName = 'Enquiry Form';
+            $formName = 'Enquiry & Free Demo';
             $successMsg = 'Your enquiry has been successfully submitted. The Geni Menu team will review your details and get back to you shortly.';
         } else {
             $formName = 'Contact Form';
             $successMsg = 'Your message has been successfully submitted. The Geni Menu team will get back to you shortly.';
         }
+
+        // Send email notifications asynchronously after response has been sent to the user's browser
+        // This makes the form submit instant (< 50ms) and saves data to DB immediately!
+        $data = $validated;
+        $data['user_message'] = $validated['message'];
+
+        // Common & specific template variables matching user's requested formats:
+        $data['full_name'] = $validated['name'];
+        $data['email_address'] = $validated['email'];
+        $data['company_name'] = $validated['company'] ?? '';
+        $data['business_name'] = $validated['company'] ?? '';
+        $data['business_email'] = $validated['email'];
+        $data['country_code'] = $partnerPhoneCode ?: ($request->input('phone_code') ?: '');
+        $data['phone_number'] = $partnerPhoneNumber ?: ($request->input('phone_number') ?: $validated['phone']);
+        $data['country'] = $validated['country'] ?? ($validated['address'] ?? '');
+        $data['company_website'] = $validated['website'] ?? '-';
+        $data['website_url'] = !empty($validated['website']) ? $validated['website'] : '-';
+        $data['business_type'] = !empty($validated['other_subject']) ? ($validated['subject'] . ' (' . $validated['other_subject'] . ')') : ($validated['subject'] ?? '');
+        $data['number_of_outlets'] = $validated['designation'] ?? '-';
+        $data['partnership_model'] = !empty($prefModel) ? $prefModel : ($validated['preferred_model'] ?? '-');
+        $data['customer_base'] = $partnerCustomerBase ?: ($validated['customer_base'] ?? '-');
+        $data['years_in_business'] = $partnerYearsInBusiness ?: ($validated['years_in_business'] ?? '-');
+        $data['business_details'] = $origPartnerNotes ?: '-';
+        $data['source_page'] = ($rawFormType === 'partner') ? 'Partner Programme Page' : (($rawFormType === 'enquiry') ? 'Enquiry & Free Demo' : 'Contact Geni Menu');
+        $data['page_url'] = $request->headers->get('referer') ?: url($rawFormType === 'partner' ? '/partners' : ($rawFormType === 'enquiry' ? '/enquiry' : '/contact'));
+        $data['submitted_at'] = now()->timezone('Asia/Kolkata')->format('d M Y, h:i A') . ' (IST)';
         $data['form_name'] = $formName;
 
-        dispatch(function () use ($data, $validated, $formName) {
+        dispatch(function () use ($data, $validated, $formName, $rawFormType) {
             try {
                 \Log::info("Mail sending started after response for {$formName}");
 
                 $adminEmail = config('mail.admin_email') ?: config('mail.from.address') ?: env('ADMIN_EMAIL') ?: 'genimenuglobal@gmail.com';
+                $recipients = array_values(array_filter([$adminEmail]));
 
-                Mail::send('emails.admin-contact', $data, function ($message) use ($adminEmail, $formName) {
-                    $message->to($adminEmail)
-                        ->subject("New {$formName} Submission - Geni Menu");
-                });
+                // For partner application forms, also send notification to the partner notification email
+                if ($rawFormType === 'partner') {
+                    $partnerEmail = config('mail.partner_email') ?: env('PARTNER_NOTIFICATION_EMAIL') ?: 'priyamayil04@gmail.com';
+                    if ($partnerEmail && !in_array($partnerEmail, $recipients)) {
+                        $recipients[] = $partnerEmail;
+                    }
+                }
 
-                Mail::send('emails.user-thankyou', $data, function ($message) use ($validated, $formName) {
-                    $subject = ($formName === 'Partner Programme Application')
-                        ? 'Thank You for Applying to the Geni Menu Partner Programme'
-                        : 'Thank You for Contacting Geni Menu';
-                    $message->to($validated['email'])
-                        ->subject($subject);
-                });
+                // 1. Send submission notification to admin(s)
+                if ($rawFormType === 'partner') {
+                    Mail::send('emails.partner-admin-notification', $data, function ($message) use ($recipients) {
+                        $message->to($recipients)
+                            ->subject("New Partner Application Submission - Geni Menu");
+                    });
+                } elseif ($rawFormType === 'enquiry') {
+                    Mail::send('emails.enquiry-admin-notification', $data, function ($message) use ($recipients) {
+                        $message->to($recipients)
+                            ->subject("New Demo & Pricing Enquiry - Geni Menu");
+                    });
+                } elseif ($rawFormType === 'contact') {
+                    Mail::send('emails.contact-admin-notification', $data, function ($message) use ($recipients) {
+                        $message->to($recipients)
+                            ->subject("New Contact Form Message - Geni Menu");
+                    });
+                } else {
+                    Mail::send('emails.admin-contact', $data, function ($message) use ($recipients, $formName) {
+                        $message->to($recipients)
+                            ->subject("New {$formName} Submission - Geni Menu");
+                    });
+                }
 
-                \Log::info("Mail successfully sent for {$formName} to {$adminEmail} and {$validated['email']}");
+                // 2. Send customized confirmation email to the user / applicant
+                if ($rawFormType === 'partner') {
+                    Mail::send('emails.partner-user-thankyou', $data, function ($message) use ($validated) {
+                        $message->to($validated['email'])
+                            ->subject('Welcome to Geni Menu - Partner Application Received');
+                    });
+                } elseif ($rawFormType === 'enquiry') {
+                    Mail::send('emails.enquiry-user-thankyou', $data, function ($message) use ($validated) {
+                        $message->to($validated['email'])
+                            ->subject('Thank you for your enquiry with Geni Menu');
+                    });
+                } elseif ($rawFormType === 'contact') {
+                    Mail::send('emails.contact-user-thankyou', $data, function ($message) use ($validated) {
+                        $message->to($validated['email'])
+                            ->subject('Thank you for contacting Geni Menu');
+                    });
+                } else {
+                    Mail::send('emails.user-thankyou', $data, function ($message) use ($validated, $formName) {
+                        $message->to($validated['email'])
+                            ->subject('Thank You for Contacting Geni Menu');
+                    });
+                }
+
+                $recipientList = implode(', ', $recipients);
+                \Log::info("Mail successfully sent for {$formName} to [{$recipientList}] and {$validated['email']}");
             } catch (\Throwable $mailEx) {
                 \Log::error("Mail Error in {$formName}: " . $mailEx->getMessage() . "\n" . $mailEx->getTraceAsString());
             }

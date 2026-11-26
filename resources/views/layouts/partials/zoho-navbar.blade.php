@@ -826,11 +826,6 @@
         <a href="{{ route('about.us') }}" class="nav-menu-link {{ request()->routeIs('about.us') ? 'nav-active' : '' }}">About Us</a>
       </li>
 
-      <!-- 5. Partners -->
-      <li class="nav-menu-item">
-        <a href="{{ route('partners') }}" class="nav-menu-link {{ request()->routeIs('partners*') ? 'nav-active' : '' }}">Partners</a>
-      </li>
-
       <!-- 6. Contact -->
       <li class="nav-menu-item">
         <a href="{{ route('contact.us') }}" class="nav-menu-link {{ request()->routeIs('contact.us') ? 'nav-active' : '' }}">Contact</a>
@@ -1067,13 +1062,6 @@
     <li class="mobile-list-item">
       <a href="{{ route('about.us') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
         <span>About Us</span>
-        <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
-      </a>
-    </li>
-
-    <li class="mobile-list-item">
-      <a href="{{ route('partners') }}" class="mobile-direct-link" onclick="closeGeniMobile()">
-        <span>Partners</span>
         <span style="font-size: 14px; color: #F2C58D;">&rarr;</span>
       </a>
     </li>
