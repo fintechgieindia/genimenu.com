@@ -66,7 +66,7 @@
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-6">
+            <div class="grid lg:grid-cols-3 gap-6">
 
                 {{-- Instagram Username --}}
                 <div>
@@ -76,12 +76,20 @@
                         <x-input id="instagramUsername" class="block w-full pl-8" type="text" wire:model.defer="instagramUsername" placeholder="genimenu" />
                     </div>
                     <x-input-error for="instagramUsername" class="mt-2" />
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Used for the "Follow Geni Menu" button and profile links.</p>
+                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Used for profile links.</p>
+                </div>
+
+                {{-- Instagram Business Account ID --}}
+                <div>
+                    <x-label for="instagramAccountId" value="Instagram Account ID" />
+                    <x-input id="instagramAccountId" class="block mt-1 w-full font-mono text-sm" type="text" wire:model.defer="instagramAccountId" placeholder="17841456598601647" />
+                    <x-input-error for="instagramAccountId" class="mt-2" />
+                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Found in Meta Business Settings &rarr; Instagram Accounts (ID: 17841456598601647).</p>
                 </div>
 
                 {{-- Cache Duration --}}
                 <div>
-                    <x-label for="instagramCacheTime" value="Cache Duration (Seconds)" />
+                    <x-label for="instagramCacheTime" value="Cache Duration" />
                     <x-select id="instagramCacheTime" class="block mt-1 w-full" wire:model.defer="instagramCacheTime">
                         <option value="1800">30 Minutes (1,800 sec)</option>
                         <option value="3600">1 Hour (3,600 sec)</option>
@@ -91,7 +99,7 @@
                         <option value="86400">24 Hours (86,400 sec)</option>
                     </x-select>
                     <x-input-error for="instagramCacheTime" class="mt-2" />
-                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">How long reels are cached locally before re-fetching from Meta (prevents rate limits).</p>
+                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">How long reels are cached locally.</p>
                 </div>
 
             </div>

@@ -30,6 +30,10 @@ class InstagramService
             ? $setting->instagram_username
             : (cache('custom_instagram_username') ?: (config('services.instagram.username') ?: env('INSTAGRAM_USERNAME', 'genimenu')));
 
+        $accountId = (!empty($setting->instagram_account_id))
+            ? $setting->instagram_account_id
+            : (cache('custom_instagram_account_id') ?: (config('services.instagram.account_id') ?: env('INSTAGRAM_ACCOUNT_ID', '17841456598601647')));
+
         $cacheTime = (!empty($setting->instagram_cache_time))
             ? (int) $setting->instagram_cache_time
             : ((int) (cache('custom_instagram_cache_time') ?: (config('services.instagram.cache_time') ?: env('INSTAGRAM_CACHE_TIME', 7200))));
@@ -37,6 +41,7 @@ class InstagramService
         return [
             'token'      => trim((string)$token),
             'username'   => ltrim(trim((string)$username), '@'),
+            'account_id' => trim((string)$accountId) ?: '17841456598601647',
             'cache_time' => $cacheTime > 0 ? $cacheTime : 7200,
         ];
     }
@@ -134,10 +139,25 @@ class InstagramService
     public static function fetchMediaFromMeta(string $token, int $limit = 35): array
     {
         $token = trim($token);
+        $config = self::getConfig();
+        $accountId = $config['account_id'] ?? '17841456598601647';
 
         // CASE 1: Facebook Graph API token (Meta Business / System User - starts with EA...)
         if (str_starts_with($token, 'EA')) {
-            // Check connected Instagram business accounts
+            // First priority: Fetch directly using the configured Instagram Business Account ID
+            if (!empty($accountId)) {
+                $directIgRes = Http::timeout(8)->get("https://graph.facebook.com/v21.0/{$accountId}/media", [
+                    'fields'       => 'id,caption,media_type,media_product_type,media_url,thumbnail_url,permalink,timestamp',
+                    'access_token' => $token,
+                    'limit'        => $limit,
+                ]);
+
+                if ($directIgRes->successful() && !empty($directIgRes->json()['data'])) {
+                    return $directIgRes->json()['data'];
+                }
+            }
+
+            // Check connected Instagram business accounts via pages
             $pagesRes = Http::timeout(8)->get('https://graph.facebook.com/v21.0/me/accounts', [
                 'fields'       => 'id,name,instagram_business_account{id,username,media{id,caption,media_type,media_product_type,media_url,thumbnail_url,permalink,timestamp}}',
                 'access_token' => $token,
@@ -298,6 +318,31 @@ class InstagramService
 
                 $userData = $userRes->json();
                 $userName = $userData['name'] ?? 'System User';
+
+                // First priority: Check direct access to Instagram Business Account ID
+                $accountId = $config['account_id'] ?? '17841456598601647';
+                if (!empty($accountId)) {
+                    $igRes = Http::timeout(8)->get("https://graph.facebook.com/v21.0/{$accountId}", [
+                        'fields'       => 'id,username,name',
+                        'access_token' => $token,
+                    ]);
+                    if ($igRes->successful()) {
+                        $igData = $igRes->json();
+                        $igUser = $igData['username'] ?? 'genimenu';
+                        $media = self::fetchMediaFromMeta($token, 20);
+                        $reelsOnly = array_filter($media, function ($item) {
+                            return (strtoupper($item['media_product_type'] ?? '') === 'REELS') 
+                                || (strtoupper($item['media_type'] ?? '') === 'VIDEO') 
+                                || (strpos($item['permalink'] ?? '', '/reel') !== false);
+                        });
+                        return [
+                            'success' => true,
+                            'message' => "Successfully connected to Instagram account '@{$igUser}' (ID: {$accountId})! Found " . count($media) . " posts (" . count($reelsOnly) . " Live Reels).",
+                            'count'   => count($media),
+                            'sample'  => $media[0] ?? null,
+                        ];
+                    }
+                }
 
                 // Check accounts / Instagram business accounts assigned to this user
                 $accountsRes = Http::timeout(8)->get('https://graph.facebook.com/v21.0/me/accounts', [

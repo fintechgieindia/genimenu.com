@@ -17,6 +17,7 @@ class InstagramSettings extends Component
     public $settings;
     public $instagramAccessToken;
     public $instagramUsername;
+    public $instagramAccountId;
     public $instagramCacheTime;
 
     public $testStatus = null;
@@ -37,6 +38,9 @@ class InstagramSettings extends Component
                 if (!Schema::hasColumn('global_settings', 'instagram_username')) {
                     $missing[] = 'username';
                 }
+                if (!Schema::hasColumn('global_settings', 'instagram_account_id')) {
+                    $missing[] = 'account_id';
+                }
                 if (!Schema::hasColumn('global_settings', 'instagram_cache_time')) {
                     $missing[] = 'cache';
                 }
@@ -48,6 +52,9 @@ class InstagramSettings extends Component
                         }
                         if (in_array('username', $missing)) {
                             $table->string('instagram_username', 100)->nullable()->default('genimenu');
+                        }
+                        if (in_array('account_id', $missing)) {
+                            $table->string('instagram_account_id', 100)->nullable()->default('17841456598601647');
                         }
                         if (in_array('cache', $missing)) {
                             $table->integer('instagram_cache_time')->default(7200);
@@ -68,6 +75,7 @@ class InstagramSettings extends Component
 
         $token = null;
         $username = null;
+        $accountId = null;
         $cacheTime = null;
 
         if ($this->settings) {
@@ -77,6 +85,9 @@ class InstagramSettings extends Component
             if (Schema::hasColumn('global_settings', 'instagram_username')) {
                 $username = $this->settings->instagram_username;
             }
+            if (Schema::hasColumn('global_settings', 'instagram_account_id')) {
+                $accountId = $this->settings->instagram_account_id;
+            }
             if (Schema::hasColumn('global_settings', 'instagram_cache_time')) {
                 $cacheTime = $this->settings->instagram_cache_time;
             }
@@ -84,6 +95,7 @@ class InstagramSettings extends Component
 
         $this->instagramAccessToken = $token ?: (cache('custom_instagram_access_token') ?: env('INSTAGRAM_ACCESS_TOKEN', ''));
         $this->instagramUsername    = $username ?: (cache('custom_instagram_username') ?: env('INSTAGRAM_USERNAME', 'genimenu'));
+        $this->instagramAccountId   = $accountId ?: (cache('custom_instagram_account_id') ?: env('INSTAGRAM_ACCOUNT_ID', '17841456598601647'));
         $this->instagramCacheTime   = $cacheTime ?: (cache('custom_instagram_cache_time') ?: (int) env('INSTAGRAM_CACHE_TIME', 7200));
     }
 
@@ -92,6 +104,7 @@ class InstagramSettings extends Component
         $this->validate([
             'instagramAccessToken' => 'nullable|string',
             'instagramUsername'    => 'nullable|string|max:100',
+            'instagramAccountId'   => 'nullable|string|max:100',
             'instagramCacheTime'   => 'required|integer|min:60|max:86400',
         ]);
 
@@ -99,6 +112,7 @@ class InstagramSettings extends Component
 
         $token = trim((string) $this->instagramAccessToken);
         $username = ltrim(trim((string) $this->instagramUsername), '@');
+        $accountId = trim((string) $this->instagramAccountId);
         $cacheTime = (int) $this->instagramCacheTime;
 
         // Persist to database safely
@@ -109,6 +123,9 @@ class InstagramSettings extends Component
                 }
                 if (Schema::hasColumn('global_settings', 'instagram_username')) {
                     $this->settings->instagram_username = $username;
+                }
+                if (Schema::hasColumn('global_settings', 'instagram_account_id')) {
+                    $this->settings->instagram_account_id = $accountId;
                 }
                 if (Schema::hasColumn('global_settings', 'instagram_cache_time')) {
                     $this->settings->instagram_cache_time = $cacheTime;
@@ -122,6 +139,7 @@ class InstagramSettings extends Component
         // Persist to cache fallback so it works seamlessly on production even if DB schema update was delayed
         cache()->forever('custom_instagram_access_token', $token);
         cache()->forever('custom_instagram_username', $username);
+        cache()->forever('custom_instagram_account_id', $accountId);
         cache()->forever('custom_instagram_cache_time', $cacheTime);
 
         // Bust Instagram cache & global setting cache
