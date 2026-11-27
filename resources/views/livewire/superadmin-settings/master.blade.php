@@ -53,6 +53,11 @@
                 @class(["inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300", 'border-transparent' => ($activeSetting != 'webPushSetting'), 'active border-skin-base dark:text-skin-base dark:border-skin-base text-skin-base' => ($activeSetting == 'webPushSetting')])>@lang('modules.settings.webPushSetting')</a>
             </li>
 
+            <li class="me-2">
+                <a href="{{ route('superadmin.superadmin-settings.index').'?tab=instagram' }}" wire:navigate
+                @class(["inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300", 'border-transparent' => ($activeSetting != 'instagram'), 'active border-skin-base dark:text-skin-base dark:border-skin-base text-skin-base' => ($activeSetting == 'instagram')])>Instagram Integration</a>
+            </li>
+
             <!-- NAV ITEM - CUSTOM MODULES  -->
             @foreach (custom_module_plugins() as $item)
                 @includeIf(strtolower($item) . '::sections.superadmin-settings.sidebar')
@@ -103,6 +108,10 @@
 
                 @case('desktop-app')
                     @livewire('settings.desktopApplicationSettings', ['settings' => $settings])
+                @break
+
+                @case('instagram')
+                    @livewire('superadminSettings.InstagramSettings', ['settings' => $settings])
                 @break
 
                 @default

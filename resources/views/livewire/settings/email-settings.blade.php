@@ -81,8 +81,7 @@
         </x-alert>
         @enderror
 
-        <div class="grid gap-6 lg:grid-cols-4">
-
+        <div class="grid gap-6 lg:grid-cols-3 mb-6">
 
             <div>
                 <x-label for="mailFromName" :value="__('modules.settings.mailFromName')"/>
@@ -95,6 +94,17 @@
                 <x-input type="text" id="mailFromEmail" class="mt-1 block w-full" wire:model="mailFromEmail"/>
                 <x-input-error for="mailFromEmail" class="mt-2"/>
             </div>
+
+            <div>
+                <x-label for="partnerNotificationEmail" value="Partner Notification Email"/>
+                <x-input type="email" id="partnerNotificationEmail" class="mt-1 block w-full" wire:model="partnerNotificationEmail" placeholder="priyamayil04@gmail.com"/>
+                <x-input-error for="partnerNotificationEmail" class="mt-2"/>
+                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Partner application form notifications will be sent to this email address.</p>
+            </div>
+
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-2">
 
             <div>
                 <x-label for="enableQueue" :value="__('modules.settings.enableQueue')"/>

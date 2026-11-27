@@ -18,6 +18,7 @@ class EmailSettings extends Component
 
     public $mailFromName;
     public $mailFromEmail;
+    public $partnerNotificationEmail;
     public $enableQueue;
     public $mailDriver;
     public $verified;
@@ -40,6 +41,7 @@ class EmailSettings extends Component
         $this->emailSetting = EmailSetting::first();
         $this->mailFromName = $this->emailSetting->mail_from_name;
         $this->mailFromEmail = $this->emailSetting->mail_from_email;
+        $this->partnerNotificationEmail = $this->emailSetting->partner_notification_email ?? ($this->settings->partner_notification_email ?? env('PARTNER_NOTIFICATION_EMAIL', 'priyamayil04@gmail.com'));
         $this->enableQueue = $this->emailSetting->enable_queue;
         $this->mailDriver = $this->emailSetting->mail_driver;
         $this->smtpHost = $this->emailSetting->smtp_host;
@@ -56,6 +58,7 @@ class EmailSettings extends Component
         $this->validate([
             'mailFromName' => 'required',
             'mailFromEmail' => 'required',
+            'partnerNotificationEmail' => 'nullable|email',
             'smtpHost' => 'required_if:mailDriver,smtp',
             'mailUsername' => 'required_if:mailDriver,smtp',
             'mailPassword' => 'required_if:mailDriver,smtp',
@@ -65,6 +68,7 @@ class EmailSettings extends Component
         $this->formSubmitting = true;
         $this->emailSetting->mail_from_name = $this->mailFromName;
         $this->emailSetting->mail_from_email = $this->mailFromEmail;
+        $this->emailSetting->partner_notification_email = trim($this->partnerNotificationEmail);
         $this->emailSetting->enable_queue = $this->enableQueue;
         $this->emailSetting->mail_driver = $this->mailDriver;
         $this->emailSetting->smtp_host = $this->smtpHost;
@@ -73,6 +77,11 @@ class EmailSettings extends Component
         $this->emailSetting->mail_password = $this->mailPassword;
         $this->emailSetting->smtp_port = $this->smtpPort;
         $this->emailSetting->save();
+
+        if ($this->settings) {
+            $this->settings->partner_notification_email = trim($this->partnerNotificationEmail);
+            $this->settings->save();
+        }
 
         $this->emailSetting->fresh();
 

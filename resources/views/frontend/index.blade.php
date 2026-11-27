@@ -3913,50 +3913,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 @php
   // ============================================================================
-  // INSTAGRAM CONFIGURATION & INDIVIDUAL CARD POST LINKS
+  // INSTAGRAM CONFIGURATION & DYNAMIC META FEED INTEGRATION
   // ============================================================================
-  // Main Profile Link (used for the "Follow Geni Menu" button)
-  $geni_instagram_url = 'https://www.instagram.com/genimenu/';
+  // Profile URL from config or .env (INSTAGRAM_USERNAME)
+  $geni_instagram_url = \App\Services\InstagramService::getProfileUrl();
 
-  // Individual Instagram links for each card.
-  // Paste your custom Instagram post, reel, or story URL into the 'url' field below:
-  $geni_social_cards = [
-      [
-          'id'    => 'card-1',
-          'theme' => 'Chef Experience',
-          'image' => asset('assets/images/home/social-1.png'),
-          'alt'   => 'Chef Experience – Geni Menu',
-          'url'   => 'https://www.instagram.com/p/your_post_1/', // <-- PASTE CARD 1 INSTAGRAM LINK HERE
-      ],
-      [
-          'id'    => 'card-2',
-          'theme' => 'Digital Menu Experience',
-          'image' => asset('assets/images/home/social-2.png'),
-          'alt'   => 'Digital Menu Experience – Geni Menu',
-          'url'   => 'https://www.instagram.com/p/your_post_2/', // <-- PASTE CARD 2 INSTAGRAM LINK HERE
-      ],
-      [
-          'id'    => 'card-3',
-          'theme' => 'QR Menu Experience',
-          'image' => asset('assets/images/home/social-3.png'),
-          'alt'   => 'QR Menu Experience – Geni Menu',
-          'url'   => 'https://www.instagram.com/p/your_post_3/', // <-- PASTE CARD 3 INSTAGRAM LINK HERE
-      ],
-      [
-          'id'    => 'card-4',
-          'theme' => 'Café Experience',
-          'image' => asset('assets/images/home/social-4.png'),
-          'alt'   => 'Café Experience – Geni Menu',
-          'url'   => 'https://www.instagram.com/p/your_post_4/', // <-- PASTE CARD 4 INSTAGRAM LINK HERE
-      ],
-      [
-          'id'    => 'card-5',
-          'theme' => 'Dining Experience',
-          'image' => asset('assets/images/home/social-5.png'),
-          'alt'   => 'Dining Experience – Geni Menu',
-          'url'   => 'https://www.instagram.com/p/your_post_5/', // <-- PASTE CARD 5 INSTAGRAM LINK HERE
-      ],
-  ];
+  // Dynamic cards fetched from Meta Instagram Graph API (with seamless fallback)
+  $geni_social_cards  = \App\Services\InstagramService::getLatestCards(5);
 @endphp
 
 <!-- ==========================================================================
@@ -3992,20 +3955,28 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     </div>
 
-    <!-- 5-Card Horizontal Image Gallery (Each Card Clickable to Instagram) -->
+    <!-- 5-Card Horizontal Reels Gallery (Clickable to Watch Reel on Instagram) -->
     <div class="geni-social-gallery">
       @foreach ($geni_social_cards as $card)
         <a href="{{ $card['url'] }}"
            target="_blank"
            rel="noopener noreferrer"
            class="geni-social-card"
-           title="View on Instagram – {{ $card['theme'] }}"
-           aria-label="View on Instagram – {{ $card['theme'] }}">
-          <div class="geni-social-img-wrap">
+           title="Watch Reel on Instagram – {{ $card['theme'] }}"
+           aria-label="Watch Reel on Instagram – {{ $card['theme'] }}">
+          <div class="geni-social-img-wrap" style="position: relative;">
             <img src="{{ $card['image'] }}" alt="{{ $card['alt'] }}" class="geni-social-img" loading="lazy">
-            <!-- Subtle Instagram Hover Overlay Icon -->
+
+            <!-- Reel Corner Indicator Badge -->
+            <div class="geni-reel-badge" style="position: absolute; top: 12px; right: 12px; z-index: 2; background: rgba(39,19,13,0.65); backdrop-filter: blur(4px); color: #F2C58D; border: 1px solid rgba(242,197,141,0.3); border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;" title="Instagram Reel">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v14h16V5H4zm6 3.5l6 3.5-6 3.5v-7z"/>
+              </svg>
+            </div>
+
+            <!-- Subtle Instagram Play Overlay Icon -->
             <div class="geni-social-overlay" aria-hidden="true">
-              <i class="bi bi-instagram"></i>
+              <i class="bi bi-play-circle-fill" style="font-size: 2.2rem; color: #FFF8F0;"></i>
             </div>
           </div>
         </a>

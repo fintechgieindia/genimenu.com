@@ -45,4 +45,10 @@ return [
         'secret_key' => env('RECAPTCHA_SECRET_KEY', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'),
     ],
 
+    'instagram' => [
+        'access_token' => env('INSTAGRAM_ACCESS_TOKEN'),
+        'username'     => env('INSTAGRAM_USERNAME', 'genimenu'),
+        'cache_time'   => (int) env('INSTAGRAM_CACHE_TIME', 7200), // 2 hours cache
+    ],
+
 ];

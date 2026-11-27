@@ -254,9 +254,18 @@ class ContactController extends Controller
                 $adminEmail = config('mail.admin_email') ?: config('mail.from.address') ?: env('ADMIN_EMAIL') ?: 'genimenuglobal@gmail.com';
                 $recipients = array_values(array_filter([$adminEmail]));
 
-                // For partner application forms, also send notification to the partner notification email
+                // For partner application forms, also send notification to the partner notification email configured in Superadmin Email Settings
                 if ($rawFormType === 'partner') {
-                    $partnerEmail = config('mail.partner_email') ?: env('PARTNER_NOTIFICATION_EMAIL') ?: 'priyamayil04@gmail.com';
+                    $emailSetting = \App\Models\EmailSetting::first();
+                    $globalSetting = function_exists('global_setting') ? global_setting() : \App\Models\GlobalSetting::first();
+
+                    $partnerEmail = !empty($emailSetting->partner_notification_email)
+                        ? $emailSetting->partner_notification_email
+                        : (!empty($globalSetting->partner_notification_email)
+                            ? $globalSetting->partner_notification_email
+                            : (config('mail.partner_email') ?: env('PARTNER_NOTIFICATION_EMAIL') ?: 'priyamayil04@gmail.com'));
+
+                    $partnerEmail = trim((string)$partnerEmail);
                     if ($partnerEmail && !in_array($partnerEmail, $recipients)) {
                         $recipients[] = $partnerEmail;
                     }
