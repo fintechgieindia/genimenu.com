@@ -269,12 +269,28 @@ class ContactController extends Controller
             try {
                 \Log::info("Mail sending started after response for {$formName}");
 
-                $adminEmail = config('mail.admin_email') ?: config('mail.from.address') ?: env('ADMIN_EMAIL') ?: 'genimenuglobal@gmail.com';
+                // Explicitly bind Superadmin Email Settings to runtime mail config
+                $emailSetting = \App\Models\EmailSetting::first();
+                if ($emailSetting && !empty($emailSetting->mail_password)) {
+                    config([
+                        'mail.default' => !empty($emailSetting->mail_driver) ? $emailSetting->mail_driver : 'smtp',
+                        'mail.mailers.smtp.host' => !empty($emailSetting->smtp_host) ? $emailSetting->smtp_host : 'smtp.gmail.com',
+                        'mail.mailers.smtp.port' => !empty($emailSetting->smtp_port) ? (int)$emailSetting->smtp_port : 465,
+                        'mail.mailers.smtp.encryption' => !empty($emailSetting->smtp_encryption) ? $emailSetting->smtp_encryption : 'ssl',
+                        'mail.mailers.smtp.username' => $emailSetting->mail_username,
+                        'mail.mailers.smtp.password' => $emailSetting->mail_password,
+                        'mail.from.address' => !empty($emailSetting->mail_from_email) ? $emailSetting->mail_from_email : 'genimenuglobal@gmail.com',
+                        'mail.from.name' => !empty($emailSetting->mail_from_name) ? $emailSetting->mail_from_name : 'Geni Menu',
+                    ]);
+                }
+
+                $adminEmail = (!empty($emailSetting->mail_from_email))
+                    ? $emailSetting->mail_from_email
+                    : (config('mail.admin_email') ?: config('mail.from.address') ?: env('ADMIN_EMAIL') ?: 'genimenuglobal@gmail.com');
                 $recipients = array_values(array_filter([$adminEmail]));
 
                 // For partner application forms, also send notification to the partner notification email configured in Superadmin Email Settings
                 if ($rawFormType === 'partner') {
-                    $emailSetting = \App\Models\EmailSetting::first();
                     $globalSetting = function_exists('global_setting') ? global_setting() : \App\Models\GlobalSetting::first();
 
                     $partnerEmail = !empty($emailSetting->partner_notification_email)

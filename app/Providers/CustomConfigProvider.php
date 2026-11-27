@@ -59,18 +59,18 @@ class CustomConfigProvider extends ServiceProvider
             $password = $setting->mail_password;
 
 
-            Config::set('mail.default', env('MAIL_MAILER') ?: $driver);
-            Config::set('mail.mailers.smtp.host', env('MAIL_HOST') ?: $setting->smtp_host);
-            Config::set('mail.mailers.smtp.port', env('MAIL_PORT') ?: $setting->smtp_port);
-            Config::set('mail.mailers.smtp.username', env('MAIL_USERNAME') ?: $setting->mail_username);
-            Config::set('mail.mailers.smtp.password', env('MAIL_PASSWORD') ?: $password);
-            Config::set('mail.mailers.smtp.encryption', env('MAIL_ENCRYPTION') ?: $setting->smtp_encryption);
+            Config::set('mail.default', $driver ?: (env('MAIL_MAILER') ?: 'smtp'));
+            Config::set('mail.mailers.smtp.host', (!empty($setting->smtp_host)) ? $setting->smtp_host : (env('MAIL_HOST') ?: 'smtp.gmail.com'));
+            Config::set('mail.mailers.smtp.port', (!empty($setting->smtp_port)) ? $setting->smtp_port : (env('MAIL_PORT') ?: 465));
+            Config::set('mail.mailers.smtp.username', (!empty($setting->mail_username)) ? $setting->mail_username : env('MAIL_USERNAME'));
+            Config::set('mail.mailers.smtp.password', (!empty($password)) ? $password : env('MAIL_PASSWORD'));
+            Config::set('mail.mailers.smtp.encryption', (!empty($setting->smtp_encryption)) ? $setting->smtp_encryption : (env('MAIL_ENCRYPTION') ?: 'ssl'));
 
             Config::set('queue.default', ($setting->enable_queue == 'yes' ? 'database' : 'sync'));
         }
 
-        Config::set('mail.from.name', env('MAIL_FROM_NAME') ?: $setting->mail_from_name);
-        Config::set('mail.from.address', env('MAIL_FROM_ADDRESS') ?: $setting->mail_from_email);
+        Config::set('mail.from.name', (!empty($setting->mail_from_name)) ? $setting->mail_from_name : (env('MAIL_FROM_NAME') ?: 'Geni Menu'));
+        Config::set('mail.from.address', (!empty($setting->mail_from_email)) ? $setting->mail_from_email : (env('MAIL_FROM_ADDRESS') ?: 'genimenuglobal@gmail.com'));
 
         Config::set('app.name', $globalSetting->name);
 
