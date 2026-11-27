@@ -24,15 +24,15 @@ class InstagramService
 
         $token = (!empty($setting->instagram_access_token))
             ? $setting->instagram_access_token
-            : (config('services.instagram.access_token') ?: env('INSTAGRAM_ACCESS_TOKEN', ''));
+            : (cache('custom_instagram_access_token') ?: (config('services.instagram.access_token') ?: env('INSTAGRAM_ACCESS_TOKEN', '')));
 
         $username = (!empty($setting->instagram_username))
             ? $setting->instagram_username
-            : (config('services.instagram.username') ?: env('INSTAGRAM_USERNAME', 'genimenu'));
+            : (cache('custom_instagram_username') ?: (config('services.instagram.username') ?: env('INSTAGRAM_USERNAME', 'genimenu')));
 
         $cacheTime = (!empty($setting->instagram_cache_time))
             ? (int) $setting->instagram_cache_time
-            : ((int) (config('services.instagram.cache_time') ?: env('INSTAGRAM_CACHE_TIME', 7200)));
+            : ((int) (cache('custom_instagram_cache_time') ?: (config('services.instagram.cache_time') ?: env('INSTAGRAM_CACHE_TIME', 7200))));
 
         return [
             'token'      => trim((string)$token),

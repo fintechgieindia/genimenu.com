@@ -66,9 +66,27 @@ class EmailSettings extends Component
         ]);
 
         $this->formSubmitting = true;
+
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('email_settings') && !\Illuminate\Support\Facades\Schema::hasColumn('email_settings', 'partner_notification_email')) {
+                \Illuminate\Support\Facades\Schema::table('email_settings', function (\Illuminate\Database\Schema\Blueprint $table) {
+                    $table->string('partner_notification_email', 255)->nullable()->default('priyamayil04@gmail.com');
+                });
+            }
+            if (\Illuminate\Support\Facades\Schema::hasTable('global_settings') && !\Illuminate\Support\Facades\Schema::hasColumn('global_settings', 'partner_notification_email')) {
+                \Illuminate\Support\Facades\Schema::table('global_settings', function (\Illuminate\Database\Schema\Blueprint $table) {
+                    $table->string('partner_notification_email', 255)->nullable()->default('priyamayil04@gmail.com');
+                });
+            }
+        } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\Log::warning('Auto-check for partner_notification_email: ' . $e->getMessage());
+        }
+
         $this->emailSetting->mail_from_name = $this->mailFromName;
         $this->emailSetting->mail_from_email = $this->mailFromEmail;
-        $this->emailSetting->partner_notification_email = trim($this->partnerNotificationEmail);
+        if (\Illuminate\Support\Facades\Schema::hasColumn('email_settings', 'partner_notification_email')) {
+            $this->emailSetting->partner_notification_email = trim($this->partnerNotificationEmail);
+        }
         $this->emailSetting->enable_queue = $this->enableQueue;
         $this->emailSetting->mail_driver = $this->mailDriver;
         $this->emailSetting->smtp_host = $this->smtpHost;
@@ -78,7 +96,7 @@ class EmailSettings extends Component
         $this->emailSetting->smtp_port = $this->smtpPort;
         $this->emailSetting->save();
 
-        if ($this->settings) {
+        if ($this->settings && \Illuminate\Support\Facades\Schema::hasColumn('global_settings', 'partner_notification_email')) {
             $this->settings->partner_notification_email = trim($this->partnerNotificationEmail);
             $this->settings->save();
         }

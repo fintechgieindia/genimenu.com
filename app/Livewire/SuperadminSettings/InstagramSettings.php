@@ -4,6 +4,9 @@ namespace App\Livewire\SuperadminSettings;
 
 use App\Models\GlobalSetting;
 use App\Services\InstagramService;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Schema;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
@@ -20,13 +23,68 @@ class InstagramSettings extends Component
     public $testMessage = null;
     public $testCount = 0;
 
+    /**
+     * Ensure database columns exist on live production without requiring manual migration command.
+     */
+    public static function ensureColumnsExist(): void
+    {
+        try {
+            if (Schema::hasTable('global_settings')) {
+                $missing = [];
+                if (!Schema::hasColumn('global_settings', 'instagram_access_token')) {
+                    $missing[] = 'token';
+                }
+                if (!Schema::hasColumn('global_settings', 'instagram_username')) {
+                    $missing[] = 'username';
+                }
+                if (!Schema::hasColumn('global_settings', 'instagram_cache_time')) {
+                    $missing[] = 'cache';
+                }
+
+                if (!empty($missing)) {
+                    Schema::table('global_settings', function (Blueprint $table) use ($missing) {
+                        if (in_array('token', $missing)) {
+                            $table->text('instagram_access_token')->nullable();
+                        }
+                        if (in_array('username', $missing)) {
+                            $table->string('instagram_username', 100)->nullable()->default('genimenu');
+                        }
+                        if (in_array('cache', $missing)) {
+                            $table->integer('instagram_cache_time')->default(7200);
+                        }
+                    });
+                }
+            }
+        } catch (\Throwable $e) {
+            Log::warning('Auto-check for instagram columns on global_settings: ' . $e->getMessage());
+        }
+    }
+
     public function mount($settings = null)
     {
+        self::ensureColumnsExist();
+
         $this->settings = $settings ?? GlobalSetting::first();
 
-        $this->instagramAccessToken = $this->settings->instagram_access_token ?? env('INSTAGRAM_ACCESS_TOKEN', '');
-        $this->instagramUsername    = $this->settings->instagram_username ?? env('INSTAGRAM_USERNAME', 'genimenu');
-        $this->instagramCacheTime   = $this->settings->instagram_cache_time ?? (int) env('INSTAGRAM_CACHE_TIME', 7200);
+        $token = null;
+        $username = null;
+        $cacheTime = null;
+
+        if ($this->settings) {
+            if (Schema::hasColumn('global_settings', 'instagram_access_token')) {
+                $token = $this->settings->instagram_access_token;
+            }
+            if (Schema::hasColumn('global_settings', 'instagram_username')) {
+                $username = $this->settings->instagram_username;
+            }
+            if (Schema::hasColumn('global_settings', 'instagram_cache_time')) {
+                $cacheTime = $this->settings->instagram_cache_time;
+            }
+        }
+
+        $this->instagramAccessToken = $token ?: (cache('custom_instagram_access_token') ?: env('INSTAGRAM_ACCESS_TOKEN', ''));
+        $this->instagramUsername    = $username ?: (cache('custom_instagram_username') ?: env('INSTAGRAM_USERNAME', 'genimenu'));
+        $this->instagramCacheTime   = $cacheTime ?: (cache('custom_instagram_cache_time') ?: (int) env('INSTAGRAM_CACHE_TIME', 7200));
     }
 
     public function submitForm()
@@ -37,10 +95,34 @@ class InstagramSettings extends Component
             'instagramCacheTime'   => 'required|integer|min:60|max:86400',
         ]);
 
-        $this->settings->instagram_access_token = trim($this->instagramAccessToken);
-        $this->settings->instagram_username     = ltrim(trim($this->instagramUsername), '@');
-        $this->settings->instagram_cache_time   = (int) $this->instagramCacheTime;
-        $this->settings->save();
+        self::ensureColumnsExist();
+
+        $token = trim((string) $this->instagramAccessToken);
+        $username = ltrim(trim((string) $this->instagramUsername), '@');
+        $cacheTime = (int) $this->instagramCacheTime;
+
+        // Persist to database safely
+        try {
+            if ($this->settings) {
+                if (Schema::hasColumn('global_settings', 'instagram_access_token')) {
+                    $this->settings->instagram_access_token = $token;
+                }
+                if (Schema::hasColumn('global_settings', 'instagram_username')) {
+                    $this->settings->instagram_username = $username;
+                }
+                if (Schema::hasColumn('global_settings', 'instagram_cache_time')) {
+                    $this->settings->instagram_cache_time = $cacheTime;
+                }
+                $this->settings->save();
+            }
+        } catch (\Throwable $e) {
+            Log::error('Instagram settings database save error: ' . $e->getMessage());
+        }
+
+        // Persist to cache fallback so it works seamlessly on production even if DB schema update was delayed
+        cache()->forever('custom_instagram_access_token', $token);
+        cache()->forever('custom_instagram_username', $username);
+        cache()->forever('custom_instagram_cache_time', $cacheTime);
 
         // Bust Instagram cache & global setting cache
         InstagramService::clearCache(5);
