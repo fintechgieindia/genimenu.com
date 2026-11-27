@@ -21,6 +21,24 @@ class ContactController extends Controller
 
     public function submit(Request $request)
     {
+        // 0. Comprehensive Anti-Spam Verification (Honeypot, Timing, Disposable Emails, Bot Patterns)
+        $spam = \App\Services\SpamProtectionService::check($request);
+        if ($spam['is_spam']) {
+            \Log::warning("Form submission blocked by Spam Protection: {$spam['reason']} | IP: {$request->ip()} | Email: " . $request->input('email'));
+
+            if (!empty($spam['error_message'])) {
+                return back()->withInput()->with('error', $spam['error_message']);
+            }
+
+            // Silent drop for automated bots (returns fake success to prevent bot adaptation, but NO DB record is saved and NO email is sent!)
+            $formType = $request->input('form_type', 'contact');
+            $fakeSuccessMsg = ($formType === 'partner')
+                ? 'Your partnership application has been successfully submitted. The Geni Menu team will review your business profile and contact you shortly.'
+                : 'Your message has been successfully submitted. The Geni Menu team will get back to you shortly.';
+
+            return back()->with('success', $fakeSuccessMsg);
+        }
+
         // Support country dialing code + phone number or direct phone
         if ($request->filled('phone_code') && $request->filled('phone_number')) {
             $request->merge([

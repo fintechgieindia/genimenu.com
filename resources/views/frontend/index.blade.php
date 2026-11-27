@@ -3965,7 +3965,7 @@ document.addEventListener('DOMContentLoaded', function () {
            title="Watch Reel on Instagram – {{ $card['theme'] }}"
            aria-label="Watch Reel on Instagram – {{ $card['theme'] }}">
           <div class="geni-social-img-wrap" style="position: relative;">
-            <img src="{{ $card['image'] }}" alt="{{ $card['alt'] }}" class="geni-social-img" loading="lazy">
+            <img src="{{ $card['image'] }}" alt="{{ $card['alt'] }}" class="geni-social-img" loading="lazy" referrerpolicy="no-referrer">
 
             <!-- Reel Corner Indicator Badge -->
             <div class="geni-reel-badge" style="position: absolute; top: 12px; right: 12px; z-index: 2; background: rgba(39,19,13,0.65); backdrop-filter: blur(4px); color: #F2C58D; border: 1px solid rgba(242,197,141,0.3); border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;" title="Instagram Reel">

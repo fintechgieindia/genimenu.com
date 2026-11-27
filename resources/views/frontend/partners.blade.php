@@ -2410,6 +2410,13 @@
               @csrf
               <input type="hidden" name="form_type" value="partner">
 
+              {{-- Invisible Anti-Spam Honeypot & Timing Token --}}
+              <div style="display:none !important; position:absolute !important; left:-9999px !important; opacity:0 !important;" aria-hidden="true">
+                <input type="text" name="_hp_website" value="" tabindex="-1" autocomplete="off">
+                <input type="email" name="_hp_email" value="" tabindex="-1" autocomplete="off">
+              </div>
+              <input type="hidden" name="_form_time" value="{{ encrypt(time()) }}">
+
               <div class="gp-form-row">
                 <div class="gp-form-group">
                   <label class="gp-field-label">Full Name <span class="gp-required">*</span></label>

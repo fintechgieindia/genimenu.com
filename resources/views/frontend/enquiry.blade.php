@@ -1025,6 +1025,13 @@ select optgroup {
       @csrf
       <input type="hidden" name="form_type" value="enquiry">
 
+      {{-- Invisible Anti-Spam Honeypot & Timing Token --}}
+      <div style="display:none !important; position:absolute !important; left:-9999px !important; opacity:0 !important;" aria-hidden="true">
+        <input type="text" name="_hp_website" value="" tabindex="-1" autocomplete="off">
+        <input type="email" name="_hp_email" value="" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="hidden" name="_form_time" value="{{ encrypt(time()) }}">
+
       <div class="fg" id="fg_name">
         <label for="eq_name">Full Name <span class="req">*</span></label>
         <input type="text" id="eq_name" name="name" value="{{ old('name') }}" placeholder="Enter your full name" required autocomplete="name">

@@ -1170,6 +1170,13 @@ body {
                     <form action="{{ route('contact.submit') }}" method="POST" id="mainContactForm" novalidate>
                         @csrf
                         <input type="hidden" name="form_type" value="contact">
+
+                        {{-- Invisible Anti-Spam Honeypot & Timing Token --}}
+                        <div style="display:none !important; position:absolute !important; left:-9999px !important; opacity:0 !important;" aria-hidden="true">
+                            <input type="text" name="_hp_website" value="" tabindex="-1" autocomplete="off">
+                            <input type="email" name="_hp_email" value="" tabindex="-1" autocomplete="off">
+                        </div>
+                        <input type="hidden" name="_form_time" value="{{ encrypt(time()) }}">
                         
                         {{-- Row 1: Full Name & Email Address --}}
                         <div class="fm-grid-2">
